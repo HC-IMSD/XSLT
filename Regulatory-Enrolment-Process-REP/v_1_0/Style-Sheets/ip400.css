@@ -2,7 +2,6 @@
 
 <!ELEMENT css (#PCDATA)>
 <!ATTLIST css xmlns CDATA #FIXED "">
-
 ]>
 <css>
 <style type="text/css">
