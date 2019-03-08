@@ -220,7 +220,7 @@
 								</span>
 							</div>
 						</div>
-						<xsl:if test="is_solicited = 'Y'">
+						<xsl:if test="is_solicited = 'Y' and count(solicited_requester_record/solicited_requester_sequence) &gt; 0">
 							<div class="row">
 								<div class="col-xs-12">
 									<label> <xsl:call-template name="hp-label"><xsl:with-param name="code" select="'SOLICITED_RQ'"/></xsl:call-template>:&#160; </label>
@@ -560,7 +560,7 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="file:///e:/ip400Demo/tmp/hcreprt-2019-02-26-0933.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\hcreprt-2019-03-08-0905.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_2_0/Style-Sheets/ip400.css'"/>
