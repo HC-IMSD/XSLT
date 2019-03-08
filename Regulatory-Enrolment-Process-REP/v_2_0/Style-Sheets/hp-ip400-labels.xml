@@ -416,6 +416,7 @@
 <row><code>DOSSIER_TYPE</code><eng>Dossier Type</eng><fra>fr_Dossier Type</fra></row>
 <row><code>PRODUCT_NAME</code><eng>Product Name</eng><fra>fr_Product Name</fra></row>
 <row><code>BIOLOGIC</code><eng>Biologic</eng><fra>fr_Biologic</fra></row>
+<row><code>PHARMA</code><eng>Pharmaceutical</eng><fra>fr_Pharmaceutical</fra></row>
 <row><code>PHARMACEUTICAL</code><eng>Pharmaceutical</eng><fra>fr_Pharmaceutical</fra></row>
 <row><code>CONTROL_NUM</code><eng>Control Number</eng><fra>fr_Control Number</fra></row>
 <row><code>DATE_SUBMITTED</code><eng>Date Submitted</eng><fra>fr_Date Submitted</fra></row>
