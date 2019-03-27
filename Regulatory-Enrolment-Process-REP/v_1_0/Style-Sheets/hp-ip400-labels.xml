@@ -73,14 +73,9 @@
 		<fra>fr_Dossier ID</fra>
 	</row>
 	<row>
-		<code>A_DossierType</code>
+		<code>dossier_type</code>
 		<eng>Dossier Type</eng>
 		<fra>fr_Dossier Type</fra>
-	</row>
-	<row>
-		<code>B_CompanyID</code>
-		<eng>Company ID</eng>
-		<fra>fr_Company ID</fra>
 	</row>
 	<row>
 		<code>C_SubmissionSignThird</code>
@@ -412,8 +407,7 @@
 <row><code>CHEQUE</code><eng>Cheque</eng><fra>fr_Cheque</fra></row>
 <row><code>MONEY_ORDER</code><eng>Money Order</eng><fra>fr_Money Order</fra></row>
 <row><code>BANK_DRAFT</code><eng>International Bank Draft</eng><fra>fr_International Bank Draft</fra></row>
-<row><code>COMPANY_ID</code><eng>Company ID</eng><fra>fr_Company ID</fra></row>
-<row><code>DOSSIER_TYPE</code><eng>Dossier Type</eng><fra>fr_Dossier Type</fra></row>
+<row><code>company_id</code><eng>Company ID</eng><fra>fr_Company ID</fra></row>
 <row><code>PRODUCT_NAME</code><eng>Product Name</eng><fra>fr_Product Name</fra></row>
 <row><code>BIOLOGIC</code><eng>Biologic</eng><fra>fr_Biologic</fra></row>
 <row><code>PHARMA</code><eng>Pharmaceutical</eng><fra>fr_Pharmaceutical</fra></row>
@@ -424,7 +418,7 @@
 <row><code>REG_ACTIVITY</code><eng>Regulatory Activity</eng><fra>fr_Regulatory Activity</fra></row>
 <row><code>SEQUENCE_DESCRIPT</code><eng>Sequence Description</eng><fra>fr_Sequence Description</fra></row>
 <row><code>IS_SOLICITED</code><eng>Is this solicited information?</eng><fra>fr_Is this solicited information?</fra></row>
-<row><code>SOLICITED_RQ</code><eng>Requester of Solicited Information</eng><fra>fr_Requester of Solicited Information</fra></row>
+<row><code>requester_of_solicited_information</code><eng>Requester of Solicited Information</eng><fra>fr_Requester of Solicited Information</fra></row>
 <row><code>PROJ_MANAGER_NAME</code><eng>Name of Regulatory Project Manager, if known</eng><fra>fr_Name of Regulatory Project Manager, if known</fra></row>
 <row><code>IS_FEE_TRANSACTION</code><eng>Are new or revised fees associated with this transaction?</eng><fra>fr_Are new or revised fees associated with this transaction?</fra></row>
 <row><code>SUB_CLASS</code><eng>Submission Class</eng><fra>fr_Submission Class</fra></row>
@@ -721,7 +715,7 @@
 <row><code>IS_THIRD_PARTY</code><eng>Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</eng><fra>fr_Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</fra></row>
 <row><code>IS_ADMIN_SUB</code><eng>Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?</eng><fra>fr_Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?</fra></row>
 <row><code>LIFECYCLE_RECORD</code><eng>Transaction Details Record</eng><fra>fr_Lifecycle Record</fra></row>
-<row><code>REG_ACTIVITY_LEAD</code><eng>Regulatory Activity Lead</eng><fra>fr_Regulatory Activity Lead</fra></row>
+<row><code>regulatory_activity_lead</code><eng>Regulatory Activity Lead</eng><fra>fr_Regulatory Activity Lead</fra></row>
 <row><code>REG_TRANSACTION_DESC</code><eng>Regulatory Transaction Description</eng><fra>fr_Regulatory Transaction Description</fra></row>
 <row><code>YEAR_OF_CHANGE</code><eng>Year of the change</eng><fra>fr_Year of the change</fra></row>
 <row><code>LIST_DESC</code><eng>List Description</eng><fra>fr_List Description</fra></row>
@@ -767,28 +761,28 @@
 <row><code>PROCESSING_CLARIF_RESPONSE</code><eng>Response to Processing Clarification Request</eng><fra>fr_Response to Processing Clarification Request</fra></row>
 <row><code>QUAL_CLIN_CLARIF_RESPONSE</code><eng>Response to Quality and Clinical Clarification Request</eng><fra>fr_Response to Quality and Clinical Clarification Request</fra></row>
 <row><code>QUAL_CLARIF_RESPONSE</code><eng>Response to Quality Clarification Request</eng><fra>fr_Response to Quality Clarification Request</fra></row>
-<row><code>RECON_DECIS_LTR_INTENT</code><eng>Reconsideration of Decision - Letter of Intent</eng><fra>fr_Reconsideration of Decision - Letter of Intent</fra></row>
-<row><code>RECON_DECIS_RQ_RECON</code><eng>"Reconsideration of Decision - Request for Reconsideration</eng><fra>fr_"Reconsideration of Decision - Request for Reconsideration</fra></row>
-<row><code>RECON_DECIS_OTHER_INFO</code><eng>Reconsideration of Decision - Other Information</eng><fra>fr_Reconsideration of Decision - Other Information</fra></row>
 <row><code>SCREENING_ACCEPT_RESPONSE</code><eng>Response to Screening Acceptance Letter</eng><fra>fr_Response to Screening Acceptance Letter</fra></row>
 <row><code>SCREENING_CLARIF_RESPONSE</code><eng>Response to Screening Clarification Request</eng><fra>fr_Response to Screening Clarification Request</fra></row>
 <row><code>SDN_RESPONSE</code><eng>Response to SDN</eng><fra>fr_Response to SDN</fra></row>
-<row><code>LABEL_PREAPPROVAL_2LANG</code><eng>econd Language Label - Pre-Approval</eng><fra>fr_econd Language Label - Pre-Approval</fra></row>
 <row><code>PHONE_RQ_RESPONSE</code><eng>Response to Telephone Request</eng><fra>fr_Response to Telephone Request</fra></row>
 <row><code>RISK_COMMUN_DOC</code><eng>Risk Communication Document</eng><fra>fr_Risk Communication Document</fra></row>
 <row><code>RMP_VERSION_DATE</code><eng>RMP version #</eng><fra>fr_RMP version #</fra></row>
 <row><code>SIGNAL_WORK_UP</code><eng>Signal Work Up</eng><fra>fr_Signal Work Up</fra></row>
 <row><code>UNSOLICITED_DATA</code><eng>Unsolicited Data</eng><fra>fr_Unsolicited Data</fra></row>
 <row><code>YEAR_LIST_OF_CHANGE</code><eng>Year, list of change number (for example: 2012, 15, 19a,….)</eng><fra>fr_Year, list of change number (for example: 2012, 15, 19a,….)</fra></row>
-<row><code>BE_CLARIF_RESPONSE</code><eng>Response to Non-clinical Clarification Request </eng><fra>fr_Response to Non-clinical Clarification Request </fra></row>
-<row><code>CORR_PATENT_MED</code><eng>Response to BE Clarification Request</eng><fra>fr_Response to BE Clarification Request</fra></row>
-<row><code>ALLEGATION_NOTICE</code><eng>otice of allegation</eng><fra>fr_otice of allegation</fra></row>
+<row><code>NONCLIN_CLARIF_RESPONSE</code><eng>Response to Non-clinical Clarification Request </eng><fra>fr_Response to Non-clinical Clarification Request </fra></row>
+<row><code>BE_CLARIF_RESPONSE</code><eng>Response to BE Clarification Request</eng><fra>fr_Response to BE Clarification Request</fra></row>
+<row><code>RECON_DECIS_LTR_INTENT</code><eng>Reconsideration of Decision - Letter of Intent</eng><fra>fr_Reconsideration of Decision - Letter of Intent</fra></row>
+<row><code>RECON_DECIS_RQ_RECON</code><eng>"Reconsideration of Decision - Request for Reconsideration</eng><fra>fr_"Reconsideration of Decision - Request for Reconsideration</fra></row>
+<row><code>RECON_DECIS_OTHER_INFO</code><eng>Reconsideration of Decision - Other Information</eng><fra>fr_Reconsideration of Decision - Other Information</fra></row>
+<row><code>LABEL_PREAPPROVAL_2LANG</code><eng>Second Language Label - Pre-Approval</eng><fra>fr_Second Language Label - Pre-Approval</fra></row>
+<row><code>CORR_PATENT_MED</code><eng>Correspondence - Patented Medicines </eng><fra>fr_Correspondence - Patented Medicines </fra></row>
+<row><code>ALLEGATION_NOTICE</code><eng>Notice of allegation</eng><fra>fr_Notice of allegation</fra></row>
 <row><code>FORM_IV</code><eng>Form IV</eng><fra>fr_Form IV</fra></row>
 <row><code>FORM_V</code><eng>Form V</eng><fra>fr_Form V</fra></row>
-<row><code>CONSENT_LTR</code><eng>onsent Letter</eng><fra>fr_onsent Letter</fra></row>
-<row><code>DATA_PROTECT_CORRESP</code><eng>orrespondence - Data Protection</eng><fra>fr_orrespondence - Data Protection</fra></row>
-<row><code>NONCLIN_CLARIF_RESPONSE</code><eng>Response to Non-clinical Clarification Request </eng><fra>fr_Response to Non-clinical Clarification Request </fra></row>
-<row><code>SEQUENCE_CLEANUP</code><eng>equence Clean-up</eng><fra>fr_equence Clean-up</fra></row>
+<row><code>CONSENT_LTR</code><eng>Consent Letter</eng><fra>fr_Consent Letter</fra></row>
+<row><code>DATA_PROTECT_CORRESP</code><eng>Correspondence - Data Protection</eng><fra>fr_Correspondence - Data Protection</fra></row>
+<row><code>SEQUENCE_CLEANUP</code><eng>Sequence Clean-up</eng><fra>fr_Sequence Clean-up</fra></row>
 <row><code>IS_THIRD_PARTY_INFO</code><eng>A letter of authorization signed by the manufacture/sponsor company must be provided in folder 1.2.6 of the regulatory transaction.</eng><fra>fr_orm V</fra></row>
 <row><code>ADDITIONAL_PRODUCT_CHGE_li</code><eng>When the manufacturer wants to request an additional product name, for a previously approved product, that does not require a brand name or Look-Alike-Sound-Alike assessment.  (New DIN is issued)</eng><fra>fr_When the manufacturer wants to request an additional product name, for a previously approved product, that does not require a brand name or Look-Alike-Sound-Alike assessment.  (New DIN is issued)</fra></row>
 <row><code>ADDITIONAL_PRODUCT_CHGE_note</code><eng>Note: A new dossier ID maybe required. Contact Health Canada for more information (hc.eReview.sc@canada.ca).</eng><fra>fr_Note: A new dossier ID maybe required. Contact Health Canada for more information (eReview@canada.ca).</fra></row>
@@ -961,7 +955,7 @@
 <row><code>MANUFACTURING_CONTACT_ID</code><eng>Manufacturing Contact ID</eng><fra>fr_Manufacturing Contact ID</fra></row>
 <row><code>Activity_Lead</code><eng>Activity Lead</eng><fra>fr_Activity Lead</fra></row>
 <row><code>Reg_Activity_Type</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
-<row><code>Transaction_Desc</code><eng>Transaction Description</eng><fra>fr_Transaction Description</fra></row>
+<row><code>transaction_description</code><eng>Transaction Description</eng><fra>fr_Transaction Description</fra></row>
 <row><code>Date_of_Request</code><eng>Date of Request</eng><fra>fr_Date of Request</fra></row>
 <row><code>Device_details_table</code><eng>Device details table included</eng><fra>fr_Device details table included</fra></row>
 <row><code>App_Info_XML_Include</code><eng>Application information XML included in transaction</eng><fra>fr_Application information XML included in transaction</fra></row>
