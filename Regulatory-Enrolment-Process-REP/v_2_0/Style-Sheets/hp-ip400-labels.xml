@@ -671,7 +671,7 @@
 <row><code>ACTIVITY_TEMPLATE</code><eng>Regulatory Activity Template: Regulatory Enrolment Process (REP)</eng><fra>fr_Regulatory Activity Template: Regulatory Enrolment Process (REP)</fra></row>
 <row><code>ACTIVE_ENROL</code><eng>Regulatory Activity Enrolment</eng><fra>fr_Regulatory Activity Enrolment</fra></row>
 <row><code>ACTIVITY_LEAD</code><eng>Activity Lead</eng><fra>fr_Activity Lead</fra></row>
-<row><code>ACTIVITY_TYPE</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
+<row><code>regulatory_activity_type</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
 <row><code>REASON_FILE</code><eng>Reason for filing this Regulatory Activity</eng><fra>fr_Reason for filing this Regulatory Activity</fra></row>
 <row><code>IS_SOLICITED_ACT</code><eng>Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</eng><fra>fr_Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</fra></row>
 <row><code>IS_PRIORITY</code><eng>Was this regulatory activity approved for priority review?</eng><fra>fr_Was this regulatory activity approved for priority review?</fra></row>
