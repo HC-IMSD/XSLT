@@ -73,9 +73,14 @@
 		<fra>fr_Dossier ID</fra>
 	</row>
 	<row>
-		<code>dossier_type</code>
+		<code>A_DossierType</code>
 		<eng>Dossier Type</eng>
 		<fra>fr_Dossier Type</fra>
+	</row>
+	<row>
+		<code>B_CompanyID</code>
+		<eng>Company ID</eng>
+		<fra>fr_Company ID</fra>
 	</row>
 	<row>
 		<code>C_SubmissionSignThird</code>
@@ -207,7 +212,7 @@
 	<row>
 		<code>B02-20160301-077</code>
 		<eng>PRSNDS (Priority Request SNDS)</eng>
-		<fra>PRNDS (Demande de statut d’évaluation prioritaire - PDN)</fra>
+		<fra>PRNDS (Demande de statut d'’évaluation prioritaire - PDN)</fra>
 	</row>
 	<row>
 		<code>B02-20160301-078</code>
@@ -407,7 +412,8 @@
 <row><code>CHEQUE</code><eng>Cheque</eng><fra>fr_Cheque</fra></row>
 <row><code>MONEY_ORDER</code><eng>Money Order</eng><fra>fr_Money Order</fra></row>
 <row><code>BANK_DRAFT</code><eng>International Bank Draft</eng><fra>fr_International Bank Draft</fra></row>
-<row><code>company_id</code><eng>Company ID</eng><fra>fr_Company ID</fra></row>
+<row><code>COMPANY_ID</code><eng>Company ID</eng><fra>fr_Company ID</fra></row>
+<row><code>DOSSIER_TYPE</code><eng>Dossier Type</eng><fra>fr_Dossier Type</fra></row>
 <row><code>PRODUCT_NAME</code><eng>Product Name</eng><fra>fr_Product Name</fra></row>
 <row><code>BIOLOGIC</code><eng>Biologic</eng><fra>fr_Biologic</fra></row>
 <row><code>PHARMA</code><eng>Pharmaceutical</eng><fra>fr_Pharmaceutical</fra></row>
@@ -418,7 +424,7 @@
 <row><code>REG_ACTIVITY</code><eng>Regulatory Activity</eng><fra>fr_Regulatory Activity</fra></row>
 <row><code>SEQUENCE_DESCRIPT</code><eng>Sequence Description</eng><fra>fr_Sequence Description</fra></row>
 <row><code>IS_SOLICITED</code><eng>Is this solicited information?</eng><fra>fr_Is this solicited information?</fra></row>
-<row><code>requester_of_solicited_information</code><eng>Requester of Solicited Information</eng><fra>fr_Requester of Solicited Information</fra></row>
+<row><code>SOLICITED_RQ</code><eng>Requester of Solicited Information</eng><fra>fr_Requester of Solicited Information</fra></row>
 <row><code>PROJ_MANAGER_NAME</code><eng>Name of Regulatory Project Manager, if known</eng><fra>fr_Name of Regulatory Project Manager, if known</fra></row>
 <row><code>IS_FEE_TRANSACTION</code><eng>Are new or revised fees associated with this transaction?</eng><fra>fr_Are new or revised fees associated with this transaction?</fra></row>
 <row><code>SUB_CLASS</code><eng>Submission Class</eng><fra>fr_Submission Class</fra></row>
@@ -671,7 +677,7 @@
 <row><code>ACTIVITY_TEMPLATE</code><eng>Regulatory Activity Template: Regulatory Enrolment Process (REP)</eng><fra>fr_Regulatory Activity Template: Regulatory Enrolment Process (REP)</fra></row>
 <row><code>ACTIVE_ENROL</code><eng>Regulatory Activity Enrolment</eng><fra>fr_Regulatory Activity Enrolment</fra></row>
 <row><code>ACTIVITY_LEAD</code><eng>Activity Lead</eng><fra>fr_Activity Lead</fra></row>
-<row><code>regulatory_activity_type</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
+<row><code>ACTIVITY_TYPE</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
 <row><code>REASON_FILE</code><eng>Reason for filing this Regulatory Activity</eng><fra>fr_Reason for filing this Regulatory Activity</fra></row>
 <row><code>IS_SOLICITED_ACT</code><eng>Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</eng><fra>fr_Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</fra></row>
 <row><code>IS_PRIORITY</code><eng>Was this regulatory activity approved for priority review?</eng><fra>fr_Was this regulatory activity approved for priority review?</fra></row>
@@ -715,7 +721,7 @@
 <row><code>IS_THIRD_PARTY</code><eng>Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</eng><fra>fr_Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?</fra></row>
 <row><code>IS_ADMIN_SUB</code><eng>Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?</eng><fra>fr_Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?</fra></row>
 <row><code>LIFECYCLE_RECORD</code><eng>Transaction Details Record</eng><fra>fr_Lifecycle Record</fra></row>
-<row><code>regulatory_activity_lead</code><eng>Regulatory Activity Lead</eng><fra>fr_Regulatory Activity Lead</fra></row>
+<row><code>REG_ACTIVITY_LEAD</code><eng>Regulatory Activity Lead</eng><fra>fr_Regulatory Activity Lead</fra></row>
 <row><code>REG_TRANSACTION_DESC</code><eng>Regulatory Transaction Description</eng><fra>fr_Regulatory Transaction Description</fra></row>
 <row><code>YEAR_OF_CHANGE</code><eng>Year of the change</eng><fra>fr_Year of the change</fra></row>
 <row><code>LIST_DESC</code><eng>List Description</eng><fra>fr_List Description</fra></row>
@@ -956,7 +962,7 @@
 <row><code>MANUFACTURING_CONTACT_ID</code><eng>Manufacturing Contact ID</eng><fra>fr_Manufacturing Contact ID</fra></row>
 <row><code>Activity_Lead</code><eng>Activity Lead</eng><fra>fr_Activity Lead</fra></row>
 <row><code>Reg_Activity_Type</code><eng>Regulatory Activity Type</eng><fra>fr_Regulatory Activity Type</fra></row>
-<row><code>transaction_description</code><eng>Transaction Description</eng><fra>fr_Transaction Description</fra></row>
+<row><code>Transaction_Desc</code><eng>Transaction Description</eng><fra>fr_Transaction Description</fra></row>
 <row><code>Date_of_Request</code><eng>Date of Request</eng><fra>fr_Date of Request</fra></row>
 <row><code>Device_details_table</code><eng>Device details table included</eng><fra>fr_Device details table included</fra></row>
 <row><code>App_Info_XML_Include</code><eng>Application information XML included in transaction</eng><fra>fr_Application information XML included in transaction</fra></row>
