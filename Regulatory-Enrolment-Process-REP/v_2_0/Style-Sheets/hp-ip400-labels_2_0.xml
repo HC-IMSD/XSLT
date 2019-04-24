@@ -662,10 +662,10 @@
 <row><code>NERVOUS_SYSTEM</code><eng>Nervous System</eng><fra>fr_Nervous System</fra></row>
 <row><code>DIGESTIVE_SYSTEM</code><eng>Digestive</eng><fra>fr_Digestive</fra></row>
 <row><code>IMMUNE_SYSTEM</code><eng>Immune</eng><fra>fr_Immune</fra></row>
-<row><code>SKINGLAND_SYSTEM</code><eng>Skin and Glandular</eng><fra>fr_Skin and Glandular</fra></row>
+<row><code>SKIN_SYSTEM</code><eng>Skin and Glandular</eng><fra>fr_Skin and Glandular</fra></row>
 <row><code>MUSCULO_SYSTEM</code><eng>Musculo-Skeletal</eng><fra>fr_Musculo-Skeletal</fra></row>
-<row><code>OTHERTISSUE_SYSTEM</code><eng>Other Tissues or Fluids</eng><fra>fr_Other Tissues or Fluids</fra></row>
-<row><code>REPRODUCT_SYSTEM</code><eng>Reproductive</eng><fra>fr_Reproductive</fra></row>
+<row><code>OTHER_SYSTEM</code><eng>Other Tissues or Fluids</eng><fra>fr_Other Tissues or Fluids</fra></row>
+<row><code>REPRODUCTIVE_SYSTEM</code><eng>Reproductive</eng><fra>fr_Reproductive</fra></row>
 <row><code>CARDIO_SYSTEM</code><eng>Cardio-Respiratory</eng><fra>fr_Cardio-Respiratory</fra></row>
 <row><code>INGRED_MAT_NAME</code><eng>Ingredient or Material Name</eng><fra>fr_Ingredient or Material Name</fra></row>
 <row><code>AGEANIMALS</code><eng>Age of animals in months</eng><fra>fr_Age of animals in months</fra></row>
