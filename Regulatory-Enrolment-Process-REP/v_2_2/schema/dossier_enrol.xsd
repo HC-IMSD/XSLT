@@ -3,11 +3,11 @@
 <!-- Dossier Enrolment version 0.1 -->
 <!-- ****************************** -->
 <hpfb:schema xmlns:hpfb="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-	<hpfb:include schemaLocation="./common/data_types.xsd"/>
-	<hpfb:include schemaLocation="./common/contact.xsd"/>
-	<hpfb:include schemaLocation="./common/address.xsd"/>
-	<hpfb:include schemaLocation="./common/country_province.xsd"/>
-	<hpfb:include schemaLocation="./common/drug_data_lists.xsd"/>
+	<hpfb:include schemaLocation="common/data_types.xsd"/>
+	<hpfb:include schemaLocation="common/contact.xsd"/>
+	<hpfb:include schemaLocation="common/address.xsd"/>
+	<hpfb:include schemaLocation="common/country_province.xsd"/>
+	<hpfb:include schemaLocation="common/drug_data_lists.xsd"/>
 	<!-- ****************************** -->
 	<!-- ELEMENT DECLARATIONS -->
 	<!-- ****************************** -->

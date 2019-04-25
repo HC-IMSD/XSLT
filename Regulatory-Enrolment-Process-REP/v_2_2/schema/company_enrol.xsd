@@ -3,9 +3,9 @@
 	<!-- Company Enrolment version 1.0 -->
 	<!-- ****************************** -->
 <hpfb:schema xmlns:hpfb="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-	<hpfb:include schemaLocation="./common/data_types.xsd"/>
-	<hpfb:include schemaLocation="./common/contact.xsd"/>
-	<hpfb:include schemaLocation="./common/address.xsd"/>
+	<hpfb:include schemaLocation="common/data_types.xsd"/>
+	<hpfb:include schemaLocation="common/contact.xsd"/>
+	<hpfb:include schemaLocation="common/address.xsd"/>
 
 	<!-- ****************************** -->
 	<!-- ELEMENT DECLARATIONS -->
@@ -32,8 +32,6 @@
 	<hpfb:element name="address_record" type="address_record_content"/>
 	<hpfb:element name="address_id" type="hpfb:string"/>
 	<hpfb:element name="contact_id" type="hpfb:string"/>
-	<hpfb:element name="selected_products" type="hpfb:string"/>
-	<hpfb:element name="dossier_id" type="char_7_content" />
 	<hpfb:element name="reason_amend" type="hpfb:string"/>
 	<hpfb:element name="importer_id" type="char_0_6_content"/>
 	
@@ -59,6 +57,7 @@
 			<hpfb:element ref="manufacturer"/>
 			<hpfb:element ref="mailing"/>
 			<hpfb:element ref="billing"/>
+			<hpfb:element ref="importer"/>
 			<hpfb:element ref="rep_primary"/>
 			<hpfb:element ref="rep_secondary"/>
 			<hpfb:element ref="company_contact_details"/>
