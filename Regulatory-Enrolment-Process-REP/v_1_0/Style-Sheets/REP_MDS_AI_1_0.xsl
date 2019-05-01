@@ -228,7 +228,7 @@
 									<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::application_info/is_listed_idd_table"/></xsl:call-template></span>
 								</div>
 							</xsl:if>
-							<xsl:if test="count(/descendant-or-self::materials/material/@id) > 0">
+							<xsl:if test="count(/descendant-or-self::materials/material/id) > 0">
 								<section class="panel panel-default" >
 									<div class="panel-heading"  style="color:#030303; background-color:#f8f8f8;">
 										<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'BIO_MATERIAL_ATT_TAB'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></h2>
@@ -347,9 +347,9 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\hcrepaim-2019-04-23-0125.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_appInfo.html" processortype="saxon8"
-		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
-		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="file:///e:/hcrepaim-2019-04-16-0206.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_appInfo.html" processortype="saxon8" useresolver="yes"
+		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
+		          validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_2_0/Style-Sheets/ip400.css'"/>
 			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
 			<advancedProp name="sInitialMode" value=""/>
