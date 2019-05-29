@@ -349,7 +349,7 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="contactBy">
 		<div class="oneLine">
-			<div style="white-space:nowrap;"><strong style="width:15em;">Language of Correspondance:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:call-template name="converter"><xsl:with-param name="value" select="company_contact_details/language_correspondance"/></xsl:call-template></span></div>
+			<div style="white-space:nowrap;"><strong style="width:15em;">Language of Correspondance:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/language_correspondance"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Phone:</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">ext:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
@@ -385,7 +385,7 @@ span.mouseHover:hover {
 		</dl>
 	</xsl:template>
 	<xsl:template name="representative">
-		<div style="white-space:nowrap;"><strong style="width:6em;">Salutation:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:call-template name="converter"><xsl:with-param name="value" select="company_contact_details/salutation"/></xsl:call-template></span></div>
+		
 		<div style=""><strong style="width:6em;">First Name:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/given_name"/></span></div>
 		<div style="white-space:nowrap;"><strong style="width:6em;">Initials:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/initials"/></span></div>
 		<div style=""><strong style="width:6em;">Last Name:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/surname"/></span></div>
@@ -402,11 +402,11 @@ span.mouseHover:hover {
 				<span class="value mouseHover" style="font-weight:100;"><xsl:value-of select="company_address_details/city"/></span>, &#xA0;
 				<span class="value mouseHover" style="font-weight:100;">
 					<xsl:choose>
-					<xsl:when test="(./company_address_details/country = 'CAN') or (company_address_details/country = 'USA')">
-						<xsl:call-template name="converter"><xsl:with-param name="value" select="company_address_details/province_lov"/></xsl:call-template>
+					<xsl:when test="(./company_address_details/country/@id = 'CAN') or (company_address_details/country/@id = 'USA')">
+						<xsl:value-of select="company_address_details/province_lov"/>,
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="company_address_details/province_text"/>
+						<xsl:value-of select="company_address_details/province_text"/>,
 					</xsl:otherwise>
 					</xsl:choose>
 				</span>&#xA0;
@@ -483,76 +483,14 @@ span.mouseHover:hover {
 			<xsl:when test=" 'SALUT_MRS' = $value">
 				<xsl:value-of select="'Mrs.'"/>
 			</xsl:when>
-			<xsl:when test=" 'AB' = $value"><xsl:value-of select="'Alberta'"/></xsl:when>
-			<xsl:when test=" 'BC' = $value"><xsl:value-of select="'British Columbia'"/></xsl:when>
-			<xsl:when test=" 'MB' = $value"><xsl:value-of select="'Manitoba'"/></xsl:when>
-			<xsl:when test=" 'NB' = $value"><xsl:value-of select="'New Brunswick'"/></xsl:when>
-			<xsl:when test=" 'NL' = $value"><xsl:value-of select="'Newfoundland and Labrador'"/></xsl:when>
-			<xsl:when test=" 'NT' = $value"><xsl:value-of select="'Northwest Territories'"/></xsl:when>
-			<xsl:when test=" 'NS' = $value"><xsl:value-of select="'Nova Scotia'"/></xsl:when>
-			<xsl:when test=" 'NU' = $value"><xsl:value-of select="'Nunavut'"/></xsl:when>
-			<xsl:when test=" 'ON' = $value"><xsl:value-of select="'Ontario'"/></xsl:when>
-			<xsl:when test=" 'PE' = $value"><xsl:value-of select="'Prince Edward Island'"/></xsl:when>
-			<xsl:when test=" 'QC' = $value"><xsl:value-of select="'Quebec'"/></xsl:when>
-			<xsl:when test=" 'SK' = $value"><xsl:value-of select="'Saskatchewan'"/></xsl:when>
-			<xsl:when test=" 'YT' = $value"><xsl:value-of select="'Yukon'"/></xsl:when>
-			<xsl:when test=" 'AL' = $value"><xsl:value-of select="'Alabama'"/></xsl:when>
-			<xsl:when test=" 'AK' = $value"><xsl:value-of select="'Alaska'"/></xsl:when>
-			<xsl:when test=" 'AZ' = $value"><xsl:value-of select="'Arizona'"/></xsl:when>
-			<xsl:when test=" 'AR' = $value"><xsl:value-of select="'Arkansas'"/></xsl:when>
-			<xsl:when test=" 'CA' = $value"><xsl:value-of select="'California'"/></xsl:when>
-			<xsl:when test=" 'CO' = $value"><xsl:value-of select="'Colorado'"/></xsl:when>
-			<xsl:when test=" 'CT' = $value"><xsl:value-of select="'Connecticut'"/></xsl:when>
-			<xsl:when test=" 'DE' = $value"><xsl:value-of select="'Delaware'"/></xsl:when>
-			<xsl:when test=" 'FL' = $value"><xsl:value-of select="'Florida'"/></xsl:when>
-			<xsl:when test=" 'GA' = $value"><xsl:value-of select="'Georgia'"/></xsl:when>
-			<xsl:when test=" 'HI' = $value"><xsl:value-of select="'Hawaii'"/></xsl:when>
-			<xsl:when test=" 'ID' = $value"><xsl:value-of select="'Idaho'"/></xsl:when>
-			<xsl:when test=" 'IL' = $value"><xsl:value-of select="'Illinois'"/></xsl:when>
-			<xsl:when test=" 'IN' = $value"><xsl:value-of select="'Indiana'"/></xsl:when>
-			<xsl:when test=" 'IA' = $value"><xsl:value-of select="'Iowa'"/></xsl:when>
-			<xsl:when test=" 'KS' = $value"><xsl:value-of select="'Kansas'"/></xsl:when>
-			<xsl:when test=" 'KY' = $value"><xsl:value-of select="'Kentucky'"/></xsl:when>
-			<xsl:when test=" 'LA' = $value"><xsl:value-of select="'Louisiana'"/></xsl:when>
-			<xsl:when test=" 'ME' = $value"><xsl:value-of select="'Maine'"/></xsl:when>
-			<xsl:when test=" 'MD' = $value"><xsl:value-of select="'Maryland'"/></xsl:when>
-			<xsl:when test=" 'MA' = $value"><xsl:value-of select="'Massachusetts'"/></xsl:when>
-			<xsl:when test=" 'MI' = $value"><xsl:value-of select="'Michigan'"/></xsl:when>
-			<xsl:when test=" 'MN' = $value"><xsl:value-of select="'Minnesota'"/></xsl:when>
-			<xsl:when test=" 'MS' = $value"><xsl:value-of select="'Mississippi'"/></xsl:when>
-			<xsl:when test=" 'MO' = $value"><xsl:value-of select="'Missouri'"/></xsl:when>
-			<xsl:when test=" 'MT' = $value"><xsl:value-of select="'Montana'"/></xsl:when>
-			<xsl:when test=" 'NE' = $value"><xsl:value-of select="'Nebraska'"/></xsl:when>
-			<xsl:when test=" 'NV' = $value"><xsl:value-of select="'Nevada'"/></xsl:when>
-			<xsl:when test=" 'NH' = $value"><xsl:value-of select="'New Hampshire'"/></xsl:when>
-			<xsl:when test=" 'NJ' = $value"><xsl:value-of select="'New Jersey'"/></xsl:when>
-			<xsl:when test=" 'NM' = $value"><xsl:value-of select="'New Mexico'"/></xsl:when>
-			<xsl:when test=" 'NY' = $value"><xsl:value-of select="'New York'"/></xsl:when>
-			<xsl:when test=" 'NC' = $value"><xsl:value-of select="'North Carolina'"/></xsl:when>
-			<xsl:when test=" 'ND' = $value"><xsl:value-of select="'North Dakota'"/></xsl:when>
-			<xsl:when test=" 'OH' = $value"><xsl:value-of select="'Ohio'"/></xsl:when>
-			<xsl:when test=" 'OK' = $value"><xsl:value-of select="'Oklahoma'"/></xsl:when>
-			<xsl:when test=" 'OR' = $value"><xsl:value-of select="'Oregon'"/></xsl:when>
-			<xsl:when test=" 'PA' = $value"><xsl:value-of select="'Pennsylvania'"/></xsl:when>
-			<xsl:when test=" 'RI' = $value"><xsl:value-of select="'Rhode Island'"/></xsl:when>
-			<xsl:when test=" 'SC' = $value"><xsl:value-of select="'South Carolina'"/></xsl:when>
-			<xsl:when test=" 'SD' = $value"><xsl:value-of select="'South Dakota'"/></xsl:when>
-			<xsl:when test=" 'TN' = $value"><xsl:value-of select="'Tennessee'"/></xsl:when>
-			<xsl:when test=" 'TX' = $value"><xsl:value-of select="'Texas'"/></xsl:when>
-			<xsl:when test=" 'UT' = $value"><xsl:value-of select="'Utah'"/></xsl:when>
-			<xsl:when test=" 'VT' = $value"><xsl:value-of select="'Vermont'"/></xsl:when>
-			<xsl:when test=" 'VA' = $value"><xsl:value-of select="'Virginia'"/></xsl:when>
-			<xsl:when test=" 'WA' = $value"><xsl:value-of select="'Washington'"/></xsl:when>
-			<xsl:when test=" 'WV' = $value"><xsl:value-of select="'West Virginia'"/></xsl:when>
-			<xsl:when test=" 'WI' = $value"><xsl:value-of select="'Wisconsin'"/></xsl:when>
-			<xsl:when test=" 'WY' = $value"><xsl:value-of select="'Wyoming'"/></xsl:when>
+
 		</xsl:choose>		
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcrepco-88888-2-0.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcrepco-88888-4-0.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
 		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
 		          validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_2_2/Style-Sheets/ip400.css'"/>
