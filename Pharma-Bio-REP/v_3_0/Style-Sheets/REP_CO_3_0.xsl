@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:stylesheet
+  version="2.0"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+>
 	<xsl:param name="language" select="'eng'"/>
+	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
+	<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -304,13 +311,13 @@ span.mouseHover:hover {
 								<h2 class="panel-title">Address Records</h2>
 							</div>
 							<div class="panel-body">
-							<TABLE border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
-								<TR>
-									<TD style="text-align: center;font-weight:bold;">Company</TD>
-									<TD style="text-align: center;font-weight:bold;">Address Information</TD>
-									<TD style="text-align: center;font-weight:bold;">Importer Company ID</TD>
-									<TD style="text-align: center;font-weight:bold;">Roles</TD>
-								</TR>
+							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
+								<tr>
+									<td style="text-align: center;font-weight:bold;">Company</td>
+									<td style="text-align: center;font-weight:bold;">Address Information</td>
+									<td style="text-align: center;font-weight:bold;">Importer Company ID</td>
+									<td style="text-align: center;font-weight:bold;">Roles</td>
+								</tr>
 								<xsl:for-each select="address_record">
 									<tr>
 									<td style="padding-left:2px;"><span class="mouseHover"><xsl:value-of select="company_name"/></span></td>
@@ -319,7 +326,7 @@ span.mouseHover:hover {
 									<td style="padding-left:2px;"><xsl:call-template name="addressRoles"/></td>
 									</tr>
 								</xsl:for-each>
-							</TABLE>
+							</table>
 							</div>
 					</section>
 					<section class="panel panel-default" >
@@ -327,7 +334,7 @@ span.mouseHover:hover {
 								<h2 class="panel-title">Company Representative Information</h2>
 							</div>
 							<div class="panel-body">
-							<TABLE border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
+							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
 								<tr>
 									<td style="text-align: center;font-weight:bold;">Representative</td>
 									<td style="text-align: center;font-weight:bold;">Contact By</td>
@@ -340,7 +347,7 @@ span.mouseHover:hover {
 										<td style="padding-left:2px;"><xsl:call-template name="contactRoles"/></td>
 									</tr>
 								</xsl:for-each>
-							</TABLE>
+							</table>
 							</div>
 					</section>
 				</div>		
@@ -447,7 +454,9 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="CapitalFirstLetter">
 		<xsl:param name="value" select="/.."/>
-		<xsl:value-of select="concat(upper-case(substring($value,1,1)), lower-case(substring($value, 2)), ' '[not(last())])"/>
+<!--		<xsl:value-of select="concat(upper-case(substring($value,1,1)), lower-case(substring($value, 2)), ' '[not(last())])"/>-->
+		<xsl:value-of select="translate(substring($value,1,1), $smallcase, $uppercase)"/>
+		<xsl:value-of select="translate(substring($value,2), $uppercase, $smallcase)"/>
 	</xsl:template>
 	<xsl:template name="hp-checkbox">
 		<xsl:param name="value" select="/.."/>
