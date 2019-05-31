@@ -148,12 +148,14 @@
 																<span class="col-xs-2">Requester 1:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name"/></span>
 																<span class="col-xs-1">Code:&#160;</span>
+																<span class="col-xs-3"><span class=" mouseHover"><xsl:value-of select="requester_name/@id"/></span></span>
 															</div>
 															<xsl:if test="requester_name2 != ''">
 															<div class="col-md-12">
 																<span class="col-xs-2">Requester 2:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name2"/></span>
 																<span class="col-xs-1">Code:&#160;</span>
+																<span class="col-xs-3"><span class=" mouseHover"><xsl:value-of select="requester_name2/@id"/></span></span>
 															</div>
 															</xsl:if>
 															<xsl:if test="requester_name3 != ''">
@@ -161,6 +163,7 @@
 																<span class="col-xs-2">Requester 3:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name3"/></span>
 																<span class="col-xs-1">Code:&#160;</span>
+																<span class="col-xs-3"><span class="mouseHover"><xsl:value-of select="requester_name3/@id"/></span></span>
 															</div>
 															</xsl:if>
 														</div>
@@ -688,7 +691,7 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-05-28-1339.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-05-31-1401.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
