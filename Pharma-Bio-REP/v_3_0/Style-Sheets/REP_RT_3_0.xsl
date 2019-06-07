@@ -400,7 +400,7 @@
 								<strong class="col-xs-2">City / Town </strong>
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
 								<strong> &#160;&#160;Province&#160;&#160; </strong>
-								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country = 'CAN') or (regulatory_activity_address/country = 'USA')"><xsl:call-template name="converter"><xsl:with-param name="value" select="regulatory_activity_address/province_lov" /></xsl:call-template></xsl:when><xsl:otherwise><xsl:apply-templates select="regulatory_activity_address/province_text" /></xsl:otherwise></xsl:choose> </span>
+								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /></xsl:when><xsl:otherwise><xsl:value-of select="regulatory_activity_address/province_text" /></xsl:otherwise></xsl:choose> </span>
 								<strong> &#160;&#160;Country&#160;&#160; </strong>
 								<span class="mouseHover"> 
 								<xsl:choose>
@@ -691,7 +691,7 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-05-31-1401.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-06-07-1027.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
