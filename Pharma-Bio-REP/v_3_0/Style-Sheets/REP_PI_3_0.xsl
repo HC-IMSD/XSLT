@@ -921,7 +921,7 @@ span.mouseHover:hover {
 
 	<xsl:template name="CapitalFirstLetter">
 		<xsl:param name="value" select="/.."/>
-		<xsl:value-of select="concat(upper-case(substring($value,1,1)), lower-case(substring($value, 2)), ' '[not(last())])"/>
+		<xsl:value-of select="concat(translate(substring($value,1,1), $smallcase, $uppercase), translate(substring($value, 2), $uppercase, $smallcase), ' '[not(last())])"/>
 	</xsl:template>
 	<xsl:template name="converter">
 		<xsl:param name="value" select="/.."/>
