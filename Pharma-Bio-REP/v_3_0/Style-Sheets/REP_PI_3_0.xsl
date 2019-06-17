@@ -62,7 +62,7 @@ span.mouseHover:hover {
 							child.addClass('fa-caret-right');
 							}
 						} else {
-							value = next.prevObject[0].lastChild.innerHTML;
+							value = $(e).children()[$(e).children().length - 1].innerHTML;
 							nodeTr = $(e).after('<tr></tr>');
 							nodeTrNew = $(nodeTr).next();
 							$(nodeTrNew).append('<td></td>');
@@ -73,8 +73,6 @@ span.mouseHover:hover {
 									var nodeTable = $(nodeTd).find(e['class']);
 									initSubtable(nodeTable, e['sortCols'], e['columnDefs']);
 								})
-<!--								var nodeTable = $(nodeTd).find('.table-ingredients');
-								initSubtable(nodeTable, [[1,'asc'],[3,'asc']]);-->
 							}
 							var child =$(e).find(".fa-caret-right");
 							child.removeClass('fa-caret-right');
