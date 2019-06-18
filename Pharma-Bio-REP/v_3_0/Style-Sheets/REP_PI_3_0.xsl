@@ -52,8 +52,12 @@ span.mouseHover:hover {
 						});
 					}
 					function showDetail(e, colspan, initChild, tables){
+<!--					$.each($(e)[0], function(key, element) {
+    console.log('key: ' + key + '\n' + 'value: ' + element);
+}); -->
 						var next = $(e).next();
 						var hasColspan = $(next).children().attr('colspan');
+						console.log('hasColspan=' + hasColspan);
 						if( hasColspan ){
 						   if(hasColspan != ''){
 							$(next).remove();
@@ -63,10 +67,14 @@ span.mouseHover:hover {
 							}
 						} else {
 							value = $(e).children()[$(e).children().length - 1].innerHTML;
-							nodeTr = $(e).after('<tr></tr>');
+							console.log('value=' + value);
+							nodeTr = $(e).after(document.createElement("tr"));
 							nodeTrNew = $(nodeTr).next();
-							$(nodeTrNew).append('<td></td>');
-							nodeTd = $(nodeTrNew).first().children();
+					$.each(nodeTrNew, function(key, element) {
+    console.log('key: ' + key + '\n' + 'value: ' + element);
+});
+							$(nodeTrNew).append(document.createElement("td"));//.attr('colspan',colspan);
+							nodeTd = $(nodeTrNew).children()[0];
 							$(nodeTd).attr('colspan', colspan).html(value);
 							if(initChild){
 								$.each(tables, function(index, e){
