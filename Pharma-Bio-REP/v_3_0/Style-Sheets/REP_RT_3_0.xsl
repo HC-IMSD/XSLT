@@ -8,6 +8,7 @@
 			<head>
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 				<style type="text/css">
+<xsl:text disable-output-escaping="yes" >
 html {
     font-family: sans-serif;
 	font-size: 10px;
@@ -388,6 +389,7 @@ span.normalWeight {
 .nowrap {
 	white-space: nowrap;
 }
+</xsl:text>
 				</style>
 			</head>
             <body>
@@ -439,7 +441,7 @@ span.normalWeight {
 							<xsl:if test="is_third_party = 'Y'">
 							<div class="col-xs-11">
 								<div class="alert alert-info">
-									A letter of authorization signed by the manufacture/sponsor company must be provided in folder 1.2.6 of the regulatory transaction.
+									A letter of authorization signed by the manufacturer/sponsor company must be provided in section 1.2.1 of the regulatory transaction.
 								</div>
 							</div>
 							</xsl:if>
