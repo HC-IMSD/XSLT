@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsl:stylesheet
+  version="1.0"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
 	<xsl:param name="language" select="'eng'"/>
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
@@ -8,15 +13,492 @@
 			<head>
     <meta charset="utf-8" />
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-				<link href="https://lam-dev.hres.ca/rep-dev/GCWeb/css/theme.min.css" type="text/css" rel="stylesheet" />
+				<!-- link href="https://lam-dev.hres.ca/rep-dev/GCWeb/css/theme.min.css" type="text/css" rel="stylesheet" / -->
 				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" rel="stylesheet" />
-				<link href="https://lam-dev.hres.ca/rep-dev/dossier/app/styles/rep.css" type="text/css" rel="stylesheet" />
+				<!-- link href="https://health-products.canada.ca/rep-pir/company/app/styles/rep.css" type="text/css" rel="stylesheet" / -->
 				<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
 				<style>
+<xsl:text disable-output-escaping="yes" >
+html {
+    font-family: sans-serif;
+	font-size: 10px;
+    -webkit-tap-highlight-color: transparent
+    display: block;
+    color: -internal-root-color;
+}
+
+body {
+	background: #f9f9f9;
+    line-height: 1.4375;
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.well blockquote {
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, .15)
+}
+
+.well-lg {
+    padding: 24px;
+    border-radius: 6px
+}
+
+.well-sm {
+    padding: 9px;
+    border-radius: 3px
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block
+}
+.panel {
+    margin-bottom: 23px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.panel-body {
+    padding: 15px
+}
+
+.panel-body:after, .panel-body:before {
+    content: " ";
+    display: table
+}
+
+.panel-body:after {
+    clear: both
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px
+}
+
+.panel-heading .dropdown .dropdown-toggle {
+    color: inherit
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: inherit
+}
+
+.panel-title a {
+    color: inherit
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.panel .list-group, .panel .panel-collapse .list-group {
+    margin-bottom: 0
+}
+
+.panel .list-group .list-group-item, .panel .panel-collapse .list-group .list-group-item {
+    border-width: 1px 0;
+    border-radius: 0
+}
+
+.panel .list-group:first-child .list-group-item:first-child, .panel .panel-collapse .list-group:first-child .list-group-item:first-child {
+    border-top: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px
+}
+
+.panel .list-group:last-child .list-group-item:last-child, .panel .panel-collapse .list-group:last-child .list-group-item:last-child {
+    border-bottom: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+.panel-default {
+    border-color: #ddd
+}
+.panel-default .panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd
+}
+
+.panel-default  .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #ddd
+}
+
+.panel-default  .panel-heading .badge {
+    color: #f5f5f5;
+    background-color: #333
+}
+
+.panel-default  .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #ddd
+}
+.panel-primary {
+    border-color: #2572b4
+}
+.panel-primary  .panel-heading {
+    color: #fff;
+    background-color: #2572b4;
+    border-color: #2572b4
+}
+
+.panel-primary  .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #2572b4
+}
+
+.panel-primary  .panel-heading .badge {
+    color: #2572b4;
+    background-color: #fff
+}
+
+.panel-primary  .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #2572b4
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: inherit
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    color: inherit;
+}
+h1 {
+    margin: .67em 0;
+}
+
+h1 {
+    border-bottom: 1px solid #af3c43;
+    font-size: 34px;
+    margin-bottom: .2em;
+    margin-top: 1.25em;
+    padding-bottom: .2em
+}
+table {
+    background-color: transparent;
+    display: table;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table tbody tr td, .table tbody tr th, .table tfoot tr td, .table tfoot tr th, .table thead tr td, .table thead tr th {
+    padding: 8px;
+    line-height: 1.4375;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table.dataTable, table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+td, th {
+    padding: 0
+}
+table.dataTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    width: 100% !important;
+}
+table.dataTable, table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.panel .table-responsive:last-child .table:last-child, .panel .table:last-child {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.dataTables_wrapper .dataTables_scroll, table.dataTable {
+    clear: both;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+table.dataTable tbody tr {
+    background-color: #fff;
+}
+.row {
+    margin-left: -15px;
+    margin-right: 15px;
+}
+
+.row:after, .row:before {
+    content: " ";
+    display: table
+}
+
+.row:after {
+    clear: both
+}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    float: left;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+.col-md-12 {
+	width: 100%;
+}
+.col-xs-6 {
+    width: 48%;
+}
+.col-md-5 {
+    width: 40%;
+}
+.col-xs-2 {
+    width: 16.6666666667%;
+}
+.col-xs-1 {
+    width: 8.3333333333%
+}
+.col-xs-11 {
+    width: 91.6666666667%
+}
+
+legend {
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 23px;
+    font-size: 24px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 0;
+    float: left;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.col-md-6 {
+    width: 48%;
+}
+.col-xs-3 {
+    width: 25%;
+}
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+    float: left;
+}
+.alert-info, .label-info, .label-info[href]:active, .label-info[href]:focus, .label-info[href]:hover, details.alert.alert-info, details.alert[open].alert-info
+ {
+    background: #d7faff;
+    border-color: #269abc;
+}
+.alert-danger, .alert-info, .alert-success, .alert-warning, .label-danger, .label-danger[href]:active, .label-danger[href]:focus, .label-danger[href]:hover, .label-default, .label-default[href]:active, .label-default[href]:focus, .label-default[href]:hover, .label-info, .label-info[href]:active, .label-info[href]:focus, .label-info[href]:hover, .label-primary, .label-primary[href]:active, .label-primary[href]:focus, .label-primary[href]:hover, .label-success, .label-success[href]:active, .label-success[href]:focus, .label-success[href]:hover, .label-warning, .label-warning[href]:active, .label-warning[href]:focus, .label-warning[href]:hover {
+    color: #000;
+}
+.alert-warning, .label-warning, .label-warning[href]:active, .label-warning[href]:focus, .label-warning[href]:hover, details.alert.alert-warning, details.alert[open].alert-warning {
+    background: #f9f4d4;
+    border-color: #f90;
+}
+.alert-success, .label-success, .label-success[href]:active, .label-success[href]:focus, .label-success[href]:hover, details.alert.alert-success, details.alert[open].alert-success {
+    background: #d8eeca;
+    border-color: #278400;
+}
+.alert, .label {
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 0 4px;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 23px;
+    border: 1px solid transparent;
+}
+ul {
+    display: block;
+	float:left;
+    list-style-type: disc;
+    margin-left: 1em;
+    margin-right: 1em;
+    <!-- margin-inline-start: 0px; -->
+    <!-- margin-inline-end: 0px; -->
+    padding-left: 40px;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 11.5px;
+}
 span.mouseHover:hover {
 	border: 1px solid black;
 }
+.c-checkbox {
+	border-style: solid;
+	border-width: thin;
+	font-size: xx-small;
+	font-weight: 900;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding-left: 2px;
+	vertical-align: 2px;
+}
+span.normalWeight {
+	font-weight: 100;
+}
+.padLeft3 {
+	padding-left: 3px;
+}
+.nowrap {
+	white-space: nowrap;
+}
+.out {
+    display: none !important;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none
+}
 
+.nav:after, .nav:before {
+    content: " ";
+    display: table
+}
+.nav:after {
+    clear: both
+}
+
+.nav > li {
+    position: relative;
+    display: block
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none;
+    background-color: #eee
+}
+
+.nav > li.disabled > a {
+    color: #767676
+}
+
+.nav > li.disabled > a:focus, .nav > li.disabled > a:hover {
+    color: #767676;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: not-allowed
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    background-color: #eee;
+    border-color: #295376
+}
+
+.nav .nav-divider {
+    height: 1px;
+    margin: 10.5px 0;
+    overflow: hidden;
+    background-color: #e5e5e5
+}
+
+.nav > li > a > img {
+    max-width: none
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd
+}
+
+.nav-tabs > li {
+    float: left;
+    margin-bottom: -2px
+}
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.4375;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0
+}
+
+.nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd
+}
+
+<!-- .nav-tabs > li {
+	float:left;
+	padding-left: 20px;
+}
+ -->
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+</xsl:text>
 				</style>
 				<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 				<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
@@ -29,7 +511,6 @@ span.mouseHover:hover {
 									],
 									'importer':[]
 									};
-
 					function selectedTab(tab){
 						$("ul.nav.nav-tabs li").each(function(index){
 							if(tab == index){
@@ -42,39 +523,31 @@ span.mouseHover:hover {
 							if(tab == index){
 								this.style.setProperty( 'display', 'block', 'important' );
 								var table = $(this).find('.table-appendix');
-								if(table.length > 0){
+								if(table.length){
 									var th = $(table).find('th')[0];
-									$(th).css('width', 12);
+									$(th)[0].style.width = 15;
 								}
 							} else {
 								this.style.setProperty( 'display', 'none', 'important' );
 							}
 						});
-					}
+					};
 					function showDetail(e, colspan, initChild, tables){
-<!--					$.each($(e)[0], function(key, element) {
-    console.log('key: ' + key + '\n' + 'value: ' + element);
-}); -->
-						var next = $(e).next();
-						var hasColspan = $(next).children().attr('colspan');
-						console.log('hasColspan=' + hasColspan);
-						if( hasColspan ){
-						   if(hasColspan != ''){
+						var next = $(e).closest('tr').next();
+						var hasDetail = $(next).attr('detail');
+						if( hasDetail ){
 							$(next).remove();
 							var child =$(e).find(".fa-caret-down");
 							child.removeClass('fa-caret-down');
 							child.addClass('fa-caret-right');
-							}
 						} else {
 							value = $(e).children()[$(e).children().length - 1].innerHTML;
-							console.log('value=' + value);
 							nodeTr = $(e).after(document.createElement("tr"));
-							nodeTrNew = $(nodeTr).next();
-					$.each(nodeTrNew, function(key, element) {
-    console.log('key: ' + key + '\n' + 'value: ' + element);
-});
-							$(nodeTrNew).append(document.createElement("td"));//.attr('colspan',colspan);
-							nodeTd = $(nodeTrNew).children()[0];
+							var nodeTrNew = $(nodeTr).next();
+							$(nodeTrNew).append(document.createElement("td"));
+							$(nodeTrNew).attr('detail', true);
+							$(nodeTrNew).append(document.createElement("td"));
+							nodeTd = $(nodeTrNew).children()[1];
 							$(nodeTd).attr('colspan', colspan).html(value);
 							if(initChild){
 								$.each(tables, function(index, e){
@@ -86,7 +559,7 @@ span.mouseHover:hover {
 							child.removeClass('fa-caret-right');
 							child.addClass('fa-caret-down');
 						}
-					}
+					};
 					function initSubtable(node, sortCols, columnDefs){
 						$(node).dataTable({
 							"paging": false,
@@ -96,7 +569,7 @@ span.mouseHover:hover {
 							"searching": false,
 							"columnDefs": columnDefs
 						}); 
-					}
+					};
     $(document).ready(function() {
 		$("#importCompany").dataTable({
 			"paging": false,
@@ -224,7 +697,7 @@ span.mouseHover:hover {
 							<table class="table dataTable table-bordered table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 								<thead>
 								<tr>
-									<th style="width:10px;"></th>
+									<th style="width:15px;"></th>
 									<th ><strong>Importer Company ID</strong></th>
 									<th style="width:70%;"><strong>Importer Company Name</strong></th>
 									<th class="out">Hidden</th>
@@ -233,7 +706,7 @@ span.mouseHover:hover {
 								<tbody>
 								<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
 								<tr onclick="showDetail(this, '3', false, myTables['importer']);">
-									<td class="fa fa-caret-right fa-lg fa-fw"></td>
+									<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
 									<td class="out">
@@ -418,6 +891,7 @@ span.mouseHover:hover {
 								</div>
 							</div>
 						</div>
+					</div>
 
 						<div class="row">
 							<div class="col-xs-12">
@@ -426,9 +900,10 @@ span.mouseHover:hover {
 									<ul class="nav nav-tabs">
 										<li onclick="selectedTab(0);" tabindex="0" class="active" id="tab0"><a href="#tabpanel0"><strong>Formulations</strong></a>
 										</li>
-										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1">Animal / Human Sourced</a>
+										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Animal / Human Sourced</strong></a>
 										</li>
 									</ul>
+									<div style="clear:both;"></div>
 									<div class="tabpanels">
 										<div id="tabpanel0" class="active">
 											<table class="table table-bordered table-hover table-condensed table-striped table-formulation">
@@ -764,16 +1239,16 @@ span.mouseHover:hover {
 											<table class="table table-bordered table-hover table-condensed table-striped table-appendix">
 											<thead>
 												<tr>
-													<th style="width:1%;"></th>
-													<th style="width:97%;"><strong>Animal / Human Sourced</strong></th>
+													<th style="width:2%;"></th>
+													<th style="width:98%"><strong>Animal / Human Sourced</strong></th>
 													<th class="out" style="width:0%;"></th>
 												</tr>
 											</thead>
 											<tbody>
 												<xsl:for-each select="appendix4_group">
 													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
-														<td class="fa fa-caret-right fa-lg fa-fw"></td>
-														<td><xsl:value-of select="ingredient_name"/></td>
+														<td class="fa fa-caret-right fa-lg fa-fw" style="width:2%"></td>
+														<td style="width:98%"><xsl:value-of select="ingredient_name"/></td>
 														<td class="out"> 
 															<fieldset>
 																<legend>Human / Animal Sourced Record&#160;<xsl:value-of select="ingredient_id"/></legend>
@@ -901,11 +1376,11 @@ span.mouseHover:hover {
 							</div>
 						</div>
 
-					</div>
 				</div>
 			</div>
 		</section>
-	</xsl:template>
+
+		</xsl:template>
 	<xsl:template name="upperCase">
 		<xsl:param name="string" select="/.."/>
 		<xsl:value-of select="translate($string, $smallcase, $uppercase)" />
@@ -924,10 +1399,10 @@ span.mouseHover:hover {
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
 	<xsl:template name="CapitalFirstLetter">
 		<xsl:param name="value" select="/.."/>
-		<xsl:value-of select="concat(translate(substring($value,1,1), $smallcase, $uppercase), translate(substring($value, 2), $uppercase, $smallcase), ' '[not(last())])"/>
+		<xsl:value-of select="translate(substring($value,1,1), $smallcase, $uppercase)"/>
+		<xsl:value-of select="translate(substring($value, 2), $uppercase, $smallcase)"/>
 	</xsl:template>
 	<xsl:template name="converter">
 		<xsl:param name="value" select="/.."/>
@@ -1076,6 +1551,7 @@ span.mouseHover:hover {
 			</xsl:otherwise>
 		</xsl:choose>		
 	</xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
