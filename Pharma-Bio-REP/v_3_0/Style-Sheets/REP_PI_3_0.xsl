@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet
-  version="1.0"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xsl:param name="language" select="'eng'"/>
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
@@ -13,9 +8,7 @@
 			<head>
     <meta charset="utf-8" />
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-				<!-- link href="https://lam-dev.hres.ca/rep-dev/GCWeb/css/theme.min.css" type="text/css" rel="stylesheet" / -->
 				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" rel="stylesheet" />
-				<!-- link href="https://health-products.canada.ca/rep-pir/company/app/styles/rep.css" type="text/css" rel="stylesheet" / -->
 				<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
 				<style>
 <xsl:text disable-output-escaping="yes" >
@@ -335,6 +328,9 @@ legend {
 .col-xs-3 {
     width: 25%;
 }
+.col-md-3{
+	width:25%;
+}
 .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
     float: left;
 }
@@ -427,7 +423,6 @@ span.normalWeight {
     display: block;
     padding: 10px 15px
 }
-
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
     background-color: #eee
@@ -480,11 +475,6 @@ span.normalWeight {
     border-color: #eee #eee #ddd
 }
 
-<!-- .nav-tabs > li {
-	float:left;
-	padding-left: 20px;
-}
- -->
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     color: #555;
     background-color: #fff;
@@ -511,6 +501,7 @@ span.normalWeight {
 									],
 									'importer':[]
 									};
+
 					function selectedTab(tab){
 						$("ul.nav.nav-tabs li").each(function(index){
 							if(tab == index){
@@ -523,41 +514,38 @@ span.normalWeight {
 							if(tab == index){
 								this.style.setProperty( 'display', 'block', 'important' );
 								var table = $(this).find('.table-appendix');
-								if(table.length){
+								if(table.length > 0){
 									var th = $(table).find('th')[0];
-									$(th)[0].style.width = 15;
+									$(th).css('width', 12);
 								}
 							} else {
 								this.style.setProperty( 'display', 'none', 'important' );
 							}
 						});
-					};
+					}
 					function showDetail(e, colspan, initChild, tables){
 						var next = $(e).closest('tr').next();
-						var hasDetail = $(next).attr('detail');
+						var hasDetail = $(next).attr('data-detail');
 						if( hasDetail ){
 							$(next).remove();
 							var child =$(e).find(".fa-caret-down");
 							child.removeClass('fa-caret-down');
 							child.addClass('fa-caret-right');
 						} else {
-							value = $(e).children()[$(e).children().length - 1].innerHTML;
-							nodeTr = $(e).after(document.createElement("tr"));
-							var nodeTrNew = $(nodeTr).next();
-							$(nodeTrNew).append(document.createElement("td"));
-							$(nodeTrNew).attr('detail', true);
-							$(nodeTrNew).append(document.createElement("td"));
-							nodeTd = $(nodeTrNew).children()[1];
-							$(nodeTd).attr('colspan', colspan).html(value);
+							var value = $(e).children()[$(e).children().length - 1].innerHTML;
+							var $nodeTbl = $(value);
+							var $nodeTr = $nodeTbl.find('tr')[0];
+							$(e).closest('tr').after($nodeTr);
+							var nodeTd = $(e).closest('tr').next().children()[0];
 							if(initChild){
 								$.each(tables, function(index, e){
 									var nodeTable = $(nodeTd).find(e['class']);
 									initSubtable(nodeTable, e['sortCols'], e['columnDefs']);
-								})
+								});
 							}
-							var child =$(e).find(".fa-caret-right");
-							child.removeClass('fa-caret-right');
-							child.addClass('fa-caret-down');
+							var child =$(e).closest('tr').children().first();
+							$(child).removeClass('fa-caret-right');
+							$(child).addClass('fa-caret-down');
 						}
 					};
 					function initSubtable(node, sortCols, columnDefs){
@@ -622,10 +610,10 @@ span.normalWeight {
 					<td style="text-align: center;font-weight:bold;">Date Last Saved</td>
 				</tr>
 				<tr>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="enrolment_version" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="company_id" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="dossier_id" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="date_saved" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="enrolment_version" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="company_id" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="dossier_id" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="date_saved" /></span> </td>
 				</tr>
 			</table>
 		</div>
@@ -634,7 +622,6 @@ span.normalWeight {
 				<div class="panel-heading">
 					<h2 class="panel-title">Product Information</h2>
 				</div>
-				<div class="panel-body">										
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12 form-group">
@@ -709,7 +696,7 @@ span.normalWeight {
 									<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
-									<td class="out">
+									<td class="out"><table><tr data-detail="true"><td colspan="3">
 										<fieldset>
 											<legend><h4>&#160;&#160;&#160;&#160;Importer Record&#160;<xsl:value-of select="position()"/></h4></legend>
 											<div>
@@ -752,6 +739,7 @@ span.normalWeight {
 												</section>
 											</div>
 										</fieldset>
+									</td></tr></table>
 									</td>
 								</tr>
 								</xsl:for-each>
@@ -892,7 +880,6 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
-
 						<div class="row">
 							<div class="col-xs-12">
 								<strong>Formulation</strong>
@@ -921,7 +908,7 @@ span.normalWeight {
 														<td class="fa fa-caret-right fa-lg fa-fw"></td>
 														<td><xsl:value-of select="formulation_id"/></td>
 														<td><xsl:value-of select="formulation_name"/></td>
-														<td class="out">
+														<td class="out"><table><tr data-detail="true"><td colspan="3">
 															<fieldset>
 																<legend><h4>&#160;&#160;&#160;&#160;Formulation Record&#160;<xsl:value-of select="formulation_id"/></h4></legend>
 																<div>
@@ -967,7 +954,7 @@ span.normalWeight {
 																									<td><xsl:choose><xsl:when test="ingredient_id">Yes</xsl:when><xsl:otherwise>No</xsl:otherwise></xsl:choose></td>
 																									<td><xsl:value-of select="cas_number"/></td>
 																									<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
-																									<td class="out">
+																									<td class="out"><table><tr data-detail="true"><td colspan="7">
 																										<fieldset>
 																											<legend>Ingredients&#160;<xsl:value-of select="position()"/></legend>
 																											<div class="row">
@@ -1062,7 +1049,7 @@ span.normalWeight {
 																											</div>
 																											</xsl:if>
 																										</fieldset>
-
+																										</td></tr></table>
 																									</td>
 																								</tr>
 																								</xsl:for-each>
@@ -1095,8 +1082,8 @@ span.normalWeight {
 																							<td><xsl:value-of select="./ingredient_name"/></td>
 																							<td><xsl:value-of select="./cas_number"/></td>
 																							<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
-																							<td class="out">
-															<fieldset>
+																							<td class="out"><table><tr data-detail="true"><td colspan="4">
+																								<fieldset>
 																<legend>Animal and / or Human Sourced Materials Details&#160;<xsl:value-of select="position()"/></legend>
 																<div class="row">
 																	<div class="col-md-6">
@@ -1117,6 +1104,7 @@ span.normalWeight {
 																</div>
 
 															</fieldset>
+																								</td></tr></table>
 																							</td>
 																						</tr>
 																					</xsl:for-each>
@@ -1146,7 +1134,7 @@ span.normalWeight {
 																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
 																							<td><xsl:value-of select="container_type"/></td>
 																							<td><xsl:value-of select="package_size"/></td>
-																							<td class="out">
+																							<td class="out"><table><tr data-detail="true"><td colspan="3">
 															<fieldset>
 																<legend>Container Type Details&#160;<xsl:value-of select="position()"/></legend>
 																<div class="row">
@@ -1185,6 +1173,7 @@ span.normalWeight {
 																	</div>
 																</div>
 															</fieldset>
+																								</td></tr></table>
 																							</td>
 																						</tr>
 																					</xsl:for-each>
@@ -1229,7 +1218,8 @@ span.normalWeight {
 																	</section>
 																</div>
 															</fieldset>
-															</td>
+															</td></tr></table>
+														</td>
 													</tr>
 												</xsl:for-each>
 											</tbody>
@@ -1249,7 +1239,7 @@ span.normalWeight {
 													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
 														<td class="fa fa-caret-right fa-lg fa-fw" style="width:2%"></td>
 														<td style="width:98%"><xsl:value-of select="ingredient_name"/></td>
-														<td class="out"> 
+														<td class="out"> <table><tr data-detail="true"><td colspan="2">
 															<fieldset>
 																<legend>Human / Animal Sourced Record&#160;<xsl:value-of select="ingredient_id"/></legend>
 																<div class="row">
@@ -1332,7 +1322,7 @@ span.normalWeight {
 																			  <div class="col-md-3">
 																			  	<xsl:if test="animal_sourced_section/is_animal_age_known = 'Y'">
 																			  	<strong>Age of animals in months:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span></strong>
-																				</xsl:if>
+																				</xsl:if>&#160;
 																			  </div>
 																			  <div class="col-md-6">
 																			  	<strong>Controlled Population:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_controlled_pop"/></xsl:call-template></span></strong>
@@ -1346,7 +1336,8 @@ span.normalWeight {
 																			  	<strong>Biotechnology Derived Animal:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_biotech_derived"/></xsl:call-template></span></strong>
 																			  </div><br/>
 																			</div>
-																			<div class="row"><br/><header><h3 style="font-weight:300; padding-left:5px">Animal Countries of Origin</h3></header></div>
+																			<div class="row"><br/></div>
+																			<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Animal Countries of Origin</h3></header></div>
 																			<div class="col-xs-12">
 																				<div class="col-xs-10">
 																					<ol>
@@ -1365,6 +1356,7 @@ span.normalWeight {
 																</div>
 																</xsl:if>
 															</fieldset>
+														</td></tr></table>
 														</td>
 													</tr>
 												</xsl:for-each>
@@ -1376,11 +1368,10 @@ span.normalWeight {
 							</div>
 						</div>
 
-				</div>
 			</div>
 		</section>
 
-		</xsl:template>
+	</xsl:template>
 	<xsl:template name="upperCase">
 		<xsl:param name="string" select="/.."/>
 		<xsl:value-of select="translate($string, $smallcase, $uppercase)" />
@@ -1551,8 +1542,8 @@ span.normalWeight {
 			</xsl:otherwise>
 		</xsl:choose>		
 	</xsl:template>
-
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+</xsl:stylesheet>
+<!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
