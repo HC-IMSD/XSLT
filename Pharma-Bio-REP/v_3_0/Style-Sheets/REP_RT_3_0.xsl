@@ -402,20 +402,20 @@ span.normalWeight {
 	<xsl:template match="TRANSACTION_ENROL">
 		<h1>Regulatory Transaction Template: Regulatory Enrolment Process (REP)</h1>
 					<div class="well well-sm" >
-						<TABLE border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
-							<TR>
-								<TD style="text-align: center;font-weight:bold;">Company ID</TD>
-								<TD style="text-align: center;font-weight:bold;">Dossier Type</TD>
-								<TD style="text-align: center;font-weight:bold;">Dossier ID</TD>
-								<TD style="text-align: center;font-weight:bold;">Date Last Saved</TD>
-							</TR>
-							<TR>
-								<TD style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="ectd/company_id" /></span> </TD>
-								<TD style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/dossier_type" /></span> </TD>
-								<TD style="text-align: center;"> <span class="mouseHover">HC6-024-<xsl:apply-templates select="ectd/dossier_id" /></span> </TD>
-								<TD style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="date_saved" /></span> </TD>
-							</TR>
-						</TABLE>
+						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+							<tr>
+								<th style="text-align: center;font-weight:bold;">Company ID</th>
+								<th style="text-align: center;font-weight:bold;">Dossier Type</th>
+								<th style="text-align: center;font-weight:bold;">Dossier ID</th>
+								<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/company_id" /></span> </td>
+								<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/dossier_type" /></span> </td>
+								<td style="text-align: center;"> <span class="mouseHover">HC6-024-<xsl:value-of select="ectd/dossier_id" /></span> </td>
+								<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="date_saved" /></span> </td>
+							</tr>
+						</table>
 					</div>
 		<section>
 			<div class="panel panel-primary">

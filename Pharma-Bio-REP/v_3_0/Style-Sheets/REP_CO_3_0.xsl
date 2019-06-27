@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet
-  version="2.0"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:fn="http://www.w3.org/2005/xpath-functions"
->
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xsl:param name="language" select="'eng'"/>
 	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
 	<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
@@ -13,6 +8,7 @@
 			<head>
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 				<style type="text/css">
+<xsl:text disable-output-escaping="yes" >
 html {
     font-family: sans-serif;
 	font-size: 10px;
@@ -254,6 +250,7 @@ span.mouseHover:hover {
 	padding-left: 2px;
 	vertical-align: 2px;
 }
+</xsl:text>
 				</style>
 			</head>
             <body>
@@ -266,20 +263,20 @@ span.mouseHover:hover {
 	<xsl:template match="COMPANY_ENROL">
 		<h1>Company Template: Regulatory Enrolment Process (REP)</h1>
 		<div class="well well-sm" >
-			<TABLE border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
-				<TR>
-					<TD style="text-align: center;font-weight:bold;">Enrolment Status</TD>
-					<TD style="text-align: center;font-weight:bold;">Enrolment Version</TD>
-					<TD style="text-align: center;font-weight:bold;">Date Last Saved</TD>
-					<TD style="text-align: center;font-weight:bold;">Company ID</TD>
-				</TR>
-				<TR>
-					<TD style="text-align: center;"><span class="mouseHover"><xsl:call-template name="CapitalFirstLetter"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </TD>
-					<TD style="text-align: center;"><span class="mouseHover"><xsl:apply-templates select="enrolment_version" /></span> </TD>
-					<TD style="text-align: center;"><span class="mouseHover"><xsl:apply-templates select="date_saved" /></span> </TD>
-					<TD style="text-align: center;"><span class="mouseHover"><xsl:apply-templates select="company_id" /></span> </TD>
-				</TR>
-			</TABLE>
+			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+				<tr>
+					<th style="text-align: center;font-weight:bold;">Enrolment Status</th>
+					<th style="text-align: center;font-weight:bold;">Enrolment Version</th>
+					<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
+					<th style="text-align: center;font-weight:bold;">Company ID</th>
+				</tr>
+				<tr>
+					<td style="text-align: center;"><span class="mouseHover"><xsl:call-template name="CapitalFirstLetter"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </td>
+					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="enrolment_version" /></span> </td>
+					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="date_saved" /></span> </td>
+					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="company_id" /></span> </td>
+				</tr>
+			</table>
 			<xsl:if test="reason_amend != ''">
 			<div class="row">
 				<div class="col-xs-12">
@@ -336,9 +333,9 @@ span.mouseHover:hover {
 							<div class="panel-body">
 							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
 								<tr>
-									<td style="text-align: center;font-weight:bold;">Representative</td>
-									<td style="text-align: center;font-weight:bold;">Contact By</td>
-									<td style="text-align: center;font-weight:bold;">Roles</td>
+									<th style="text-align: center;font-weight:bold;">Representative</th>
+									<th style="text-align: center;font-weight:bold;">Contact By</th>
+									<th style="text-align: center;font-weight:bold;">Roles</th>
 								</tr>
 								<xsl:for-each select="contact_record">
 									<tr>
@@ -454,7 +451,6 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="CapitalFirstLetter">
 		<xsl:param name="value" select="/.."/>
-<!--		<xsl:value-of select="concat(upper-case(substring($value,1,1)), lower-case(substring($value, 2)), ' '[not(last())])"/>-->
 		<xsl:value-of select="translate(substring($value,1,1), $smallcase, $uppercase)"/>
 		<xsl:value-of select="translate(substring($value,2), $uppercase, $smallcase)"/>
 	</xsl:template>
@@ -495,7 +491,7 @@ span.mouseHover:hover {
 
 		</xsl:choose>		
 	</xsl:template>
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+</xsl:transform><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>

@@ -600,17 +600,15 @@ span.normalWeight {
 		</html>
 	</xsl:template>
 	<xsl:template match="DRUG_PRODUCT_ENROL">
-		<h1>Product Infromation Template: Regulatory Enrolment Process (REP)</h1>
+		<h1>Product Information Template: Regulatory Enrolment Process (REP)</h1>
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
-					<td style="text-align: center;font-weight:bold;">Enrolment Version</td>
-					<td style="text-align: center;font-weight:bold;">Company ID</td>
-					<td style="text-align: center;font-weight:bold;">Dossier ID</td>
-					<td style="text-align: center;font-weight:bold;">Date Last Saved</td>
+					<th style="text-align: center;font-weight:bold;">Company ID</th>
+					<th style="text-align: center;font-weight:bold;">Dossier ID</th>
+					<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
 				</tr>
 				<tr>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="enrolment_version" /></span> </td>
 					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="company_id" /></span> </td>
 					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="dossier_id" /></span> </td>
 					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="date_saved" /></span> </td>
@@ -731,7 +729,7 @@ span.normalWeight {
 																</xsl:otherwise>
 																</xsl:choose>
 															</div>
-															<div class="form-group col-md-6"><strong>Post Code or ZIP Code: &#160;</strong><span class="mouseHover"><xsl:value-of select="postal_code"/></span></div>
+															<div class="form-group col-md-6"><strong>Postal Code: &#160;</strong><span class="mouseHover"><xsl:value-of select="postal_code"/></span></div>
 															</div>
 
 														</div>
@@ -1146,8 +1144,6 @@ span.normalWeight {
 																	<div class="col-md-12">
 																	<strong>Package Size:&#160;</strong><span class="normalWeight mouseHover"><xsl:value-of select="package_size"/></span>
 																	</div>
-																</div>
-																<div class="row">
 																</div>
 																<div class="row">
 																	<div class="col-md-6">
