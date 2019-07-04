@@ -497,7 +497,7 @@ span.normalWeight {
 													{'class':'.table-container', 'sortCols':[[1,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
 													{'class':'.table-container-details', 'sortCols':[[1,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]}],
 									'appendix': [{'class':'.table-tissues','sortCols':[[0,'asc']], 'columnDefs':[]},
-												 {'class':'.table-animal','sortCols':[[0,'asc']], 'columnDefs':[]},
+												 {'class':'.table-animal','sortCols':[[0,'asc']], 'columnDefs':[]}
 									],
 									'importer':[]
 									};
@@ -587,7 +587,7 @@ span.normalWeight {
 			"searching": false,
 			"columnDefs": [
 				{ "orderable": false, 'width': '2%', "targets": [0] },
-				{ 'width': '97%', "targets": [1] }
+				{ 'width': '15%', "targets": [2] },{ 'width': '10%', "targets": [3,4] },{ 'width': '0', "targets": [5] }
 			]
 		}); 
 	});
@@ -630,13 +630,13 @@ span.normalWeight {
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Product Name</strong>
-								<div class="col-xs-12"><span style="font-weight:normal;" class="mouseHover"><xsl:value-of select="product_name"/></span></div>
+								<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="product_name"/></span></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Proper, Common or Non-Proprietary Name</strong>
-								<div class="col-xs-12"><span style="font-weight:normal;" class="mouseHover"><xsl:value-of select="proper_name"/></span></div>
+								<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="proper_name"/></span></div>
 							</div>
 						</div>
 						<div class="row">
@@ -749,9 +749,9 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12 form-group">
-								<strong>Drug Use:&#160;
-								<span style="font-weight:normal;" class="mouseHover"><xsl:value-of select="drug_use"/></span>
-								</strong>
+								<strong>Drug Use:&#160;</strong>
+								<span class="mouseHover"><xsl:value-of select="drug_use"/></span>
+								
 							</div>
 						</div>
 						<xsl:if test="drug_use/@id = 'DISINFECT'">
@@ -896,17 +896,19 @@ span.normalWeight {
 												<tr>
 													<th style="width:2%;"></th>
 													<th style="width:8%;"><strong>ID</strong></th>
-													<th style="width:90%;"><strong>Formulation Name</strong></th>
+													<th style="width:70%;"><strong>Formulation Name</strong></th>
+													<th style="width:20%;"><strong>Dosage Form</strong></th>
 													<th class="out"></th>
 												</tr>
 											</thead>
 											<tbody>
 												<xsl:for-each select="formulation_group/formulation_details">
-													<tr onclick="showDetail(this, '3', true, myTables['formulation']);">
+													<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
 														<td class="fa fa-caret-right fa-lg fa-fw"></td>
 														<td><xsl:value-of select="formulation_id"/></td>
 														<td><xsl:value-of select="formulation_name"/></td>
-														<td class="out"><table><tr data-detail="true"><td colspan="3">
+														<td><xsl:value-of select="dosage_form_group/dosage_form"/></td>
+														<td class="out"><table><tr data-detail="true"><td colspan="4">
 															<fieldset>
 																<legend><h4>&#160;&#160;&#160;&#160;Formulation Record&#160;<xsl:value-of select="formulation_id"/></h4></legend>
 																<div>
@@ -915,12 +917,12 @@ span.normalWeight {
 																			<div class="well well-sm">
 																				<div class="row">
 																				<div class="form-group col-md-12">
-																				<strong>A. Formulation Name:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="formulation_name"/></span></strong>
+																				<strong>A. Formulation Name:&#160;</strong><span class="mouseHover"><xsl:value-of select="formulation_name"/></span>
 																				</div>
 																				</div>
 																				<div class="row">
 																				<div class="form-group col-md-12">
-																				<strong>B. Dosage Form:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span></strong>
+																				<strong>B. Dosage Form:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
 																				</div>
 																				</div>
 																				<div class="row">
@@ -933,26 +935,34 @@ span.normalWeight {
 																							<thead>
 																								<tr>
 																									<th style="width:2%"></th>
+																									<th>ID</th>
 																									<th>Role</th>
+																									<th>Variant</th>
 																									<th>Ingredient</th>
-																									<th>Formulation Variant Name (if applicable)</th>
-																									<th>In list</th>
-																									<th>Chemical Abstract Services</th>
-																									<th>Human / Animal Sourced?</th>
+																									<th>Quantities</th>
+																									<th>Per</th>
+																									<th>Calculated as base</th>
+																									<th>Nanomaterial</th>
+																									<th>Human or Animal Sourced</th>
 																									<th class="out">Hide</th>
 																								</tr>
 																							</thead>
 								<tbody>
 																								<xsl:for-each select="formulation_ingredient">
-																								<tr onclick="showDetail(this, '7', false, null);">
+																								<tr onclick="showDetail(this, '10', false, null);">
 																									<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																									<td><xsl:value-of select="ingredient_id"/></td>
 																									<td><xsl:value-of select="ingredient_role"/></td>
-																									<td><xsl:value-of select="ingredient_name"/></td>
 																									<td><xsl:value-of select="variant_name"/></td>
-																									<td><xsl:choose><xsl:when test="ingredient_id">Yes</xsl:when><xsl:otherwise>No</xsl:otherwise></xsl:choose></td>
-																									<td><xsl:value-of select="cas_number"/></td>
+																									<td><xsl:value-of select="ingredient_name"/></td>
+																									<td><xsl:choose><xsl:when test="strength/operator/@id = 'NGT'">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = 'NLT'">&gt;&#160;</xsl:when></xsl:choose>
+																									<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != ''">&#160;<strong>To</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
+																										&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units"/></xsl:otherwise></xsl:choose></td>
+																									<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
+																									<td><xsl:value-of select="is_base_calc"/></td>
+																									<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
 																									<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
-																									<td class="out"><table><tr data-detail="true"><td colspan="7">
+																									<td class="out"><table><tr data-detail="true"><td colspan="10">
 																										<fieldset>
 																											<legend>Ingredients&#160;<xsl:value-of select="position()"/></legend>
 																											<div class="row">
@@ -962,88 +972,80 @@ span.normalWeight {
 																												</div>
 																												<xsl:if test="ingredient_role/@id = 'NONMED'">
 																													<div class="col-md-6">
-																													<strong>Formulation Variant Name:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="variant_name"/></span></strong>
+																													<strong>Formulation Variant Name:&#160;</strong><span class="mouseHover"><xsl:value-of select="variant_name"/></span>
 																													</div>
 																													<div class="col-md-6">
-																													<strong>Purpose:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="purpose"/></span></strong>
+																													<strong>Purpose:&#160;</strong><span class="mouseHover"><xsl:value-of select="purpose"/></span>
 																													</div>
 																												</xsl:if>
 																												<div class="col-md-6">
-																												<strong>Ingredient Name:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="ingredient_name"/></span></strong>
+																												<strong>Ingredient Name:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
 																												</div>
 																											</div>
 																											<div class="row">
-																												<div class="col-md-6"><strong>Chemical Abstract Services:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="cas_number"/></span></strong></div>
-																												<div class="col-md-6"><strong>Standard:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="ingred_standard"/></span></strong></div>
+																												<div class="col-md-6"><strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="cas_number"/></span></div>
+																												<div class="col-md-6"><strong>Standard:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingred_standard"/></span></div>
 																											</div>
 																											<div class="row">
-																												<div class="col-md-6"><strong>Strength:&#160;
-																												<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="./strength/operator"/></span>&#160;
+																												<div class="col-md-6"><strong>Strength:&#160;</strong>
+																												<span class="mouseHover"><xsl:value-of select="./strength/operator"/></span>&#160;
 																												<xsl:if test="strength/operator/@id = 'RA'">
-																													<span style="font-weight: normal;" class="mouseHover">Lower Limit</span>:&#160;
+																													<span class="mouseHover"><strong>Lower Limit</strong></span>:&#160;
 																												</xsl:if>
-																												<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="strength/data1"/></span>&#160;
+																												<span  class="mouseHover"><xsl:value-of select="strength/data1"/></span>&#160;
+																												<xsl:if test="strength/operator/@id = 'RA'">&#160;&#160;
+																													<span class="mouseHover"><strong>Upper Limit</strong></span>:&#160;
+																													<span class="mouseHover"><xsl:value-of select="strength/data2"/></span>&#160;
+																												</xsl:if>
 																												<xsl:choose>
 																												<xsl:when test="units_other != 'null' and units_other != ''">
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="units_other"/></span>&#160;
+																													<span class="mouseHover"><xsl:value-of select="units_other"/></span>
 																												</xsl:when>
 																												<xsl:otherwise>
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="units"/></span>
+																													<span class="mouseHover"><xsl:value-of select="units"/></span>
 																												</xsl:otherwise>
 																												</xsl:choose>
-																												<xsl:if test="strength/operator/@id = 'RA'">&#160;&#160;
-																													<span style="font-weight: normal;" class="mouseHover">Upper Limit</span>:&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="strength/data2"/></span>&#160;
-																													<xsl:choose>
-																													<xsl:when test="per_units_other_details != 'null' and per_units_other_details != ''">
-																														<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="units_other"/></span>&#160;
-																													</xsl:when>
-																													<xsl:otherwise>
-																														<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="units"/></span>
-																													</xsl:otherwise>
-																													</xsl:choose>
-																												</xsl:if>
-																												</strong>
+																												
 																												</div>
 																													<xsl:variable name="perUnit">
 																														<xsl:value-of select="per"/>
 																													</xsl:variable>
 																												<div class="col-md-3">
-																													<strong>Per</strong>&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="per_value"/></span>&#160;
+																													<strong>Per</strong>&#160; <span class="mouseHover"><xsl:value-of select="per"/></span>&#160;
+																													<span class="mouseHover"><xsl:value-of select="per_value"/></span>&#160;
 																													<xsl:choose>
 																													<xsl:when test="per_units_other_details != 'null' and per_units_other_details != ''">
-																															<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="per_units_other_details"/></span>
+																															<span class="mouseHover"><xsl:value-of select="per_units_other_details"/></span>
 																													</xsl:when>
 																													<xsl:otherwise>
-																															<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="per_units"/></span>
+																															<span class="mouseHover"><xsl:value-of select="per_units"/></span>
 																													</xsl:otherwise>
 																													</xsl:choose>
 																		
 																												</div>
 																												<xsl:if test="is_base_calc != ''">
-																												<div class="col-md-12"><strong>Calculated as Base?&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="is_base_calc"/></span>
-																												</strong></div>
+																												<div class="col-md-12"><strong>Calculated as Base?&#160;</strong>
+																													<span class="mouseHover"><xsl:value-of select="is_base_calc"/></span>
+																												</div>
 																												</xsl:if>
 																											</div>
 																											<div class="row">
-																												<div class="col-md-6"><strong>Is this a nanomaterial?&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_nanomaterial"/></xsl:call-template></span>
-																												</strong></div>
-																												<div class="col-md-6"><strong>Animal or Human Sourced?&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></span>
-																												</strong></div>
+																												<div class="col-md-6"><strong>Is this a nanomaterial?&#160;</strong>
+																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_nanomaterial"/></xsl:call-template></span>
+																												</div>
+																												<div class="col-md-6"><strong>Animal or Human Sourced?&#160;</strong>
+																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></span>
+																												</div>
 																											</div>
 																											<xsl:if test="is_nanomaterial = 'Y'">
 																											<div class="row">
-																												<div class="col-md-12"><strong>Nanomaterial:&#160;
-																													<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="nanomaterial"/></span>
+																												<div class="col-md-12"><strong>Nanomaterial:&#160;</strong>
+																													<span class="mouseHover"><xsl:value-of select="nanomaterial"/></span>
 																													<xsl:if test="nanomaterial_details != 'null' and nanomaterial_details != ''">&#160;&#160;
-																														Indicate the type of nanomaterial:&#160;
-																														<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="nanomaterial_details"/></span>
+																														<strong>Indicate the type of nanomaterial:&#160;</strong>
+																														<span class="mouseHover"><xsl:value-of select="nanomaterial_details"/></span>
 																													</xsl:if>
-																												</strong></div>
+																												</div>
 																											</div>
 																											</xsl:if>
 																										</fieldset>
@@ -1059,7 +1061,7 @@ span.normalWeight {
 																				</div>
 																				<div class="row">
 																				<div class="form-group col-md-12">
-																				<strong>D.&#160;Was Animal and/or Human Sourced Material used at any stage in the manufacturing of the drug?&#160;<span style="font-weight: normal;"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span></strong>
+																				<strong>D.&#160;Was Animal and/or Human Sourced Material used at any stage in the manufacturing of the drug?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
 																				</div>
 																			<xsl:if test="is_animal_human_material = 'Y'">
 																			<div class="col-md-12">
@@ -1089,15 +1091,15 @@ span.normalWeight {
 																	</div>
 																</div>
 																<div class="row">
-																	<div class="col-md-3">
-																		<strong>Chemical Abstract Services:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="./cas_number"/></span></strong>
+																	<div class="col-md-6">
+																		<strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
 																	</div>
-																	<div class="col-md-3">
-																		<strong>Standard:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="./cas_number"/></span></strong>
+																	<div class="col-md-6">
+																		<strong>Standard:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
 																	</div>
-																	<div class="col-md-3">
-																		<strong>Present in final Container?&#160;
-																		<span style="font-weight: normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></span></strong>
+																	<div class="col-md-6">
+																		<strong>Present in final Container?&#160;</strong>
+																		<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></span>
 																	</div>
 																</div>
 
@@ -1123,6 +1125,8 @@ span.normalWeight {
 																						<th style="width:2%"></th>
 																						<th>Container Type</th>
 																						<th>Package Size</th>
+																						<th>Shelf Life</th>
+																						<th>Temperature Range(Celsius)</th>
 																						<th class="out">Hidden</th>
 																					</tr>
 																				</thead>
@@ -1132,7 +1136,9 @@ span.normalWeight {
 																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
 																							<td><xsl:value-of select="container_type"/></td>
 																							<td><xsl:value-of select="package_size"/></td>
-																							<td class="out"><table><tr data-detail="true"><td colspan="3">
+																							<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
+																							<td><xsl:value-of select="temperature_min"/>&#160;To&#160;<xsl:value-of select="temperature_max"/></td>
+																							<td class="out"><table><tr data-detail="true"><td colspan="5">
 															<fieldset>
 																<legend>Container Type Details&#160;<xsl:value-of select="position()"/></legend>
 																<div class="row">
@@ -1225,22 +1231,43 @@ span.normalWeight {
 											<table class="table table-bordered table-hover table-condensed table-striped table-appendix">
 											<thead>
 												<tr>
-													<th style="width:2%;"></th>
-													<th style="width:98%"><strong>Animal / Human Sourced</strong></th>
-													<th class="out" style="width:0%;"></th>
+													<th></th>
+													<th>Name</th>
+													<th>Sourced from</th>
+													<th>System</th>
+													<th>System Details</th>
+													<th class="out"></th>
 												</tr>
 											</thead>
 											<tbody>
 												<xsl:for-each select="appendix4_group">
 													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
-														<td class="fa fa-caret-right fa-lg fa-fw" style="width:2%"></td>
-														<td style="width:98%"><xsl:value-of select="ingredient_name"/></td>
-														<td class="out"> <table><tr data-detail="true"><td colspan="2">
+														<td class="fa fa-caret-right fa-lg fa-fw"></td>
+														<td><xsl:value-of select="ingredient_name"/></td>
+														<td><xsl:if test="human_sourced = 'Y'">Human</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animal</xsl:if></td>
+														<td>
+															<xsl:for-each select="tissues_fluids_section/*">
+																<xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template>
+															</xsl:for-each>
+														</td>
+														<td>
+															<xsl:for-each select="tissues_fluids_section/*">
+																<xsl:for-each select="./*">
+																<xsl:if test=" . = 'Y'">
+																	<xsl:variable name="temp" select="name(.)"/>
+																	<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+																		<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
+																	</xsl:if>
+																</xsl:if>
+																</xsl:for-each>
+															</xsl:for-each>
+														</td>
+														<td class="out"> <table><tr data-detail="true"><td colspan="5">
 															<fieldset>
 																<legend>Human / Animal Sourced Record&#160;<xsl:value-of select="ingredient_id"/></legend>
 																<div class="row">
 																	<div class="col-md-12">
-																	<strong>Ingredient or Material Name:&#160;<span style="font-weight: normal;" class="mouseHover"><xsl:value-of select="./ingredient_name"/></span></strong>
+																	<strong>Ingredient or Material Name:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
 																	</div>
 																</div>
 																<div class="row">
@@ -1312,24 +1339,24 @@ span.normalWeight {
 																			</table>
 																			<div class="row"><br/>
 																			  <div class="col-md-3">
-																			  	<strong>Is age of animals known?&#160;
-																				<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_animal_age_known"/></xsl:call-template></span></strong>
+																			  	<strong>Is age of animals known?&#160;</strong>
+																				<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_animal_age_known"/></xsl:call-template></span>
 																			  </div>
 																			  <div class="col-md-3">
 																			  	<xsl:if test="animal_sourced_section/is_animal_age_known = 'Y'">
-																			  	<strong>Age of animals in months:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span></strong>
+																			  	<strong>Age of animals in months:&#160;</strong><span class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span>
 																				</xsl:if>&#160;
 																			  </div>
 																			  <div class="col-md-6">
-																			  	<strong>Controlled Population:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_controlled_pop"/></xsl:call-template></span></strong>
+																			  	<strong>Controlled Population:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_controlled_pop"/></xsl:call-template></span>
 																			  </div>
 																			</div>
 																			<div class="row"><br/>
 																			  <div class="col-md-6">
-																			  	<strong>Cell line:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_cell_line"/></xsl:call-template></span></strong>
+																			  	<strong>Cell line:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_cell_line"/></xsl:call-template></span>
 																			  </div>
 																			  <div class="col-md-6">
-																			  	<strong>Biotechnology Derived Animal:&#160;<span style="font-weight:normal;" class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_biotech_derived"/></xsl:call-template></span></strong>
+																			  	<strong>Biotechnology Derived Animal:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_biotech_derived"/></xsl:call-template></span>
 																			  </div><br/>
 																			</div>
 																			<div class="row"><br/></div>
@@ -1543,7 +1570,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-06-11-1000.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-07-02-1521.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
