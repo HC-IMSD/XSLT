@@ -511,9 +511,26 @@ span.normalWeight {
 														</div>
 														<div class="row">
 															<div class="form-group col-md-12">
-															<strong>Regulatory Transaction Description:&#160;</strong><span class="mouseHover"><xsl:value-of select="transaction_description"/></span>
+															<strong>Regulatory Transaction Description:&#160;</strong><span class="mouseHover">
+															<xsl:choose>
+															<xsl:when test="sequence_description_value/@id = 'YEAR'">
+																<xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
+															</xsl:when>
+															<xsl:when test="sequence_description_value/@id = 'YEAR_LIST_OF_CHANGE'">
+																<div class="col-md-12"><xsl:value-of select="sequence_description_value"/>:</div>
+																<div class="col-md-12">
+																<xsl:call-template name="break"><xsl:with-param name="text" select="sequence_year"/></xsl:call-template>
+																</div>
+
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="transaction_description"/>
+															</xsl:otherwise>
+															</xsl:choose>
+															</span>
 															</div>
 														</div>
+														<xsl:if test="requester_name != ''">
 														<div class="row">
 															<div class="col-md-12">
 															<strong>Requester of solicited information:&#160;</strong>
@@ -546,6 +563,7 @@ span.normalWeight {
 															</div>
 															</xsl:if>
 														</div>
+														</xsl:if>
 													</fieldset>
 										</xsl:for-each>
 								</div>
@@ -855,6 +873,22 @@ span.normalWeight {
 			</div>
 		</section>
 	</xsl:template>
+	<xsl:template name="break">
+	  <xsl:param name="text" select="string(.)"/>
+	  <xsl:choose>
+	    <xsl:when test="contains($text, '&#xa;')">
+	      <xsl:value-of select="substring-before($text, '&#xa;')"/>
+	      <br/>
+	      <xsl:call-template name="break">
+	        <xsl:with-param name="text" select="substring-after($text, '&#xa;')"/>
+	      </xsl:call-template>
+	    </xsl:when>
+	    <xsl:otherwise>
+	      <xsl:value-of select="$text"/>
+	    </xsl:otherwise>
+	  </xsl:choose>
+	</xsl:template>
+
 	<xsl:template name="YesNoUnknow">
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
@@ -1060,26 +1094,11 @@ span.normalWeight {
 			</xsl:when>
 		</xsl:choose>		
 	</xsl:template>
-	<xsl:template name="break">
-	  <xsl:param name="text" select="string(.)"/>
-	  <xsl:choose>
-	    <xsl:when test="contains($text, '&#xa;')">
-	      <xsl:value-of select="substring-before($text, '&#xa;')"/>
-	      <br/>
-	      <xsl:call-template name="break">
-	        <xsl:with-param name="text" select="substring-after($text, '&#xa;')"/>
-	      </xsl:call-template>
-	    </xsl:when>
-	    <xsl:otherwise>
-	      <xsl:value-of select="$text"/>
-	    </xsl:otherwise>
-	  </xsl:choose>
-	</xsl:template>
 </xsl:transform><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-06-07-1027.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-07-05-1028.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
