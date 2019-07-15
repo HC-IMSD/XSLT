@@ -667,7 +667,7 @@ span.normalWeight {
 							</div>
 						</div>
 						</xsl:if>
-						<xsl:if test="fee_details/fee_remission = 'Y' and fee_details/submission_class/fee &gt; fee_details/percent_gross">
+						<xsl:if test="fee_details/fee_remission = 'Y' and fee_details/fee &gt; fee_details/percent_gross">
 						<div class="row">
 							<div class="col-xs-12">
 								<strong>Please include the required signed statement AND at least one of the support documentation to establish that the applicable fee payable is greater than 10% of the anticipated gross revenue from sales of the drug product in Canada during the fee verification period.</strong>
@@ -739,7 +739,7 @@ span.normalWeight {
 							</xsl:choose>
 								</div>
 							</div>
-							<xsl:if test="fee_details/submission_class/fee &lt; 10000 and (fee_details/deferral_request = 'N' or fee_details/fee_remission = 'Y')">
+							<xsl:if test="(fee_details/fee &lt; 10000 and fee_details/deferral_request = 'N') or fee_details/fee_remission = 'Y'">
 							<div class="col-xs-12">
 								<h4>Please select all the payment methods you intend to use</h4>
 							</div>
@@ -1021,7 +1021,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On the RA template: Use existing company ID and dossier ID.
+						On this form: Use existing company ID and dossier ID.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'OWNERSHIP_CHGE' = $value">
@@ -1030,7 +1030,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: Dossier ID will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, contact Health Canada for more information (eReview@canada.ca).
+						Note: Dossier ID will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, contact Health Canada for more information (hc.eReview@canada.ca).
 						<p>On this template: Use company ID for new owner and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
@@ -1040,8 +1040,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new Dossier ID is required if the proposed product(s) are not previously approved (i.e. no dossier ID already exists).  Except in the cases of a replace source cross-licensing. Contact Health Canada for more information (eReview@canada.ca).
-						<p>On the RA template: Use the company ID for new owner (licensee) and and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
+						Note: A new Dossier ID is required if the proposed product(s) were not previously approved (i.e. no dossier ID already exists), except in the case of a replace source cross-licensing. Contact Health Canada for more information (hc.eReview.sc@canada.ca).
+						<p>On this form: Use the company ID for new owner (licensee) and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'PRODUCT_MANUFACT_NAME_CHGE' = $value">
@@ -1050,8 +1050,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: An amended CO XML is required. A new company ID will be issued for the substantive name change.
-						<p>On the RA template: Use new company ID (associated with new manufacturer's name) and existing dossier ID.</p>
+						Note: An amended company enrolment is required. A new company ID will be issued for the substantive name change.
+						<p>On this form: Use new company ID (associated with new manufacturer’s name) and existing dossier ID.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MANUFACT_NAME_CHGE' = $value">
@@ -1060,8 +1060,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: An amended CO XML is required. A new company ID will be issued for the substantive name change.
-						<p>On the RA template: Use new company ID (associated with new manufacturer's name) and existing dossier ID.</p>
+						Note: An amended company enrolment is required. A new company ID will be issued for the substantive name change.
+						<p>On this form: Use new company ID (associated with new manufacturer’s name) and existing dossier ID.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MERGER' = $value">
@@ -1080,7 +1080,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On the RA template: Use existing company ID and dossier ID.
+						On this form: Use existing company ID and dossier ID.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'POSTAUTH_LABEL_CHGE' = $value">
@@ -1089,7 +1089,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On the RA template: Use existing company ID and dossier ID.
+						On this form: Use existing company ID and dossier ID.
 					</div></div>
 			</xsl:when>
 		</xsl:choose>		
@@ -1098,7 +1098,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-07-05-1028.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-07-12-1209.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>

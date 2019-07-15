@@ -885,7 +885,7 @@ span.normalWeight {
 									<ul class="nav nav-tabs">
 										<li onclick="selectedTab(0);" tabindex="0" class="active" id="tab0"><a href="#tabpanel0"><strong>Formulations</strong></a>
 										</li>
-										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Animal / Human Sourced</strong></a>
+										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Human/Animal Sourced Ingredient/Material</strong></a>
 										</li>
 									</ul>
 									<div style="clear:both;"></div>
@@ -1095,7 +1095,7 @@ span.normalWeight {
 																		<strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
 																	</div>
 																	<div class="col-md-6">
-																		<strong>Standard:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
+																		<strong>Standard:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingred_standard"/></span>
 																	</div>
 																	<div class="col-md-6">
 																		<strong>Present in final Container?&#160;</strong>
@@ -1264,7 +1264,7 @@ span.normalWeight {
 														</td>
 														<td class="out"> <table><tr data-detail="true"><td colspan="5">
 															<fieldset>
-																<legend>Human / Animal Sourced Record&#160;<xsl:value-of select="ingredient_id"/></legend>
+																<legend>Ingredient/Material&#160;<xsl:value-of select="ingredient_id"/></legend>
 																<div class="row">
 																	<div class="col-md-12">
 																	<strong>Ingredient or Material Name:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
