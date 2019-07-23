@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xsl:param name="language" select="'eng'"/>
 	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
@@ -455,7 +455,7 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Cette activit&#233; de r&#233;glementation a-t-elle &#233;t&#233; approuv&#233;e aux fins d’examen prioritaire?&#160; </strong>
+								<strong> Cette activité de réglementation a-t-elle été approuvée aux fins d’examen AC-C?&#160; </strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_noc"/></xsl:call-template>
 								</span>
 							</div>
