@@ -390,7 +390,7 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="representative">
 		
-		<div style=""><strong style="width:6em;">Prénom:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/given_name"/></span></div>
+		<div style=""><strong style="width:6em;">Pr&#233;nom:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/given_name"/></span></div>
 		<div style="white-space:nowrap;"><strong style="width:6em;">Initiales:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/initials"/></span></div>
 		<div style=""><strong style="width:6em;">Nom de famille:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/surname"/></span></div>
 		<div style="white-space:nowrap;"><strong style="width:6em;">Titre:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/job_title"/></span></div>
@@ -437,15 +437,15 @@ span.mouseHover:hover {
 		</dt>
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Adresse pour l'annuelle / courrier r&#233;glementaire</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse pour l'annuelle / courrier r&#233;glementaire</span>
 		</dt>
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="billing"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Adresse de facturation</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse de facturation</span>
 		</dt>
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Adresse de courrier canadien</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse de courrier canadien</span>
 		</dt>
 		</dl>
 	</xsl:template>

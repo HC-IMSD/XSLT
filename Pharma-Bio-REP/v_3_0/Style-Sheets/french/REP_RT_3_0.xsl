@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xsl:param name="language" select="'eng'"/>
 	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
@@ -455,7 +455,7 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Cette activité de réglementation a-t-elle été approuvée aux fins d’examen AC-C?&#160; </strong>
+								<strong> Cette activit&#233; de r&#233;glementation a-t-elle &#233;t&#233; approuv&#233;e aux fins d’examen AC-C?&#160; </strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_noc"/></xsl:call-template>
 								</span>
 							</div>
@@ -949,11 +949,11 @@ bruts anticip&#233;s.</span>
 			<xsl:when test=" 'NB' = $value"><xsl:value-of select="'Nouveau Brunswick'"/></xsl:when>
 			<xsl:when test=" 'NL' = $value"><xsl:value-of select="'Terre Neuve et Labrador'"/></xsl:when>
 			<xsl:when test=" 'NT' = $value"><xsl:value-of select="'Territoires du Nord-Ouest'"/></xsl:when>
-			<xsl:when test=" 'NS' = $value"><xsl:value-of select="'Nouvelle Ecosse'"/></xsl:when>
+			<xsl:when test=" 'NS' = $value"><xsl:value-of select="'Nouvelle &#201;cosse'"/></xsl:when>
 			<xsl:when test=" 'NU' = $value"><xsl:value-of select="'Nunavut'"/></xsl:when>
 			<xsl:when test=" 'ON' = $value"><xsl:value-of select="'Ontario'"/></xsl:when>
-			<xsl:when test=" 'PE' = $value"><xsl:value-of select="'Isle du Prince Edouard'"/></xsl:when>
-			<xsl:when test=" 'QC' = $value"><xsl:value-of select="'Quebec'"/></xsl:when>
+			<xsl:when test=" 'PE' = $value"><xsl:value-of select="'Isle du Prince &#201;douard'"/></xsl:when>
+			<xsl:when test=" 'QC' = $value"><xsl:value-of select="'Qu&#233;bec'"/></xsl:when>
 			<xsl:when test=" 'SK' = $value"><xsl:value-of select="'Saskatchewan'"/></xsl:when>
 			<xsl:when test=" 'YT' = $value"><xsl:value-of select="'Yukon'"/></xsl:when>
 			<xsl:when test=" 'AL' = $value"><xsl:value-of select="'Alabama'"/></xsl:when>
