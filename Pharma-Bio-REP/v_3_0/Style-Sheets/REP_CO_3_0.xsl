@@ -353,7 +353,7 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="contactBy">
 		<div class="oneLine">
-			<div style="white-space:nowrap;"><strong style="width:15em;">Language of Correspondance:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/language_correspondance"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:15em;">Language of Correspondence:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/language_correspondance"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Phone:</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">ext:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
