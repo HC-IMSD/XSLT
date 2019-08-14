@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xsl:param name="language" select="fre"/>
-		<xsl:variable name="smallcase" select="abcdefghijklmnopqrstuvwxyz" />
-		<xsl:variable name="uppercase" select="ABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+	<xsl:param name="language" select="&#39;eng&#39;"/>
+		<xsl:variable name="smallcase" select="&#39;abcdefghijklmnopqrstuvwxyz&#39;" />
+		<xsl:variable name="uppercase" select="&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;" />
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -493,59 +493,59 @@ span.normalWeight {
 				<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 				<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
 				<script type="text/javascript">
-					var myTables = {'formulation': [{'class':'.table-ingredients', 'sortCols':[[1,'asc'],[3,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
-													{'class':'.table-container', 'sortCols':[[1,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
-													{'class':'.table-container-details', 'sortCols':[[1,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]}],
-									'appendix': [{'class':'.table-tissues','sortCols':[[0,'asc']], 'columnDefs':[]},
-												 {'class':'.table-animal','sortCols':[[0,'asc']], 'columnDefs':[]}
+					var myTables = {&#39;formulation&#39;: [{&#39;class&#39;:&#39;.table-ingredients&#39;, &#39;sortCols&#39;:[[1,&#39;asc&#39;],[3,&#39;asc&#39;]], &#39;columnDefs&#39;:[{ "orderable": false, "targets": [0] }]},
+													{&#39;class&#39;:&#39;.table-container&#39;, &#39;sortCols&#39;:[[1,&#39;asc&#39;]], &#39;columnDefs&#39;:[{ "orderable": false, "targets": [0] }]},
+													{&#39;class&#39;:&#39;.table-container-details&#39;, &#39;sortCols&#39;:[[1,&#39;asc&#39;]], &#39;columnDefs&#39;:[{ "orderable": false, "targets": [0] }]}],
+									&#39;appendix&#39;: [{&#39;class&#39;:&#39;.table-tissues&#39;,&#39;sortCols&#39;:[[0,&#39;asc&#39;]], &#39;columnDefs&#39;:[]},
+												 {&#39;class&#39;:&#39;.table-animal&#39;,&#39;sortCols&#39;:[[0,&#39;asc&#39;]], &#39;columnDefs&#39;:[]}
 									],
-									'importer':[]
+									&#39;importer&#39;:[]
 									};
 
 					function selectedTab(tab){
 						$("ul.nav.nav-tabs li").each(function(index){
 							if(tab == index){
-								$(this).addClass('active');
+								$(this).addClass(&#39;active&#39;);
 							} else {
-								$(this).removeClass('active');
+								$(this).removeClass(&#39;active&#39;);
 							}
 						});
 						$(".tabpanels").children().each(function(index){
 							if(tab == index){
-								this.style.setProperty( 'display', 'block', 'important' );
-								var table = $(this).find('.table-appendix');
+								this.style.setProperty( &#39;display&#39;, &#39;block&#39;, &#39;important&#39; );
+								var table = $(this).find(&#39;.table-appendix&#39;);
 								if(table.length > 0){
-									var th = $(table).find('th')[0];
-									$(th).css('width', 12);
+									var th = $(table).find(&#39;th&#39;)[0];
+									$(th).css(&#39;width&#39;, 12);
 								}
 							} else {
-								this.style.setProperty( 'display', 'none', 'important' );
+								this.style.setProperty( &#39;display&#39;, &#39;none&#39;, &#39;important&#39; );
 							}
 						});
 					}
 					function showDetail(e, colspan, initChild, tables){
-						var next = $(e).closest('tr').next();
-						var hasDetail = $(next).attr('data-detail');
+						var next = $(e).closest(&#39;tr&#39;).next();
+						var hasDetail = $(next).attr(&#39;data-detail&#39;);
 						if( hasDetail ){
 							$(next).remove();
 							var child =$(e).find(".fa-caret-down");
-							child.removeClass('fa-caret-down');
-							child.addClass('fa-caret-right');
+							child.removeClass(&#39;fa-caret-down&#39;);
+							child.addClass(&#39;fa-caret-right&#39;);
 						} else {
 							var value = $(e).children()[$(e).children().length - 1].innerHTML;
 							var $nodeTbl = $(value);
-							var $nodeTr = $nodeTbl.find('tr')[0];
-							$(e).closest('tr').after($nodeTr);
-							var nodeTd = $(e).closest('tr').next().children()[0];
+							var $nodeTr = $nodeTbl.find(&#39;tr&#39;)[0];
+							$(e).closest(&#39;tr&#39;).after($nodeTr);
+							var nodeTd = $(e).closest(&#39;tr&#39;).next().children()[0];
 							if(initChild){
 								$.each(tables, function(index, e){
-									var nodeTable = $(nodeTd).find(e['class']);
-									initSubtable(nodeTable, e['sortCols'], e['columnDefs']);
+									var nodeTable = $(nodeTd).find(e[&#39;class&#39;]);
+									initSubtable(nodeTable, e[&#39;sortCols&#39;], e[&#39;columnDefs&#39;]);
 								});
 							}
-							var child =$(e).closest('tr').children().first();
-							$(child).removeClass('fa-caret-right');
-							$(child).addClass('fa-caret-down');
+							var child =$(e).closest(&#39;tr&#39;).children().first();
+							$(child).removeClass(&#39;fa-caret-right&#39;);
+							$(child).addClass(&#39;fa-caret-down&#39;);
 						}
 					};
 					function initSubtable(node, sortCols, columnDefs){
@@ -566,7 +566,7 @@ span.normalWeight {
 			"ordering": true,
 			"searching": false,
 			"columnDefs": [
-				{ 'orderable': false, "targets": [0] }
+				{ &#39;orderable&#39;: false, "targets": [0] }
 			]
 		});
 		$(".table-formulation").dataTable({
@@ -586,8 +586,8 @@ span.normalWeight {
 			"ordering": true,
 			"searching": false,
 			"columnDefs": [
-				{ "orderable": false, 'width': '2%', "targets": [0] },
-				{ 'width': '15%', "targets": [2] },{ 'width': '10%', "targets": [3,4] },{ 'width': '0', "targets": [5] }
+				{ "orderable": false, &#39;width&#39;: &#39;2%&#39;, "targets": [0] },
+				{ &#39;width&#39;: &#39;15%&#39;, "targets": [2] },{ &#39;width&#39;: &#39;10%&#39;, "targets": [3,4] },{ &#39;width&#39;: &#39;0&#39;, "targets": [5] }
 			]
 		}); 
 	});
@@ -600,11 +600,11 @@ span.normalWeight {
 		</html>
 	</xsl:template>
 	<xsl:template match="DRUG_PRODUCT_ENROL">
-		<h1>Mod&#232;le d'information sure le produit: Processus d'inscription r&#233;glementaire (PIR)</h1>
+		<h1>Mod&#232;le d&#39;information sure le produit: Processus d&#39;inscription r&#233;glementaire (PIR)</h1>
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
-					<th style="text-align: center;font-weight:bold;">ID d'entreprise</th>
+					<th style="text-align: center;font-weight:bold;">ID d&#39;entreprise</th>
 					<th style="text-align: center;font-weight:bold;">ID de dossier</th>
 					<th style="text-align: center;font-weight:bold;">Date de la derni&#232;re enregistrement</th>
 				</tr>
@@ -641,26 +641,26 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l'avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
+								<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l&#39;avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
 							</div>
 							<xsl:choose>
-							<xsl:when test="manufacturer = 'Y' or mailing = 'Y' or this_activity = 'Y' or importer = 'Y'">
-								<xsl:if test="manufacturer = 'Y'">
+							<xsl:when test="manufacturer = &#39;Y&#39; or mailing = &#39;Y&#39; or this_activity = &#39;Y&#39; or importer = &#39;Y&#39;">
+								<xsl:if test="manufacturer = &#39;Y&#39;">
 									<div class="col-xs-12">
 									<span style="margin-left:40px;" class="mouseHover">Fabricant / Promoteur</span>
 									</div>
 								</xsl:if>
-								<xsl:if test="mailing = 'Y'">
+								<xsl:if test="mailing = &#39;Y&#39;">
 									<div class="col-xs-12">
 									<span style="margin-left:40px;" class="mouseHover">Courrier r&#233;glementaire / contact annuel</span>
 									</div>
 								</xsl:if>
-								<xsl:if test="this_activity = 'Y'">
+								<xsl:if test="this_activity = &#39;Y&#39;">
 									<div class="col-xs-12">
 									<span style="margin-left:40px;" class="mouseHover">Personne-ressource pour cette activit&#233; r&#233;glementaire</span>
 									</div>
 								</xsl:if>
-								<xsl:if test="importer = 'Y'">
+								<xsl:if test="importer = &#39;Y&#39;">
 									<div class="col-xs-12">
 									<span style="margin-left:40px;" class="mouseHover">Importateur canadien</span>
 									</div>
@@ -683,15 +683,14 @@ span.normalWeight {
 								<thead>
 								<tr>
 									<th style="width:15px;"></th>
-									<th ><strong>ID d'entreprise de l'importateur</strong></th>
-									<th style="width:70%;"><strong>Nom d'entreprise de l'importateur</strong></th>
+									<th ><strong>ID d&#39;entreprise de l&#39;importateur</strong></th>
+									<th style="width:70%;"><strong>Nom d&#39;entreprise de l&#39;importateur</strong></th>
 									<th class="out">Hidden</th>
 								</tr>
 								</thead>
 								<tbody>
-								<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 								<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
-								<tr onclick="showDetail(this, '3', false, myTables['importer']);">
+								<tr onclick="showDetail(this, &#39;3&#39;, false, myTables[&#39;importer&#39;]);">
 									<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
 									<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
@@ -704,11 +703,11 @@ span.normalWeight {
 														<div class="well well-sm">
 															<div class="row">
 															<div class="form-group col-md-12">
-																<strong>ID d'entreprise de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
+																<strong>ID d&#39;entreprise de l&#39;importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
 															</div>
 															</div>
 															<div class="row">
-															<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong></div>
+															<div class="form-group col-md-12"><strong>Nom d&#39;entreprise de l&#39;importateur: &#160;</strong></div>
 															<div class="form-group col-md-12"><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
 															</div>
 															<div class="row">
@@ -722,7 +721,7 @@ span.normalWeight {
 															<div class="row">
 															<div class="form-group col-md-6"><strong>Province: &#160;</strong>
 																<xsl:choose>
-																<xsl:when test="(country/@id = 'CAN') or (country/@id = 'USA')">
+																<xsl:when test="(country/@id = &#39;CAN&#39;) or (country/@id = &#39;USA&#39;)">
 																	<xsl:value-of select="province_lov"/>
 																</xsl:when>
 																<xsl:otherwise>
@@ -742,7 +741,6 @@ span.normalWeight {
 									</td>
 								</tr>
 								</xsl:for-each>
-								</xsl:if>
 								</tbody>
 							</table>
 						</div>
@@ -756,7 +754,7 @@ span.normalWeight {
 								
 							</div>
 						</div>
-						<xsl:if test="drug_use/@id = 'DISINFECT'">
+						<xsl:if test="drug_use/@id = &#39;DISINFECT&#39;">
 							<div class="row">
 								<div class="col-xs-12">
 								<div class="col-xs-12">
@@ -767,7 +765,7 @@ span.normalWeight {
 							<div class="row">
 							<div class="col-xs-12">
 							<xsl:for-each select="disinfectant_type/*">
-								<xsl:if test=" current() = 'Y'">
+								<xsl:if test=" current() = &#39;Y&#39;">
 										<div class="col-xs-12">
 										<div class="col-xs-12">
 											<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
@@ -780,52 +778,52 @@ span.normalWeight {
 						</xsl:if>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong>Statut sur l'annexe et prescription (s&#233;lectionner tout ce qui s'applique): le produit est</strong>
+								<strong>Statut sur l&#39;annexe et prescription (s&#233;lectionner tout ce qui s&#39;applique): le produit est</strong>
 							</div>
 							<xsl:choose>
-							<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
-								<xsl:if test="is_sched_c = 'Y'">
+							<xsl:when test=" is_sched_c =&#39;Y&#39; or is_sched_d = &#39;Y&#39; or is_prescription_drug_list = &#39;Y&#39; or is_prescription_drug_list = &#39;Y&#39; or is_regulated_cdsa = &#39;Y&#39; or is_non_prescription_drug = &#39;Y&#39; or is_sched_a = &#39;Y&#39;">
+								<xsl:if test="is_sched_c = &#39;Y&#39;">
 								<div class="col-xs-12">
-									<span style="margin-left:45px;" class="mouseHover">dans l'annexe C (produits radiopharmaceutiques) de la Loi sur les aliments et drogues</span>
+									<span style="margin-left:45px;" class="mouseHover">dans l&#39;annexe C (produits radiopharmaceutiques) de la Loi sur les aliments et drogues</span>
 								</div>
 								</xsl:if>
-								<xsl:if test="is_sched_d = 'Y'">
+								<xsl:if test="is_sched_d = &#39;Y&#39;">
 								<div class="col-xs-12">
-									<span style="margin-left:45px;" class="mouseHover">figurant &#224; l'annexe D (produits biologiques) de la Loi sur les aliments et drogues</span>
+									<span style="margin-left:45px;" class="mouseHover">figurant &#224; l&#39;annexe D (produits biologiques) de la Loi sur les aliments et drogues</span>
 								</div>
 								</xsl:if>
-								<xsl:if test="is_prescription_drug_list = 'Y'">
+								<xsl:if test="is_prescription_drug_list = &#39;Y&#39;">
 								<div class="col-xs-12">
 									<span style="margin-left:45px;" class="mouseHover">sur la liste des m&#233;dicaments sur ordonnance</span>
 								</div>
 								</xsl:if>
-								<xsl:if test="is_regulated_cdsa = 'Y'">
+								<xsl:if test="is_regulated_cdsa = &#39;Y&#39;">
 								<div class="col-xs-12">
 									<span style="margin-left:45px;" class="mouseHover">r&#233;glement&#233; en vertu de la Loi r&#233;glementant certaines drogues et autres substances</span>
 								</div>
 								</xsl:if>
-								<xsl:if test="is_non_prescription_drug = 'Y'">
+								<xsl:if test="is_non_prescription_drug = &#39;Y&#39;">
 								<div class="col-xs-12">
 									<span style="margin-left:45px;" class="mouseHover">un m&#233;dicament sans ordonnance</span>
 								</div>
 								</xsl:if>
-								<xsl:if test="is_sched_a = 'Y'">
+								<xsl:if test="is_sched_a = &#39;Y&#39;">
 								<div class="col-xs-12">
-									<span style="margin-left:45px;" class="mouseHover">un m&#233;dicament sans ordonnance auquel une ou plusieurs des r&#233;clamations de l'Annexe A s'appliquent</span>
+									<span style="margin-left:45px;" class="mouseHover">un m&#233;dicament sans ordonnance auquel une ou plusieurs des r&#233;clamations de l&#39;Annexe A s&#39;appliquent</span>
 								</div>
-								<xsl:if test="is_sched_a = 'Y'">
+								<xsl:if test="is_sched_a = &#39;Y&#39;">
 
 								<div class="row">
 								<div class="col-xs-11" style="margin-left:60px;">
 									<strong>Annexe A d&#233;tails des all&#233;gations</strong>
 									<div class="panel panel-body" style="border: 1px solid black;">
 										<div class="row">
-											<div class="col-xs-12">Fournissez les informations ci-dessous pour les produits sans ordonnance qui ont associ&#233; des revendications de l'annexe A seulement.</div>
+											<div class="col-xs-12">Fournissez les informations ci-dessous pour les produits sans ordonnance qui ont associ&#233; des revendications de l&#39;annexe A seulement.</div>
 										</div>
 										<div class="row">
 										<div class="col-xs-12">
 										<div class="col-xs-12">
-										<strong>Num&#233;ro d'identification du m&#233;dicament (DIN), si existant</strong>
+										<strong>Num&#233;ro d&#39;identification du m&#233;dicament (DIN), si existant</strong>
 											:&#160;&#160;<span class="mouseHover"><xsl:value-of select="schedule_a_group/din_number"/></span>
 										</div>
 										</div>
@@ -840,7 +838,7 @@ span.normalWeight {
 										<div class="row">
 											<div class="col-xs-12">
 													<xsl:for-each select="schedule_a_group/*">
-													<xsl:if test="current() = 'Y'">
+													<xsl:if test="current() = &#39;Y&#39;">
 													<div class="col-xs-12">
 													<div class="col-xs-12">
 														<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
@@ -851,7 +849,7 @@ span.normalWeight {
 											</div>
 										</div>
 										<div class="col-xs-12">
-											<strong>Indiquer les all&#233;gations/indications de l'annexe A associ&#233;es avec ce produit</strong>
+											<strong>Indiquer les all&#233;gations/indications de l&#39;annexe A associ&#233;es avec ce produit</strong>
 											<div class="row">
 												<div class="col-xs-12">
 													<span class="mouseHover"><xsl:value-of select="schedule_a_group/sched_a_claims_ind_details"/></span>
@@ -887,7 +885,7 @@ span.normalWeight {
 									<ul class="nav nav-tabs">
 										<li onclick="selectedTab(0);" tabindex="0" class="active" id="tab0"><a href="#tabpanel0"><strong>Formulations</strong></a>
 										</li>
-										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Ingr&#233;dient ou mat&#233;riel source humaine ou d'animale</strong></a>
+										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Ingr&#233;dient ou mat&#233;riel source humaine ou d&#39;animale</strong></a>
 										</li>
 									</ul>
 									<div style="clear:both;"></div>
@@ -905,7 +903,7 @@ span.normalWeight {
 											</thead>
 											<tbody>
 												<xsl:for-each select="formulation_group/formulation_details">
-													<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
+													<tr onclick="showDetail(this, &#39;4&#39;, true, myTables[&#39;formulation&#39;]);">
 														<td class="fa fa-caret-right fa-lg fa-fw"></td>
 														<td><xsl:value-of select="formulation_id"/></td>
 														<td><xsl:value-of select="formulation_name"/></td>
@@ -951,18 +949,18 @@ span.normalWeight {
 																							</thead>
 								<tbody>
 																								<xsl:for-each select="formulation_ingredient">
-																								<tr onclick="showDetail(this, '10', false, null);">
+																								<tr onclick="showDetail(this, &#39;10&#39;, false, null);">
 																									<td class="fa fa-caret-right fa-lg fa-fw"></td>
 																									<td><xsl:value-of select="ingredient_id"/></td>
 																									<td><xsl:value-of select="ingredient_role"/></td>
 																									<td><xsl:value-of select="variant_name"/></td>
 																									<td><xsl:value-of select="ingredient_name"/></td>
-																									<td><xsl:choose><xsl:when test="strength/operator/@id = 'NGT'">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = 'NLT'">&gt;&#160;</xsl:when></xsl:choose>
-																									<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != ''">&#160;<strong>&#224;</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
-																										&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units"/></xsl:otherwise></xsl:choose></td>
-																									<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
+																									<td><xsl:choose><xsl:when test="strength/operator/@id = &#39;NGT&#39;">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = &#39;NLT&#39;">&gt;&#160;</xsl:when></xsl:choose>
+																									<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != &#39;&#39;">&#160;<strong>&#224;</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
+																										&#160;<xsl:choose><xsl:when test="units_other = &#39;&#39;"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units"/></xsl:otherwise></xsl:choose></td>
+																									<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = &#39;&#39;"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
 																									<td><xsl:value-of select="is_base_calc"/></td>
-																									<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
+																									<td><xsl:choose><xsl:when test="nanomaterial_details = &#39;&#39;"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
 																									<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
 																									<td class="out"><table><tr data-detail="true"><td colspan="10">
 																										<fieldset>
@@ -972,7 +970,7 @@ span.normalWeight {
 																												<strong>R&#244;le:&#160;</strong>
 																												<span class="mouseHover"><xsl:value-of select="ingredient_role"/></span>
 																												</div>
-																												<xsl:if test="ingredient_role/@id = 'NONMED'">
+																												<xsl:if test="ingredient_role/@id = &#39;NONMED&#39;">
 																													<div class="col-md-6">
 																													<strong>Nom de la variante du formulation:&#160;</strong><span class="mouseHover"><xsl:value-of select="variant_name"/></span>
 																													</div>
@@ -981,7 +979,7 @@ span.normalWeight {
 																													</div>
 																												</xsl:if>
 																												<div class="col-md-6">
-																												<strong>Nom de l'ingr&#233;dient:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
+																												<strong>Nom de l&#39;ingr&#233;dient:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
 																												</div>
 																											</div>
 																											<div class="row">
@@ -991,16 +989,16 @@ span.normalWeight {
 																											<div class="row">
 																												<div class="col-md-6"><strong>Concentration:&#160;</strong>
 																												<span class="mouseHover"><xsl:value-of select="./strength/operator"/></span>&#160;
-																												<xsl:if test="strength/operator/@id = 'RA'">
+																												<xsl:if test="strength/operator/@id = &#39;RA&#39;">
 																													<span class="mouseHover"><strong>Limite inf&#233;rieure</strong></span>:&#160;
 																												</xsl:if>
 																												<span  class="mouseHover"><xsl:value-of select="strength/data1"/></span>&#160;
-																												<xsl:if test="strength/operator/@id = 'RA'">&#160;&#160;
+																												<xsl:if test="strength/operator/@id = &#39;RA&#39;">&#160;&#160;
 																													<span class="mouseHover"><strong>Limite sup&#233;rieure</strong></span>:&#160;
 																													<span class="mouseHover"><xsl:value-of select="strength/data2"/></span>&#160;
 																												</xsl:if>
 																												<xsl:choose>
-																												<xsl:when test="units_other != 'null' and units_other != ''">
+																												<xsl:when test="units_other != &#39;null&#39; and units_other != &#39;&#39;">
 																													<span class="mouseHover"><xsl:value-of select="units_other"/></span>
 																												</xsl:when>
 																												<xsl:otherwise>
@@ -1016,7 +1014,7 @@ span.normalWeight {
 																													<strong>Per</strong>&#160; <span class="mouseHover"><xsl:value-of select="per"/></span>&#160;
 																													<span class="mouseHover"><xsl:value-of select="per_value"/></span>&#160;
 																													<xsl:choose>
-																													<xsl:when test="per_units_other_details != 'null' and per_units_other_details != ''">
+																													<xsl:when test="per_units_other_details != &#39;null&#39; and per_units_other_details != &#39;&#39;">
 																															<span class="mouseHover"><xsl:value-of select="per_units_other_details"/></span>
 																													</xsl:when>
 																													<xsl:otherwise>
@@ -1025,7 +1023,7 @@ span.normalWeight {
 																													</xsl:choose>
 																		
 																												</div>
-																												<xsl:if test="is_base_calc != ''">
+																												<xsl:if test="is_base_calc != &#39;&#39;">
 																												<div class="col-md-12"><strong>Calcul&#233; comme based?&#160;</strong>
 																													<span class="mouseHover"><xsl:value-of select="is_base_calc"/></span>
 																												</div>
@@ -1035,15 +1033,15 @@ span.normalWeight {
 																												<div class="col-md-6"><strong>Est-ce un nanomat&#233;riau?&#160;</strong>
 																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_nanomaterial"/></xsl:call-template></span>
 																												</div>
-																												<div class="col-md-6"><strong>Source d'animale ou humaine?&#160;</strong>
+																												<div class="col-md-6"><strong>Source d&#39;animale ou humaine?&#160;</strong>
 																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></span>
 																												</div>
 																											</div>
-																											<xsl:if test="is_nanomaterial = 'Y'">
+																											<xsl:if test="is_nanomaterial = &#39;Y&#39;">
 																											<div class="row">
 																												<div class="col-md-12"><strong>Nanomat&#233;riau:&#160;</strong>
 																													<span class="mouseHover"><xsl:value-of select="nanomaterial"/></span>
-																													<xsl:if test="nanomaterial_details != 'null' and nanomaterial_details != ''">&#160;&#160;
+																													<xsl:if test="nanomaterial_details != &#39;null&#39; and nanomaterial_details != &#39;&#39;">&#160;&#160;
 																														<strong>Indiquer le type de nanomat&#233;riau:&#160;</strong>
 																														<span class="mouseHover"><xsl:value-of select="nanomaterial_details"/></span>
 																													</xsl:if>
@@ -1063,9 +1061,9 @@ span.normalWeight {
 																				</div>
 																				<div class="row">
 																				<div class="form-group col-md-12">
-																				<strong>D.&#160; Est-ce un mat&#233;riel(aux) de source humaine et/ou animale &#233;tait utilis&#233;(s) &#224; l'une ou l'autre &#233;tape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
+																				<strong>D.&#160; Est-ce un mat&#233;riel(aux) de source humaine et/ou animale &#233;tait utilis&#233;(s) &#224; l&#39;une ou l&#39;autre &#233;tape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
 																				</div>
-																			<xsl:if test="is_animal_human_material = 'Y'">
+																			<xsl:if test="is_animal_human_material = &#39;Y&#39;">
 																			<div class="col-md-12">
 																				<table class="table table-bordered table-hover table-condensed table-striped table-container" id="expand-table-142">
 																				<thead>
@@ -1079,14 +1077,14 @@ span.normalWeight {
 																				</thead>
 																				<tbody>
 																					<xsl:for-each select="material_ingredient">
-																						<tr onclick="showDetail(this, '4', false, null);">
+																						<tr onclick="showDetail(this, &#39;4&#39;, false, null);">
 																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
 																							<td><xsl:value-of select="./ingredient_name"/></td>
 																							<td><xsl:value-of select="./cas_number"/></td>
 																							<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
 																							<td class="out"><table><tr data-detail="true"><td colspan="4">
 																								<fieldset>
-																<legend>D&#233;tail de mat&#233;riaux de source d'animale et/ou humaine&#160;<xsl:value-of select="position()"/></legend>
+																<legend>D&#233;tail de mat&#233;riaux de source d&#39;animale et/ou humaine&#160;<xsl:value-of select="position()"/></legend>
 																<div class="row">
 																	<div class="col-md-6">
 																	<strong>Nom du mat&#233;riel:&#160;<span class="normalWeight mouseHover"><xsl:value-of select="./ingredient_name"/></span></strong>
@@ -1118,7 +1116,7 @@ span.normalWeight {
 																				<div class="row">
 																				<div class="form-group col-md-12">
 																				<br/>
-																				<strong>E.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
+																				<strong>E.&#160;Type de contenant, capacit&#233; de l&#39;emballage et dur&#233;e de vie </strong>
 																				</div>
 																			<div class="col-md-12">
 																				<table class="table table-bordered table-hover table-condensed table-striped table-container-details" id="expand-table-143">
@@ -1126,7 +1124,7 @@ span.normalWeight {
 																					<tr>
 																						<th style="width:2%"></th>
 																						<th>Type de contenant</th>
-																						<th>Capacit&#233; de l'emballage</th>
+																						<th>Capacit&#233; de l&#39;emballage</th>
 																						<th>Dur&#233;e de vie</th>
 																						<th>&#233;cart de temp&#233;rature (Celsius)</th>
 																						<th class="out">Hidden</th>
@@ -1134,7 +1132,7 @@ span.normalWeight {
 																				</thead>
 																				<tbody>
 																					<xsl:for-each select="container_group/container_details">
-																						<tr onclick="showDetail(this, '3', false, null);">
+																						<tr onclick="showDetail(this, &#39;3&#39;, false, null);">
 																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
 																							<td><xsl:value-of select="container_type"/></td>
 																							<td><xsl:value-of select="package_size"/></td>
@@ -1150,7 +1148,7 @@ span.normalWeight {
 																</div>
 																<div class="row">
 																	<div class="col-md-12">
-																	<strong>Capacit&#233; de l'emballage:&#160;</strong><span class="normalWeight mouseHover"><xsl:value-of select="package_size"/></span>
+																	<strong>Capacit&#233; de l&#39;emballage:&#160;</strong><span class="normalWeight mouseHover"><xsl:value-of select="package_size"/></span>
 																	</div>
 																</div>
 																<div class="row">
@@ -1188,14 +1186,14 @@ span.normalWeight {
 																				<div class="row">
 																				<div class="form-group col-md-12">
 																				<br/>
-																				<strong>F.&#160;Voie d'administration</strong>
+																				<strong>F.&#160;Voie d&#39;administration</strong>
 																				</div>
 																				<div class="col-md-12">
 																				<div class="col-xs-11">
 																					<ol>
 																					<xsl:for-each select="roa_group/roa_details">
 																						<li><xsl:value-of select="roa"/>
-																							<xsl:if test="roa_other != ''">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
+																							<xsl:if test="roa_other != &#39;&#39;">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
 																						</li>
 																					</xsl:for-each>
 																					</ol>
@@ -1243,10 +1241,10 @@ span.normalWeight {
 											</thead>
 											<tbody>
 												<xsl:for-each select="appendix4_group">
-													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
+													<tr onclick="showDetail(this, &#39;2&#39;, true, myTables[&#39;appendix&#39;])">
 														<td class="fa fa-caret-right fa-lg fa-fw"></td>
 														<td><xsl:value-of select="ingredient_name"/></td>
-														<td><xsl:if test="human_sourced = 'Y'">Humaine</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animale</xsl:if></td>
+														<td><xsl:if test="human_sourced = &#39;Y&#39;">Humaine</xsl:if><xsl:if test="human_sourced = &#39;Y&#39; and animal_sourced = &#39;Y&#39;"><br/></xsl:if><xsl:if test="animal_sourced = &#39;Y&#39;">Animale</xsl:if></td>
 														<td>
 															<xsl:for-each select="tissues_fluids_section/*">
 																<xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template>
@@ -1255,9 +1253,9 @@ span.normalWeight {
 														<td>
 															<xsl:for-each select="tissues_fluids_section/*">
 																<xsl:for-each select="./*">
-																<xsl:if test=" . = 'Y'">
+																<xsl:if test=" . = &#39;Y&#39;">
 																	<xsl:variable name="temp" select="name(.)"/>
-																	<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+																	<xsl:if test="$temp != &#39;other_nervous_details&#39; and $temp != &#39;other_digestive_details&#39; and $temp != &#39;other_musculo_skeletal_details&#39; and $temp != &#39;other_reproductive_details&#39; and $temp != &#39;other_cardio_respiratory_details&#39; and $temp != &#39;other_immune_details&#39; and $temp != &#39;other_skin_glandular_details&#39; and $temp != &#39;other_fluids_tissues_details&#39;">
 																		<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
 																	</xsl:if>
 																</xsl:if>
@@ -1266,28 +1264,28 @@ span.normalWeight {
 														</td>
 														<td class="out"> <table><tr data-detail="true"><td colspan="5">
 															<fieldset>
-																<legend>L'ingr&#233;dient ou mat&#233;riel&#160;<xsl:value-of select="ingredient_id"/></legend>
+																<legend>L&#39;ingr&#233;dient ou mat&#233;riel&#160;<xsl:value-of select="ingredient_id"/></legend>
 																<div class="row">
 																	<div class="col-md-12">
-																	<strong>Nom de l'ingr&#233;dient ou mat&#233;riel:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
+																	<strong>Nom de l&#39;ingr&#233;dient ou mat&#233;riel:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
 																	</div>
 																</div>
 																<div class="row">
 																	<div class="col-md-12">
 																		<strong>Source de:&#160;</strong>
-																	<xsl:if test="human_sourced = 'Y'">
+																	<xsl:if test="human_sourced = &#39;Y&#39;">
 																	<div class="col-md-12">
 																		<span class="mouseHover" style="margin-left:45px;">Human</span>
 																	</div>
 																	</xsl:if>
-																	<xsl:if test="animal_sourced = 'Y'">
+																	<xsl:if test="animal_sourced = &#39;Y&#39;">
 																	<div class="col-md-12">
 																		<span class="mouseHover" style="margin-left:45px;">Animal</span>
 																	</div>
 																	</xsl:if>
 																	</div>
 																</div>
-																<xsl:if test=" ./human_sourced = 'Y' or ./animal_sourced = 'Y'">
+																<xsl:if test=" ./human_sourced = &#39;Y&#39; or ./animal_sourced = &#39;Y&#39;">
 																<div class="row">
 																	<div class="panel-default" style="margin-left:10px; margin-right:10px;">
 																		<header><h3 style="font-weight:300; padding-left:5px">Origine des tissus ou fluides</h3></header>
@@ -1307,9 +1305,9 @@ span.normalWeight {
 																							<td>
 																								<xsl:for-each select="*">
 																									<span class="mouseHover">
-																									<xsl:if test=" . = 'Y'">
+																									<xsl:if test=" . = &#39;Y&#39;">
 																										<xsl:variable name="temp" select="name(.)"/>
-																										<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+																										<xsl:if test="$temp != &#39;other_nervous_details&#39; and $temp != &#39;other_digestive_details&#39; and $temp != &#39;other_musculo_skeletal_details&#39; and $temp != &#39;other_reproductive_details&#39; and $temp != &#39;other_cardio_respiratory_details&#39; and $temp != &#39;other_immune_details&#39; and $temp != &#39;other_skin_glandular_details&#39; and $temp != &#39;other_fluids_tissues_details&#39;">
 																											<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
 																										</xsl:if>
 																									</xsl:if>
@@ -1322,13 +1320,13 @@ span.normalWeight {
 																				</tbody>
 																				</table>
 																		</div>
-																		<xsl:if test="animal_sourced = 'Y'">
-																			<header><h3 style="font-weight:300; padding-left:5px">Sources d'animales</h3></header>
+																		<xsl:if test="animal_sourced = &#39;Y&#39;">
+																			<header><h3 style="font-weight:300; padding-left:5px">Sources d&#39;animales</h3></header>
 																			<div class="panel-body">
 																			<table class="table table-bordered table-hover table-condensed table-striped table-animal">
 																			<thead>
-																					<th style="background-color:white !important;"><strong>Type d'animal</strong></th>
-																					<th style="background-color:white !important;"><strong>D&#233;tails du type d'animal</strong></th>
+																					<th style="background-color:white !important;"><strong>Type d&#39;animal</strong></th>
+																					<th style="background-color:white !important;"><strong>D&#233;tails du type d&#39;animal</strong></th>
 																			</thead>
 																			<tbody>
 																				<xsl:for-each select="animal_sourced_section/animal_src_record">
@@ -1341,12 +1339,12 @@ span.normalWeight {
 																			</table>
 																			<div class="row"><br/>
 																			  <div class="col-md-3">
-																			  	<strong>L'&#226;ge des animaux est-il connu?&#160;</strong>
+																			  	<strong>L&#39;&#226;ge des animaux est-il connu?&#160;</strong>
 																				<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_animal_age_known"/></xsl:call-template></span>
 																			  </div>
 																			  <div class="col-md-3">
-																			  	<xsl:if test="animal_sourced_section/is_animal_age_known = 'Y'">
-																			  	<strong>L'&#226;ge des animaux en mois:&#160;</strong><span class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span>
+																			  	<xsl:if test="animal_sourced_section/is_animal_age_known = &#39;Y&#39;">
+																			  	<strong>L&#39;&#226;ge des animaux en mois:&#160;</strong><span class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span>
 																				</xsl:if>&#160;
 																			  </div>
 																			  <div class="col-md-6">
@@ -1362,13 +1360,13 @@ span.normalWeight {
 																			  </div><br/>
 																			</div>
 																			<div class="row"><br/></div>
-																			<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Pays d'origines des animaux</h3></header></div>
+																			<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Pays d&#39;origines des animaux</h3></header></div>
 																			<div class="col-xs-12">
 																				<div class="col-xs-10">
 																					<ol>
 																				<xsl:for-each select="animal_sourced_section/country_origin_list/country_origin">
 																					<li><xsl:value-of select="country_with_unknown"/>
-																						<xsl:if test="unknown_country_details != ''">:&#160;<xsl:value-of select="unknown_country_details"/></xsl:if>
+																						<xsl:if test="unknown_country_details != &#39;&#39;">:&#160;<xsl:value-of select="unknown_country_details"/></xsl:if>
 																					</li>
 																				</xsl:for-each>
 																					</ol>
@@ -1404,14 +1402,14 @@ span.normalWeight {
 	<xsl:template name="YesNoUnknow">
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
-		<xsl:when test="$value ='Y'">
-			<xsl:value-of select="'Yes'"/>
+		<xsl:when test="$value = &#39;Y&#39;">
+			<xsl:value-of select="&#39;Yes&#39;"/>
 		</xsl:when>
-		<xsl:when test="$value = 'N'">
-			<xsl:value-of select="'No'"/>
+		<xsl:when test="$value = &#39;N&#39;">
+			<xsl:value-of select="&#39;No&#39;"/>
 		</xsl:when>
 		<xsl:otherwise>
-			<xsl:value-of select="'UNKNOWN'"/>
+			<xsl:value-of select="&#39;UNKNOWN&#39;"/>
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -1423,147 +1421,147 @@ span.normalWeight {
 	<xsl:template name="converter">
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
-			<xsl:when test=" 'en' = $value">
-				<xsl:value-of select="'English'"/>
+			<xsl:when test=" &#39;en&#39; = $value">
+				<xsl:value-of select="&#39;English&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'fr' = $value">
-				<xsl:value-of select="'French'"/>
+			<xsl:when test=" &#39;fr&#39; = $value">
+				<xsl:value-of select="&#39;French&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'SALUT_MR' = $value">
-				<xsl:value-of select="'Mr.'"/>
+			<xsl:when test=" &#39;SALUT_MR&#39; = $value">
+				<xsl:value-of select="&#39;Mr.&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'SALUT_MS' = $value">
-				<xsl:value-of select="'Ms.'"/>
+			<xsl:when test=" &#39;SALUT_MS&#39; = $value">
+				<xsl:value-of select="&#39;Ms.&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'SALUT_DR' = $value">
-				<xsl:value-of select="'Dr.'"/>
+			<xsl:when test=" &#39;SALUT_DR&#39; = $value">
+				<xsl:value-of select="&#39;Dr.&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'SALUT_MRS' = $value">
-				<xsl:value-of select="'Mrs.'"/>
+			<xsl:when test=" &#39;SALUT_MRS&#39; = $value">
+				<xsl:value-of select="&#39;Mrs.&#39;"/>
 			</xsl:when>
-			<xsl:when test=" 'nervous_system' = $value"><xsl:value-of select="'Systme nerveux'"/></xsl:when>
-			<xsl:when test=" 'digestive_system' = $value"><xsl:value-of select="'Digestif'"/></xsl:when>
-			<xsl:when test=" 'musculo_system' = $value"><xsl:value-of select="'musculo-squelettique'"/></xsl:when>
-			<xsl:when test=" 'reproductive_system' = $value"><xsl:value-of select="'Reproductif'"/></xsl:when>
-			<xsl:when test=" 'cardio_system' = $value"><xsl:value-of select="'Cardio-respiratoire'"/></xsl:when>
-			<xsl:when test=" 'immune_system' = $value"><xsl:value-of select="'Immunitaire'"/></xsl:when>
-			<xsl:when test=" 'skin_system' = $value"><xsl:value-of select="'Peau et glandulaire'"/></xsl:when>
-			<xsl:when test=" 'other_system' = $value"><xsl:value-of select="'Autre tissues ou fluids'"/></xsl:when>
+			<xsl:when test=" &#39;nervous_system&#39; = $value"><xsl:value-of select="&#39;Syst&#232;me nerveux&#39;"/></xsl:when>
+			<xsl:when test=" &#39;digestive_system&#39; = $value"><xsl:value-of select="&#39;Digestif&#39;"/></xsl:when>
+			<xsl:when test=" &#39;musculo_system&#39; = $value"><xsl:value-of select="&#39;musculo-squelettique&#39;"/></xsl:when>
+			<xsl:when test=" &#39;reproductive_system&#39; = $value"><xsl:value-of select="&#39;Reproductif&#39;"/></xsl:when>
+			<xsl:when test=" &#39;cardio_system&#39; = $value"><xsl:value-of select="&#39;Cardio-respiratoire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;immune_system&#39; = $value"><xsl:value-of select="&#39;Immunitaire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;skin_system&#39; = $value"><xsl:value-of select="&#39;Peau et glandulaire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_system&#39; = $value"><xsl:value-of select="&#39;Autre tissues ou fluids&#39;"/></xsl:when>
 
-			<xsl:when test=" 'brain' = $value"><xsl:value-of select="'Cerveau'"/></xsl:when>
-			<xsl:when test=" 'brain_stem' = $value"><xsl:value-of select="'Tronc crbral'"/></xsl:when>
-			<xsl:when test=" 'cerebellum' = $value"><xsl:value-of select="'Cervelet'"/></xsl:when>
-			<xsl:when test=" 'cerebrospinal_fluid' = $value"><xsl:value-of select="'Liquide cphalorachidien'"/></xsl:when>
-			<xsl:when test=" 'dorsal_root_ganglia' = $value"><xsl:value-of select="'Ganglion de la racine dorsale'"/></xsl:when>
-			<xsl:when test=" 'dura_mater' = $value"><xsl:value-of select="'Dure-mre'"/></xsl:when>
-			<xsl:when test=" 'hypothalmus' = $value"><xsl:value-of select="'hypothalamus'"/></xsl:when>
-			<xsl:when test=" 'retina_optic' = $value"><xsl:value-of select="'Rtine/nerf optique'"/></xsl:when>
-			<xsl:when test=" 'spinal_cord' = $value"><xsl:value-of select="'Moelle pinire'"/></xsl:when>
-			<xsl:when test=" 'trigerminal_ganglia' = $value"><xsl:value-of select="'Ganglion de Gasser'"/></xsl:when>
-			<xsl:when test=" 'other_nervous' = $value"><xsl:value-of select="'Autre systme nerveux '"/></xsl:when>
+			<xsl:when test=" &#39;brain&#39; = $value"><xsl:value-of select="&#39;Cerveau&#39;"/></xsl:when>
+			<xsl:when test=" &#39;brain_stem&#39; = $value"><xsl:value-of select="&#39;Tronc c&#233;r&#233;bral&#39;"/></xsl:when>
+			<xsl:when test=" &#39;cerebellum&#39; = $value"><xsl:value-of select="&#39;Cervelet&#39;"/></xsl:when>
+			<xsl:when test=" &#39;cerebrospinal_fluid&#39; = $value"><xsl:value-of select="&#39;Liquide c&#233;phalorachidien&#39;"/></xsl:when>
+			<xsl:when test=" &#39;dorsal_root_ganglia&#39; = $value"><xsl:value-of select="&#39;Ganglion de la racine dorsale&#39;"/></xsl:when>
+			<xsl:when test=" &#39;dura_mater&#39; = $value"><xsl:value-of select="&#39;Dure-m&#232;re&#39;"/></xsl:when>
+			<xsl:when test=" &#39;hypothalmus&#39; = $value"><xsl:value-of select="&#39;hypothalamus&#39;"/></xsl:when>
+			<xsl:when test=" &#39;retina_optic&#39; = $value"><xsl:value-of select="&#39;R&#233;tine/nerf optique&#39;"/></xsl:when>
+			<xsl:when test=" &#39;spinal_cord&#39; = $value"><xsl:value-of select="&#39;Moelle &#233;pini&#232;re&#39;"/></xsl:when>
+			<xsl:when test=" &#39;trigerminal_ganglia&#39; = $value"><xsl:value-of select="&#39;Ganglion de Gasser&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_nervous&#39; = $value"><xsl:value-of select="&#39;Autre syst&#232;me nerveux &#39;"/></xsl:when>
 
-			<xsl:when test=" 'appendix' = $value"><xsl:value-of select="'Appendice'"/></xsl:when>
-			<xsl:when test=" 'bile' = $value"><xsl:value-of select="'Bile'"/></xsl:when>
-			<xsl:when test=" 'distal_ileum' = $value"><xsl:value-of select="'Ilon distal'"/></xsl:when>
-			<xsl:when test=" 'large_intestine' = $value"><xsl:value-of select="'Gros intestin'"/></xsl:when>
-			<xsl:when test=" 'saliva_salivary' = $value"><xsl:value-of select="'Salive/glande salivaire'"/></xsl:when>
-			<xsl:when test=" 'small_intestine' = $value"><xsl:value-of select="'Intestin grle, autre que lilon distal'"/></xsl:when>
-			<xsl:when test=" 'stomach' = $value"><xsl:value-of select="'Estomac'"/></xsl:when>
-			<xsl:when test=" 'other_digestive' = $value"><xsl:value-of select="'Autre systme digestif'"/></xsl:when>
+			<xsl:when test=" &#39;appendix&#39; = $value"><xsl:value-of select="&#39;Appendice&#39;"/></xsl:when>
+			<xsl:when test=" &#39;bile&#39; = $value"><xsl:value-of select="&#39;Bile&#39;"/></xsl:when>
+			<xsl:when test=" &#39;distal_ileum&#39; = $value"><xsl:value-of select="&#39;Il&#233;on distal&#39;"/></xsl:when>
+			<xsl:when test=" &#39;large_intestine&#39; = $value"><xsl:value-of select="&#39;Gros intestin&#39;"/></xsl:when>
+			<xsl:when test=" &#39;saliva_salivary&#39; = $value"><xsl:value-of select="&#39;Salive ou glande salivaire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;small_intestine&#39; = $value"><xsl:value-of select="&#39;Intestin gr&#234;le, autre que lil&#233;on distal&#39;"/></xsl:when>
+			<xsl:when test=" &#39;stomach&#39; = $value"><xsl:value-of select="&#39;Estomac&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_digestive&#39; = $value"><xsl:value-of select="&#39;Autre syst&#232;me digestif&#39;"/></xsl:when>
 
-			<xsl:when test=" 'abdomen' = $value"><xsl:value-of select="'Abdomen'"/></xsl:when>
-			<xsl:when test=" 'skull' = $value"><xsl:value-of select="'Crne'"/></xsl:when>
-			<xsl:when test=" 'bones' = $value"><xsl:value-of select="'Os (autre que la colonne vertbrale et le crne)'"/></xsl:when>
-			<xsl:when test=" 'collagen' = $value"><xsl:value-of select="'collagne'"/></xsl:when>
-			<xsl:when test=" 'tendons_ligaments' = $value"><xsl:value-of select="'Tendons ou ligaments'"/></xsl:when>
-			<xsl:when test=" 'vertebral_column' = $value"><xsl:value-of select="'Colonne vertbrale'"/></xsl:when>
-			<xsl:when test=" 'muscle' = $value"><xsl:value-of select="'Muscle'"/></xsl:when>
-			<xsl:when test=" 'other_musculo_skeletal' = $value"><xsl:value-of select="'autre systme musculo-squelettique'"/></xsl:when>
+			<xsl:when test=" &#39;abdomen&#39; = $value"><xsl:value-of select="&#39;Abdomen&#39;"/></xsl:when>
+			<xsl:when test=" &#39;skull&#39; = $value"><xsl:value-of select="&#39;Cr&#226;ne&#39;"/></xsl:when>
+			<xsl:when test=" &#39;bones&#39; = $value"><xsl:value-of select="&#39;Os (autre que la colonne vert&#233;brale et le cr&#226;ne)&#39;"/></xsl:when>
+			<xsl:when test=" &#39;collagen&#39; = $value"><xsl:value-of select="&#39;collag&#232;ne&#39;"/></xsl:when>
+			<xsl:when test=" &#39;tendons_ligaments&#39; = $value"><xsl:value-of select="&#39;Tendons ou ligaments&#39;"/></xsl:when>
+			<xsl:when test=" &#39;vertebral_column&#39; = $value"><xsl:value-of select="&#39;Colonne vert&#233;brale&#39;"/></xsl:when>
+			<xsl:when test=" &#39;muscle&#39; = $value"><xsl:value-of select="&#39;Muscle&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_musculo_skeletal&#39; = $value"><xsl:value-of select="&#39;autre syst&#232;me musculo-squelettique&#39;"/></xsl:when>
 
-			<xsl:when test=" 'milk_products' = $value"><xsl:value-of select="'milk or milk products'"/></xsl:when>
-			<xsl:when test=" 'kidney' = $value"><xsl:value-of select="'kidney'"/></xsl:when>
-			<xsl:when test=" 'colostrum' = $value"><xsl:value-of select="'colostrum'"/></xsl:when>
-			<xsl:when test=" 'mammary_glands' = $value"><xsl:value-of select="'mammary glands'"/></xsl:when>
-			<xsl:when test=" 'ovaries' = $value"><xsl:value-of select="'ovaries'"/></xsl:when>
-			<xsl:when test=" 'placenta' = $value"><xsl:value-of select="'placenta'"/></xsl:when>
-			<xsl:when test=" 'placental_fluid' = $value"><xsl:value-of select="'placental fluid'"/></xsl:when>
-			<xsl:when test=" 'semen' = $value"><xsl:value-of select="'semen'"/></xsl:when>
-			<xsl:when test=" 'testes' = $value"><xsl:value-of select="'testes'"/></xsl:when>
-			<xsl:when test=" 'urine' = $value"><xsl:value-of select="'urine'"/></xsl:when>
-			<xsl:when test=" 'other_reproductive' = $value"><xsl:value-of select="'other reproductive system'"/></xsl:when>
+			<xsl:when test=" &#39;milk_products&#39; = $value"><xsl:value-of select="&#39;Lait/Produits laitiers&#39;"/></xsl:when>
+			<xsl:when test=" &#39;kidney&#39; = $value"><xsl:value-of select="&#39;Reins&#39;"/></xsl:when>
+			<xsl:when test=" &#39;colostrum&#39; = $value"><xsl:value-of select="&#39;colostrum&#39;"/></xsl:when>
+			<xsl:when test=" &#39;mammary_glands&#39; = $value"><xsl:value-of select="&#39;Glandes mammaires&#39;"/></xsl:when>
+			<xsl:when test=" &#39;ovaries&#39; = $value"><xsl:value-of select="&#39;Ovaires&#39;"/></xsl:when>
+			<xsl:when test=" &#39;placenta&#39; = $value"><xsl:value-of select="&#39;placenta&#39;"/></xsl:when>
+			<xsl:when test=" &#39;placental_fluid&#39; = $value"><xsl:value-of select="&#39;Fluide de placenta&#39;"/></xsl:when>
+			<xsl:when test=" &#39;semen&#39; = $value"><xsl:value-of select="&#39;Sperme&#39;"/></xsl:when>
+			<xsl:when test=" &#39;testes&#39; = $value"><xsl:value-of select="&#39;Testicules&#39;"/></xsl:when>
+			<xsl:when test=" &#39;urine&#39; = $value"><xsl:value-of select="&#39;Sang&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_reproductive&#39; = $value"><xsl:value-of select="&#39;Autre syst&#232;me r&#233;productif et urinaire&#39;"/></xsl:when>
 
-			<xsl:when test=" 'heart_pericardium' = $value"><xsl:value-of select="'Heart or pericardium'"/></xsl:when>
-			<xsl:when test=" 'lung' = $value"><xsl:value-of select="'lung'"/></xsl:when>
-			<xsl:when test=" 'nasal_fluid' = $value"><xsl:value-of select="'nasal fluid'"/></xsl:when>
-			<xsl:when test=" 'trachea' = $value"><xsl:value-of select="'trachea'"/></xsl:when>
-			<xsl:when test=" 'placental_fluid' = $value"><xsl:value-of select="'placental fluid'"/></xsl:when>
-			<xsl:when test=" 'other_cardio_respiratory' = $value"><xsl:value-of select="'other cardio-respiratory system'"/></xsl:when>
+			<xsl:when test=" &#39;heart_pericardium&#39; = $value"><xsl:value-of select="&#39;Coeur/p&#233;ricarde&#39;"/></xsl:when>
+			<xsl:when test=" &#39;lung&#39; = $value"><xsl:value-of select="&#39;Poumon&#39;"/></xsl:when>
+			<xsl:when test=" &#39;nasal_fluid&#39; = $value"><xsl:value-of select="&#39;Fluide nasal&#39;"/></xsl:when>
+			<xsl:when test=" &#39;trachea&#39; = $value"><xsl:value-of select="&#39;Trach&#233;e&#39;"/></xsl:when>
+			<xsl:when test=" &#39;placental_fluid&#39; = $value"><xsl:value-of select="&#39;Fluide de placenta&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_cardio_respiratory&#39; = $value"><xsl:value-of select="&#39;Autre syst&#232;me cardio-respiratoire&#39;"/></xsl:when>
 
-			<xsl:when test=" 'lymph_nodes' = $value"><xsl:value-of select="'lymph nodes'"/></xsl:when>
-			<xsl:when test=" 'spleen' = $value"><xsl:value-of select="'spleen'"/></xsl:when>
-			<xsl:when test=" 'thymus' = $value"><xsl:value-of select="'thymus'"/></xsl:when>
-			<xsl:when test=" 'tonsils' = $value"><xsl:value-of select="'tonsils'"/></xsl:when>
-			<xsl:when test=" 'other_immune' = $value"><xsl:value-of select="'other immune system'"/></xsl:when>
+			<xsl:when test=" &#39;lymph_nodes&#39; = $value"><xsl:value-of select="&#39;Ganglions lymphatiques&#39;"/></xsl:when>
+			<xsl:when test=" &#39;spleen&#39; = $value"><xsl:value-of select="&#39;Rate&#39;"/></xsl:when>
+			<xsl:when test=" &#39;thymus&#39; = $value"><xsl:value-of select="&#39;Thymus&#39;"/></xsl:when>
+			<xsl:when test=" &#39;tonsils&#39; = $value"><xsl:value-of select="&#39;Amygdales&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_immune&#39; = $value"><xsl:value-of select="&#39;Autre syst&#232;me immunitaire&#39;"/></xsl:when>
 
-			<xsl:when test=" 'adrenal_gland' = $value"><xsl:value-of select="'adrenal gland or tissue'"/></xsl:when>
-			<xsl:when test=" 'hair_hooves_feathers' = $value"><xsl:value-of select="'hair, feathers, hooves'"/></xsl:when>
-			<xsl:when test=" 'liver' = $value"><xsl:value-of select="'liver'"/></xsl:when>
-			<xsl:when test=" 'pancreas' = $value"><xsl:value-of select="'pancreas'"/></xsl:when>
-			<xsl:when test=" 'pituitary' = $value"><xsl:value-of select="'pituitary gland'"/></xsl:when>
-			<xsl:when test=" 'skin_hides' = $value"><xsl:value-of select="'skin or hides'"/></xsl:when>
-			<xsl:when test=" 'thyroid_parathyroid' = $value"><xsl:value-of select="'thyroid or parathyroid'"/></xsl:when>
-			<xsl:when test=" 'other_skin_glandular' = $value"><xsl:value-of select="'other skin or glandular system'"/></xsl:when>
+			<xsl:when test=" &#39;adrenal_gland&#39; = $value"><xsl:value-of select="&#39;Glande ou tissu surr&#233;nalien&#39;"/></xsl:when>
+			<xsl:when test=" &#39;hair_hooves_feathers&#39; = $value"><xsl:value-of select="&#39;Cheveu, plumes, sabots&#39;"/></xsl:when>
+			<xsl:when test=" &#39;liver&#39; = $value"><xsl:value-of select="&#39;Foie&#39;"/></xsl:when>
+			<xsl:when test=" &#39;pancreas&#39; = $value"><xsl:value-of select="&#39;Pancr&#233;as&#39;"/></xsl:when>
+			<xsl:when test=" &#39;pituitary&#39; = $value"><xsl:value-of select="&#39;Hypophyse&#39;"/></xsl:when>
+			<xsl:when test=" &#39;skin_hides&#39; = $value"><xsl:value-of select="&#39;Peau ou cuirs&#39;"/></xsl:when>
+			<xsl:when test=" &#39;thyroid_parathyroid&#39; = $value"><xsl:value-of select="&#39;Thyro&#207;de/parathyro&#207;de&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_skin_glandular&#39; = $value"><xsl:value-of select="&#39;Autre peau ou syst&#232;me glandulaire&#39;"/></xsl:when>
 
-			<xsl:when test=" 'adipose' = $value"><xsl:value-of select="'adipose or omentum'"/></xsl:when>
-			<xsl:when test=" 'ascites' = $value"><xsl:value-of select="'acscites'"/></xsl:when>
-			<xsl:when test=" 'antler_velvet' = $value"><xsl:value-of select="'antler velvet'"/></xsl:when>
-			<xsl:when test=" 'serum' = $value"><xsl:value-of select="'serum'"/></xsl:when>
-			<xsl:when test=" 'whole_blood' = $value"><xsl:value-of select="'whole blood'"/></xsl:when>
-			<xsl:when test=" 'plasma' = $value"><xsl:value-of select="'plasma'"/></xsl:when>
-			<xsl:when test=" 'embryonic_tissue' = $value"><xsl:value-of select="'embryonic tissue'"/></xsl:when>
-			<xsl:when test=" 'fetal_tissue' = $value"><xsl:value-of select="'fetal tissue'"/></xsl:when>
-			<xsl:when test=" 'bone_marrow' = $value"><xsl:value-of select="'Wyombone marrowing'"/></xsl:when>
-			<xsl:when test=" 'eyes_cornea' = $value"><xsl:value-of select="'eyes or cornea'"/></xsl:when>
-			<xsl:when test=" 'gall_bladder' = $value"><xsl:value-of select="'gall bladder'"/></xsl:when>
-			<xsl:when test=" 'other_fluids_tissues' = $value"><xsl:value-of select="'other types of tissues or fluids'"/></xsl:when>
+			<xsl:when test=" &#39;adipose&#39; = $value"><xsl:value-of select="&#39;Tissu adipeux ou &#233;piploon&#39;"/></xsl:when>
+			<xsl:when test=" &#39;ascites&#39; = $value"><xsl:value-of select="&#39;Acscite&#39;"/></xsl:when>
+			<xsl:when test=" &#39;antler_velvet&#39; = $value"><xsl:value-of select="&#39;Velours de cervid&#233;&#39;"/></xsl:when>
+			<xsl:when test=" &#39;serum&#39; = $value"><xsl:value-of select="&#39;S&#233;rum&#39;"/></xsl:when>
+			<xsl:when test=" &#39;whole_blood&#39; = $value"><xsl:value-of select="&#39;Sang entier &#39;"/></xsl:when>
+			<xsl:when test=" &#39;plasma&#39; = $value"><xsl:value-of select="&#39;Plasma&#39;"/></xsl:when>
+			<xsl:when test=" &#39;embryonic_tissue&#39; = $value"><xsl:value-of select="&#39;Tissu embryonnaire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;fetal_tissue&#39; = $value"><xsl:value-of select="&#39;Tissu foetal&#39;"/></xsl:when>
+			<xsl:when test=" &#39;bone_marrow&#39; = $value"><xsl:value-of select="&#39;?Moelle osseuse&#39;"/></xsl:when>
+			<xsl:when test=" &#39;eyes_cornea&#39; = $value"><xsl:value-of select="&#39;Yeux/corn&#233;e&#39;"/></xsl:when>
+			<xsl:when test=" &#39;gall_bladder&#39; = $value"><xsl:value-of select="&#39;V&#233;sicule biliaire&#39;"/></xsl:when>
+			<xsl:when test=" &#39;other_fluids_tissues&#39; = $value"><xsl:value-of select="&#39;Autre types de tissus ou fuildes&#39;"/></xsl:when>
 
-			<xsl:when test=" 'acute_alcohol' = $value"><xsl:value-of select="'Acute Alcoholism'"/></xsl:when>
-			<xsl:when test=" 'acute_anxiety' = $value"><xsl:value-of select="'Acute anxiety state'"/></xsl:when>
-			<xsl:when test=" 'acute_infectious' = $value"><xsl:value-of select="'Acute infectious respiratory syndromes'"/></xsl:when>
-			<xsl:when test=" 'acute_inflammatory' = $value"><xsl:value-of select="'Acute inflammatory and debilitating arthiritis'"/></xsl:when>
-			<xsl:when test=" 'acute_psychotic' = $value"><xsl:value-of select="'Acute psychotic conditions'"/></xsl:when>
-			<xsl:when test=" 'addiction' = $value"><xsl:value-of select="'Addiction (except nicotine addiction)'"/></xsl:when>
-			<xsl:when test=" 'ateriosclerosis' = $value"><xsl:value-of select="'Ateriosclerosis'"/></xsl:when>
-			<xsl:when test=" 'appendicitis' = $value"><xsl:value-of select="'Appendicitis'"/></xsl:when>
-			<xsl:when test=" 'asthma' = $value"><xsl:value-of select="'Asthma'"/></xsl:when>
-			<xsl:when test=" 'cancer' = $value"><xsl:value-of select="'Cancer'"/></xsl:when>
-			<xsl:when test=" 'congest_heart_fail' = $value"><xsl:value-of select="'Congestive heart failure'"/></xsl:when>
-			<xsl:when test=" 'convulsions' = $value"><xsl:value-of select="'Convulsions'"/></xsl:when>
-			<xsl:when test=" 'dementia' = $value"><xsl:value-of select="'Dementia'"/></xsl:when>
-			<xsl:when test=" 'depression' = $value"><xsl:value-of select="'Depresssion'"/></xsl:when>
-			<xsl:when test=" 'diabetes' = $value"><xsl:value-of select="'Diabetes'"/></xsl:when>
-			<xsl:when test=" 'gangrene' = $value"><xsl:value-of select="'Gangrene'"/></xsl:when>
-			<xsl:when test=" 'glaucoma' = $value"><xsl:value-of select="'Glaucoma'"/></xsl:when>
-			<xsl:when test=" 'haematologic_bleeding' = $value"><xsl:value-of select="'Haematologic bleeding disorders'"/></xsl:when>
-			<xsl:when test=" 'hepatitis' = $value"><xsl:value-of select="'Hepatitis'"/></xsl:when>
-			<xsl:when test=" 'hypertension' = $value"><xsl:value-of select="'Hypertension'"/></xsl:when>
-			<xsl:when test=" 'nausea_pregnancy' = $value"><xsl:value-of select="'Nausea and vomiting of pregnancy'"/></xsl:when>
-			<xsl:when test=" 'obesity' = $value"><xsl:value-of select="'Obesity'"/></xsl:when>
-			<xsl:when test=" 'rheumatic_fever' = $value"><xsl:value-of select="'Rheumatic fever'"/></xsl:when>
-			<xsl:when test=" 'septicemia' = $value"><xsl:value-of select="'Septicemia'"/></xsl:when>
-			<xsl:when test=" 'sex_transmit_disease' = $value"><xsl:value-of select="'Sexually transmitted disease'"/></xsl:when>
-			<xsl:when test=" 'strangulated_hernia' = $value"><xsl:value-of select="'Strangulated hernia'"/></xsl:when>
-			<xsl:when test=" 'thrombotic_embolic_disorder' = $value"><xsl:value-of select="'Thrombotic and Embolic Disorder'"/></xsl:when>
-			<xsl:when test=" 'thyroid_disease' = $value"><xsl:value-of select="'Thyroid disease'"/></xsl:when>
-			<xsl:when test=" 'ulcer_gastro' = $value"><xsl:value-of select="'Ulcer of gastro-intestinal tract'"/></xsl:when>
-			<xsl:when test=" 'hospital' = $value"><xsl:value-of select="'Hospital'"/></xsl:when>
-			<xsl:when test=" 'food_processing' = $value"><xsl:value-of select="'Food Processing'"/></xsl:when>
-			<xsl:when test=" 'medical_instruments' = $value"><xsl:value-of select="'Medical Instruments'"/></xsl:when>
-			<xsl:when test=" 'domestic' = $value"><xsl:value-of select="'Domestic'"/></xsl:when>
-			<xsl:when test=" 'barn' = $value"><xsl:value-of select="'Barn'"/></xsl:when>
-			<xsl:when test=" 'institutional_industrial' = $value"><xsl:value-of select="'Institutional / Industrial'"/></xsl:when>
+			<xsl:when test=" &#39;acute_alcohol&#39; = $value"><xsl:value-of select="&#39;Alcoolisme aigu&#39;"/></xsl:when>
+			<xsl:when test=" &#39;acute_anxiety&#39; = $value"><xsl:value-of select="&#39;&#233;tat anxieux aigu&#39;"/></xsl:when>
+			<xsl:when test=" &#39;acute_infectious&#39; = $value"><xsl:value-of select="&#39;Syndromes respiratoires infectieux aigus&#39;"/></xsl:when>
+			<xsl:when test=" &#39;acute_inflammatory&#39; = $value"><xsl:value-of select="&#39;Arthrite aigu&#235;, inflammatoire et d&#233;bilitante&#39;"/></xsl:when>
+			<xsl:when test=" &#39;acute_psychotic&#39; = $value"><xsl:value-of select="&#39;Troubles psychotiques aigus&#39;"/></xsl:when>
+			<xsl:when test=" &#39;addiction&#39; = $value"><xsl:value-of select="&#39;D&#233;pendance (sauf la d&#233;pendance &#224; la nicotine)&#39;"/></xsl:when>
+			<xsl:when test=" &#39;ateriosclerosis&#39; = $value"><xsl:value-of select="&#39;Art&#233;rioscl&#233;rose&#39;"/></xsl:when>
+			<xsl:when test=" &#39;appendicitis&#39; = $value"><xsl:value-of select="&#39;Appendicite&#39;"/></xsl:when>
+			<xsl:when test=" &#39;asthma&#39; = $value"><xsl:value-of select="&#39;Asthme&#39;"/></xsl:when>
+			<xsl:when test=" &#39;cancer&#39; = $value"><xsl:value-of select="&#39;Cancer&#39;"/></xsl:when>
+			<xsl:when test=" &#39;congest_heart_fail&#39; = $value"><xsl:value-of select="&#39;Insuffisance cardiaque congestive&#39;"/></xsl:when>
+			<xsl:when test=" &#39;convulsions&#39; = $value"><xsl:value-of select="&#39;Convulsions&#39;"/></xsl:when>
+			<xsl:when test=" &#39;dementia&#39; = $value"><xsl:value-of select="&#39;D&#233;mence&#39;"/></xsl:when>
+			<xsl:when test=" &#39;depression&#39; = $value"><xsl:value-of select="&#39;D&#233;presssion&#39;"/></xsl:when>
+			<xsl:when test=" &#39;diabetes&#39; = $value"><xsl:value-of select="&#39;Diab&#232;te&#39;"/></xsl:when>
+			<xsl:when test=" &#39;gangrene&#39; = $value"><xsl:value-of select="&#39;Gangr&#232;ne&#39;"/></xsl:when>
+			<xsl:when test=" &#39;glaucoma&#39; = $value"><xsl:value-of select="&#39;Glaucome&#39;"/></xsl:when>
+			<xsl:when test=" &#39;haematologic_bleeding&#39; = $value"><xsl:value-of select="&#39;Affections h&#233;matologiques h&#233;morragiques&#39;"/></xsl:when>
+			<xsl:when test=" &#39;hepatitis&#39; = $value"><xsl:value-of select="&#39;H&#233;patite&#39;"/></xsl:when>
+			<xsl:when test=" &#39;hypertension&#39; = $value"><xsl:value-of select="&#39;Hypertension&#39;"/></xsl:when>
+			<xsl:when test=" &#39;nausea_pregnancy&#39; = $value"><xsl:value-of select="&#39;Naus&#233;es et vomissements li&#233;s &#224; la grossesse&#39;"/></xsl:when>
+			<xsl:when test=" &#39;obesity&#39; = $value"><xsl:value-of select="&#39;Ob&#233;sit&#233;&#39;"/></xsl:when>
+			<xsl:when test=" &#39;rheumatic_fever&#39; = $value"><xsl:value-of select="&#39;Fi&#232;vre rhumatismale&#39;"/></xsl:when>
+			<xsl:when test=" &#39;septicemia&#39; = $value"><xsl:value-of select="&#39;Septic&#233;mie&#39;"/></xsl:when>
+			<xsl:when test=" &#39;sex_transmit_disease&#39; = $value"><xsl:value-of select="&#39;Maladies transmises sexuellement&#39;"/></xsl:when>
+			<xsl:when test=" &#39;strangulated_hernia&#39; = $value"><xsl:value-of select="&#39;Hernie &#233;trangl&#233;e&#39;"/></xsl:when>
+			<xsl:when test=" &#39;thrombotic_embolic_disorder&#39; = $value"><xsl:value-of select="&#39;Maladies thrombotiques et emboliques&#39;"/></xsl:when>
+			<xsl:when test=" &#39;thyroid_disease&#39; = $value"><xsl:value-of select="&#39;Maladie thyro&#207;dienne&#39;"/></xsl:when>
+			<xsl:when test=" &#39;ulcer_gastro&#39; = $value"><xsl:value-of select="&#39;Ulc&#232;res des voies gastro-intestinales&#39;"/></xsl:when>
+			<xsl:when test=" &#39;hospital&#39; = $value"><xsl:value-of select="&#39;H&#244;pitale&#39;"/></xsl:when>
+			<xsl:when test=" &#39;food_processing&#39; = $value"><xsl:value-of select="&#39;Pr&#233;paration des aliments&#39;"/></xsl:when>
+			<xsl:when test=" &#39;medical_instruments&#39; = $value"><xsl:value-of select="&#39;Instruments m&#233;dicaux&#39;"/></xsl:when>
+			<xsl:when test=" &#39;domestic&#39; = $value"><xsl:value-of select="&#39;Domestique&#39;"/></xsl:when>
+			<xsl:when test=" &#39;barn&#39; = $value"><xsl:value-of select="&#39;Grange&#39;"/></xsl:when>
+			<xsl:when test=" &#39;institutional_industrial&#39; = $value"><xsl:value-of select="&#39;Institutionnel ou industriel&#39;"/></xsl:when>
 			<xsl:otherwise>
-				Can't find the value: <xsl:value-of select="$value"/>
+				Can&#39;t find the value: <xsl:value-of select="$value"/>
 			</xsl:otherwise>
 		</xsl:choose>		
 	</xsl:template>
@@ -1572,11 +1570,11 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/french/hcreppi-2019-07-15-1032.xml" htmlbaseurl=""
-		          outputurl="file:///c:/SPM/test/product.html" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none"
-		          postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
-			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
-			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-07-02-1521.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
+		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+			<parameterValue name="cssFile" value="&#39;file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css&#39;"/>
+			<parameterValue name="labelFile" value="&#39;file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml&#39;"/>
 			<advancedProp name="sInitialMode" value=""/>
 			<advancedProp name="schemaCache" value="||"/>
 			<advancedProp name="bXsltOneIsOkay" value="true"/>
