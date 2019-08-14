@@ -854,8 +854,8 @@ span.normalWeight {
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-2">Email&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
+								<strong class="col-xs-12">Email&#160;&#160;
+								<span class="mouseHover" style="font-weight:normal; "> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
 							</div>
 						</div>
 					</div>
