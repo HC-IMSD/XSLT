@@ -855,7 +855,7 @@ bruts anticip&#233;s.</span>
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-2">Courriel&#160;&#160;
+								<strong class="col-xs-12">Courriel&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
 							</div>
 						</div>
