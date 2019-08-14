@@ -832,7 +832,7 @@ span.normalWeight {
 								<strong class="col-xs-3"> Job Title&#160;&#160; 
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
 								<strong class="col-xs-3">&#160;</strong>
-								<strong class="col-xs-4"> Language of Correspondance&#160;&#160; 
+								<strong class="col-xs-4"> Language of Correspondence&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
 							</div>
 							<div class="col-xs-12">
