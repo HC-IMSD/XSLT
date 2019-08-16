@@ -638,7 +638,7 @@ span.normalWeight {
 		<xsl:param name="value" select="/.."/>
 		<span class="c-checkbox">
 		<xsl:choose>
-			<xsl:when test="$value = 'yes'">X</xsl:when>
+			<xsl:when test="$value = 'yes'">X </xsl:when>
 			<xsl:otherwise>&#160;&#160;</xsl:otherwise>
 		</xsl:choose>
 		</span>
