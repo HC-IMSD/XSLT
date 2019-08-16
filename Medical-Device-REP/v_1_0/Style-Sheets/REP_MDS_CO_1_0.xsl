@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="script.xsl" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-	<xsl:param name="labelFile" select="'./hp-ip400-labels.xml'"/>
-	<xsl:param name="cssFile" select="'./ip400.css'"/>
-	<xsl:param name="language" select="'eng'"/>
-	<xsl:variable name="labelLookup" select="document($labelFile)"/>
-	<xsl:variable name="cssLookup" select="document($cssFile)"/>
 	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
 	<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 	<xsl:template match="/">
@@ -13,11 +8,401 @@
 			<head>
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 				<style type="text/css">
-					<xsl:value-of select="$cssLookup/css/*"/>
+@charset "utf-8";
+
+html {
+    font-family: sans-serif;
+	font-size: 10px;
+    -webkit-tap-highlight-color: transparent
+    display: block;
+    color: -internal-root-color;
+}
+
+body {
+	background: #f9f9f9;
+    line-height: 1.4375;
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.well blockquote {
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, .15)
+}
+
+.well-lg {
+    padding: 24px;
+    border-radius: 6px
+}
+
+.well-sm {
+    padding: 9px;
+    border-radius: 3px
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block
+}
+.panel {
+    margin-bottom: 23px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.panel-body {
+    padding: 15px
+}
+
+.panel-body:after, .panel-body:before {
+    content: " ";
+    display: table
+}
+
+.panel-body:after {
+    clear: both
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px
+}
+
+.panel-heading .dropdown .dropdown-toggle {
+    color: inherit
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: inherit
+}
+
+.panel-title a {
+    color: inherit
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.panel .list-group, .panel .panel-collapse .list-group {
+    margin-bottom: 0
+}
+
+.panel .list-group .list-group-item, .panel .panel-collapse .list-group .list-group-item {
+    border-width: 1px 0;
+    border-radius: 0
+}
+
+.panel .list-group:first-child .list-group-item:first-child, .panel .panel-collapse .list-group:first-child .list-group-item:first-child {
+    border-top: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px
+}
+
+.panel .list-group:last-child .list-group-item:last-child, .panel .panel-collapse .list-group:last-child .list-group-item:last-child {
+    border-bottom: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+.panel-default {
+    border-color: #ddd
+}
+.panel-default .panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd
+}
+
+.panel-default  .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #ddd
+}
+
+.panel-default  .panel-heading .badge {
+    color: #f5f5f5;
+    background-color: #333
+}
+
+.panel-default  .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #ddd
+}
+.panel-primary {
+    border-color: #2572b4
+}
+.panel-primary  .panel-heading {
+    color: #fff;
+    background-color: #2572b4;
+    border-color: #2572b4
+}
+
+.panel-primary  .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #2572b4
+}
+
+.panel-primary  .panel-heading .badge {
+    color: #2572b4;
+    background-color: #fff
+}
+
+.panel-primary  .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #2572b4
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: inherit
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    color: inherit;
+}
+h1 {
+    margin: .67em 0;
+}
+
+h1 {
+    border-bottom: 1px solid #af3c43;
+    font-size: 34px;
+    margin-bottom: .2em;
+    margin-top: 1.25em;
+    padding-bottom: .2em
+}
+table {
+    background-color: transparent;
+    display: table;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table tbody tr td, .table tbody tr th, .table tfoot tr td, .table tfoot tr th, .table thead tr td, .table thead tr th {
+    padding: 8px;
+    line-height: 1.4375;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table.dataTable, table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+td, th {
+    padding: 0
+}
+table.dataTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    width: 100% !important;
+}
+table.dataTable, table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.panel .table-responsive:last-child .table:last-child, .panel .table:last-child {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.dataTables_wrapper .dataTables_scroll, table.dataTable {
+    clear: both;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+table.dataTable tbody tr {
+    background-color: #fff;
+}
+.row {
+    margin-left: -15px;
+    margin-right: 15px;
+}
+
+.row:after, .row:before {
+    content: " ";
+    display: table
+}
+
+.row:after {
+    clear: both
+}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    float: left;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+.col-md-12 {
+	width: 100%;
+}
+.col-xs-5 {
+	width:41.6666666667%
+}
+.col-xs-6 {
+    width: 48%;
+}
+.col-md-5 {
+    width: 40%;
+}
+.col-xs-2 {
+    width: 16.6666666667%;
+}
+.col-xs-1 {
+    width: 8.3333333333%
+}
+.col-xs-11 {
+    width: 91.6666666667%
+}
+
+legend {
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 23px;
+    font-size: 24px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 0;
+    float: left;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.col-md-6 {
+    width: 48%;
+}
+.col-xs-3 {
+    width: 25%;
+}
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+    float: left;
+}
+.alert-info, .label-info, .label-info[href]:active, .label-info[href]:focus, .label-info[href]:hover, details.alert.alert-info, details.alert[open].alert-info
+ {
+    background: #d7faff;
+    border-color: #269abc;
+}
+.alert-danger, .alert-info, .alert-success, .alert-warning, .label-danger, .label-danger[href]:active, .label-danger[href]:focus, .label-danger[href]:hover, .label-default, .label-default[href]:active, .label-default[href]:focus, .label-default[href]:hover, .label-info, .label-info[href]:active, .label-info[href]:focus, .label-info[href]:hover, .label-primary, .label-primary[href]:active, .label-primary[href]:focus, .label-primary[href]:hover, .label-success, .label-success[href]:active, .label-success[href]:focus, .label-success[href]:hover, .label-warning, .label-warning[href]:active, .label-warning[href]:focus, .label-warning[href]:hover {
+    color: #000;
+}
+.alert-warning, .label-warning, .label-warning[href]:active, .label-warning[href]:focus, .label-warning[href]:hover, details.alert.alert-warning, details.alert[open].alert-warning {
+    background: #f9f4d4;
+    border-color: #f90;
+}
+.alert-success, .label-success, .label-success[href]:active, .label-success[href]:focus, .label-success[href]:hover, details.alert.alert-success, details.alert[open].alert-success {
+    background: #d8eeca;
+    border-color: #278400;
+}
+.alert, .label {
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 0 4px;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 23px;
+    border: 1px solid transparent;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 11.5px;
+}
+span.mouseHover:hover {
+	border: 1px solid black;
+}
+.c-checkbox {
+	border-style: solid;
+	border-width: thin;
+	font-size: xx-small;
+	font-weight: 900;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding-left: 2px;
+	vertical-align: 2px;
+}
+span.normalWeight {
+	font-weight: 100;
+}
+.padLeft3 {
+	padding-left: 3px;
+}
+.nowrap {
+	white-space: nowrap;
+}
+.out {
+    display: none !important;
+}
+
+.nav a, a.btn {
+    text-decoration: none;
+}
 				</style>
 			</head>
             <body>
-<!--				<xsl:if test="count(DEVICE_COMPANY_ENROL) &gt; 0"> <xsl:apply-templates select="DEVICE_COMPANY_ENROL"></xsl:apply-templates> </xsl:if>-->
 				<xsl:call-template name="DEVICE_COMPANY_ENROL"/>
 			</body>
 		</html>
@@ -25,65 +410,57 @@
 	
 	<!-- Company Enrolment -->
 	<xsl:template name="DEVICE_COMPANY_ENROL">
-		<h1><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'COMPANY_TEMPLATE'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></h1>
+		<h1>Company Template: Regulatory Enrolment Process (REP)</h1>
 		<div class="well well-sm" >
-			<TABLE border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
-				<TR>
-					<TD style="text-align: center;font-weight:bold;"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'APPL_STATUS'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></TD>
-					<TD style="text-align: center;font-weight:bold;"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ENROL_VERSION'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></TD>
-					<TD style="text-align: center;font-weight:bold;"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'DATE_SAVED'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></TD>
-					<TD style="text-align: center;font-weight:bold;"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'COMPANY_ID'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></TD>
-				</TR>
-				<TR>
-					<TD style="text-align: center;"> <span  class="mouseHover"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="/descendant-or-self::general_information/status" /></xsl:call-template></span> </TD>
-					<TD style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/enrol_version" /></span> </TD>
-					<TD style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/last_saved_date" /></span> </TD>
-					<TD style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="substring(/descendant-or-self::general_information/company_id,2,6)" /></span> </TD>
-				</TR>
-			</TABLE>
+			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+				<tr>
+					<td style="text-align: center;font-weight:bold;">Enrolment Status</td>
+					<td style="text-align: center;font-weight:bold;">Enrolment Version</td>
+					<td style="text-align: center;font-weight:bold;">Date Last Saved</td>
+					<td style="text-align: center;font-weight:bold;">Company ID</td>
+				</tr>
+				<tr>
+					<td style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/status" /></span> </td>
+					<td style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/enrol_version" /></span> </td>
+					<td style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/last_saved_date" /></span> </td>
+					<td style="text-align: center;"> <span  class="mouseHover"><xsl:value-of select="substring(/descendant-or-self::general_information/company_id,2,6)" /></span> </td>
+				</tr>
+			</table>
 		</div>
 		<section>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'REG_COMPANY_ENROL'"/></xsl:call-template></h2>
+					<h2 class="panel-title">Regulatory Company Enrolment</h2>
 				</div>
 				
 				<div class="panel-body">
-					<xsl:if test="/descendant-or-self::general_information/amend_reasons != ''">
+					<xsl:if test="/descendant-or-self::general_information/status = 'AMEND'">
 					<section class="panel panel-default" >
 						<div class="panel-heading">
-							<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Reason_Amendment'"/></xsl:call-template></h2>
+							<h2 class="panel-title">Reason for Amendment</h2>
 						</div>
 						<div class="panel-body">
 							<div class="row">&#160;
 							<div class="col-xs-5">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change"/></xsl:call-template>
-								<span class="mouseHover">
-									<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Change_Name'"/></xsl:call-template>
-								</span>
+								<span class="mouseHover">Change in manufacturer's name</span>
 							</div>
 							<div class="col-xs-5">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change"/></xsl:call-template>
-								<span class="mouseHover">
-									<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Change_Address'"/></xsl:call-template>
-								</span>
+								<span class="mouseHover">Change in manufacturer's address</span>
 							</div>
 							<div class="col-xs-5">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::general_information/amend_reasons/facility_change"/></xsl:call-template>
-								<span class="mouseHover">
-									<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Change_facility'"/></xsl:call-template>
-								</span>
+								<span class="mouseHover">Change only to the name and/or address of the manufacturing facility</span>
 							</div>
 							<div class="col-xs-5">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::general_information/amend_reasons/other_change"/></xsl:call-template>
-								<span class="mouseHover">
-									<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'OTHER'"/></xsl:call-template>
-								</span>
+								<span class="mouseHover">Other</span>
 							</div>
 							</div>
 							<xsl:if test="/descendant-or-self::general_information/amend_reasons/other_change = 'yes'">
 								<div class="col-xs-10">
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'SYSTEM_OTHER'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>Other Details:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/amend_reasons/other_details"/></span>
 								</div>
 							</xsl:if>
@@ -93,59 +470,70 @@
 					<section class="panel panel-default" >
 							<div class="panel-body">
 							<div class="col-sm-12">
-								<strong><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Are_Licenses_Transfered'"/></xsl:call-template>? &#160;</strong>
+								<strong>Are any ownership of licenses being transferred? &#160;</strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::general_information/are_licenses_transfered"/></xsl:call-template></span>
 							</div>
 							</div>
 					</section>
 					<section class="panel panel-default" >
 							<div class="panel-heading">
-								<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ADDR_INFO'"/></xsl:call-template></h2>
+								<h2 class="panel-title">Address Information</h2>
 							</div>
 							<div class="panel-body">
 								<div class="row">&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'I_CompanyName'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>Company Name (Full legal Name - no abbreviations):&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/company_name"/></span>
 								</div>
 								<div class="row">&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'STREET_SUITE'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>Street / Suite:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/address"/></span>
 								</div>
 								<div class="row">&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CITY_TOWN'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>City / Town:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/city"/></span>&#160;&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'PROVINCE'"></xsl:with-param></xsl:call-template>:&#160;</label>
-									<span class="mouseHover">
-										<xsl:choose>
-											<xsl:when test="(/descendant-or-self::address/country/@id = 'CAN') or (/descendant-or-self::address/country/@id = 'USA')">
-												<xsl:value-of select="/descendant-or-self::address/prov_lov"/>
-											</xsl:when>
-											<xsl:otherwise>
-												<xsl:value-of select="/descendant-or-self::address/prov_text"/>
-											</xsl:otherwise>
-										</xsl:choose>
-									</span>&#160;&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'COUNTRY'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<xsl:choose>
+										<xsl:when test="/descendant-or-self::address/country/@id = 'CAN'">
+											<strong>Province:&#160;</strong>
+											<span class="mouseHover">
+											<xsl:value-of select="/descendant-or-self::address/prov_lov"/>
+											</span>
+										</xsl:when>
+										<xsl:when test="/descendant-or-self::address/country/@id = 'USA'">
+											<strong>State:&#160;</strong>
+											<span class="mouseHover">
+											<xsl:value-of select="/descendant-or-self::address/prov_lov"/>
+											</span>
+										</xsl:when>
+										<xsl:otherwise>
+											<strong>Province or State:&#160;</strong>
+											<span class="mouseHover">
+											<xsl:value-of select="/descendant-or-self::address/prov_text"/>
+											</span>
+										</xsl:otherwise>
+									</xsl:choose>
+									&#160;&#160;
+									<strong>Country:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/country"/>
-<!--										<xsl:choose>
-											<xsl:when test="$language = 'fra'">
-												<xsl:value-of select="/descendant-or-self::address/country/@label_fr"/>
-											</xsl:when>
-											<xsl:otherwise>
-												<xsl:value-of select="/descendant-or-self::address/country/@label_en"/>
-											</xsl:otherwise>
-										</xsl:choose>-->
 									</span>
 								</div>
 								<div class="row">&#160;
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'POSTAL_ZIP'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>
+									<xsl:choose>
+										<xsl:when test="/descendant-or-self::address/country/@id = 'USA'">
+											ZIP Code
+										</xsl:when>
+										<xsl:otherwise>
+											Postal Code
+										</xsl:otherwise>
+									</xsl:choose>:&#160;
+									</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/postal"/></span>
 								</div>
 							</div>
 					</section>
 					<section class="panel panel-default" >
 						<div class="panel-heading">
-							<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CONTACT_INFO'"/></xsl:call-template></h2>
+							<h2 class="panel-title">Company Representative Information</h2>
 						</div>
 						<div class="panel-body">
 							<xsl:apply-templates select="/descendant-or-self::contacts/contact"/>
@@ -153,28 +541,28 @@
 					</section>
 					<section class="panel panel-default" >
 						<div class="panel-heading">
-							<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'REPPRIMARY'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></h2>
+							<h2 class="panel-title">Primary REP contact</h2>
 						</div>
 						<div class="panel-body">
 								<div class="row">&#160;
 									<div class="col-xs-10">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'THIRD_PARTY_ENROL'"></xsl:with-param></xsl:call-template>?&#160;</label>
+										<strong>Is this enrolment completed by a third party?&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/is_third_party"/></span>
 									</div>
 								<xsl:choose>
 								<xsl:when test="/descendant-or-self::primary_contact/is_third_party = 'yes'">
 									<div class="col-xs-5">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'COMPANY_ID_REP'"></xsl:with-param></xsl:call-template>?&#160;</label>
+										<strong>Company ID for REP Contact?&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_contact_company_id"/></span>
 									</div>
 									<div class="col-xs-5">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CONTACT_ID_REP'"></xsl:with-param></xsl:call-template>?&#160;</label>
+										<strong>Contact ID for REP Contact?&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_contact_id"/></span>
 									</div>
 								</xsl:when>
 								<xsl:otherwise>
 									<div class="col-xs-10">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'REP_CONTACT_NAME'"></xsl:with-param></xsl:call-template>:&#160;</label>
+										<strong>REP Contact's Name:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_contact_name"/></span>
 									</div>
 								</xsl:otherwise>
@@ -185,7 +573,7 @@
 					<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes' or /descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes' or /descendant-or-self::general_information/amend_reasons/facility_change = 'yes' or /descendant-or-self::general_information/are_licenses_transfered = 'yes'">
 					<section class="panel panel-default" >
 						<div class="panel-heading">
-							<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Company_Administrative_Changes'"/><xsl:with-param name="language" select="$language"/></xsl:call-template></h2>
+							<h2 class="panel-title">Company Administrative Changes</h2>
 						</div>
 						<div class="panel-body">
 							<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes' or /descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes' or /descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
@@ -194,13 +582,13 @@
 									<div class="alert alert-info">
 										<xsl:choose>
 										<xsl:when test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes'">
-										<span><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ADMIN_CHANGE_NOTE2'"/></xsl:call-template></span>
+										<span>The revised manufacturer's name should be listed in the "company name" field in address information section above</span>
 										</xsl:when>
 										<xsl:when test="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes'">
-										<span><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ADMIN_CHANGE_NOTE3'"/></xsl:call-template></span>
+										<span>The revised manufacturer's address should be listed in the fields in address information section above</span>
 										</xsl:when>
 										<xsl:when test="/descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
-										<span><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ADMIN_CHANGE_NOTE4'"/></xsl:call-template></span>
+										<span>Please include a signed attestation for manufacturing facility name/address change</span>
 										</xsl:when>
 										</xsl:choose>
 									</div>
@@ -209,7 +597,7 @@
 							</xsl:if>
 							<div class="row">&#160;
 								<div class="col-xs-12">
-									<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'All_Licence_Number'"></xsl:with-param></xsl:call-template>:&#160;</label>
+									<strong>All impacted licence number(s):&#160;</strong>
 								</div>
 								<div class="col-xs-1">&#160;</div>
 								<div class="col-xs-10">
@@ -218,24 +606,24 @@
 							</div>
 							<div class="row">&#160;
 								<div class="col-xs-10">
-								<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Is_there_change_name'"></xsl:with-param></xsl:call-template>:&#160;</label>
+								<strong>Is there a change to the regulatory correspondent's name and/or address:&#160;</strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::administrative_changes/is_regulatory_change"/></xsl:call-template></span>
 								</div>
 							</div>
 							<xsl:if test="/descendant-or-self::administrative_changes/is_regulatory_change = 'yes'">
 								<div class="row">&#160;
 									<div class="col-sm-5">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'NEW'"/></xsl:call-template>&#160;<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'COMPANY_ID'"></xsl:with-param></xsl:call-template>:&#160;</label>
+										<strong>New Company ID:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="substring(/descendant-or-self::administrative_changes/new_company_id, 2, 6)"/></span>
 									</div>
 									<div class="col-sm-5">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'NEW'"/></xsl:call-template>&#160;<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CONTACT_ID'"></xsl:with-param></xsl:call-template>:&#160;</label>
+										<strong>New Contact ID:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::administrative_changes/new_contact_id"/></span>
 									</div>
 								</div>
 								<div class="row">&#160;
 									<div class="col-sm-10">
-										<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'NEW'"/></xsl:call-template>&#160;<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Contact_Name'"></xsl:with-param></xsl:call-template>:&#160;</label>
+										<strong>New Contact Name:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::administrative_changes/new_contact_name"/></span>
 									</div>
 								</div>
@@ -243,7 +631,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="alert alert-info">
-										<span><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'ADMIN_CHANGE_NOTE1'"/></xsl:call-template></span>
+										<span>Please include the page 1 of each impacted licence, a valid Quality Management System Certificate (QMSC) that reflects the change in manufacturer name or address, a completed F202 form, signed attestation as applicable.</span>
 									</div>
 								</div>
 							</div>
@@ -258,90 +646,82 @@
 	<xsl:template match="contacts/contact">
 		<section class="panel panel-default" >
 			<div class="panel-heading">
-				<h2 class="panel-title"><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CONTACT_DETAILS'"/></xsl:call-template>&#160;<xsl:value-of select="id + 1"/></h2>
+				<h2 class="panel-title">Company Representative Details&#160;<xsl:value-of select="id + 1"/></h2>
 			</div>
 			<div class="panel-body">
 				<div class="row">&#160;
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'SALUTATION'"/></xsl:call-template>:&#160;</label>
+					<strong>Salutation:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="salutation"/></span>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'CONTACT_ID'"/></xsl:call-template>:&#160;</label>
+					<strong>Contact ID:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="contact_id"/></span>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'STATUS'"/></xsl:call-template>:&#160;</label>
+					<strong>Status:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="status"/></span>
 					</div>
 				</div>
 				<div class="row">&#160;
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'FIRSTNAME'"/></xsl:call-template>:&#160;</label>
+					<strong>First Name:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="first_name"/></span>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'INITIALS'"/></xsl:call-template>:&#160;</label>
+					<strong>Initial:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="initials"/></span><xsl:if test="initials = ''">&#160;&#160;&#160;&#160;</xsl:if>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'LASTNAME'"/></xsl:call-template>:&#160;</label>
+					<strong>Last Name:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="last_name"/></span>
 					</div>
 				</div>
 				<div class="row">&#160;
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'LANGCORRESPOND'"/></xsl:call-template>:&#160;</label>
+					<strong>Language of Correspondance:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="language"/></span>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'JOBTITLE'"/></xsl:call-template>:&#160;</label>
+					<strong>Job Title:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="job_title"/></span>
 					</div>
 				</div>
 				<div class="row">&#160;
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'PHONENUMBER'"/></xsl:call-template>:&#160;</label>
+					<strong>Phone Number:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="phone_number"/></span>&#160;&#160;
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'PHONE_EXT'"/></xsl:call-template>:&#160;</label>
+					<strong>Extension:&#160;</strong>
 					<span class="mouseHover"><xsl:if test="phone_extension = ''">&#160;&#160;&#160;&#160;</xsl:if>
 					<xsl:value-of select="contact/phone_extension"/></span>
 					</div>
 					<div class="col-sm-3">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'FAX_NUMBER'"/></xsl:call-template>:&#160;</label>
+					<strong>FAX Number:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="fax_number"/></span>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-					<label><xsl:call-template name="hp-label"><xsl:with-param name="code" select="'EMAIL'"/></xsl:call-template>:&#160;</label>
+					<strong>Email:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="email"/></span>
 					</div>
 				</div>
 			</div>
 		</section>
 	</xsl:template>
-	<xsl:template name="hp-label">
-		<xsl:param name="code" select="/.."/>
-		<xsl:variable name="value" select="$labelLookup/SimpleCodeList/row[code=$code]/*[name()=$language]"/>
-		<xsl:if test="$value">
-			<xsl:for-each select="$labelLookup/SimpleCodeList/row[code=$code]/*[name()=$language]"><xsl:if test="position() > 1"><xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text></xsl:if><xsl:value-of select="."/></xsl:for-each>
-		</xsl:if>
-		<xsl:if test="not($value)">Error: code missing:(<xsl:value-of select="$code"/> in <xsl:value-of select="$labelFile"/>)</xsl:if>
-	</xsl:template>
 	<xsl:template name="YesNoUnknow">
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
 		<xsl:when test="$value = 'Y' or $value = 'yes'">
-			<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'Yes'"/></xsl:call-template>
+			Yes
 		</xsl:when>
 		<xsl:when test="$value = 'N' or $value = 'no'">
-			<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'No'"/></xsl:call-template>
+			No
 		</xsl:when>
 		<xsl:otherwise>
-			<xsl:call-template name="hp-label"><xsl:with-param name="code" select="'UNKNOWN'"/></xsl:call-template>
+			Unknown
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -382,11 +762,10 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\draftrepcom-0-2 (8).xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\draftrepcom-1-1 (1).xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
-			<parameterValue name="cssFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/ip400.css'"/>
-			<parameterValue name="labelFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/hp-ip400-labels.xml'"/>
+			<parameterValue name="cssFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/ip400-1.css'"/>
 			<advancedProp name="sInitialMode" value=""/>
 			<advancedProp name="schemaCache" value="||"/>
 			<advancedProp name="bXsltOneIsOkay" value="true"/>
