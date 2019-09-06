@@ -647,21 +647,25 @@ span.normalWeight {
 							<xsl:when test="manufacturer = 'Y' or mailing = 'Y' or this_activity = 'Y' or importer = 'Y'">
 								<xsl:if test="manufacturer = 'Y'">
 									<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
 									<span style="margin-left:40px;" class="mouseHover">Manufacturer/Sponsor</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="mailing = 'Y'">
 									<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
 									<span style="margin-left:40px;" class="mouseHover">Regulatory Mailing / Annual Contact</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="this_activity = 'Y'">
 									<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="this_activity"/></xsl:call-template>
 									<span style="margin-left:40px;" class="mouseHover">Contact for this Regulatory Activity</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="importer = 'Y'">
 									<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
 									<span style="margin-left:40px;" class="mouseHover">Canadian Importer</span>
 									</div>
 								</xsl:if>
@@ -768,6 +772,7 @@ span.normalWeight {
 								<xsl:if test=" current() = 'Y'">
 										<div class="col-xs-12">
 										<div class="col-xs-12">
+											<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 											<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 										</div>
 										</div>
@@ -1565,14 +1570,27 @@ span.normalWeight {
 			</xsl:otherwise>
 		</xsl:choose>		
 	</xsl:template>
+	<xsl:template name="hp-checkbox">
+		<xsl:param name="value" select="/.."/>
+		<span class="c-checkbox">
+		<xsl:choose>
+			<xsl:when test="$value = 'Y'">
+				X
+			</xsl:when>
+			<xsl:otherwise>
+				&#160;&#160;
+			</xsl:otherwise>
+		</xsl:choose>
+		</span>
+	</xsl:template>
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-07-02-1521.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
-		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
-		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/french/hcreppi-2019-07-15-1032.xml" htmlbaseurl=""
+		          outputurl="file:///c:/SPM/test/product.html" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none"
+		          postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
 			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
 			<advancedProp name="sInitialMode" value=""/>
