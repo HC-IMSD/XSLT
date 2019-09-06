@@ -677,30 +677,42 @@ span.normalWeight {
 								<span class="mouseHover">Une d&#233;claration sign&#233;e par le responsable des affaires financi&#232;res du demandeur est inclus pour attester que les frais payables sont plus &#233;lev&#233;s que 10% des revenus
 bruts anticip&#233;s.</span>
 							</div>
+							<xsl:if test="fee_details/required_docs/est_market_share = 'Y'">
 							<div class="col-xs-12">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/est_market_share"/></xsl:call-template>
 								<span class="mouseHover">La part estim&#233;e du march&#233; (c’est-&#224;-dire le potentiel de march&#233; du produit par rapport &#224; la demande totale du march&#233; pour des produits similaires au Canada)</span>
 							</div>
+							</xsl:if>
+							<xsl:if test="fee_details/required_docs/comparison_products = 'Y'">
 							<div class="col-xs-12">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/comparison_products"/></xsl:call-template>
 								<span class="mouseHover">Une comparaison avec des produits similaires offerts sur le march&#233; canadien ou d’autres march&#233;s similaires (par exemple &#233;tats-Unis, Union europ&#233;enne, etc.)</span>
 							</div>
+							</xsl:if>
+							<xsl:if test="fee_details/required_docs/sales_history = 'Y'">
 							<div class="col-xs-6">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/sales_history"/></xsl:call-template>
 								<span class="mouseHover">Un historique des ventes avant l’am&#233;lioration du produit ou un historique des ventes de produits similaires</span>
 							</div>
+							</xsl:if>
+							<xsl:if test="fee_details/required_docs/market_plan = 'Y'">
 							<div class="col-xs-6">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/market_plan"/></xsl:call-template>&#160;
 								<span class="mouseHover">Un plan de marketing ou un plan de produit pour le produit pharmaceutique</span>
 							</div>
+							</xsl:if>
+							<xsl:if test="fee_details/required_docs/avg_sale_price = 'Y'">
 							<div class="col-xs-6">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/avg_sale_price"/></xsl:call-template>
 								<span class="mouseHover">Le prix de vente moyen et la demande</span>
 							</div>
+							</xsl:if>
+							<xsl:if test="fee_details/required_docs/other = 'Y'">
 							<div class="col-xs-6">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/required_docs/other"/></xsl:call-template>&#160;
 								<span class="mouseHover">Autre</span>
 							</div>
+							</xsl:if>
 							<xsl:if test="fee_details/required_docs/other = 'Y'">
 							<div class="col-xs-12">
 								<strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Other:&#160;</strong>
@@ -745,29 +757,43 @@ bruts anticip&#233;s.</span>
 								<h4>Veuillez s&#233;lectionner tous les modes de paiement que vous avez l’intention d’utiliser.</h4>
 							</div>
 							<div class="col-xs-12">
+								<xsl:if test=" fee_details/payment_method/bill_payment = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/bill_payment"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Option de service de paiement de factures (m&#233;thode pr&#233;f&#233;r&#233;e)</span>&#160;&#160;</strong>
+								</xsl:if>
+								<xsl:if test=" fee_details/payment_method/existing_credit = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/existing_credit"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Cr&#233;dit existant</span>&#160;&#160;</strong>
+								</xsl:if>
+								<xsl:if test=" fee_details/payment_method/bank_wire = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/bank_wire"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Transfert bancaire (incluez la confirmation de la banque)</span></strong>
+								</xsl:if>
 							</div>
 							<div class="col-xs-12">
+								<xsl:if test=" fee_details/payment_method/credit_card = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/credit_card"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">MasterCard/Visa/American Express (AMEX)</span>&#160;&#160;</strong>
+					            </xsl:if>
+								<xsl:if test=" fee_details/payment_method/cheque = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/cheque"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Cheque</span>&#160;&#160;</strong>
+								</xsl:if>
+								<xsl:if test=" fee_details/payment_method/money_order = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/money_order"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Mandat</span>&#160;&#160;</strong>
+								</xsl:if>
+								<xsl:if test=" fee_details/payment_method/bank_draft = 'Y'">
 					            <strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/payment_method/bank_draft"/></xsl:call-template>
 								<span style="font-weight:normal;" class="mouseHover">Traite bancaire internationale</span></strong>
+								</xsl:if>
 							</div>
 							</xsl:if>
 						</div>
@@ -798,30 +824,18 @@ bruts anticip&#233;s.</span>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-2">Rue / Suite</strong>
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/street_address" /> </span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-2">Ville </strong>
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
-								<strong> &#160;&#160;Province&#160;&#160; </strong>
+								<strong>, &#160;&#160; </strong>
 								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /></xsl:when><xsl:otherwise><xsl:value-of select="regulatory_activity_address/province_text" /></xsl:otherwise></xsl:choose> </span>
-								<strong> &#160;&#160;Pays&#160;&#160; </strong>
-								<span class="mouseHover"> 
-								<xsl:choose>
-								<xsl:when test="$language = 'fra'">
-									<xsl:value-of select="regulatory_activity_address/country/@label_fr"/>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:value-of select="regulatory_activity_address/country/@label_en"/>
-								</xsl:otherwise>
-								</xsl:choose>
-								</span>
+								<strong>, &#160;&#160;</strong>
+								<span class="mouseHover"> <xsl:value-of select="regulatory_activity_address/country"/></span>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-2">Code Postal / Code ZIP </strong>
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/postal_code" /> </span>
 							</div>
 						</div>
