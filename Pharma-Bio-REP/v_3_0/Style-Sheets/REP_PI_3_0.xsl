@@ -789,31 +789,37 @@ span.normalWeight {
 							<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
 								<xsl:if test="is_sched_c = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">included in Schedule C (radiopharmacurticals) to the Food and Drugs Act</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_sched_d = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">included in Schedule D (biologicals) to the Food and Drugs Act</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_prescription_drug_list = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">on the Prescription Drug List</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_regulated_cdsa = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">regulated under the Controlled Drugs and Substances Act</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_non_prescription_drug = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">a non-prescription drug</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_sched_a = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">a non-prescription drug to which one or more Schedule A claims apply</span>
 								</div>
 								<xsl:if test="is_sched_a = 'Y'">
@@ -846,6 +852,7 @@ span.normalWeight {
 													<xsl:if test="current() = 'Y'">
 													<div class="col-xs-12">
 													<div class="col-xs-12">
+														<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 														<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 													</div>
 													</div>
@@ -1313,6 +1320,7 @@ span.normalWeight {
 																									<xsl:if test=" . = 'Y'">
 																										<xsl:variable name="temp" select="name(.)"/>
 																										<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+																											<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 																											<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
 																										</xsl:if>
 																									</xsl:if>
@@ -1588,9 +1596,9 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/french/hcreppi-2019-07-15-1032.xml" htmlbaseurl=""
-		          outputurl="file:///c:/SPM/test/product.html" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none"
-		          postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-09-11-1527.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
+		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
 			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
 			<advancedProp name="sInitialMode" value=""/>

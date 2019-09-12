@@ -772,6 +772,7 @@ span.normalWeight {
 								<xsl:if test=" current() = 'Y'">
 										<div class="col-xs-12">
 										<div class="col-xs-12">
+											<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 											<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 										</div>
 										</div>
@@ -788,31 +789,37 @@ span.normalWeight {
 							<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
 								<xsl:if test="is_sched_c = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">dans l'annexe C (produits radiopharmaceutiques) de la Loi sur les aliments et drogues</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_sched_d = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">figurant &#224; l'annexe D (produits biologiques) de la Loi sur les aliments et drogues</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_prescription_drug_list = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">sur la liste des m&#233;dicaments sur ordonnance</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_regulated_cdsa = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">r&#233;glement&#233; en vertu de la Loi r&#233;glementant certaines drogues et autres substances</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_non_prescription_drug = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">un m&#233;dicament sans ordonnance</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_sched_a = 'Y'">
 								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 									<span style="margin-left:45px;" class="mouseHover">un m&#233;dicament sans ordonnance auquel une ou plusieurs des r&#233;clamations de l'Annexe A s'appliquent</span>
 								</div>
 								<xsl:if test="is_sched_a = 'Y'">
@@ -845,6 +852,7 @@ span.normalWeight {
 													<xsl:if test="current() = 'Y'">
 													<div class="col-xs-12">
 													<div class="col-xs-12">
+														<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 														<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 													</div>
 													</div>
