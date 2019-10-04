@@ -535,31 +535,21 @@ span.normalWeight {
 															<div class="col-md-12">
 															<strong>Demandeur d’information sollicit&#233;e:&#160;</strong>
 															</div>
-															<div class="col-md-12">
-																<strong class="col-xs-1">&#160;</strong>
-																<span class="col-xs-6 mouseHover"><xsl:call-template name="break"><xsl:with-param name="text" select="requester_of_solicited_information"/></xsl:call-template></span>
-															</div>
 
 															<div class="col-md-12">
 																<span class="col-xs-2">Demandeur 1:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name"/></span>
-																<span class="col-xs-1">Code:&#160;</span>
-																<span class="col-xs-3"><span class=" mouseHover"><xsl:value-of select="requester_name/@id"/></span></span>
 															</div>
 															<xsl:if test="requester_name2 != ''">
 															<div class="col-md-12">
 																<span class="col-xs-2">Demandeur 2:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name2"/></span>
-																<span class="col-xs-1">Code:&#160;</span>
-																<span class="col-xs-3"><span class=" mouseHover"><xsl:value-of select="requester_name2/@id"/></span></span>
 															</div>
 															</xsl:if>
 															<xsl:if test="requester_name3 != ''">
 															<div class="col-md-12">
 																<span class="col-xs-2">Requester 3:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name3"/></span>
-																<span class="col-xs-1">Code:&#160;</span>
-																<span class="col-xs-3"><span class="mouseHover"><xsl:value-of select="requester_name3/@id"/></span></span>
 															</div>
 															</xsl:if>
 														</div>
