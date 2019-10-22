@@ -457,20 +457,22 @@ span.normalWeight {
 							</xsl:if>
 						</div>
 						<xsl:if test="ectd/dossier_type/@id != 'D26'">
-						<div class="row">
-							<div class="col-xs-12">
-								<strong> Was this regulatory activity approved for priority review?&#160; </strong>
-								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_priority"/></xsl:call-template>
-								</span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong> Was this regulatory activity approved for NOC/C review?&#160; </strong>
-								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_noc"/></xsl:call-template>
-								</span>
-							</div>
-						</div>
+							<xsl:if test="ectd/dossier_type/@id != 'D24'">
+								<div class="row">
+									<div class="col-xs-12">
+										<strong> Was this regulatory activity approved for priority review?&#160; </strong>
+										<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_priority"/></xsl:call-template>
+										</span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<strong> Was this regulatory activity approved for NOC/C review?&#160; </strong>
+										<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_noc"/></xsl:call-template>
+										</span>
+									</div>
+								</div>
+							</xsl:if>
 						<div class="row">
 							<div class="col-xs-12">
 								<strong> Is this regulatory activity an Administrative Submission or does this regulatory activity contain an administrative component?&#160; </strong>
@@ -1111,9 +1113,9 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-10-01-1133 - NEW Test Name of Requestor.xml" htmlbaseurl=""
-		          outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath=""
-		          postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-10-18-1500.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
+		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
 			<advancedProp name="sInitialMode" value=""/>
 			<advancedProp name="schemaCache" value="||"/>
