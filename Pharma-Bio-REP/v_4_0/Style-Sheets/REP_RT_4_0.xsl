@@ -1026,7 +1026,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new dossier ID maybe required. Contact Health Canada for more information (hc.eReview.sc@canada.ca).
+						Note: A new dossier ID maybe required. You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use.
 						<p>On this form: Use existing company ID and dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
@@ -1045,7 +1045,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: Dossier ID will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, contact Health Canada for more information (hc.eReview@canada.ca).
+						Note: Dossier ID will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, you may contact Health Canada for more information hc.eReview@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use
 						<p>On this template: Use company ID for new owner and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
@@ -1055,7 +1055,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new Dossier ID is required if the proposed product(s) were not previously approved (i.e. no dossier ID already exists), except in the case of a replace source cross-licensing. Contact Health Canada for more information (hc.eReview.sc@canada.ca).
+						Note: A new Dossier ID is required if the proposed product(s) were not previously authorized (dossier ID does not exists), except if you are entering in new licensing agreement (i.e., change of licensor or change of source). You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use. 
 						<p>On this form: Use the company ID for new owner (licensee) and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
