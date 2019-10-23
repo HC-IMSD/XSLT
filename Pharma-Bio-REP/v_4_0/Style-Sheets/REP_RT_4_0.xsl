@@ -1026,7 +1026,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new dossier ID maybe required. Contact Health Canada for more information (hc.eReview.sc@canada.ca).
+						Note: A new dossier ID maybe required. You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use.
 						<p>On this form: Use existing company ID and dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
