@@ -491,6 +491,84 @@ span.normalWeight {
     padding-left: 0;
     list-style: none;
 }
+summary {
+  display: list-item !important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+  visibility: visible !important; }
+
+details:not([open]) details summary, details .out details summary {
+  display: none !important; }
+
+details {
+  margin-bottom: .25em; }
+  details summary {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #295376;
+    padding: 5px 15px; }
+    details summary:focus, details summary:hover {
+      background-color: transparent;
+      color: #0535d2;
+      text-decoration: underline; }
+  details[open] {
+    border: 1px solid #ddd;
+    border-radius: 4px; }
+    details[open] > summary {
+      border: 0;
+      border-bottom: 1px solid #ddd;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      list-style-type: disclosure-open;
+      margin-bottom: .25em; }
+  details:not([open]) {
+    visibility: hidden; }
+    details:not([open]) > details,
+    details:not([open]) > * {
+      display: none; }
+  details.alert:not([open]) {
+    visibility: visible; }
+.no-details details[open] > summary:before, .no-details[dir="rtl"] details[open] > summary:before {
+  content: "\25BC\a0"; }
+
+.no-details details > summary:before {
+  content: "\25BA\a0";
+  font-size: 84%; }
+
+.no-details {
+  /* Right to left (RTL) CSS */ }
+  .no-details details > summary:before {
+    /* Add the closed pointer */ }
+  .no-details details[open] {
+    display: block; }
+    .no-details details[open] > summary:before {
+      /* Add the opened pointer */ }
+  .no-details details summary {
+    display: list-item !important; }
+  .no-details[dir="rtl"] details > summary:before {
+    /* Add the close pointer */
+    content: "\25C4\a0"; }
+  .no-details[dir="rtl"] details[open] > summary:before {
+    /* Add the opened pointer */ }
+
+.pull-right {
+	float: right;
+}
+.btn-sm, .btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 3px; }
+.btn-info {
+  color: #fff;
+  background-color: #4d4d4d;
+  border-color: #1a1a1a; }
+  .btn-info:active, .btn-info.active,
+  .open > .btn-info.dropdown-toggle {
+    background-image: none; }
+.text-info {
+  color: #31708f; }
+
 </xsl:text>
 				</style>
 				<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
@@ -592,9 +670,47 @@ span.normalWeight {
 				{ "orderable": false, 'width': '2%', "targets": [0] },
 				{ 'width': '15%', "targets": [2] },{ 'width': '10%', "targets": [3,4] },{ 'width': '0', "targets": [5] }
 			]
-		}); 
+		});
+		if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+			$('details > summary').each(function(idx){
+				$(this).on("click", toggleDetails);
+			});
+		}else{
+			$('details > summary > span').each(function(idx){
+				$(this).remove();
+			})
+		}
 	});
-
+	function toggleDetails(){
+		var parent = $(this).parent()[0];
+		if(parent.getAttribute( 'open' ) !== null){ 
+			parent.removeAttribute('open');
+			parent.className = parent.className.replace( " open", "" );
+			var element = $(this).find("span")[0];
+			element.className = element.className.replace('fa-caret-down', 'fa-caret-right');
+		}else{
+			parent.setAttribute('open'); 
+			parent.className +=' open';
+			var element = $(this).find("span")[0];
+			element.className = element.className.replace('fa-caret-right', 'fa-caret-down');
+		}
+	}
+        function expandAll(theClass){
+            $('details').filter(function(){return ! $(this).attr('open')}).attr('open','open');
+			if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+				$('details > summary > span').each(function(){
+					this.className = this.className.replace('fa-caret-right', 'fa-caret-down');
+				});
+			}
+        }
+        function collapseAll(theClass){
+            $('details').filter(function(){return $(this).attr('open')}).removeAttr('open');
+			if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+				$('details > summary > span').each(function(){
+					this.className = this.className.replace('fa-caret-down', 'fa-caret-right');
+				});
+			}
+        }
 				</script>
 			</head>
             <body typeof="WebPage">
@@ -604,6 +720,16 @@ span.normalWeight {
 	</xsl:template>
 	<xsl:template match="DRUG_PRODUCT_ENROL">
 		<h1>Product Information Template: Regulatory Enrolment Process (REP)</h1>
+		<div class="row">
+            <div class="pull-right btn btn-info btn-sm btn-group-sm active" id="expand_collapse_top_btns">
+                <button id="btn_expandAll_top" onclick="expandAll('expandableForm')">
+                &#160;+&#160;Expand All
+                </button>&#160;
+                <button id="btn_collapseAll_top" onclick="collapseAll('expandableForm')">
+                &#160;-&#160;Collapse All
+                </button>
+            </div>
+		</div>
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;"  class="table dataTable table-bordered table-hover table-condensed table-striped ">
 				<tr>
@@ -626,12 +752,6 @@ span.normalWeight {
 					<h2 class="panel-title">Product Information</h2>
 				</div>
 					<div class="well well-sm" >
-<!--						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Dossier Type:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="dossier_type"/></span>
-							</div>
-						</div>-->
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Product Name</strong>
@@ -650,7 +770,7 @@ span.normalWeight {
 							<ul class="list-unstyled col-xs-12">
 								<li>
 									<details>
-										<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Clinical Trial</strong></summary>
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Clinical Trial</strong></summary>
 										<div class="col-xs-12">
 											<strong>Protocol number: </strong><span class="mouseHover"><xsl:value-of select="protocol_number"/></span>
 										</div>
@@ -699,21 +819,14 @@ span.normalWeight {
 											<strong>Information regarding Research Ethics Board that has refused to approve the protocol and/or informed consent form enclosed? </strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_reb_info_refused"/></xsl:call-template></span>
 										</div>
 										<div class="col-xs-12">
-											<strong>Does the investigational drug product have a DIN/NOC in Canada? </strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="has_din_noc"/></xsl:call-template></span>
+											<strong>Are clinical trial drugs imported into Canada?&#160;</strong>
+											<xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="are_drugs_imported"/></xsl:call-template>
 										</div>
+										<xsl:if test="are_drugs_imported = 'Y'">
 										<div class="col-xs-12">
-											<strong>Is the investigational drug product obtained from the Canadian market? </strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_canadian_market"/></xsl:call-template></span>
+										<p class="text-info">A letter of authorization signed by the clinical trial sponsor must be provided in section 1.2.1 for a third party to import the new drug(s) described in this clinical trial application or amendment. If the importer has not changed when a clinical trial application amendment (CTA-A) is filed, a letter of authorization does not need to be submitted.</p>
 										</div>
-										<div class="col-xs-12">
-											<strong>List the country(ies) the investigational drug product was obtained from:</strong>
-											<div class="col-xs-12">
-												<ol>
-												<xsl:for-each select="cta_source_countries">
-													<li><span class="mouseHover"><xsl:value-of select="."/></span></li>
-												</xsl:for-each>
-												</ol>
-											</div>
-										</div>
+										</xsl:if>
 									</details>
 								</li>
 							</ul>
@@ -729,25 +842,25 @@ span.normalWeight {
 								<xsl:if test="manufacturer = 'Y'">
 									<div class="col-xs-12">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Manufacturer/Sponsor</span>
+									<span class="mouseHover">Manufacturer/Sponsor</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="mailing = 'Y'">
 									<div class="col-xs-12">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Regulatory Mailing / Annual Contact</span>
+									<span class="mouseHover">Regulatory Mailing / Annual Contact</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="this_activity = 'Y'">
 									<div class="col-xs-12">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="this_activity"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Contact for this Regulatory Activity</span>
+									<span class="mouseHover">Contact for this Regulatory Activity</span>
 									</div>
 								</xsl:if>
 								<xsl:if test="importer = 'Y'">
 									<div class="col-xs-12">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Canadian Importer</span>
+									<span class="mouseHover">Canadian Importer</span>
 									</div>
 								</xsl:if>
 							</xsl:when>
@@ -760,15 +873,14 @@ span.normalWeight {
 
 						</div>
 						</xsl:if>
-						<div class="row"><br/>
-						</div>
 						<div style="clear:both;"></div>
+						<xsl:if test="dossier_type/@id != 'D26'">
 						<div class="row">
 							<ul class="list-unstyled col-xs-12">
 								<li>
 									<details>
-										<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Importer</strong></summary>
-											<table class="table dataTable table-bordered table-hover table-condensed table-striped" id="importCompany" border="1" cellspacing="2" cellpadding="2">
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Importer</strong></summary>
+										<table class="table dataTable table-bordered table-hover table-condensed table-striped" id="importCompany" border="1" cellspacing="2" cellpadding="2">
 												<thead>
 												<tr>
 													<th style="width:15px;"></th>
@@ -830,6 +942,7 @@ span.normalWeight {
 								</li>
 							</ul>
 						</div>
+						</xsl:if>
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Drug Use:&#160;</strong>
@@ -851,6 +964,7 @@ span.normalWeight {
 								<xsl:if test=" current() = 'Y'">
 										<div class="col-xs-12">
 										<div class="col-xs-12">
+											<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 											<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 										</div>
 										</div>
@@ -866,7 +980,7 @@ span.normalWeight {
 							<ul class="list-unstyled col-xs-12">
 								<li>
 									<details>
-										<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Species and subtypes recommended for use</strong></summary>
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Species and subtypes recommended for use</strong></summary>
 														<table class="table dataTable table-bordered table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2">
 															<thead>
 															<tr>
@@ -919,37 +1033,43 @@ span.normalWeight {
 							<ul class="list-unstyled col-xs-12">
 								<li>
 									<details>
-										<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Schedule and Prescription status (check all that apply): The product is</strong></summary>
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Schedule and Prescription status (check all that apply): The product is</strong></summary>
 										<xsl:choose>
 										<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
 											<xsl:if test="is_sched_c = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">included in Schedule C (radiopharmacurticals) to the Food and Drugs Act</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">included in Schedule C (radiopharmacurticals) to the Food and Drugs Act</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="is_sched_d = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">included in Schedule D (biologicals) to the Food and Drugs Act</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">included in Schedule D (biologicals) to the Food and Drugs Act</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="is_prescription_drug_list = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">on the Prescription Drug List</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">on the Prescription Drug List</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="is_regulated_cdsa = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">regulated under the Controlled Drugs and Substances Act</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">regulated under the Controlled Drugs and Substances Act</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="is_non_prescription_drug = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">a non-prescription drug</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">a non-prescription drug</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="is_sched_a = 'Y'">
 											<div class="col-xs-12">
-												<span style="margin-left:45px;" class="mouseHover">a non-prescription drug to which one or more Schedule A claims apply</span>
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+												<span class="mouseHover">a non-prescription drug to which one or more Schedule A claims apply</span>
 											</div>
 											<xsl:if test="is_sched_a = 'Y'">
 
@@ -981,6 +1101,7 @@ span.normalWeight {
 																<xsl:if test="current() = 'Y'">
 																<div class="col-xs-12">
 																<div class="col-xs-12">
+												<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
 																	<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
 																</div>
 																</div>
@@ -1027,7 +1148,7 @@ span.normalWeight {
 <ul class="list-unstyled col-xs-12">
 	<li>
 		<details>
-			<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Formulation</strong></summary>
+			<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="width:98%;">Formulation</strong></summary>
 				<table class="table table-bordered table-hover table-condensed table-striped table-formulation">
 				<thead>
 					<tr>
@@ -1193,9 +1314,44 @@ span.normalWeight {
 													</div>
 												</div>
 												</div>
+												<xsl:if test="../../dossier_type/@id = 'D26'">
+													<div class="row">
+														<div class="col-xs-12">
+															<strong>D. From which market(s) is the investigational drug product from?</strong>&#160;
+															<xsl:call-template name="converter"><xsl:with-param name="value" select="drug_market"/></xsl:call-template>
+														</div>
+													</div>
+													<xsl:if test="drug_market = 'CANADIAN'">
+													<div class="row">
+														<div class="col-xs-12">
+														<div class="col-xs-12">
+															<strong>Drug Identification Number (DIN):</strong>&#160;<xsl:value-of select="din"/>
+														</div>
+														</div>
+													</div>
+													</xsl:if>
+													<xsl:if test="drug_market = 'FOREIGN'">
+													<div class="row">
+														<div class="col-xs-12">
+															<div class="col-xs-12">
+															<h4>List the country(ies) the investigational drug product was obtained from:</h4>
+															<div class="col-xs-12">
+																<ol>
+																<xsl:for-each select="din_country_list">
+																	<li><span class="mouseHover"><xsl:value-of select="."/></span></li>
+																</xsl:for-each>
+																</ol>
+															</div>
+															</div>
+														</div>
+													</div>
+													</xsl:if>
+
+												</xsl:if>
 												<div class="row">
 												<div class="form-group col-md-12">
-												<strong>D.&#160;Was Animal and/or Human Sourced Material used at any stage in the manufacturing of the drug?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
+												<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'D'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>.
+												&#160;Was Animal and/or Human Sourced Material used at any stage in the manufacturing of the drug?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
 												</div>
 											<xsl:if test="is_animal_human_material = 'Y'">
 											<div class="col-md-12">
@@ -1250,7 +1406,8 @@ span.normalWeight {
 												<div class="row">
 												<div class="form-group col-md-12">
 												<br/>
-												<strong>E.&#160;Container Types, Package Size and Shelf Life</strong>
+												<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'E'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>.
+												&#160;Container Types, Package Size and Shelf Life</strong>
 												</div>
 											<div class="col-md-12">
 												<table class="table table-bordered table-hover table-condensed table-striped table-container-details" id="expand-table-143">
@@ -1320,7 +1477,8 @@ span.normalWeight {
 												<div class="row">
 												<div class="form-group col-md-12">
 												<br/>
-												<strong>F.&#160;Routes of Administration</strong>
+												<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'F'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>.
+												&#160;Routes of Administration</strong>
 												</div>
 												<div class="col-md-12">
 												<div class="col-xs-11">
@@ -1337,7 +1495,8 @@ span.normalWeight {
 												<div class="row">
 												<div class="form-group col-md-12">
 												<br/>
-												<strong>G.&#160;Countries of manufacture for this product</strong>
+												<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'G'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>.
+												&#160;Countries of manufacture for this product</strong>
 												</div>
 												<div class="col-md-12">
 													<div class="col-xs-11">
@@ -1361,7 +1520,7 @@ span.normalWeight {
 	</li>
 	<li>
 		<details>
-			<summary class="panel panel-primary panel-heading form-group"><strong style="padding-left:2% width:98%;">Human/Animal Sourced Ingredient/Material</strong></summary>
+			<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="width:98%;">Human/Animal Sourced Ingredient/Material</strong></summary>
 				<table class="table table-bordered table-hover table-condensed table-striped table-appendix">
 					<thead>
 						<tr>
@@ -1378,7 +1537,10 @@ span.normalWeight {
 							<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
 								<td class="fa fa-caret-right fa-lg fa-fw"></td>
 								<td><xsl:value-of select="ingredient_name"/></td>
-								<td><xsl:if test="human_sourced = 'Y'">Human</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animal</xsl:if></td>
+								<td>
+								<xsl:if test="human_sourced = 'Y'">Human</xsl:if>
+								<xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if>
+								<xsl:if test="animal_sourced = 'Y'">Animal</xsl:if></td>
 								<td>
 									<xsl:for-each select="tissues_fluids_section/*">
 										<xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template>
@@ -1409,12 +1571,12 @@ span.normalWeight {
 												<strong>Source From:&#160;</strong>
 											<xsl:if test="human_sourced = 'Y'">
 											<div class="col-md-12">
-												<span class="mouseHover" style="margin-left:45px;">Human</span>
+												<span class="mouseHover" ><xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>Human</span>
 											</div>
 											</xsl:if>
 											<xsl:if test="animal_sourced = 'Y'">
 											<div class="col-md-12">
-												<span class="mouseHover" style="margin-left:45px;">Animal</span>
+												<span class="mouseHover" ><xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>Animal</span>
 											</div>
 											</xsl:if>
 											</div>
@@ -1422,7 +1584,7 @@ span.normalWeight {
 										<xsl:if test=" ./human_sourced = 'Y' or ./animal_sourced = 'Y'">
 										<div class="row">
 											<div class="panel-default" style="margin-left:10px; margin-right:10px;">
-												<header><h3 style="font-weight:300; padding-left:5px">Tissues or Fluids sources</h3></header>
+												<header><h3 style="font-weight:700; padding-left:5px">Tissues or Fluids sources</h3></header>
 												<div class="panel-body">
 													<table class="table table-bordered table-hover table-condensed table-striped table-tissues">
 														<thead>
@@ -1455,7 +1617,7 @@ span.normalWeight {
 														</table>
 												</div>
 												<xsl:if test="animal_sourced = 'Y'">
-													<header><h3 style="font-weight:300; padding-left:5px">Animal Sources</h3></header>
+													<header><h3 style="font-weight:700; padding-left:5px">Animal Sources</h3></header>
 													<div class="panel-body">
 													<table class="table table-bordered table-hover table-condensed table-striped table-animal">
 													<thead>
@@ -1494,7 +1656,7 @@ span.normalWeight {
 													  </div><br/>
 													</div>
 													<div class="row"><br/></div>
-													<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Animal Countries of Origin</h3></header></div>
+													<div class="row"><header><h3 style="padding-left: 15px; font-weight: 700;">Animal Countries of Origin</h3></header></div>
 													<div class="col-xs-12">
 														<div class="col-xs-10">
 															<ol>
@@ -1525,6 +1687,16 @@ span.normalWeight {
 
 			</div>
 		</section>
+		<div class="row">
+            <div class="pull-right btn btn-info btn-sm btn-group-sm active" id="btn_expand_collapse_btm">
+                <button id="btn_expandAll_top" onclick="expandAll('expandableForm')">
+                &#160;+&#160;Expand All
+                </button>&#160;
+                <button id="btn_collapseAll_btm" onclick="collapseAll('expandableForm')">
+                &#160;-&#160;Collapse All
+                </button>
+            </div>
+		</div>
 
 	</xsl:template>
 	<xsl:template name="upperCase">
@@ -1702,8 +1874,9 @@ span.normalWeight {
 			<xsl:when test="'phase_2' = $value">Phase II (30-day default)</xsl:when>
 			<xsl:when test="'phase_3' = $value">Phase III (30-day default)</xsl:when>
 			<xsl:when test="'other' = $value">Other:&#160; </xsl:when>
-			<xsl:when test="'' = $value"></xsl:when>
-			<xsl:when test="'' = $value"></xsl:when>
+			<xsl:when test="'FOREIGN' = $value">Foreign</xsl:when>
+			<xsl:when test="'CANADIAN' = $value">Canadian</xsl:when>
+			<xsl:when test="'NOT_MARKETED' = $value">Not Marketed</xsl:when>
 			<xsl:otherwise>
 				Can't find the value: <xsl:value-of select="$value"/>
 			</xsl:otherwise>
@@ -1722,12 +1895,22 @@ span.normalWeight {
 		</xsl:choose>
 		</span>
 	</xsl:template>
+	<xsl:template name="getOrder">
+		<xsl:param name="order" select="/.."/>
+		<xsl:param name="type" select="/.."/>
+		<xsl:if test=" $type = 'D26'">
+			<xsl:value-of select="substring(substring-after('DEFGHI',$order),1,1)"/>
+		</xsl:if>
+		<xsl:if test=" $type != 'D26'">
+			<xsl:value-of select="$order"/>
+		</xsl:if>
+	</xsl:template>
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-09-05-1132.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-10-31-1357.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
