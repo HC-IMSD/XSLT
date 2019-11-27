@@ -523,8 +523,8 @@ span.normalWeight {
 														</div>
 														<div class="row">
 															<div class="col-md-12" >
-															<strong class="padLeft3">Regulatory Transaction Description:<br/></strong>
-															<span class="mouseHover" style="padding-left:15px;min-width:350px;">
+															<strong class="padLeft3">Regulatory Transaction Description:&#160;</strong>
+															<span class="mouseHover">
 															<xsl:choose>
 															<xsl:when test="sequence_description_value/@id = 'YEAR'">
 																<xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
