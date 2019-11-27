@@ -514,16 +514,17 @@ span.normalWeight {
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-md-5">
+															<div class="col-md-5" style="min-width:350px;">
 															<strong class="padLeft3">Regulatory Activity Lead:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_lead"/></span>
 															</div>
-															<div class="col-md-6">
+															<div class="col-md-6" style="min-width:450px;">
 															<strong>Regulatory Activity Type:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_type"/></span>
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-md-12">
-															<strong class="padLeft3">Regulatory Transaction Description:&#160;</strong><span class="mouseHover">
+															<div class="col-md-12" >
+															<strong class="padLeft3">Regulatory Transaction Description:<br/></strong>
+															<span class="mouseHover" style="padding-left:15px;min-width:350px;">
 															<xsl:choose>
 															<xsl:when test="sequence_description_value/@id = 'YEAR'">
 																<xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
@@ -832,7 +833,6 @@ span.normalWeight {
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
 								<strong>, &#160;&#160;</strong>
 								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /></xsl:when><xsl:otherwise><xsl:if test="regulatory_activity_address/province_text != ''"><xsl:value-of select="regulatory_activity_address/province_text" /><strong>, &#160;&#160;</strong></xsl:if></xsl:otherwise></xsl:choose> </span>
-								
 								<span class="mouseHover"> <xsl:value-of select="regulatory_activity_address/country"/></span>
 							</div>
 							<div class="col-xs-12">
@@ -844,28 +844,27 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-3"> Job Title&#160;&#160; 
+								<strong class="col-xs-6" style="min-width: 250px;"> Job Title&#160;&#160; 
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
-								<strong class="col-xs-3">&#160;</strong>
-								<strong class="col-xs-4"> Language of Correspondence&#160;&#160;
+								<strong class="col-xs-4" style="min-width: 250px;"> Language of Correspondence&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-3">First Name&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span> </strong>
-								<strong class="col-xs-3"> Initials&#160;&#160;
+								<strong class="col-xs-6" style="min-width: 250px;">First Name&#160;&#160;
+								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span>
+								&#160;&#160;&#160;&#160;Initials&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/initials" /> </span> </strong>
-								<strong class="col-xs-3"> Last Name&#160;&#160;
+								<strong class="col-xs-4" style="min-width: 250px;">Last Name&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/surname" /> </span> </strong>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong style="width:50%; float:left;padding-left:15px;padding-right:15px;">Phone Number&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
-								Ext &#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
-								<strong class="col-xs-3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fax Number&#160;&#160; 
+								<strong class="col-xs-6" style="min-width:250px;">Phone Number&#160;&#160;
+								<span class="mouseHover" style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
+								
+								<span class="mouseHover">&#160;&#160;Ext &#160;&#160;</span><span style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
+								<strong class="col-xs-4" style="min-width:250px;">Fax Number&#160;&#160; 
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
