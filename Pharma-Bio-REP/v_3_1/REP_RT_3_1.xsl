@@ -406,9 +406,9 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<tr>
-								<th style="text-align: center;font-weight:bold;">Company ID</th>
+								<th style="text-align: center;font-weight:bold;">Company Identification </th>
 								<th style="text-align: center;font-weight:bold;">Dossier Type</th>
-								<th style="text-align: center;font-weight:bold;">Dossier ID</th>
+								<th style="text-align: center;font-weight:bold;">Dossier Identification </th>
 								<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
 							</tr>
 							<tr>

@@ -404,9 +404,9 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<tr>
-								<th style="text-align: center;font-weight:bold;">ID d'entreprise</th>
+								<th style="text-align: center;font-weight:bold;">Numéro d'entreprise</th>
 								<th style="text-align: center;font-weight:bold;">Type de dossier</th>
-								<th style="text-align: center;font-weight:bold;">ID de dossier</th>
+								<th style="text-align: center;font-weight:bold;">Numéro de dossier</th>
 								<th style="text-align: center;font-weight:bold;">Date de la derni&#232;re enregistrement</th>
 							</tr>
 							<tr>
@@ -441,7 +441,7 @@ span.normalWeight {
 							<xsl:if test="is_third_party = 'Y'">
 							<div class="col-xs-11">
 								<div class="alert alert-info">
-									Une lettre d’autorisation sign&#233;e par le fabricant ou le promoteur doit être fournie &#224; la section 1.2.1 de la transaction r&#233;glementaire.
+									Une lettre d’autorisation signée par le fabricant ou le promoteur doit être fournie dans la section 1.2.1 de la transaction réglementaire.
 								</div>
 							</div>
 							</xsl:if>
@@ -455,7 +455,7 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Cette activit&#233; de r&#233;glementation a-t-elle &#233;t&#233; approuv&#233;e aux fins d’examen AC-C?&#160; </strong>
+								<strong> Cette activité de réglementation a-t-elle été approuvée aux fins d’examen pour un AC-C?&#160; </strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_noc"/></xsl:call-template>
 								</span>
 							</div>
@@ -511,7 +511,7 @@ span.normalWeight {
 														</div>
 														<div class="row">
 															<div class="form-group col-md-12">
-															<strong class="padLeft3">Description de transactions de r&#233;glementation :&#160;</strong><span class="mouseHover">
+															<strong class="padLeft3">Description de transaction de r&#233;glementation :&#160;</strong><span class="mouseHover">
 															<xsl:choose>
 															<xsl:when test="sequence_description_value/@id = 'YEAR'">
 																<xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
@@ -670,18 +670,18 @@ span.normalWeight {
 				</div>
 				<div class="panel-body">
 					<h4>Personne-ressource pour cette activit&#233; r&#233;glementaire</h4>
-					<strong>A. Information d'entreprise: </strong>
+					<strong>A. Information sur l'entreprise: </strong>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong>Nom d'entreprise compl&#232;te</strong>
+								<strong>Nom de l'entreprise</strong>
 							</div>
 							<div class="col-xs-12">
 								<span class="mouseHover"><xsl:apply-templates select="company_name" /> </span>
 							</div>
 						</div>
 					</div>
-					<strong>B. Information d'adresse: </strong>
+					<strong>B. Adresse: </strong>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
@@ -724,7 +724,7 @@ span.normalWeight {
 							<div class="col-xs-12">
 								<strong style="width:50%; float:left;padding-left:15px;padding-right:15px;">T&#233;l&#233;phone&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
-								Ext &#160;&#160;
+								Numéro de l'extension &#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
 								<strong class="col-xs-3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;Num&#233;ro de fax&#160;&#160; 
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
