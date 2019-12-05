@@ -661,6 +661,12 @@ span.normalWeight {
 							<xsl:if test="fee_details/mitigation/mitigation_type/@id = 'FUNDED_INSTITUTION'">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/mitigation/certify_funded_health_institution"/></xsl:call-template>
 								<strong>We certify that our institution is funded by the Government of Canada or the government of a province or territory and that it is</strong>
+								<div class="col-xs-12">
+								<ol class="lst-lwr-alph">
+									<li>licensed, approved or designated by a province in accordance with the laws of the province to provide care or treatment to persons or animals suffering from any form of disease or illness; or</li>
+									<li>owned or operated by the Government of Canada or the government of a province and that provides health services.</li>
+								</ol>
+								</div>
 							</xsl:if>
 							<xsl:if test="fee_details/mitigation/mitigation_type/@id = 'GOVERMENT_ORGANIZATION'">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/mitigation/certify_goverment_organization"/></xsl:call-template>

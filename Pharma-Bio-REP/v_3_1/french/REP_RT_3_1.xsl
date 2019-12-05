@@ -740,7 +740,7 @@ span.normalWeight {
 							<div class="col-xs-12">
 								<strong>
 										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="confirm_regulatory_contact"/></xsl:call-template>
-								<span class="mouseHover">Je confirme que l'information de la personne-ressource de l’activit&#233; r&#233;glementaire ci-dessus sont valides.</span></strong>
+								<span class="mouseHover">Je confirme que l'information de la personne-ressource de l’activité réglementaire ci-dessus est valide.</span></strong>
 							</div>
 						</div>
 					</div>
