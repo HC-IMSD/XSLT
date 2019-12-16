@@ -3,6 +3,7 @@
 	<xsl:param name="language" select="'eng'"/>
 	<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'"/>
 	<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
+	<xsl:decimal-format name="FrenchDecimalFormat" decimal-separator="," grouping-separator="&#160;"/>
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -533,7 +534,7 @@ span.normalWeight {
 														<xsl:if test="requester_name != ''">
 														<div class="row">
 															<div class="col-md-12">
-															<strong>Demandeur d’information sollicit&#233;e:&#160;</strong>
+															<strong class="padLeft3">Demandeur d’information sollicit&#233;e:&#160;</strong>
 															</div>
 
 															<div class="col-md-12">
@@ -600,7 +601,7 @@ span.normalWeight {
 									<xsl:value-of select="fee_details/submission_class"/>
 								</span>
 								<strong>&#160;&#160;Frais:&#160;</strong>
-								<span class="mouseHover">$<xsl:value-of select="fee_details/fee"/></span>
+								<span class="mouseHover"><xsl:value-of select="format-number(fee_details/fee, '###&#160;###,00', 'FrenchDecimalFormat')"/>&#160;$</span>
 							</div>
 							<div class="col-xs-12">
 								<strong>Description de la pr&#233;sentation:&#160;</strong>
@@ -692,8 +693,7 @@ span.normalWeight {
 							<div class="col-xs-12">
 								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
 								<strong>, &#160;&#160; </strong>
-								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /></xsl:when><xsl:otherwise><xsl:value-of select="regulatory_activity_address/province_text" /></xsl:otherwise></xsl:choose> </span>
-								<strong>, &#160;&#160;</strong>
+								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /><strong>, &#160;&#160;</strong></xsl:when><xsl:otherwise><xsl:if test="regulatory_activity_address/province_text != ''"><xsl:value-of select="regulatory_activity_address/province_text" /><strong>, &#160;&#160;</strong></xsl:if></xsl:otherwise></xsl:choose> </span>
 								<span class="mouseHover"> <xsl:value-of select="regulatory_activity_address/country"/></span>
 							</div>
 							<div class="col-xs-12">
@@ -974,7 +974,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-11-29-1414.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-12-09-1540.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
