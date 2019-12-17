@@ -268,7 +268,7 @@ span.mouseHover:hover {
 					<th style="text-align: center;font-weight:bold;">Enrolment Status</th>
 					<th style="text-align: center;font-weight:bold;">Enrolment Version</th>
 					<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
-					<th style="text-align: center;font-weight:bold;">Company ID</th>
+					<th style="text-align: center;font-weight:bold;">Company Identification</th>
 				</tr>
 				<tr>
 					<td style="text-align: center;"><span class="mouseHover"><xsl:call-template name="CapitalFirstLetter"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </td>
@@ -312,7 +312,7 @@ span.mouseHover:hover {
 								<tr>
 									<td style="text-align: center;font-weight:bold;">Company</td>
 									<td style="text-align: center;font-weight:bold;">Address Information</td>
-									<td style="text-align: center;font-weight:bold;">Importer Company ID</td>
+									<td style="text-align: center;font-weight:bold;">Importer Company Identification</td>
 									<td style="text-align: center;font-weight:bold;">Roles</td>
 								</tr>
 								<xsl:for-each select="address_record">

@@ -604,8 +604,8 @@ span.normalWeight {
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
-					<th style="text-align: center;font-weight:bold;">ID d'entreprise</th>
-					<th style="text-align: center;font-weight:bold;">ID de dossier</th>
+					<th style="text-align: center;font-weight:bold;">Numéro d'entreprise</th>
+					<th style="text-align: center;font-weight:bold;">Numéro de dossier</th>
 					<th style="text-align: center;font-weight:bold;">Date de la derni&#232;re enregistrement</th>
 				</tr>
 				<tr>
@@ -687,7 +687,7 @@ span.normalWeight {
 								<thead>
 								<tr>
 									<th style="width:15px;"></th>
-									<th ><strong>ID d'entreprise de l'importateur</strong></th>
+									<th ><strong>Numéro d'entreprise de l'importateur</strong></th>
 									<th style="width:70%;"><strong>Nom d'entreprise de l'importateur</strong></th>
 									<th class="out">Hidden</th>
 								</tr>
@@ -707,7 +707,7 @@ span.normalWeight {
 														<div class="well well-sm">
 															<div class="row">
 															<div class="form-group col-md-12">
-																<strong>ID d'entreprise de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
+																<strong>Numéro d'entreprise de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
 															</div>
 															</div>
 															<div class="row">
@@ -907,7 +907,7 @@ span.normalWeight {
 											<thead>
 												<tr>
 													<th style="width:2%;"></th>
-													<th style="width:8%;"><strong>ID</strong></th>
+													<th style="width:8%;"><strong>Numéro</strong></th>
 													<th style="width:70%;"><strong>Nom de la formulation</strong></th>
 													<th style="width:20%;"><strong>Forme posologie</strong></th>
 													<th class="out"></th>
@@ -947,7 +947,7 @@ span.normalWeight {
 																							<thead>
 																								<tr>
 																									<th style="width:2%"></th>
-																									<th>ID</th>
+																									<th>Numéro</th>
 																									<th>R&#244;le</th>
 																									<th>Variante</th>
 																									<th>Ingr&#233;dient</th>

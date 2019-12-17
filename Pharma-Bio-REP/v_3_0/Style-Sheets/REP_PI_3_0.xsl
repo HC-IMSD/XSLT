@@ -604,8 +604,8 @@ span.normalWeight {
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
-					<th style="text-align: center;font-weight:bold;">Company ID</th>
-					<th style="text-align: center;font-weight:bold;">Dossier ID</th>
+					<th style="text-align: center;font-weight:bold;">Company Identification</th>
+					<th style="text-align: center;font-weight:bold;">Dossier Identifier</th>
 					<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
 				</tr>
 				<tr>
@@ -687,7 +687,7 @@ span.normalWeight {
 								<thead>
 								<tr>
 									<th style="width:15px;"></th>
-									<th ><strong>Importer Company ID</strong></th>
+									<th ><strong>Importer Company Identification</strong></th>
 									<th style="width:70%;"><strong>Importer Company Name</strong></th>
 									<th class="out">Hidden</th>
 								</tr>
@@ -707,7 +707,7 @@ span.normalWeight {
 														<div class="well well-sm">
 															<div class="row">
 															<div class="form-group col-md-12">
-																<strong>Importer Company ID:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
+																<strong>Importer Company Identification:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
 															</div>
 															</div>
 															<div class="row">
@@ -907,7 +907,7 @@ span.normalWeight {
 											<thead>
 												<tr>
 													<th style="width:2%;"></th>
-													<th style="width:8%;"><strong>ID</strong></th>
+													<th style="width:8%;"><strong>Identification</strong></th>
 													<th style="width:70%;"><strong>Formulation Name</strong></th>
 													<th style="width:20%;"><strong>Dosage Form</strong></th>
 													<th class="out"></th>
@@ -947,7 +947,7 @@ span.normalWeight {
 																							<thead>
 																								<tr>
 																									<th style="width:2%"></th>
-																									<th>ID</th>
+																									<th>Identification</th>
 																									<th>Role</th>
 																									<th>Variant</th>
 																									<th>Ingredient</th>

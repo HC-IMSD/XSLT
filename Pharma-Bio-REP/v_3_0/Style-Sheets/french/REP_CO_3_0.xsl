@@ -268,7 +268,7 @@ span.mouseHover:hover {
 					<th style="text-align: center;font-weight:bold;">Statut d'inscription</th>
 					<th style="text-align: center;font-weight:bold;">Version d'inscription</th>
 					<th style="text-align: center;font-weight:bold;">Date  de la derni&#232;re enregistrement</th>
-					<th style="text-align: center;font-weight:bold;">ID d'entreprise</th>
+					<th style="text-align: center;font-weight:bold;">Numéro d'entreprise</th>
 				</tr>
 				<tr>
 					<td style="text-align: center;"><span class="mouseHover"><xsl:call-template name="CapitalFirstLetter"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </td>
@@ -312,7 +312,7 @@ span.mouseHover:hover {
 								<tr>
 									<td style="text-align: center;font-weight:bold;">Entreprise</td>
 									<td style="text-align: center;font-weight:bold;">Information d'adresse</td>
-									<td style="text-align: center;font-weight:bold;">ID d'entreprise de l'importateur</td>
+									<td style="text-align: center;font-weight:bold;">Numéro d'entreprise de l'importateur</td>
 									<td style="text-align: center;font-weight:bold;">Roles</td>
 								</tr>
 								<xsl:for-each select="address_record">
