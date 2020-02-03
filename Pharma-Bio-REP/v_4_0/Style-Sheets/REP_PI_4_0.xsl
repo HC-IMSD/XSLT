@@ -1215,7 +1215,15 @@ details {
 																		&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units"/></xsl:otherwise></xsl:choose></td>
 																	<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
 																	<td><xsl:value-of select="is_base_calc"/></td>
-																	<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
+																	<td><xsl:choose>
+																	<xsl:when test="is_nanomaterial = 'N'">
+																		No
+																	</xsl:when>
+																	<xsl:otherwise>
+																	<xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose>
+																	</xsl:otherwise>
+																	</xsl:choose>
+																	</td>
 																	<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
 																	<td class="out"><table><tr data-detail="true"><td colspan="10">
 																		<fieldset>
