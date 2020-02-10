@@ -401,7 +401,7 @@ span.normalWeight {
 	
 	<!-- Transaction Enrolment -->
 	<xsl:template match="TRANSACTION_ENROL">
-		<h1>Mod&#232;le de transaction r&#233;glementaire: Processus d'inscription r&#233;glementaire (PIR)</h1>
+		<h1>Mod&#232;le de transaction r&#233;glementaire: Processus d'inscription r&#233;glementaire (PIR)<xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
 					<div class="well well-sm" >
 						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<tr>
@@ -732,6 +732,12 @@ span.normalWeight {
 							<div class="col-xs-12">
 								<strong class="col-xs-12">Courriel&#160;&#160;
 								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<strong style="float:left;padding-left:15px;padding-right:15px;">Identificateur  d'acheminement</strong>
+								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/routing_id" /></span>
 							</div>
 						</div>
 					</div>

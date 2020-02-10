@@ -748,6 +748,12 @@ span.normalWeight {
 								<span class="mouseHover" style="font-weight:normal; "> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<strong style="float:left;padding-left:15px;padding-right:15px;">Routing Identifier</strong>
+								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/routing_id" /></span>
+							</div>
+						</div>
 					</div>
 					<div class="well well-sm" >
 						<div class="row">
@@ -988,7 +994,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-12-09-1540.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2020-02-07-1506.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
