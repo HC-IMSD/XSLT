@@ -401,11 +401,11 @@ span.normalWeight {
 	
 	<!-- Transaction Enrolment -->
 	<xsl:template match="TRANSACTION_ENROL">
-		<h1>Mod&#232;le de transaction r&#233;glementaire: Processus d'inscription r&#233;glementaire (PIR)<xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
+		<h1>Mod&#232;le de transaction r&#233;glementaire: Processus d'inscription r&#233;glementaire (PIR)<xsl:if test="software_version != ''"> (Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
 					<div class="well well-sm" >
 						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<tr>
-								<th style="text-align: center;font-weight:bold;">Numéro d'entreprise</th>
+								<th style="text-align: center;font-weight:bold;">Numéro de la compagnie</th>
 								<th style="text-align: center;font-weight:bold;">Type de dossier</th>
 								<th style="text-align: center;font-weight:bold;">Numéro de dossier</th>
 								<th style="text-align: center;font-weight:bold;">Date de la derni&#232;re enregistrement</th>

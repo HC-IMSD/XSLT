@@ -402,11 +402,11 @@ span.normalWeight {
 	
 	<!-- Transaction Enrolment -->
 	<xsl:template match="TRANSACTION_ENROL">
-		<h1>Regulatory Transaction Template: Regulatory Enrolment Process (REP)</h1>
+		<h1>Regulatory Transaction Template: Regulatory Enrolment Process (REP)<xsl:if test="software_version != ''"> (Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
 					<div class="well well-sm" >
 						<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<tr>
-								<th style="text-align: center;font-weight:bold;">Company Identification </th>
+								<th style="text-align: center;font-weight:bold;">Company Identifier </th>
 								<th style="text-align: center;font-weight:bold;">Dossier Type</th>
 								<th style="text-align: center;font-weight:bold;">Dossier Identifier </th>
 								<th style="text-align: center;font-weight:bold;">Date Last Saved</th>
@@ -681,7 +681,7 @@ span.normalWeight {
 			
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h2 class="panel-title">Regulatory Activity Contact for THIS transaction</h2>
+					<h2 class="panel-title">Contact for THIS Regulatory Activity</h2>
 				</div>
 				<div class="panel-body">
 					<h4>Regulatory Activity Contact for THIS transaction</h4>
