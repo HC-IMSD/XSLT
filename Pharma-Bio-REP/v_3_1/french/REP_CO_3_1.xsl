@@ -261,7 +261,7 @@ span.mouseHover:hover {
 	
 	<!-- Company Enrolment -->
 	<xsl:template match="COMPANY_ENROL">
-		<h1>Mod&#232;le de l'entreprise: Processus d'Inscription R&#233;glementaire (PIR)<xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
+		<h1>Mod&#232;le de l'entreprise: Processus d'Inscription R&#233;glementaire (PIR) <xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
@@ -337,14 +337,13 @@ span.mouseHover:hover {
 								<tr>
 									<th style="text-align: center;font-weight:bold;">Repr&#233;sentative</th>
 									<th style="text-align: center;font-weight:bold;">Contacter par</th>
-									<th style="text-align: center;font-weight:bold;">Identificateur  d'acheminement</th>
+									<th style="text-align: center;font-weight:bold;">Identificateur d'acheminement</th>
 									<th style="text-align: center;font-weight:bold;">Roles</th>
 								</tr>
 								<xsl:for-each select="contact_record">
 									<tr>
 										<td style="padding-left:2px;"><xsl:call-template name="representative"/></td>
 										<td style="padding-left:2px;"><xsl:call-template name="contactBy"/></td>
-										<td style="padding-left:2px;"><xsl:value-of select="company_contact_details/routing_id"/></td>
 										<td style="padding-left:2px;"><xsl:call-template name="contactRoles"/></td>
 									</tr>
 								</xsl:for-each>
@@ -362,6 +361,7 @@ span.mouseHover:hover {
 			<div style="white-space:nowrap;"><strong style="width:6em;">Poste:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Courriel:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/email"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Identificateur d'acheminement:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/routing_id"/></span></div>
 		</div>
 	</xsl:template>
 	<xsl:template name="contactRoles">
@@ -517,7 +517,7 @@ span.mouseHover:hover {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcrepco-88888-4-0.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcrepco-32324-1-0.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
 		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
 		          validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_2_2/Style-Sheets/ip400.css'"/>
