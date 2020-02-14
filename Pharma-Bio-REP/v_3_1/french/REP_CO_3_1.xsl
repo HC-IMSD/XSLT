@@ -313,7 +313,7 @@ span.mouseHover:hover {
 									<td style="text-align: center;font-weight:bold;">Entreprise</td>
 									<td style="text-align: center;font-weight:bold;">Numéro d'entreprise</td>
 									<td style="text-align: center;font-weight:bold;">Information d'adresse</td>
-									<td style="text-align: center;font-weight:bold;">Numéro d'entreprise de l'importateur</td>
+									<td style="text-align: center;font-weight:bold;">Numéro de la compagnie de l'importateur</td>
 									<td style="text-align: center;font-weight:bold;">Roles</td>
 								</tr>
 								<xsl:for-each select="address_record">
@@ -337,7 +337,6 @@ span.mouseHover:hover {
 								<tr>
 									<th style="text-align: center;font-weight:bold;">Repr&#233;sentative</th>
 									<th style="text-align: center;font-weight:bold;">Contacter par</th>
-									<th style="text-align: center;font-weight:bold;">Identificateur d'acheminement</th>
 									<th style="text-align: center;font-weight:bold;">Roles</th>
 								</tr>
 								<xsl:for-each select="contact_record">
@@ -519,7 +518,7 @@ span.mouseHover:hover {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcrepco-32324-1-0.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/draftrepco-0-2.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/company.html" processortype="saxon8" useresolver="yes"
 		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
 		          validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_2_2/Style-Sheets/ip400.css'"/>
