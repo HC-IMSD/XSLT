@@ -399,6 +399,12 @@ span.mouseHover:hover {
 			<span class="normalWeight mouseHover" style="font-weight:100;">Alternate REP contact</span>
 		</dt>
 		</xsl:if>
+		<xsl:if test="importer = 'Y'">
+		<dt>
+			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Canadian Importer Contact</span>
+		</dt>
+		</xsl:if>
 		</dl>
 	</xsl:template>
 	<xsl:template name="representative">
