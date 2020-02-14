@@ -330,7 +330,7 @@ span.mouseHover:hover {
 					</section>
 					<section class="panel panel-default" >
 							<div class="panel-heading">
-								<h2 class="panel-title">Information repr&#233;sentative de l'entreprise</h2>
+								<h2 class="panel-title">Information sur les représentants de la compagnie</h2>
 							</div>
 							<div class="panel-body">
 							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
