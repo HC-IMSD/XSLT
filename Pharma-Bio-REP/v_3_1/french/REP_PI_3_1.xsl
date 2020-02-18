@@ -683,7 +683,7 @@ span.normalWeight {
 						<div class="row">
 						<div class="col-sm-12 form-group">
 							<strong>Importateur</strong>
-							<table class="table dataTable table-bordered table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+							<table class="table dataTable table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 								<thead>
 								<tr>
 									<th style="width:15px;"></th>
@@ -711,12 +711,10 @@ span.normalWeight {
 															</div>
 															</div>
 															<div class="row">
-															<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong></div>
-															<div class="form-group col-md-12"><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
+															<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
 															</div>
 															<div class="row">
-															<div class="form-group col-md-12"><strong>Rue: &#160;</strong></div>
-															<div class="form-group col-md-12"><span class="mouseHover"><xsl:value-of select="street_address"/></span></div>
+															<div class="form-group col-md-12"><strong>Rue: &#160;</strong><span class="mouseHover"><xsl:value-of select="street_address"/></span></div>
 															</div>
 															<div class="row">
 															<div class="form-group col-md-6"><strong>Ville: &#160;</strong><span class="mouseHover"><xsl:value-of select="city"/></span></div>
@@ -878,6 +876,12 @@ span.normalWeight {
 								</div>
 								</xsl:if>
 								</xsl:if>
+								<xsl:if test="is_drug_admin = 'Y'">
+								<div class="col-xs-12">
+									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+									<span class="mouseHover">un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien</span>
+								</div>
+								</xsl:if>
 							</xsl:when>
 							<xsl:otherwise>
 								<div class="col-xs-12">
@@ -908,7 +912,7 @@ span.normalWeight {
 									<div style="clear:both;"></div>
 									<div class="tabpanels">
 										<div id="tabpanel0" class="active">
-											<table class="table table-bordered table-hover table-condensed table-striped table-formulation">
+											<table class="table table-hover table-condensed table-striped table-formulation" border="1">
 											<thead>
 												<tr>
 													<th style="width:2%;"></th>
@@ -948,7 +952,7 @@ span.normalWeight {
 																				<br/>
 																					<div class="row">
 																						<div class="col-md-12">
-																							<table class="table table-bordered table-hover table-condensed table-striped table-ingredients" >
+																							<table class="table table-hover table-condensed table-striped table-ingredients" border="1" >
 																							<thead>
 																								<tr>
 																									<th style="width:2%"></th>
@@ -1082,7 +1086,7 @@ span.normalWeight {
 																				</div>
 																			<xsl:if test="is_animal_human_material = 'Y'">
 																			<div class="col-md-12">
-																				<table class="table table-bordered table-hover table-condensed table-striped table-container" id="expand-table-142">
+																				<table class="table table-hover table-condensed table-striped table-container" id="expand-table-142" border="1">
 																				<thead>
 																					<tr>
 																						<th style="width:2%"></th>
@@ -1136,7 +1140,7 @@ span.normalWeight {
 																				<strong>E.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
 																				</div>
 																			<div class="col-md-12">
-																				<table class="table table-bordered table-hover table-condensed table-striped table-container-details" id="expand-table-143">
+																				<table class="table table-hover table-condensed table-striped table-container-details" id="expand-table-143" border="1">
 																				<thead>
 																					<tr>
 																						<th style="width:2%"></th>
@@ -1154,7 +1158,7 @@ span.normalWeight {
 																							<td><xsl:value-of select="container_type"/></td>
 																							<td><xsl:value-of select="package_size"/></td>
 																							<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
-																							<td><xsl:value-of select="temperature_min"/>&#160;To&#160;<xsl:value-of select="temperature_max"/></td>
+																							<td><xsl:value-of select="temperature_min"/><xsl:if test="temperature_max != ''">&#160;&#224;&#160;<xsl:value-of select="temperature_max"/></xsl:if></td>
 																							<td class="out"><table><tr data-detail="true"><td colspan="5">
 															<fieldset>
 																<legend>D&#233;tails sur le type de contenant&#160;<xsl:value-of select="position()"/></legend>
@@ -1245,7 +1249,7 @@ span.normalWeight {
 											</table>
 										</div>
 										<div class="out" id="tabpanel1" role="tabpanel">
-											<table class="table table-bordered table-hover table-condensed table-striped table-appendix">
+											<table class="table table-hover table-condensed table-striped table-appendix" border="1">
 											<thead>
 												<tr>
 													<th></th>
@@ -1307,7 +1311,7 @@ span.normalWeight {
 																	<div class="panel-default" style="margin-left:10px; margin-right:10px;">
 																		<header><h3 style="font-weight:300; padding-left:5px">Origine des tissus ou fluides</h3></header>
 																		<div class="panel-body">
-																			<table class="table table-bordered table-hover table-condensed table-striped table-tissues">
+																			<table class="table table-hover table-condensed table-striped table-tissues" border="1">
 																				<thead>
 																					<tr>
 																						<th style="background-color:white !important;">Syst&#232;me</th>
@@ -1340,7 +1344,7 @@ span.normalWeight {
 																		<xsl:if test="animal_sourced = 'Y'">
 																			<header><h3 style="font-weight:300; padding-left:5px">Sources d'animales</h3></header>
 																			<div class="panel-body">
-																			<table class="table table-bordered table-hover table-condensed table-striped table-animal">
+																			<table class="table table-hover table-condensed table-striped table-animal" border="1">
 																			<thead>
 																					<th style="background-color:white !important;"><strong>Type d'animal</strong></th>
 																					<th style="background-color:white !important;"><strong>D&#233;tails du type d'animal</strong></th>
@@ -1600,9 +1604,9 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-07-02-1521.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
-		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
-		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///k:/DATA/hcreppi-2020-02-18-1129.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8" useresolver="yes"
+		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
+		          validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
 			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
 			<advancedProp name="sInitialMode" value=""/>
