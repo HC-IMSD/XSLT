@@ -1265,7 +1265,7 @@ span.normalWeight {
 											<tbody>
 												<xsl:for-each select="appendix4_group">
 													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
-														<td class="fa fa-caret-right fa-lg fa-fw"></td>
+														<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 														<td><xsl:value-of select="ingredient_name"/></td>
 														<td><xsl:if test="human_sourced = 'Y'">Human</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animal</xsl:if></td>
 														<td>
