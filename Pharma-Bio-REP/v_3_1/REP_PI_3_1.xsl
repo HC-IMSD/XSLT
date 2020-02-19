@@ -957,7 +957,7 @@ span.normalWeight {
 																							<thead>
 																								<tr>
 																									<th style="width:2%"></th>
-																									<th>Identification</th>
+																									<th>Identifier</th>
 																									<th>Role</th>
 																									<th>Variant</th>
 																									<th>Ingredient</th>
@@ -972,7 +972,7 @@ span.normalWeight {
 								<tbody>
 																								<xsl:for-each select="formulation_ingredient">
 																								<tr onclick="showDetail(this, '10', false, null);">
-																									<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																									<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																									<td><xsl:value-of select="ingredient_id"/></td>
 																									<td><xsl:value-of select="ingredient_role"/></td>
 																									<td><xsl:value-of select="variant_name"/></td>
@@ -1100,7 +1100,7 @@ span.normalWeight {
 																				<tbody>
 																					<xsl:for-each select="material_ingredient">
 																						<tr onclick="showDetail(this, '4', false, null);">
-																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																							<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																							<td><xsl:value-of select="./ingredient_name"/></td>
 																							<td><xsl:value-of select="./cas_number"/></td>
 																							<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
