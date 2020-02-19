@@ -971,7 +971,7 @@ span.normalWeight {
 								<tbody>
 																								<xsl:for-each select="formulation_ingredient">
 																								<tr onclick="showDetail(this, '10', false, null);">
-																									<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																									<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																									<td><xsl:value-of select="ingredient_id"/></td>
 																									<td><xsl:value-of select="ingredient_role"/></td>
 																									<td><xsl:value-of select="variant_name"/></td>
@@ -1099,7 +1099,7 @@ span.normalWeight {
 																				<tbody>
 																					<xsl:for-each select="material_ingredient">
 																						<tr onclick="showDetail(this, '4', false, null);">
-																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																							<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																							<td><xsl:value-of select="./ingredient_name"/></td>
 																							<td><xsl:value-of select="./cas_number"/></td>
 																							<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
@@ -1154,7 +1154,7 @@ span.normalWeight {
 																				<tbody>
 																					<xsl:for-each select="container_group/container_details">
 																						<tr onclick="showDetail(this, '3', false, null);">
-																							<td class="fa fa-caret-right fa-lg fa-fw"></td>
+																							<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																							<td><xsl:value-of select="container_type"/></td>
 																							<td><xsl:value-of select="package_size"/></td>
 																							<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
