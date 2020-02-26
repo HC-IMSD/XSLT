@@ -737,7 +737,7 @@ span.normalWeight {
 																<div class="form-group col-md-6"><strong>Phone Extension: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_ext"/></span></div>
 																<div class="form-group col-md-6"><strong>Fax Number: &#160;</strong><span class="mouseHover"><xsl:value-of select="fax_num"/></span></div>
 																<div class="form-group col-md-6"><strong>Email: &#160;</strong><span class="mouseHover"><xsl:value-of select="email"/></span></div>
-																<div class="form-group col-md-6"><strong>Routing Identifer: &#160;</strong><span class="mouseHover"><xsl:value-of select="routing_id"/></span></div>
+																<div class="form-group col-md-6"><strong>Routing Identifer: &#160;</strong><span class="mouseHover"><xsl:value-of select="routingID"/></span></div>
 															</xsl:if>
 															</div>
 														</div>

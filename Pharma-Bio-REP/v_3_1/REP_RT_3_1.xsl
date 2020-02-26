@@ -751,7 +751,7 @@ span.normalWeight {
 						<div class="row">
 							<div class="col-xs-12">
 								<strong style="float:left;padding-left:15px;padding-right:15px;">Routing Identifier</strong>
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/routing_id" /></span>
+								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/routingID" /></span>
 							</div>
 						</div>
 					</div>

@@ -736,7 +736,7 @@ span.normalWeight {
 															<div class="form-group col-md-6"><strong>Numéro de l'extension: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_ext"/></span></div>
 															<div class="form-group col-md-6"><strong>No. de fax : &#160;</strong><span class="mouseHover"><xsl:value-of select="fax_num"/></span></div>
 															<div class="form-group col-md-6"><strong>Courriel: &#160;</strong><span class="mouseHover"><xsl:value-of select="email"/></span></div>
-															<div class="form-group col-md-6"><strong>Identificateur  d'acheminement: &#160;</strong><span class="mouseHover"><xsl:value-of select="routing_id"/></span></div>
+															<div class="form-group col-md-6"><strong>Identificateur  d'acheminement: &#160;</strong><span class="mouseHover"><xsl:value-of select="routingID"/></span></div>
 															</div>
 
 														</div>
