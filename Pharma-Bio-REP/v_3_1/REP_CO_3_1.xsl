@@ -360,7 +360,7 @@ span.mouseHover:hover {
 			<div style="white-space:nowrap;"><strong style="width:6em;">ext:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Email:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/email"/></span></div>
-			<div style="white-space:nowrap;"><strong style="width:6em;">Routing Identifier:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/RsoutingID"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Routing Identifier:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/RoutingID"/></span></div>
 		</div>
 	</xsl:template>
 	<xsl:template name="contactRoles">
