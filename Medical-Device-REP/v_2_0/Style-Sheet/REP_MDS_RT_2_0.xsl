@@ -462,7 +462,7 @@ span.normalWeight {
 									</div>
 									<div class="col-xs-6">
 										<strong>Transaction Description:&#160;</strong>
-										<span class="mouseHover"><xsl:call-template name="getLabel"><xsl:with-param name="node" select="/descendant-or-self::application_info/description_type"/></xsl:call-template></span>
+										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/transaction_description"/></span>
 									</div>
 									<xsl:if test="/descendant-or-self::application_info/device_class != ''">
 										<div class="col-xs-6">
@@ -509,46 +509,35 @@ span.normalWeight {
 								</xsl:if>
 								<div class="row">
 									<xsl:if test="/descendant-or-self::application_info/proposed_licence_name != ''">
-										<div class="col-xs-5">
+										<div class="col-xs-6">
 											<strong>Proposed licence name:&#160;<br/></strong>
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/proposed_licence_name"/></span>
 										</div>
 									</xsl:if>
 									<xsl:if test="/descendant-or-self::application_info/application_number != ''">
-										<div class="col-xs-5">
+										<div class="col-xs-6">
 											<strong>Application Number:&#160;</strong>
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/application_number"/></span>
 										</div>
 									</xsl:if>
-
 									<xsl:if test="/descendant-or-self::application_info/device_name != ''">
-										<div class="col-xs-5">
+										<div class="col-xs-6">
 											<strong>Name of Device:&#160;</strong>
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/device_name"/></span>
 										</div>
 									</xsl:if>
 									<xsl:if test="/descendant-or-self::application_info/description_type/@id = 'MM'">
-										<div class="col-xs-5">
+										<div class="col-xs-6">
 											<strong>Meeting Identifier:&#160;</strong>
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/meeting_id"/></span>
 										</div>
-										<div class="col-xs-5">
-											<strong>Date of Request:&#160;</strong>
-											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/request_date"/></span>
-										</div>
 									</xsl:if>
 									<xsl:if test="/descendant-or-self::application_info/brief_description != ''">
-										<div class="col-xs-5">
+										<div class="col-xs-6">
 											<strong>Brief Description:&#160;</strong>
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/brief_description"/></span>
 										</div>
 									</xsl:if>
-									<div class="col-xs-12">
-											<strong>Concat transaction description:&#160;</strong>
-											<div class="col-xs-12">
-											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/transaction_description"/></span><br/><br/>
-											</div>
-									</div>
 									<xsl:if test="/descendant-or-self::application_info/proposed_indication != ''">
 										<div class="col-xs-12">
 											<strong>Proposed Purpose/Indication for Use:&#160;</strong>
@@ -679,8 +668,38 @@ span.normalWeight {
 	<xsl:template name="converter">
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
-			<xsl:when test=" 'manufacturer_name_change' = $value">
-				<xsl:value-of select="'Manufacturer name changed'"/>
+			<xsl:when test=" 'classification_change' = $value">
+				<xsl:value-of select="'Change to the classification of a device'"/>
+			</xsl:when>
+			<xsl:when test=" 'licence_change' = $value">
+				<xsl:value-of select="'Change in the licence name'"/>
+			</xsl:when>
+			<xsl:when test=" 'process_change' = $value">
+				<xsl:value-of select="'Significant change in manufacturing process, facility of equipment'"/>
+			</xsl:when>
+			<xsl:when test=" 'quality_change' = $value">
+				<xsl:value-of select="'Significant change in manufacturing quality control procedures'"/>
+			</xsl:when>
+			<xsl:when test=" 'design_change' = $value">
+				<xsl:value-of select="'Significant change in design or performance'"/>
+			</xsl:when>
+			<xsl:when test=" 'materials_change' = $value">
+				<xsl:value-of select="'Significant change in materials'"/>
+			</xsl:when>
+			<xsl:when test=" 'labelling_change' = $value">
+				<xsl:value-of select="'Significant change in the labelling of the device'"/>
+			</xsl:when>
+			<xsl:when test=" 'safety_change' = $value">
+				<xsl:value-of select="'Any change which could affect the safety and effectiveness of the device'"/>
+			</xsl:when>
+			<xsl:when test=" 'purpose_change' = $value">
+				<xsl:value-of select="'Change to the purpose/indication of a device'"/>
+			</xsl:when>
+			<xsl:when test=" 'add_delete_change' = $value">
+				<xsl:value-of select="'Addition/Deletion'"/>
+			</xsl:when>
+			<xsl:when test=" 'device_change' = $value">
+				<xsl:value-of select="'Change in the device name'"/>
 			</xsl:when>
 			<xsl:when test=" 'manufacturer_address_change' = $value">
 				<xsl:value-of select="'Manufacturer address change'"/>
@@ -691,6 +710,7 @@ span.normalWeight {
 			<xsl:when test=" 'other_change' = $value">
 				<xsl:value-of select="'Other change'"/>
 			</xsl:when>
+
 			<xsl:otherwise>
 				<xsl:value-of select="$value"/>
 			</xsl:otherwise>
@@ -702,7 +722,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/rt-m123456-2020-03-16-1125.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/rt-m543434-2020-03-18-1137 (1).xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<advancedProp name="sInitialMode" value=""/>
