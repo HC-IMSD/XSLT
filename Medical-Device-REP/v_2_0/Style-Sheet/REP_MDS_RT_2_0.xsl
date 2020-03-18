@@ -417,7 +417,7 @@ span.normalWeight {
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
 					<td style="text-align: center;font-weight:bold;">Dossier Type</td>
-					<td style="text-align: center;font-weight:bold;">Dossier ID</td>
+					<td style="text-align: center;font-weight:bold;">Dossier Identifier</td>
 					<td style="text-align: center;font-weight:bold;">Date Last Saved</td>
 				</tr>
 				<tr>
@@ -437,19 +437,19 @@ span.normalWeight {
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-xs-6">
-										<strong>Manufacturing Company ID:&#160;</strong>
+										<strong>Manufacturing Company Identifier:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/company_id"/></span>
 									</div>
 									<div class="col-xs-5">
-										<strong>Manufacturing Contact ID:&#160;</strong>
+										<strong>Manufacturing Contact Identifier:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/manufacturing_contact_id"/></span>
 									</div>
 									<div class="col-xs-6">
-										<strong>Regulatory Company ID:&#160;</strong>
+										<strong>Regulatory Company Identifier:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/regulatory_company_id"/></span>
 									</div>
 									<div class="col-xs-5">
-										<strong>Regulatory Contact ID:&#160;</strong>
+										<strong>Regulatory Contact Identifier:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/regulatory_contact_id"/></span>
 									</div>
 									<div class="col-xs-6">
@@ -612,11 +612,11 @@ span.normalWeight {
 								</div>
 								<xsl:if test="/descendant-or-self::transFees/has_fees = 'yes'">
 								<div class="col-xs-6">
-									<strong>Billing Company ID :&#160;</strong>
+									<strong>Billing Company Identifier :&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::transFees/billing_company_id"/></span>
 								</div>
 								<div class="col-xs-5">
-									<strong>Billing Contact ID:&#160;</strong>
+									<strong>Billing Contact Identifier:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::transFees/billing_contact_id"/></span>
 								</div>
 								<div class="col-xs-12">
