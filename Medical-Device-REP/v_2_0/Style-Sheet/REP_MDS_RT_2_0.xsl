@@ -543,6 +543,12 @@ span.normalWeight {
 											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/brief_description"/></span>
 										</div>
 									</xsl:if>
+									<div class="col-xs-12">
+											<strong>Concat transaction description:&#160;</strong>
+											<div class="col-xs-12">
+											<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/transaction_description"/></span><br/><br/>
+											</div>
+									</div>
 									<xsl:if test="/descendant-or-self::application_info/proposed_indication != ''">
 										<div class="col-xs-12">
 											<strong>Proposed Purpose/Indication for Use:&#160;</strong>
