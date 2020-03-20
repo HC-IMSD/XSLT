@@ -1194,7 +1194,7 @@ details {
 																	<th>Role</th>
 																	<th>Variant</th>
 																	<th>Ingredient</th>
-																	<th>Strength</th>
+																	<th>Quantities</th>
 																	<th>Per</th>
 																	<th>Calculated as base</th>
 																	<th>Nanomaterial</th>
