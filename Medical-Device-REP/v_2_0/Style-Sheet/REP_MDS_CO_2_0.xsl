@@ -459,7 +459,8 @@ span.normalWeight {
 							</div>
 							</div>
 							<xsl:if test="/descendant-or-self::general_information/amend_reasons/other_change = 'yes'">
-								<div class="col-xs-10">
+								<div class="col-xs-5">&#160;</div>
+								<div class="col-xs-5">
 									<strong>Other Details:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::general_information/amend_reasons/other_details"/></span>
 								</div>
@@ -568,15 +569,15 @@ span.normalWeight {
 								<xsl:choose>
 								<xsl:when test="/descendant-or-self::primary_contact/is_third_party = 'yes'">
 									<div class="col-xs-5">
-										<strong>Company identifier for REP Contact:&#160;</strong>
+										<strong>Company Identifier for REP contact:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_contact_company_id"/></span>
 									</div>
 									<div class="col-xs-5">
-										<strong>Contact identifier for REP Contact:&#160;</strong>
+										<strong>Contact Identifier for REP contact:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_contact_id"/></span>
 									</div>
 									<div class="col-xs-5">
-										<strong>Routing Identifier for REP Contact:&#160;</strong>
+										<strong>Routing Identifier for REP contact:&#160;</strong>
 										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_routing_id"/></span>
 									</div>
 								</xsl:when>
@@ -600,17 +601,16 @@ span.normalWeight {
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="alert alert-info">
-										<xsl:choose>
-										<xsl:when test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes'">
-										<span>The revised manufacturer's name should be listed in the "company name" field in address information section above</span>
-										</xsl:when>
-										<xsl:when test="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes'">
-										<span>The revised manufacturer's address should be listed in the fields in address information section above</span>
-										</xsl:when>
-										<xsl:when test="/descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
-										<span>Please include a signed attestation for manufacturing facility name/address change</span>
-										</xsl:when>
-										</xsl:choose>
+										
+										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes'">
+										<p>The revised manufacturer's name should be listed in the "company name" field in address information section above</p>
+										</xsl:if>
+										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes'">
+										<p>The revised manufacturer's address should be listed in the fields in address information section above</p>
+										</xsl:if>
+										<xsl:if test="/descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
+										<p>Please include a signed attestation for manufacturing facility name/address change</p>
+										</xsl:if>
 									</div>
 								</div>
 							</div>
@@ -711,7 +711,7 @@ span.normalWeight {
 					<div class="col-xs-5">
 					<strong>Extension:&#160;</strong>
 					<span class="mouseHover"><xsl:if test="phone_extension = ''">&#160;&#160;&#160;&#160;</xsl:if>
-					<xsl:value-of select="contact/phone_extension"/></span>
+					<xsl:value-of select="phone_extension"/></span>
 					</div>
 					<div class="col-xs-5">
 					<strong>FAX Number:&#160;</strong>
@@ -782,7 +782,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\final-com-K123455-1-0.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\draft-com-K123455-1-2.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/ip400-1.css'"/>
