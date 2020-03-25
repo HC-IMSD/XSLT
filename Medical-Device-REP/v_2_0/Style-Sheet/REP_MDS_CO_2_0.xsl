@@ -604,10 +604,10 @@ span.normalWeight {
 										<ul>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes'">
 										<li>The revised manufacturer's name should be listed in the "company name" field in address information section above</li>
-										</xsl:if>
+										<br/></xsl:if>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes'">
 										<li>The revised manufacturer's address should be listed in the fields in address information section above</li>
-										</xsl:if>
+                                        <br/></xsl:if>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
 										<li>Please include a signed attestation for manufacturing facility name/address change</li>
 										</xsl:if>
