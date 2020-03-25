@@ -601,16 +601,17 @@ span.normalWeight {
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="alert alert-info">
-										
+										<ul>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_name_change = 'yes'">
-										<p>The revised manufacturer's name should be listed in the "company name" field in address information section above</p>
+										<li>The revised manufacturer's name should be listed in the "company name" field in address information section above</li>
 										</xsl:if>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/manufacturer_address_change = 'yes'">
-										<p>The revised manufacturer's address should be listed in the fields in address information section above</p>
+										<li>The revised manufacturer's address should be listed in the fields in address information section above</li>
 										</xsl:if>
 										<xsl:if test="/descendant-or-self::general_information/amend_reasons/facility_change = 'yes'">
-										<p>Please include a signed attestation for manufacturing facility name/address change</p>
+										<li>Please include a signed attestation for manufacturing facility name/address change</li>
 										</xsl:if>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -709,7 +710,7 @@ span.normalWeight {
 					<span class="mouseHover"><xsl:value-of select="phone_number"/></span>&#160;&#160;
 					</div>
 					<div class="col-xs-5">
-					<strong>Extension:&#160;</strong>
+					<strong>Phone Extension:&#160;</strong>
 					<span class="mouseHover"><xsl:if test="phone_extension = ''">&#160;&#160;&#160;&#160;</xsl:if>
 					<xsl:value-of select="phone_extension"/></span>
 					</div>
@@ -782,7 +783,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\draft-com-K123455-1-2.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\final-com-K234324-2-0.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/ip400-1.css'"/>
