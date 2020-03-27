@@ -313,6 +313,8 @@
 			<hpfb:enumeration value="DRUG_MASTER_FILE"/>
 			<hpfb:enumeration value="MEDICAL_DEVICE"/>
 			<hpfb:enumeration value="BIOLOGIC"/>
+			<hpfb:enumeration value="D21"/>
+			<hpfb:enumeration value="D22"/>
 		</hpfb:restriction>
 	</hpfb:simpleType>
 	
@@ -323,9 +325,6 @@
 			<hpfb:enumeration value="UNKNOWN"/>
 		</hpfb:restriction>
 	</hpfb:simpleType>
-
-
-	
 
 	<hpfb:simpleType name="required_yes_no_content">
 		<hpfb:restriction base="hpfb:string">

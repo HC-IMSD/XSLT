@@ -961,7 +961,7 @@ span.normalWeight {
 																									<th>Role</th>
 																									<th>Variant</th>
 																									<th>Ingredient</th>
-																									<th>Quantities</th>
+																									<th>Strength</th>
 																									<th>Per</th>
 																									<th>Calculated as base</th>
 																									<th>Nanomaterial</th>
@@ -979,7 +979,7 @@ span.normalWeight {
 																									<td><xsl:value-of select="ingredient_name"/></td>
 																									<td><xsl:choose><xsl:when test="strength/operator/@id = 'NGT'">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = 'NLT'">&gt;&#160;</xsl:when></xsl:choose>
 																									<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != ''">&#160;<strong>To</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
-																										&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units"/></xsl:otherwise></xsl:choose></td>
+																										&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units_other"/></xsl:otherwise></xsl:choose></td>
 																									<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
 																									<td><xsl:value-of select="is_base_calc"/></td>
 																									<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
