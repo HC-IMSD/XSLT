@@ -418,15 +418,11 @@ span.normalWeight {
 					<td style="text-align: center;font-weight:bold;">Manufacturer Company Identifier</td>
 					<td style="text-align: center;font-weight:bold;">Dossier Identifier</td>
 					<td style="text-align: center;font-weight:bold;">Date Last Saved</td>
-					<td style="text-align: center;font-weight:bold;">Medical Device Single Audit Program (MDSAP) Certificate Number</td>
-					<td style="text-align: center;font-weight:bold;">Licence Application Type</td>
 				</tr>
 				<tr>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="/descendant-or-self::application_info/company_id" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="/descendant-or-self::application_info/dossier_id" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="/descendant-or-self::application_info/last_saved_date" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="/descendant-or-self::application_info/mdsap_number" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/licence_application_type" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/company_id" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/dossier_id" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/last_saved_date" /></span> </td>
 				</tr>
 			</table>
 		</div>
@@ -437,11 +433,17 @@ span.normalWeight {
 				</div>
 				<div class="panel-body">
 					<div class="row">
+						<div class="col-xs-6">
+							<strong>Medical Device Single Audit Program (MDSAP) Certificate Number:&#160;</strong>
+							<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/mdsap_number" /></span>
+						</div>
+						<div class="col-xs-6">
+							<strong>Licence Application Type:&#160;</strong>
+							<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/licence_application_type" /></span>
+						</div>
 						<div class="col-xs-12">
-							<strong>Medical Device Single Audit Program (MDSAP) Auditing Organization</strong>
-							<div class="col-xs-12">
-								<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/mdsap_org"/></span>
-							</div>
+							<strong>Medical Device Single Audit Program (MDSAP) Auditing Organization:&#160;</strong>
+							<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/mdsap_org"/></span>
 						</div>
 					</div>
 					<div class="row">
@@ -477,6 +479,10 @@ span.normalWeight {
 									<div class="row">&#160;
 										<strong>Is this device used at a point of care, such as pharmacy, bedside, or healthcare professional's office?&#160;</strong>
 										<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::application_info/is_care_point_use"/></xsl:call-template></span>
+									</div>
+									<div class="row">&#160;
+										<strong>Do any of the devices contained in this application emit radiation?</strong>
+										<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::application_info/is_emit_radiation"/></xsl:call-template></span>
 									</div>
 								</xsl:when>
 								<xsl:otherwise>
@@ -559,26 +565,35 @@ span.normalWeight {
 							<h2 class="panel-title">Device History</h2>
 						</div>
 						<div class="panel-body">
-							<div class="row">&#160;
+							<div class="row">
+								<div class="col-xs-6">
 								<strong>Has this device been previously authorized for sale in Canada under the following provisions of the Medical Devices Regulations:</strong>
+								</div>
 							</div>
-							<div class="row">&#160;
-								<div class="col-xs-3">
+							<div class="row">
+								<div class="col-xs-6">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::application_info/provision_mdr_it"/></xsl:call-template>
 									<span class="mouseHover">Investigational Testing</span>
 								</div>
-								<div class="col-xs-3">
+								<div class="col-xs-6">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="/descendant-or-self::application_info/provision_mdr_sa"/></xsl:call-template>
 									<span class="mouseHover">Special Access</span>
 								</div>
-							</div>
-							<div class="row">&#160;
-								<strong>Application Number:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/application_number"/></span>
-							</div>
-							<div class="row">&#160;
-								<strong>SAP Request Number:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/sap_request_number"/></span>
+								<xsl:if test="/descendant-or-self::application_info/provision_mdr_it = 'yes'">
+								<div class="col-xs-6">
+									<strong>Application Number:&#160;</strong>
+									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/application_number"/></span>
+								</div>
+								</xsl:if>
+								<xsl:if test="/descendant-or-self::application_info/provision_mdr_it = 'no' and /descendant-or-self::application_info/provision_mdr_sa = 'yes'">
+									<div class="col-xs-6">&#160;</div>
+								</xsl:if>
+								<xsl:if test="/descendant-or-self::application_info/provision_mdr_sa = 'yes'">
+								<div class="col-xs-6">
+									<strong>SAP Request Number:&#160;</strong>
+									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/sap_request_number"/></span>
+								</div>
+								</xsl:if>
 							</div>
 						</div>
 					</section>
@@ -601,10 +616,13 @@ span.normalWeight {
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="/descendant-or-self::application_info/declaration_conformity"/></xsl:call-template></span>
 								</div>
 							</div>
-							<xsl:if test="application_info/declaration_conformity = 'no'">
+							<xsl:if test="/descendant-or-self::application_info/declaration_conformity = 'no'">
 								<div class="row">
 									<div class="col-xs-12 alert alert-INFO">
+									<ul><li>
 				Health Canada can not process your Medical Device Licence Application without the Declaration of Conformity
+				</li>
+				</ul>
 									</div>
 								</div>
 							</xsl:if>
@@ -683,19 +701,20 @@ span.normalWeight {
 					<strong>Tissue/Substance Type:&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="./tissue_substance_type"/></span>
 				</div>
-				<xsl:if test="./tissue_type_other_details != ''">
+				<div class="col-xs-5">
+					<strong>Derivative:&#160;</strong>
+					<span class="mouseHover"><xsl:value-of select="./derivative"/></span>
+				</div>
+				<xsl:if test="./tissue_substance_type/@id = 'other'">
 					<div class="col-xs-5">
 						<strong>Tissue Type Other Details:&#160;</strong>
 						<span class="mouseHover"><xsl:value-of select="./tissue_type_other_details"/></span>
 					</div>
 				</xsl:if>
-			</div>
-			<div class="row">
-				<div class="col-xs-5">
-					<strong>Derivative:&#160;</strong>
-					<span class="mouseHover"><xsl:value-of select="./derivative"/></span>
-				</div>
-				<xsl:if test="./derivative_other_details != ''">
+				<xsl:if test="./tissue_substance_type/@id != 'other' and ./derivative/@id = 'other'">
+					<div class="col-xs-5">&#160;</div>
+				</xsl:if>
+				<xsl:if test="./derivative/@id = 'other'">
 					<div class="col-xs-5">
 						<strong>Derivative Other Details:&#160;</strong>
 						<span class="mouseHover"><xsl:value-of select="./derivative_other_details"/></span>
