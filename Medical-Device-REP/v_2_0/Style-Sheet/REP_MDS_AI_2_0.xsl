@@ -422,7 +422,7 @@ span.normalWeight {
 				<tr>
 					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/company_id" /></span> </td>
 					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/dossier_id" /></span> </td>
-					<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="/descendant-or-self::application_info/last_saved_date" /></span> </td>
+					<td style="text-align: center;"> <span class="mouseHover"><xsl:call-template name="lastDate"><xsl:with-param name="date" select="/descendant-or-self::application_info/last_saved_date" /></xsl:call-template></span> </td>
 				</tr>
 			</table>
 		</div>
@@ -792,6 +792,14 @@ span.normalWeight {
 			</xsl:otherwise>
 		</xsl:choose>
 		</span>
+	</xsl:template>
+	<xsl:template name="lastDate">
+		<xsl:param name="date" select="/.."/>
+		<xsl:value-of select="substring($date, 1, 10)"/>
+		<xsl:value-of select="' '"/>
+		<xsl:value-of select="substring($date,12,2)"/>
+		<xsl:value-of select="':'"/>
+		<xsl:value-of select="substring($date, 14)"/>
 	</xsl:template>
 </xsl:stylesheet>
 
