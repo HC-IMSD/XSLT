@@ -721,9 +721,9 @@ span.normalWeight {
 					</div>
 				</xsl:if>
 			</div>
-			<div class="row"><br/></div>
+			<div class="row"><br/><hr /></div>
 			</div>
-			<div class="row"><hr /></div>
+			<!--<div class="row"><hr /></div>-->
 		</xsl:for-each>
 	</xsl:template>
 	<xsl:template name="compatibleDevices">
@@ -769,9 +769,9 @@ span.normalWeight {
 					</xsl:choose>
 				</div>
 			</div>
-			<div class="row"><br/></div>
+			<div class="row"><br/><hr /></div>
 			</div>
-			<div class="row"><hr /></div>
+			<!--<div class="row"><hr /></div>-->
 		</xsl:for-each>
 	</xsl:template>
 	<xsl:template name="YesNoUnknow">
