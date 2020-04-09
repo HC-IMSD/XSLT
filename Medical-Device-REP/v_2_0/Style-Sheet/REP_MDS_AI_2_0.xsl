@@ -721,7 +721,7 @@ span.normalWeight {
 					</div>
 				</xsl:if>
 			</div>
-			<div class="row"><br/><hr /></div>
+			<div class="row"><br/><hr /><br/></div>
 			</div>
 			<!--<div class="row"><hr /></div>-->
 		</xsl:for-each>
@@ -769,7 +769,7 @@ span.normalWeight {
 					</xsl:choose>
 				</div>
 			</div>
-			<div class="row"><br/><hr /></div>
+			<div class="row"><br/><hr /><br/></div>
 			</div>
 			<!--<div class="row"><hr /></div>-->
 		</xsl:for-each>
