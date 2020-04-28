@@ -310,7 +310,7 @@ span.mouseHover:hover {
 							<div class="panel-body">
 							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
 								<tr>
-									<td style="text-align: center;font-weight:bold;">Company</td>
+									<td style="text-align: center;font-weight:bold;">Company Name</td>
 									<td style="text-align: center;font-weight:bold;">Business Number</td>
 									<td style="text-align: center;font-weight:bold;">Address Information</td>
 									<td style="text-align: center;font-weight:bold;">Importer Company Identifier</td>

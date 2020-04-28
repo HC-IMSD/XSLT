@@ -561,6 +561,7 @@ span.normalWeight {
 							</div>
 						</div>
 
+					<xsl:if test="regulatory_project_manager1 != '' or regulartory_project_manager2 != ''">
 					<h4>Responsable de projet r&#233;glementaire, si connu: &#160;</h4>
 					
 					<div class="well well-sm" >
@@ -575,6 +576,7 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
+					</xsl:if>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
