@@ -485,7 +485,7 @@ span.normalWeight {
 							<div class="panel-body">
 								<div class="row">
 								<div class="col-xs-12">
-									<strong>Company Name (Full legal Name - no abbreviations):&#160;</strong>
+									<strong>Company Name:&#160;</strong>
 									<span class="mouseHover"><xsl:value-of select="/descendant-or-self::address/company_name"/></span>
 									</div>
 								</div>
@@ -578,7 +578,8 @@ span.normalWeight {
 									</div>
 									<div class="col-xs-5">
 										<strong>Routing Identifier for REP contact:&#160;</strong>
-										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/rep_routing_id"/></span>
+										<span class="mouseHover"><xsl:value-of select="/descendant-or-self::primary_contact/routing_id"/>
+                                        <xsl:value-of select="/descendant-or-self::primary_contact/rep_routing_id"/></span>
 									</div>
 								</xsl:when>
 								<xsl:otherwise>
@@ -726,7 +727,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<strong>Routing Identifier:&#160;</strong>
-					<span class="mouseHover"><xsl:value-of select="routing_id"/></span>
+					<span class="mouseHover"><xsl:value-of select="RoutingID"/><xsl:value-of select="routing_id"/></span>
 					</div>
 				</div>
 			</div>
@@ -783,7 +784,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\final-com-K234324-2-0.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\..\..\..\Downloads\final-com-K132132-3-0.xml" htmlbaseurl="" outputurl="..\..\..\..\..\..\..\SPM\test\mds_company.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:\Users\hcuser\git\XSLT\Medical-Device-REP\v_1_0\Style-Sheets/ip400-1.css'"/>
