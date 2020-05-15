@@ -943,11 +943,6 @@ span.normalWeight {
 																				</div>
 																				<div class="row">
 																				<div class="form-group col-md-12">
-																				<strong>B. Forme posologique:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
-																				</div>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
 																				<strong>C.&#160;Ingr&#233;dients</strong>
 																				<br/>
 																					<div class="row">
@@ -1203,6 +1198,12 @@ span.normalWeight {
 																				</tbody>
 																				</table>
 																			</div>
+																				</div>
+																				<div class="row">
+																				<div class="col-md-12"><br/></div>
+																				<div class="form-group col-md-12">
+																				<strong>B. Forme posologique:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
+																				</div>
 																				</div>
 																				<div class="row">
 																				<div class="form-group col-md-12">
@@ -1604,9 +1605,9 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///k:/DATA/hcreppi-2020-02-18-1129.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8" useresolver="yes"
-		          profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext=""
-		          validateoutput="no" validator="internal" customvalidator="">
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-03-14-1029.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
+		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
 			<parameterValue name="labelFile" value="'file:///C:/Users/hcuser/git/XSLT/Regulatory-Enrolment-Process-REP/v_1_0/Style-Sheets/hp-ip400-labels.xml'"/>
 			<advancedProp name="sInitialMode" value=""/>
