@@ -607,9 +607,11 @@ span.normalWeight {
 							</div>
 							<div class="col-xs-12">
 								<strong>Description de la pr&#233;sentation:&#160;</strong>
+								<div class="col-xs-12">
 								<span class="mouseHover">
-									<xsl:value-of select="fee_details/submission_description"/>
+								<xsl:call-template name="break"><xsl:with-param name="text" select="fee_details/submission_description"/></xsl:call-template>
 								</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -982,7 +984,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2019-12-09-1540.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreprt-2020-05-13-1127.xml" htmlbaseurl="" outputurl="file:///c:/Users/SPM/test/TRANSACTION.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
