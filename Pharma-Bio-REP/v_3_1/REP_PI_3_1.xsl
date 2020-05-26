@@ -620,7 +620,7 @@ span.normalWeight {
 				<div class="panel-heading">
 					<h2 class="panel-title">Product Information</h2>
 				</div>
-					<div class="well well-sm" >
+				<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Dossier Type:&#160;</strong>
@@ -900,20 +900,13 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong>Formulation</strong>
-								<div class="form-group">
-									<ul class="nav nav-tabs">
-										<li onclick="selectedTab(0);" tabindex="0" class="active" id="tab0"><a href="#tabpanel0"><strong>Formulations</strong></a>
-										</li>
-										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Human/Animal Sourced Ingredient/Material</strong></a>
-										</li>
-									</ul>
-									<div style="clear:both;"></div>
-									<div class="tabpanels">
-										<div id="tabpanel0" class="active">
-											<table class="table table-hover table-condensed table-striped table-formulation" border="1">
+				<div class="well well-sm">
+					<div id="tabpanel0"  class="row">
+						<div class="col-xs-12">
+							<strong>Formulations</strong>
+						</div>
+						<div class="col-xs-12 form-group">
+									<table class="table table-hover table-condensed table-striped table-formulation" border="1">
 											<thead>
 												<tr>
 													<th style="width:2%;"></th>
@@ -1250,9 +1243,15 @@ span.normalWeight {
 												</xsl:for-each>
 											</tbody>
 											</table>
-										</div>
-										<div class="out" id="tabpanel1" role="tabpanel">
-											<table class="table table-hover table-condensed table-striped table-appendix" border="1">
+									</div>
+								</div>
+					<div class="col-xs-12"><br/></div>
+					<div id="tabpanel1" class="row">
+									<div class="col-xs-12">
+										<strong>Human/Animal Sourced Ingredient/Material</strong>
+									</div>
+									<div class="col-xs-12 form-group">
+									<table class="table table-hover table-condensed table-striped table-appendix" border="1">
 											<thead>
 												<tr>
 													<th></th>
@@ -1410,11 +1409,9 @@ span.normalWeight {
 												</xsl:for-each>
 											</tbody>
 											</table>
-										</div>
 									</div>
 								</div>
-							</div>
-						</div>
+				</div>
 
 			</div>
 		</section>
