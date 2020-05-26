@@ -620,799 +620,794 @@ span.normalWeight {
 				<div class="panel-heading">
 					<h2 class="panel-title">Information sur le produit</h2>
 				</div>
-					<div class="well well-sm" >
-						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Type de dossier:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="dossier_type"/></span>
-							</div>
+				<div class="well well-sm" >
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<strong>Type de dossier:&#160;</strong>
+							<span class="mouseHover"><xsl:value-of select="dossier_type"/></span>
 						</div>
-						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Nom du produit </strong>
-								<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="product_name"/></span></div>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<strong>Nom du produit </strong>
+							<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="product_name"/></span></div>
 						</div>
-						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Nom propre, nom usuel ou nom g&#233;n&#233;rique</strong>
-								<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="proper_name"/></span></div>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<strong>Nom propre, nom usuel ou nom g&#233;n&#233;rique</strong>
+							<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="proper_name"/></span></div>
 						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l'avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
-							</div>
-							<xsl:choose>
-							<xsl:when test="manufacturer = 'Y' or mailing = 'Y' or this_activity = 'Y' or importer = 'Y'">
-								<xsl:if test="manufacturer = 'Y'">
-									<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Fabricant / Promoteur</span>
-									</div>
-								</xsl:if>
-								<xsl:if test="mailing = 'Y'">
-									<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Courrier r&#233;glementaire / contact annuel</span>
-									</div>
-								</xsl:if>
-								<xsl:if test="this_activity = 'Y'">
-									<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="this_activity"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Personne-ressource pour cette activit&#233; r&#233;glementaire</span>
-									</div>
-								</xsl:if>
-								<xsl:if test="importer = 'Y'">
-									<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
-									<span style="margin-left:40px;" class="mouseHover">Importateur canadien</span>
-									</div>
-								</xsl:if>
-							</xsl:when>
-							<xsl:otherwise>
-									<div class="col-xs-12">
-									<span style="margin-left:40px;" class="mouseHover">n/a</span>
-									</div>
-							</xsl:otherwise>
-							</xsl:choose>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l'avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
+						</div>
+						<xsl:choose>
+						<xsl:when test="manufacturer = 'Y' or mailing = 'Y' or this_activity = 'Y' or importer = 'Y'">
+							<xsl:if test="manufacturer = 'Y'">
+								<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
+								<span style="margin-left:40px;" class="mouseHover">Fabricant / Promoteur</span>
+								</div>
+							</xsl:if>
+							<xsl:if test="mailing = 'Y'">
+								<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
+								<span style="margin-left:40px;" class="mouseHover">Courrier r&#233;glementaire / contact annuel</span>
+								</div>
+							</xsl:if>
+							<xsl:if test="this_activity = 'Y'">
+								<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="this_activity"/></xsl:call-template>
+								<span style="margin-left:40px;" class="mouseHover">Personne-ressource pour cette activit&#233; r&#233;glementaire</span>
+								</div>
+							</xsl:if>
+							<xsl:if test="importer = 'Y'">
+								<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
+								<span style="margin-left:40px;" class="mouseHover">Importateur canadien</span>
+								</div>
+							</xsl:if>
+						</xsl:when>
+						<xsl:otherwise>
+								<div class="col-xs-12">
+								<span style="margin-left:40px;" class="mouseHover">n/a</span>
+								</div>
+						</xsl:otherwise>
+						</xsl:choose>
 
-						</div>
-						<div class="row"><br/>
-						</div>
-						<div class="row">
-						<div class="col-sm-12 form-group">
-							<strong>Importateur</strong>
-							<table class="table dataTable table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
-								<thead>
-								<tr>
-									<th style="width:15px;"></th>
-									<th ><strong>Numéro de la compagnie de l'importateur</strong></th>
-									<th style="width:70%;"><strong>Nom d'entreprise de l'importateur</strong></th>
-									<th class="out">Hidden</th>
-								</tr>
-								</thead>
-								<tbody>
-								<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
-								<tr onclick="showDetail(this, '3', false, myTables['importer']);">
-									<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
-									<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
-									<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
-									<td class="out"><table><tr data-detail="true"><td colspan="3">
-										<fieldset>
+					</div>
+					<div class="row"><br/>
+					</div>
+					<div class="row">
+					<div class="col-sm-12 form-group">
+						<strong>Importateur</strong>
+						<table class="table dataTable table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+							<thead>
+							<tr>
+								<th style="width:15px;"></th>
+								<th ><strong>Numéro de la compagnie de l'importateur</strong></th>
+								<th style="width:70%;"><strong>Nom d'entreprise de l'importateur</strong></th>
+								<th class="out">Hidden</th>
+							</tr>
+							</thead>
+							<tbody>
+							<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
+							<tr onclick="showDetail(this, '3', false, myTables['importer']);">
+								<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
+								<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
+								<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
+								<td class="out"><table><tr data-detail="true"><td colspan="3">
+									<fieldset>
 <!--											<legend><h4>&#160;&#160;&#160;&#160;Enregistrement d'importateur&#160;<xsl:value-of select="position()"/></h4></legend>-->
-											<div>
-												<section class="panel panel-default">
-													<div class="panel-body">
-														<div class="well well-sm">
-															<div class="row">
-															<div class="form-group col-md-12">
-																<strong>Numéro de la compagnie de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
-															</div>
-															</div>
-															<div class="row">
-															<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
-															</div>
-															<div class="row">
-															<div class="form-group col-md-12"><strong>Rue: &#160;</strong><span class="mouseHover"><xsl:value-of select="street_address"/></span></div>
-															</div>
-															<div class="row">
-															<div class="form-group col-md-6"><strong>Ville: &#160;</strong><span class="mouseHover"><xsl:value-of select="city"/></span></div>
-															<div class="form-group col-md-6"><strong>Pays: &#160;</strong><span class="mouseHover"><xsl:value-of select="country"/></span></div>
-															</div>
-															<div class="row">
-															<div class="form-group col-md-6"><strong>Province: &#160;</strong>
-																<xsl:choose>
-																<xsl:when test="(country/@id = 'CAN') or (country/@id = 'USA')">
-																	<xsl:value-of select="province_lov"/>
-																</xsl:when>
-																<xsl:otherwise>
-																	<xsl:value-of select="province_text"/>
-																</xsl:otherwise>
-																</xsl:choose>
-															</div>
-															<div class="form-group col-md-6"><strong>Code postale: &#160;</strong><span class="mouseHover"><xsl:value-of select="postal_code"/></span></div>
-															<div class="form-group col-md-6"><strong>No. de téléphone: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_num"/></span></div>
-															<div class="form-group col-md-6"><strong>Numéro de l'extension: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_ext"/></span></div>
-															<div class="form-group col-md-6"><strong>No. de fax : &#160;</strong><span class="mouseHover"><xsl:value-of select="fax_num"/></span></div>
-															<div class="form-group col-md-6"><strong>Courriel: &#160;</strong><span class="mouseHover"><xsl:value-of select="email"/></span></div>
-															<div class="form-group col-md-6"><strong>Identificateur  d'acheminement: &#160;</strong><span class="mouseHover"><xsl:value-of select="RoutingID"/></span></div>
-															</div>
-
+										<div>
+											<section class="panel panel-default">
+												<div class="panel-body">
+													<div class="well well-sm">
+														<div class="row">
+														<div class="form-group col-md-12">
+															<strong>Numéro de la compagnie de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
 														</div>
-													</div>
-												</section>
-											</div>
-										</fieldset>
-									</td></tr></table>
-									</td>
-								</tr>
-								</xsl:for-each>
-								</tbody>
-							</table>
-						</div>
-						</div>
-						<div class="row"><br/>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Usage du m&#233;dicament:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="drug_use"/></span>
-								
-							</div>
-						</div>
-						<xsl:if test="drug_use/@id = 'DISINFECT'">
-							<div class="row">
-								<div class="col-xs-12">
-								<div class="col-xs-12">
-									<strong>Type de d&#233;sinfectant:</strong>
-								</div>
-								</div>
-							</div>
-							<div class="row">
-							<div class="col-xs-12">
-							<xsl:for-each select="disinfectant_type/*">
-								<xsl:if test=" current() = 'Y'">
-										<div class="col-xs-12">
-										<div class="col-xs-12">
-											<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-											<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
-										</div>
-										</div>
-								</xsl:if>
-							</xsl:for-each>
-							</div>
-							</div>
-						</xsl:if>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong>Statut sur l'annexe et prescription (s&#233;lectionner tout ce qui s'applique): le produit est</strong>
-							</div>
-							<xsl:choose>
-							<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
-								<xsl:if test="is_sched_c = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">dans l'annexe C (produits radiopharmaceutiques) de la Loi sur les aliments et drogues</span>
-								</div>
-								</xsl:if>
-								<xsl:if test="is_sched_d = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">figurant &#224; l'annexe D (produits biologiques) de la Loi sur les aliments et drogues</span>
-								</div>
-								</xsl:if>
-								<xsl:if test="is_prescription_drug_list = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">sur la liste des m&#233;dicaments sur ordonnance</span>
-								</div>
-								</xsl:if>
-								<xsl:if test="is_regulated_cdsa = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">r&#233;glement&#233; en vertu de la Loi r&#233;glementant certaines drogues et autres substances</span>
-								</div>
-								</xsl:if>
-								<xsl:if test="is_non_prescription_drug = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">un m&#233;dicament sans ordonnance</span>
-								</div>
-								</xsl:if>
-								<xsl:if test="is_sched_a = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">un m&#233;dicament sans ordonnance auquel une ou plusieurs des r&#233;clamations de l'Annexe A s'appliquent</span>
-								</div>
-								<xsl:if test="is_sched_a = 'Y'">
+														</div>
+														<div class="row">
+														<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
+														</div>
+														<div class="row">
+														<div class="form-group col-md-12"><strong>Rue: &#160;</strong><span class="mouseHover"><xsl:value-of select="street_address"/></span></div>
+														</div>
+														<div class="row">
+														<div class="form-group col-md-6"><strong>Ville: &#160;</strong><span class="mouseHover"><xsl:value-of select="city"/></span></div>
+														<div class="form-group col-md-6"><strong>Pays: &#160;</strong><span class="mouseHover"><xsl:value-of select="country"/></span></div>
+														</div>
+														<div class="row">
+														<div class="form-group col-md-6"><strong>Province: &#160;</strong>
+															<xsl:choose>
+															<xsl:when test="(country/@id = 'CAN') or (country/@id = 'USA')">
+																<xsl:value-of select="province_lov"/>
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="province_text"/>
+															</xsl:otherwise>
+															</xsl:choose>
+														</div>
+														<div class="form-group col-md-6"><strong>Code postale: &#160;</strong><span class="mouseHover"><xsl:value-of select="postal_code"/></span></div>
+														<div class="form-group col-md-6"><strong>No. de téléphone: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_num"/></span></div>
+														<div class="form-group col-md-6"><strong>Numéro de l'extension: &#160;</strong><span class="mouseHover"><xsl:value-of select="phone_ext"/></span></div>
+														<div class="form-group col-md-6"><strong>No. de fax : &#160;</strong><span class="mouseHover"><xsl:value-of select="fax_num"/></span></div>
+														<div class="form-group col-md-6"><strong>Courriel: &#160;</strong><span class="mouseHover"><xsl:value-of select="email"/></span></div>
+														<div class="form-group col-md-6"><strong>Identificateur  d'acheminement: &#160;</strong><span class="mouseHover"><xsl:value-of select="RoutingID"/></span></div>
+														</div>
 
-								<div class="row">
-								<div class="col-xs-11" style="margin-left:60px;">
-									<strong>Annexe A d&#233;tails des all&#233;gations</strong>
-									<div class="panel panel-body" style="border: 1px solid black;">
-										<div class="row">
-											<div class="col-xs-12">Fournissez les informations ci-dessous pour les produits sans ordonnance qui ont associ&#233; des revendications de l'annexe A seulement.</div>
+													</div>
+												</div>
+											</section>
 										</div>
-										<div class="row">
+									</fieldset>
+								</td></tr></table>
+								</td>
+							</tr>
+							</xsl:for-each>
+							</tbody>
+						</table>
+					</div>
+					</div>
+					<div class="row"><br/>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<strong>Usage du m&#233;dicament:&#160;</strong>
+							<span class="mouseHover"><xsl:value-of select="drug_use"/></span>
+							
+						</div>
+					</div>
+					<xsl:if test="drug_use/@id = 'DISINFECT'">
+						<div class="row">
+							<div class="col-xs-12">
+							<div class="col-xs-12">
+								<strong>Type de d&#233;sinfectant:</strong>
+							</div>
+							</div>
+						</div>
+						<div class="row">
+						<div class="col-xs-12">
+						<xsl:for-each select="disinfectant_type/*">
+							<xsl:if test=" current() = 'Y'">
+									<div class="col-xs-12">
+									<div class="col-xs-12">
+										<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+										<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
+									</div>
+									</div>
+							</xsl:if>
+						</xsl:for-each>
+						</div>
+						</div>
+					</xsl:if>
+					<div class="row">
+						<div class="col-xs-12">
+							<strong>Statut sur l'annexe et prescription (s&#233;lectionner tout ce qui s'applique): le produit est</strong>
+						</div>
+						<xsl:choose>
+						<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
+							<xsl:if test="is_sched_c = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">dans l'annexe C (produits radiopharmaceutiques) de la Loi sur les aliments et drogues</span>
+							</div>
+							</xsl:if>
+							<xsl:if test="is_sched_d = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">figurant &#224; l'annexe D (produits biologiques) de la Loi sur les aliments et drogues</span>
+							</div>
+							</xsl:if>
+							<xsl:if test="is_prescription_drug_list = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">sur la liste des m&#233;dicaments sur ordonnance</span>
+							</div>
+							</xsl:if>
+							<xsl:if test="is_regulated_cdsa = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">r&#233;glement&#233; en vertu de la Loi r&#233;glementant certaines drogues et autres substances</span>
+							</div>
+							</xsl:if>
+							<xsl:if test="is_non_prescription_drug = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">un m&#233;dicament sans ordonnance</span>
+							</div>
+							</xsl:if>
+							<xsl:if test="is_sched_a = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">un m&#233;dicament sans ordonnance auquel une ou plusieurs des r&#233;clamations de l'Annexe A s'appliquent</span>
+							</div>
+							<xsl:if test="is_sched_a = 'Y'">
+
+							<div class="row">
+							<div class="col-xs-11" style="margin-left:60px;">
+								<strong>Annexe A d&#233;tails des all&#233;gations</strong>
+								<div class="panel panel-body" style="border: 1px solid black;">
+									<div class="row">
+										<div class="col-xs-12">Fournissez les informations ci-dessous pour les produits sans ordonnance qui ont associ&#233; des revendications de l'annexe A seulement.</div>
+									</div>
+									<div class="row">
+									<div class="col-xs-12">
+									<div class="col-xs-12">
+									<strong>Num&#233;ro d'identification du m&#233;dicament (DIN), si existant</strong>
+										:&#160;&#160;<span class="mouseHover"><xsl:value-of select="schedule_a_group/din_number"/></span>
+									</div>
+									</div>
+									</div>
+									<div class="row">
+									<div class="col-xs-12">
+									<div class="col-xs-12">
+											<strong>Cochez la maladie ou le trouble vis&#233; par les all&#233;gations (au moins une)</strong>
+									</div>
+									</div>
+									</div>
+									<div class="row">
 										<div class="col-xs-12">
-										<div class="col-xs-12">
-										<strong>Num&#233;ro d'identification du m&#233;dicament (DIN), si existant</strong>
-											:&#160;&#160;<span class="mouseHover"><xsl:value-of select="schedule_a_group/din_number"/></span>
+												<xsl:for-each select="schedule_a_group/*">
+												<xsl:if test="current() = 'Y'">
+												<div class="col-xs-12">
+												<div class="col-xs-12">
+													<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+													<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
+												</div>
+												</div>
+												</xsl:if>
+												</xsl:for-each>
 										</div>
-										</div>
-										</div>
-										<div class="row">
-										<div class="col-xs-12">
-										<div class="col-xs-12">
-												<strong>Cochez la maladie ou le trouble vis&#233; par les all&#233;gations (au moins une)</strong>
-										</div>
-										</div>
-										</div>
+									</div>
+									<div class="col-xs-12">
+										<strong>Indiquer les all&#233;gations/indications de l'annexe A associ&#233;es avec ce produit</strong>
 										<div class="row">
 											<div class="col-xs-12">
-													<xsl:for-each select="schedule_a_group/*">
-													<xsl:if test="current() = 'Y'">
-													<div class="col-xs-12">
-													<div class="col-xs-12">
-														<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-														<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
-													</div>
-													</div>
-													</xsl:if>
-													</xsl:for-each>
-											</div>
-										</div>
-										<div class="col-xs-12">
-											<strong>Indiquer les all&#233;gations/indications de l'annexe A associ&#233;es avec ce produit</strong>
-											<div class="row">
-												<div class="col-xs-12">
-													<span class="mouseHover"><xsl:value-of select="schedule_a_group/sched_a_claims_ind_details"/></span>
-												</div>
+												<span class="mouseHover"><xsl:value-of select="schedule_a_group/sched_a_claims_ind_details"/></span>
 											</div>
 										</div>
 									</div>
 								</div>
-								</div>
-								</xsl:if>
-								</xsl:if>
-								<xsl:if test="is_drug_admin = 'Y'">
-								<div class="col-xs-12">
-									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien</span>
-								</div>
-								</xsl:if>
-							</xsl:when>
-							<xsl:otherwise>
-								<div class="col-xs-12">
-									<span class="mouseHover">n/a</span>
-								</div>
-							</xsl:otherwise>
-							</xsl:choose>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 form-group">
-								<strong>Indication/emploi/posologie propos&#233; (y compris la dose quotidienne maximale)</strong>
-								<div class="col-xs-12">
-									<span class="mouseHover"><xsl:value-of select="proposed_indication"/></span>
-								</div>
+							</div>
+							</div>
+							</xsl:if>
+							</xsl:if>
+							<xsl:if test="is_drug_admin = 'Y'">
+							<div class="col-xs-12">
+								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+								<span class="mouseHover">un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien</span>
+							</div>
+							</xsl:if>
+						</xsl:when>
+						<xsl:otherwise>
+							<div class="col-xs-12">
+								<span class="mouseHover">n/a</span>
+							</div>
+						</xsl:otherwise>
+						</xsl:choose>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 form-group">
+							<strong>Indication/emploi/posologie propos&#233; (y compris la dose quotidienne maximale)</strong>
+							<div class="col-xs-12">
+								<span class="mouseHover"><xsl:value-of select="proposed_indication"/></span>
 							</div>
 						</div>
 					</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong>Formulation</strong>
-								<div class="form-group">
-									<ul class="nav nav-tabs">
-										<li onclick="selectedTab(0);" tabindex="0" class="active" id="tab0"><a href="#tabpanel0"><strong>Formulations</strong></a>
-										</li>
-										<li onclick="selectedTab(1);" tabindex="0" id="tab1"><a href="#tabpanel1"><strong>Ingr&#233;dient ou mat&#233;riel source humaine ou d'animale</strong></a>
-										</li>
-									</ul>
-									<div style="clear:both;"></div>
-									<div class="tabpanels">
-										<div id="tabpanel0" class="active">
-											<table class="table table-hover table-condensed table-striped table-formulation" border="1">
-											<thead>
-												<tr>
-													<th style="width:2%;"></th>
-													<th style="width:8%;"><strong>Numéro</strong></th>
-													<th style="width:70%;"><strong>Nom de la formulation</strong></th>
-													<th style="width:20%;"><strong>Forme posologique</strong></th>
-													<th class="out"></th>
-												</tr>
-											</thead>
-											<tbody>
-												<xsl:for-each select="formulation_group/formulation_details">
-													<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
-														<td class="fa fa-caret-right fa-lg fa-fw"></td>
-														<td><xsl:value-of select="formulation_id"/></td>
-														<td><xsl:value-of select="formulation_name"/></td>
-														<td><xsl:value-of select="dosage_form_group/dosage_form"/></td>
-														<td class="out"><table><tr data-detail="true"><td colspan="4">
-															<fieldset>
-																<legend><h4>&#160;&#160;&#160;&#160;Enregistrement de la formulation&#160;<xsl:value-of select="formulation_id"/></h4></legend>
-																<div>
-																	<section class="panel panel-default">
-																		<div class="panel-body">
-																			<div class="well well-sm">
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<strong>A. Nom de la formulation:&#160;</strong><span class="mouseHover"><xsl:value-of select="formulation_name"/></span>
-																				</div>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<strong>C.&#160;Ingr&#233;dients</strong>
-																				<br/>
-																					<div class="row">
-																						<div class="col-md-12">
-																							<table class="table table-hover table-condensed table-striped table-ingredients" border="1" >
-																							<thead>
-																								<tr>
-																									<th style="width:2%"></th>
-																									<th>Numéro</th>
-																									<th>R&#244;le</th>
-																									<th>Variante</th>
-																									<th>Ingr&#233;dient</th>
-																									<th>Quantities</th>
-																									<th>Par</th>
-																									<th>Calcul&#233; comme base</th>
-																									<th>Nanomat&#233;riau</th>
-																									<th>Source humaine ou animale</th>
-																									<th class="out">Hide</th>
-																								</tr>
-																							</thead>
-								<tbody>
-																								<xsl:for-each select="formulation_ingredient">
-																								<tr onclick="showDetail(this, '10', false, null);">
-																									<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
-																									<td><xsl:value-of select="ingredient_id"/></td>
-																									<td><xsl:value-of select="ingredient_role"/></td>
-																									<td><xsl:value-of select="variant_name"/></td>
-																									<td><xsl:value-of select="ingredient_name"/></td>
-																									<td><xsl:choose><xsl:when test="strength/operator/@id = 'NGT'">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = 'NLT'">&gt;&#160;</xsl:when></xsl:choose>
-																									<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != ''">&#160;<strong>&#224;</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
-																										&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units_other"/></xsl:otherwise></xsl:choose></td>
-																									<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
-																									<td><xsl:value-of select="is_base_calc"/></td>
-																									<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
-																									<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
-																									<td class="out"><table><tr data-detail="true"><td colspan="10">
-																										<fieldset>
-																											<legend>Ingr&#233;dients&#160;<xsl:value-of select="position()"/></legend>
-																											<div class="row">
-																												<div class="col-md-6">
-																												<strong>R&#244;le:&#160;</strong>
-																												<span class="mouseHover"><xsl:value-of select="ingredient_role"/></span>
-																												</div>
-																												<xsl:if test="ingredient_role/@id = 'NONMED'">
-																													<div class="col-md-6">
-																													<strong>Nom de la variante du formulation:&#160;</strong><span class="mouseHover"><xsl:value-of select="variant_name"/></span>
-																													</div>
-																													<div class="col-md-6">
-																													<strong>But:&#160;</strong><span class="mouseHover"><xsl:value-of select="purpose"/></span>
-																													</div>
-																												</xsl:if>
-																												<div class="col-md-6">
-																												<strong>Nom de l'ingr&#233;dient:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
-																												</div>
-																											</div>
-																											<div class="row">
-																												<div class="col-md-6"><strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="cas_number"/></span></div>
-																												<div class="col-md-6"><strong>Norme:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingred_standard"/></span></div>
-																											</div>
-																											<div class="row">
-																												<div class="col-md-6"><strong>Concentration:&#160;</strong>
-																												<span class="mouseHover"><xsl:value-of select="./strength/operator"/></span>&#160;
-																												<xsl:if test="strength/operator/@id = 'RA'">
-																													<span class="mouseHover"><strong>Limite inf&#233;rieure</strong></span>:&#160;
-																												</xsl:if>
-																												<span  class="mouseHover"><xsl:value-of select="strength/data1"/></span>&#160;
-																												<xsl:if test="strength/operator/@id = 'RA'">&#160;&#160;
-																													<span class="mouseHover"><strong>Limite sup&#233;rieure</strong></span>:&#160;
-																													<span class="mouseHover"><xsl:value-of select="strength/data2"/></span>&#160;
-																												</xsl:if>
-																												<xsl:choose>
-																												<xsl:when test="units_other != 'null' and units_other != ''">
-																													<span class="mouseHover"><xsl:value-of select="units_other"/></span>
-																												</xsl:when>
-																												<xsl:otherwise>
-																													<span class="mouseHover"><xsl:value-of select="units"/></span>
-																												</xsl:otherwise>
-																												</xsl:choose>
-																												
-																												</div>
-																													<xsl:variable name="perUnit">
-																														<xsl:value-of select="per"/>
-																													</xsl:variable>
-																												<div class="col-md-3">
-																													<strong>Per</strong>&#160; <span class="mouseHover"><xsl:value-of select="per"/></span>&#160;
-																													<span class="mouseHover"><xsl:value-of select="per_value"/></span>&#160;
-																													<xsl:choose>
-																													<xsl:when test="per_units_other_details != 'null' and per_units_other_details != ''">
-																															<span class="mouseHover"><xsl:value-of select="per_units_other_details"/></span>
-																													</xsl:when>
-																													<xsl:otherwise>
-																															<span class="mouseHover"><xsl:value-of select="per_units"/></span>
-																													</xsl:otherwise>
-																													</xsl:choose>
-																		
-																												</div>
-																												<xsl:if test="is_base_calc != ''">
-																												<div class="col-md-12"><strong>Calcul&#233; comme based?&#160;</strong>
-																													<span class="mouseHover"><xsl:value-of select="is_base_calc"/></span>
-																												</div>
-																												</xsl:if>
-																											</div>
-																											<div class="row">
-																												<div class="col-md-6"><strong>Est-ce un nanomat&#233;riau?&#160;</strong>
-																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_nanomaterial"/></xsl:call-template></span>
-																												</div>
-																												<div class="col-md-6"><strong>Source d'animale ou humaine?&#160;</strong>
-																													<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></span>
-																												</div>
-																											</div>
-																											<xsl:if test="is_nanomaterial = 'Y'">
-																											<div class="row">
-																												<div class="col-md-12"><strong>Nanomat&#233;riau:&#160;</strong>
-																													<span class="mouseHover"><xsl:value-of select="nanomaterial"/></span>
-																													<xsl:if test="nanomaterial_details != 'null' and nanomaterial_details != ''">&#160;&#160;
-																														<strong>Indiquer le type de nanomat&#233;riau:&#160;</strong>
-																														<span class="mouseHover"><xsl:value-of select="nanomaterial_details"/></span>
-																													</xsl:if>
-																												</div>
-																											</div>
-																											</xsl:if>
-																										</fieldset>
-																										</td></tr></table>
-																									</td>
-																								</tr>
-																								</xsl:for-each>
-																							</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<strong>D.&#160; Est-ce un mat&#233;riel(aux) de source humaine et/ou animale &#233;tait utilis&#233;(s) &#224; l'une ou l'autre &#233;tape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
-																				</div>
-																			<xsl:if test="is_animal_human_material = 'Y'">
-																			<div class="col-md-12">
-																				<table class="table table-hover table-condensed table-striped table-container" id="expand-table-142" border="1">
-																				<thead>
-																					<tr>
-																						<th style="width:2%"></th>
-																						<th>Nom du mat&#233;riel</th>
-																						<th>Chemical Abstract Services</th>
-																						<th>Pr&#233;sence dans le contenant final</th>
-																						<th class="out">Hide</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-																					<xsl:for-each select="material_ingredient">
-																						<tr onclick="showDetail(this, '4', false, null);">
-																							<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
-																							<td><xsl:value-of select="./ingredient_name"/></td>
-																							<td><xsl:value-of select="./cas_number"/></td>
-																							<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
-																							<td class="out"><table><tr data-detail="true"><td colspan="4">
-																								<fieldset>
-																<legend>D&#233;tail de mat&#233;riaux de source d'animale et/ou humaine&#160;<xsl:value-of select="position()"/></legend>
+				</div>
+				<div class="well well-sm">
+					<div id="tabpanel0"  class="row">
+						<div class="col-xs-12">
+							<strong>Formulations</strong>
+						</div>
+						<div class="col-xs-12 form-group">
+							<table class="table table-hover table-condensed table-striped table-formulation" border="1">
+							<thead>
+								<tr>
+									<th style="width:2%;"></th>
+									<th style="width:8%;"><strong>Numéro</strong></th>
+									<th style="width:70%;"><strong>Nom de la formulation</strong></th>
+									<th style="width:20%;"><strong>Forme posologique</strong></th>
+									<th class="out"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<xsl:for-each select="formulation_group/formulation_details">
+									<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
+										<td class="fa fa-caret-right fa-lg fa-fw"></td>
+										<td><xsl:value-of select="formulation_id"/></td>
+										<td><xsl:value-of select="formulation_name"/></td>
+										<td><xsl:value-of select="dosage_form_group/dosage_form"/></td>
+										<td class="out"><table><tr data-detail="true"><td colspan="4">
+											<fieldset>
+												<legend><h4>&#160;&#160;&#160;&#160;Enregistrement de la formulation&#160;<xsl:value-of select="formulation_id"/></h4></legend>
+												<div>
+													<section class="panel panel-default">
+														<div class="panel-body">
+															<div class="well well-sm">
 																<div class="row">
-																	<div class="col-md-6">
-																	<strong>Nom du mat&#233;riel:&#160;<span class="normalWeight mouseHover"><xsl:value-of select="./ingredient_name"/></span></strong>
-																	</div>
+																<div class="form-group col-md-12">
+																<strong>A. Nom de la formulation:&#160;</strong><span class="mouseHover"><xsl:value-of select="formulation_name"/></span>
+																</div>
 																</div>
 																<div class="row">
-																	<div class="col-md-6">
-																		<strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
-																	</div>
-																	<div class="col-md-6">
-																		<strong>Norme:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingred_standard"/></span>
-																	</div>
-																	<div class="col-md-6">
-																		<strong>Pr&#233;sence dans le contenant final?&#160;</strong>
-																		<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></span>
-																	</div>
-																</div>
-
-															</fieldset>
-																								</td></tr></table>
-																							</td>
-																						</tr>
-																					</xsl:for-each>
-																				</tbody>
-																				</table>
-																			</div>
-																			</xsl:if>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<br/>
-																				<strong>E.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
-																				</div>
-																			<div class="col-md-12">
-																				<table class="table table-hover table-condensed table-striped table-container-details" id="expand-table-143" border="1">
-																				<thead>
-																					<tr>
-																						<th style="width:2%"></th>
-																						<th>Type de contenant</th>
-																						<th>Capacit&#233; de l'emballage</th>
-																						<th>Dur&#233;e de vie</th>
-																						<th>&#233;cart de temp&#233;rature (Celsius)</th>
-																						<th class="out">Hidden</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-																					<xsl:for-each select="container_group/container_details">
-																						<tr onclick="showDetail(this, '3', false, null);">
-																							<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
-																							<td><xsl:value-of select="container_type"/></td>
-																							<td><xsl:value-of select="package_size"/></td>
-																							<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
-																							<td><xsl:value-of select="temperature_min"/><xsl:if test="temperature_max != ''">&#160;&#224;&#160;<xsl:value-of select="temperature_max"/></xsl:if></td>
-																							<td class="out"><table><tr data-detail="true"><td colspan="5">
-															<fieldset>
-																<legend>D&#233;tails sur le type de contenant&#160;<xsl:value-of select="position()"/></legend>
-																<div class="row">
-																	<div class="col-md-12">
-																	<strong>Type de contenant:&#160;</strong><span class="mouseHover"><xsl:value-of select="container_type"/></span>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-12">
-																	<strong>Capacit&#233; de l'emballage:&#160;</strong><span class="normalWeight mouseHover"><xsl:value-of select="package_size"/></span>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-6">
-																		<strong>Dur&#233;e de vie:&#160;</strong>
-																		<span class="mouseHover"><xsl:value-of select="shelf_life_number"/></span>&#160;
-																		<span class="mouseHover"><xsl:apply-templates select="shelf_life_unit" /></span>
-																	</div>
-																	<div class="col-md-6">
-																		<strong>&#233;cart de temp&#233;rature de:&#160;</strong>
-																		<span class="normalWeight mouseHover"><xsl:value-of select="temperature_min"/></span>&#160;&#160;
-																		<strong>&#224;:&#160;</strong>
-																		<span class="normalWeight mouseHover"><xsl:value-of select="temperature_max"/></span>&#160;<strong>Celsius</strong>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-12">
-																		<strong>Autres consid&#233;rations relatives &#224; la dur&#233;e de vie:&#160;</strong>
-																	</div>
-																	<div class="col-md-12">
-																		<div class="col-xs-10">
-																		<span class="mouseHover"><xsl:value-of select="other_shelf_life_considerations"/></span>
-																		</div>
-																	</div>
-																</div>
-															</fieldset>
-																								</td></tr></table>
-																							</td>
-																						</tr>
-																					</xsl:for-each>
-																				</tbody>
-																				</table>
-																			</div>
-																				</div>
-																				<div class="row">
-																				<div class="col-md-12"><br/></div>
-																				<div class="form-group col-md-12">
-																				<strong>B. Forme posologique:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
-																				</div>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<br/>
-																				<strong>F.&#160;Voie d'administration</strong>
-																				</div>
-																				<div class="col-md-12">
-																				<div class="col-xs-11">
-																					<ol>
-																					<xsl:for-each select="roa_group/roa_details">
-																						<li><xsl:value-of select="roa"/>
-																							<xsl:if test="roa_other != ''">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
-																						</li>
-																					</xsl:for-each>
-																					</ol>
-																				</div>
-																			</div>
-																				</div>
-																				<div class="row">
-																				<div class="form-group col-md-12">
-																				<br/>
-																				<strong>G.&#160;Pays de fabricatin pour ce produit</strong>
-																				</div>
-																				<div class="col-md-12">
-																					<div class="col-xs-11">
-																					<ol>
-																					<xsl:for-each select="country_group/country_manufacturer">
-																						<li><xsl:value-of select="current()"/></li>
-																					</xsl:for-each>
-																					</ol>
-																					</div>
-																				</div>
-																				</div>
-																			</div>
-																		</div>
-																	</section>
-																</div>
-															</fieldset>
-															</td></tr></table>
-														</td>
-													</tr>
-												</xsl:for-each>
-											</tbody>
-											</table>
-										</div>
-										<div class="out" id="tabpanel1" role="tabpanel">
-											<table class="table table-hover table-condensed table-striped table-appendix" border="1">
-											<thead>
-												<tr>
-													<th></th>
-													<th>Nom</th>
-													<th>Source de</th>
-													<th>Syst&#232;me</th>
-													<th>Syst&#232;me d&#233;tails</th>
-													<th class="out"></th>
-												</tr>
-											</thead>
-											<tbody>
-												<xsl:for-each select="appendix4_group">
-													<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
-														<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
-														<td><xsl:value-of select="ingredient_name"/></td>
-														<td><xsl:if test="human_sourced = 'Y'">Humaine</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animale</xsl:if></td>
-														<td>
-															<xsl:for-each select="tissues_fluids_section/*">
-																<xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template>
-															</xsl:for-each>
-														</td>
-														<td>
-															<xsl:for-each select="tissues_fluids_section/*">
-																<xsl:for-each select="./*">
-																<xsl:if test=" . = 'Y'">
-																	<xsl:variable name="temp" select="name(.)"/>
-																	<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
-																		<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
-																	</xsl:if>
-																</xsl:if>
-																</xsl:for-each>
-															</xsl:for-each>
-														</td>
-														<td class="out"> <table><tr data-detail="true"><td colspan="5">
-															<fieldset>
-																<legend>L'ingr&#233;dient ou mat&#233;riel&#160;<xsl:value-of select="ingredient_id"/></legend>
-																<div class="row">
-																	<div class="col-md-12">
-																	<strong>Nom de l'ingr&#233;dient ou mat&#233;riel:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-12">
-																		<strong>Source de:&#160;</strong>
-																	<xsl:if test="human_sourced = 'Y'">
-																	<div class="col-md-12">
-																		<span class="mouseHover" style="margin-left:45px;">Human</span>
-																	</div>
-																	</xsl:if>
-																	<xsl:if test="animal_sourced = 'Y'">
-																	<div class="col-md-12">
-																		<span class="mouseHover" style="margin-left:45px;">Animal</span>
-																	</div>
-																	</xsl:if>
-																	</div>
-																</div>
-																<xsl:if test=" ./human_sourced = 'Y' or ./animal_sourced = 'Y'">
-																<div class="row">
-																	<div class="panel-default" style="margin-left:10px; margin-right:10px;">
-																		<header><h3 style="font-weight:300; padding-left:5px">Origine des tissus ou fluides</h3></header>
-																		<div class="panel-body">
-																			<table class="table table-hover table-condensed table-striped table-tissues" border="1">
-																				<thead>
-																					<tr>
-																						<th style="background-color:white !important;">Syst&#232;me</th>
-																						<th style="background-color:white !important;">Details du syst&#232;me</th>
-																						<th style="background-color:white !important;">Autre d&#233;tails</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-																					<xsl:for-each select="tissues_fluids_section/*">
-																						<tr >
-																							<td><span  class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template></span></td>
-																							<td>
-																								<xsl:for-each select="*">
-																									<span class="mouseHover">
-																									<xsl:if test=" . = 'Y'">
-																										<xsl:variable name="temp" select="name(.)"/>
-																										<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
-																											<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
-																										</xsl:if>
-																									</xsl:if>
-																									</span>
-																								</xsl:for-each>
-																							</td>
-																							<td><span class="mouseHover"><xsl:value-of select="*[self::other_nervous_details or self::other_digestive_details or self::other_musculo_skeletal_details or self::other_reproductive_details or self::other_cardio_respiratory_details or self::other_immune_details or self::other_skin_glandular_details or self::other_fluids_tissues_details]"/></span></td>
-																						</tr>
-																					</xsl:for-each>
-																				</tbody>
-																				</table>
-																		</div>
-																		<xsl:if test="animal_sourced = 'Y'">
-																			<header><h3 style="font-weight:300; padding-left:5px">Sources d'animales</h3></header>
-																			<div class="panel-body">
-																			<table class="table table-hover table-condensed table-striped table-animal" border="1">
+																<div class="form-group col-md-12">
+																<strong>C.&#160;Ingr&#233;dients</strong>
+																<br/>
+																	<div class="row">
+																		<div class="col-md-12">
+																			<table class="table table-hover table-condensed table-striped table-ingredients" border="1" >
 																			<thead>
-																					<th style="background-color:white !important;"><strong>Type d'animal</strong></th>
-																					<th style="background-color:white !important;"><strong>D&#233;tails du type d'animal</strong></th>
-																			</thead>
-																			<tbody>
-																				<xsl:for-each select="animal_sourced_section/animal_src_record">
 																				<tr>
-																					<td><span class="mouseHover"><xsl:value-of select="animal_type"/></span></td>
-																					<td><span class="mouseHover"><xsl:value-of select="animal_detail"/></span></td>
+																					<th style="width:2%"></th>
+																					<th>Numéro</th>
+																					<th>R&#244;le</th>
+																					<th>Variante</th>
+																					<th>Ingr&#233;dient</th>
+																					<th>Quantities</th>
+																					<th>Par</th>
+																					<th>Calcul&#233; comme base</th>
+																					<th>Nanomat&#233;riau</th>
+																					<th>Source humaine ou animale</th>
+																					<th class="out">Hide</th>
+																				</tr>
+																			</thead>
+				<tbody>
+																				<xsl:for-each select="formulation_ingredient">
+																				<tr onclick="showDetail(this, '10', false, null);">
+																					<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
+																					<td><xsl:value-of select="ingredient_id"/></td>
+																					<td><xsl:value-of select="ingredient_role"/></td>
+																					<td><xsl:value-of select="variant_name"/></td>
+																					<td><xsl:value-of select="ingredient_name"/></td>
+																					<td><xsl:choose><xsl:when test="strength/operator/@id = 'NGT'">&lt;&#160;</xsl:when><xsl:when test="strength/operator/@id = 'NLT'">&gt;&#160;</xsl:when></xsl:choose>
+																					<xsl:value-of select="strength/data1"/><xsl:if test="strength/data2 != ''">&#160;<strong>&#224;</strong>&#160;<xsl:value-of select="strength/data2"/></xsl:if>
+																						&#160;<xsl:choose><xsl:when test="units_other = ''"><xsl:value-of select="units"/></xsl:when><xsl:otherwise><xsl:value-of select="units_other"/></xsl:otherwise></xsl:choose></td>
+																					<td><xsl:value-of select="per_value"/>&#160;<xsl:choose><xsl:when test="per_units_other_details = ''"><xsl:value-of select="per_units"/></xsl:when><xsl:otherwise><xsl:value-of select="per_units_other_details"/></xsl:otherwise></xsl:choose>/<xsl:value-of select="per"/></td>
+																					<td><xsl:value-of select="is_base_calc"/></td>
+																					<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
+																					<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
+																					<td class="out"><table><tr data-detail="true"><td colspan="10">
+																						<fieldset>
+																							<legend>Ingr&#233;dients&#160;<xsl:value-of select="position()"/></legend>
+																							<div class="row">
+																								<div class="col-md-6">
+																								<strong>R&#244;le:&#160;</strong>
+																								<span class="mouseHover"><xsl:value-of select="ingredient_role"/></span>
+																								</div>
+																								<xsl:if test="ingredient_role/@id = 'NONMED'">
+																									<div class="col-md-6">
+																									<strong>Nom de la variante du formulation:&#160;</strong><span class="mouseHover"><xsl:value-of select="variant_name"/></span>
+																									</div>
+																									<div class="col-md-6">
+																									<strong>But:&#160;</strong><span class="mouseHover"><xsl:value-of select="purpose"/></span>
+																									</div>
+																								</xsl:if>
+																								<div class="col-md-6">
+																								<strong>Nom de l'ingr&#233;dient:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
+																								</div>
+																							</div>
+																							<div class="row">
+																								<div class="col-md-6"><strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="cas_number"/></span></div>
+																								<div class="col-md-6"><strong>Norme:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingred_standard"/></span></div>
+																							</div>
+																							<div class="row">
+																								<div class="col-md-6"><strong>Concentration:&#160;</strong>
+																								<span class="mouseHover"><xsl:value-of select="./strength/operator"/></span>&#160;
+																								<xsl:if test="strength/operator/@id = 'RA'">
+																									<span class="mouseHover"><strong>Limite inf&#233;rieure</strong></span>:&#160;
+																								</xsl:if>
+																								<span  class="mouseHover"><xsl:value-of select="strength/data1"/></span>&#160;
+																								<xsl:if test="strength/operator/@id = 'RA'">&#160;&#160;
+																									<span class="mouseHover"><strong>Limite sup&#233;rieure</strong></span>:&#160;
+																									<span class="mouseHover"><xsl:value-of select="strength/data2"/></span>&#160;
+																								</xsl:if>
+																								<xsl:choose>
+																								<xsl:when test="units_other != 'null' and units_other != ''">
+																									<span class="mouseHover"><xsl:value-of select="units_other"/></span>
+																								</xsl:when>
+																								<xsl:otherwise>
+																									<span class="mouseHover"><xsl:value-of select="units"/></span>
+																								</xsl:otherwise>
+																								</xsl:choose>
+																								
+																								</div>
+																									<xsl:variable name="perUnit">
+																										<xsl:value-of select="per"/>
+																									</xsl:variable>
+																								<div class="col-md-3">
+																									<strong>Per</strong>&#160; <span class="mouseHover"><xsl:value-of select="per"/></span>&#160;
+																									<span class="mouseHover"><xsl:value-of select="per_value"/></span>&#160;
+																									<xsl:choose>
+																									<xsl:when test="per_units_other_details != 'null' and per_units_other_details != ''">
+																											<span class="mouseHover"><xsl:value-of select="per_units_other_details"/></span>
+																									</xsl:when>
+																									<xsl:otherwise>
+																											<span class="mouseHover"><xsl:value-of select="per_units"/></span>
+																									</xsl:otherwise>
+																									</xsl:choose>
+														
+																								</div>
+																								<xsl:if test="is_base_calc != ''">
+																								<div class="col-md-12"><strong>Calcul&#233; comme based?&#160;</strong>
+																									<span class="mouseHover"><xsl:value-of select="is_base_calc"/></span>
+																								</div>
+																								</xsl:if>
+																							</div>
+																							<div class="row">
+																								<div class="col-md-6"><strong>Est-ce un nanomat&#233;riau?&#160;</strong>
+																									<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_nanomaterial"/></xsl:call-template></span>
+																								</div>
+																								<div class="col-md-6"><strong>Source d'animale ou humaine?&#160;</strong>
+																									<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></span>
+																								</div>
+																							</div>
+																							<xsl:if test="is_nanomaterial = 'Y'">
+																							<div class="row">
+																								<div class="col-md-12"><strong>Nanomat&#233;riau:&#160;</strong>
+																									<span class="mouseHover"><xsl:value-of select="nanomaterial"/></span>
+																									<xsl:if test="nanomaterial_details != 'null' and nanomaterial_details != ''">&#160;&#160;
+																										<strong>Indiquer le type de nanomat&#233;riau:&#160;</strong>
+																										<span class="mouseHover"><xsl:value-of select="nanomaterial_details"/></span>
+																									</xsl:if>
+																								</div>
+																							</div>
+																							</xsl:if>
+																						</fieldset>
+																						</td></tr></table>
+																					</td>
 																				</tr>
 																				</xsl:for-each>
 																			</tbody>
 																			</table>
-																			<div class="row"><br/>
-																			  <div class="col-md-3">
-																			  	<strong>L'&#226;ge des animaux est-il connu?&#160;</strong>
-																				<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_animal_age_known"/></xsl:call-template></span>
-																			  </div>
-																			  <div class="col-md-3">
-																			  	<xsl:if test="animal_sourced_section/is_animal_age_known = 'Y'">
-																			  	<strong>L'&#226;ge des animaux en mois:&#160;</strong><span class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span>
-																				</xsl:if>&#160;
-																			  </div>
-																			  <div class="col-md-6">
-																			  	<strong>Population contr&#244;l&#233;e:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_controlled_pop"/></xsl:call-template></span>
-																			  </div>
-																			</div>
-																			<div class="row"><br/>
-																			  <div class="col-md-6">
-																			  	<strong>Lign&#233;e cellulaire:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_cell_line"/></xsl:call-template></span>
-																			  </div>
-																			  <div class="col-md-6">
-																			  	<strong>Animal d&#233;riv&#233; de la biotechnologie:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_biotech_derived"/></xsl:call-template></span>
-																			  </div><br/>
-																			</div>
-																			<div class="row"><br/></div>
-																			<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Pays d'origines des animaux</h3></header></div>
-																			<div class="col-xs-12">
-																				<div class="col-xs-10">
-																					<ol>
-																				<xsl:for-each select="animal_sourced_section/country_origin_list/country_origin">
-																					<li><xsl:value-of select="country_with_unknown"/>
-																						<xsl:if test="unknown_country_details != ''">:&#160;<xsl:value-of select="unknown_country_details"/></xsl:if>
-																					</li>
-																				</xsl:for-each>
-																					</ol>
-																				</div>
-																			</div>
-																			</div>
-																		</xsl:if>
-
+																		</div>
 																	</div>
 																</div>
-																</xsl:if>
-															</fieldset>
-														</td></tr></table>
-														</td>
-													</tr>
-												</xsl:for-each>
-											</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+																</div>
+																<div class="row">
+																<div class="form-group col-md-12">
+																<strong>D.&#160; Est-ce un mat&#233;riel(aux) de source humaine et/ou animale &#233;tait utilis&#233;(s) &#224; l'une ou l'autre &#233;tape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
+																</div>
+															<xsl:if test="is_animal_human_material = 'Y'">
+															<div class="col-md-12">
+																<table class="table table-hover table-condensed table-striped table-container" id="expand-table-142" border="1">
+																<thead>
+																	<tr>
+																		<th style="width:2%"></th>
+																		<th>Nom du mat&#233;riel</th>
+																		<th>Chemical Abstract Services</th>
+																		<th>Pr&#233;sence dans le contenant final</th>
+																		<th class="out">Hide</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<xsl:for-each select="material_ingredient">
+																		<tr onclick="showDetail(this, '4', false, null);">
+																			<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
+																			<td><xsl:value-of select="./ingredient_name"/></td>
+																			<td><xsl:value-of select="./cas_number"/></td>
+																			<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
+																			<td class="out"><table><tr data-detail="true"><td colspan="4">
+																				<fieldset>
+												<legend>D&#233;tail de mat&#233;riaux de source d'animale et/ou humaine&#160;<xsl:value-of select="position()"/></legend>
+												<div class="row">
+													<div class="col-md-6">
+													<strong>Nom du mat&#233;riel:&#160;<span class="normalWeight mouseHover"><xsl:value-of select="./ingredient_name"/></span></strong>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="./cas_number"/></span>
+													</div>
+													<div class="col-md-6">
+														<strong>Norme:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingred_standard"/></span>
+													</div>
+													<div class="col-md-6">
+														<strong>Pr&#233;sence dans le contenant final?&#160;</strong>
+														<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></span>
+													</div>
+												</div>
 
+											</fieldset>
+																				</td></tr></table>
+																			</td>
+																		</tr>
+																	</xsl:for-each>
+																</tbody>
+																</table>
+															</div>
+															</xsl:if>
+																</div>
+																<div class="row">
+																<div class="form-group col-md-12">
+																<br/>
+																<strong>E.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
+																</div>
+															<div class="col-md-12">
+																<table class="table table-hover table-condensed table-striped table-container-details" id="expand-table-143" border="1">
+																<thead>
+																	<tr>
+																		<th style="width:2%"></th>
+																		<th>Type de contenant</th>
+																		<th>Capacit&#233; de l'emballage</th>
+																		<th>Dur&#233;e de vie</th>
+																		<th>&#233;cart de temp&#233;rature (Celsius)</th>
+																		<th class="out">Hidden</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<xsl:for-each select="container_group/container_details">
+																		<tr onclick="showDetail(this, '3', false, null);">
+																			<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
+																			<td><xsl:value-of select="container_type"/></td>
+																			<td><xsl:value-of select="package_size"/></td>
+																			<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
+																			<td><xsl:value-of select="temperature_min"/><xsl:if test="temperature_max != ''">&#160;&#224;&#160;<xsl:value-of select="temperature_max"/></xsl:if></td>
+																			<td class="out"><table><tr data-detail="true"><td colspan="5">
+											<fieldset>
+												<legend>D&#233;tails sur le type de contenant&#160;<xsl:value-of select="position()"/></legend>
+												<div class="row">
+													<div class="col-md-12">
+													<strong>Type de contenant:&#160;</strong><span class="mouseHover"><xsl:value-of select="container_type"/></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+													<strong>Capacit&#233; de l'emballage:&#160;</strong><span class="normalWeight mouseHover"><xsl:value-of select="package_size"/></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<strong>Dur&#233;e de vie:&#160;</strong>
+														<span class="mouseHover"><xsl:value-of select="shelf_life_number"/></span>&#160;
+														<span class="mouseHover"><xsl:apply-templates select="shelf_life_unit" /></span>
+													</div>
+													<div class="col-md-6">
+														<strong>&#233;cart de temp&#233;rature de:&#160;</strong>
+														<span class="normalWeight mouseHover"><xsl:value-of select="temperature_min"/></span>&#160;&#160;
+														<strong>&#224;:&#160;</strong>
+														<span class="normalWeight mouseHover"><xsl:value-of select="temperature_max"/></span>&#160;<strong>Celsius</strong>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<strong>Autres consid&#233;rations relatives &#224; la dur&#233;e de vie:&#160;</strong>
+													</div>
+													<div class="col-md-12">
+														<div class="col-xs-10">
+														<span class="mouseHover"><xsl:value-of select="other_shelf_life_considerations"/></span>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+																				</td></tr></table>
+																			</td>
+																		</tr>
+																	</xsl:for-each>
+																</tbody>
+																</table>
+															</div>
+																</div>
+																<div class="row">
+																<div class="col-md-12"><br/></div>
+																<div class="form-group col-md-12">
+																<strong>B. Forme posologique:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
+																</div>
+																</div>
+																<div class="row">
+																<div class="form-group col-md-12">
+																<br/>
+																<strong>F.&#160;Voie d'administration</strong>
+																</div>
+																<div class="col-md-12">
+																<div class="col-xs-11">
+																	<ol>
+																	<xsl:for-each select="roa_group/roa_details">
+																		<li><xsl:value-of select="roa"/>
+																			<xsl:if test="roa_other != ''">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
+																		</li>
+																	</xsl:for-each>
+																	</ol>
+																</div>
+															</div>
+																</div>
+																<div class="row">
+																<div class="form-group col-md-12">
+																<br/>
+																<strong>G.&#160;Pays de fabricatin pour ce produit</strong>
+																</div>
+																<div class="col-md-12">
+																	<div class="col-xs-11">
+																	<ol>
+																	<xsl:for-each select="country_group/country_manufacturer">
+																		<li><xsl:value-of select="current()"/></li>
+																	</xsl:for-each>
+																	</ol>
+																	</div>
+																</div>
+																</div>
+															</div>
+														</div>
+													</section>
+												</div>
+											</fieldset>
+											</td></tr></table>
+										</td>
+									</tr>
+								</xsl:for-each>
+							</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="row" id="tabpanel1">
+						<div class="col-xs-12">
+							<strong>Ingr&#233;dient ou mat&#233;riel source humaine ou d'animale</strong>
+						</div>
+						<div class="col-xs-12 form-group">
+						<table class="table table-hover table-condensed table-striped table-appendix" border="1">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Nom</th>
+								<th>Source de</th>
+								<th>Syst&#232;me</th>
+								<th>Syst&#232;me d&#233;tails</th>
+								<th class="out"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<xsl:for-each select="appendix4_group">
+								<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
+									<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
+									<td><xsl:value-of select="ingredient_name"/></td>
+									<td><xsl:if test="human_sourced = 'Y'">Humaine</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animale</xsl:if></td>
+									<td>
+										<xsl:for-each select="tissues_fluids_section/*">
+											<xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template>
+										</xsl:for-each>
+									</td>
+									<td>
+										<xsl:for-each select="tissues_fluids_section/*">
+											<xsl:for-each select="./*">
+											<xsl:if test=" . = 'Y'">
+												<xsl:variable name="temp" select="name(.)"/>
+												<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+													<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
+												</xsl:if>
+											</xsl:if>
+											</xsl:for-each>
+										</xsl:for-each>
+									</td>
+									<td class="out"> <table><tr data-detail="true"><td colspan="5">
+										<fieldset>
+											<legend>L'ingr&#233;dient ou mat&#233;riel&#160;<xsl:value-of select="ingredient_id"/></legend>
+											<div class="row">
+												<div class="col-md-12">
+												<strong>Nom de l'ingr&#233;dient ou mat&#233;riel:&#160;</strong><span class="mouseHover"><xsl:value-of select="./ingredient_name"/></span>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<strong>Source de:&#160;</strong>
+												<xsl:if test="human_sourced = 'Y'">
+												<div class="col-md-12">
+													<span class="mouseHover" style="margin-left:45px;">Human</span>
+												</div>
+												</xsl:if>
+												<xsl:if test="animal_sourced = 'Y'">
+												<div class="col-md-12">
+													<span class="mouseHover" style="margin-left:45px;">Animal</span>
+												</div>
+												</xsl:if>
+												</div>
+											</div>
+											<xsl:if test=" ./human_sourced = 'Y' or ./animal_sourced = 'Y'">
+											<div class="row">
+												<div class="panel-default" style="margin-left:10px; margin-right:10px;">
+													<header><h3 style="font-weight:300; padding-left:5px">Origine des tissus ou fluides</h3></header>
+													<div class="panel-body">
+														<table class="table table-hover table-condensed table-striped table-tissues" border="1">
+															<thead>
+																<tr>
+																	<th style="background-color:white !important;">Syst&#232;me</th>
+																	<th style="background-color:white !important;">Details du syst&#232;me</th>
+																	<th style="background-color:white !important;">Autre d&#233;tails</th>
+																</tr>
+															</thead>
+															<tbody>
+																<xsl:for-each select="tissues_fluids_section/*">
+																	<tr >
+																		<td><span  class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name(.)"/></xsl:call-template></span></td>
+																		<td>
+																			<xsl:for-each select="*">
+																				<span class="mouseHover">
+																				<xsl:if test=" . = 'Y'">
+																					<xsl:variable name="temp" select="name(.)"/>
+																					<xsl:if test="$temp != 'other_nervous_details' and $temp != 'other_digestive_details' and $temp != 'other_musculo_skeletal_details' and $temp != 'other_reproductive_details' and $temp != 'other_cardio_respiratory_details' and $temp != 'other_immune_details' and $temp != 'other_skin_glandular_details' and $temp != 'other_fluids_tissues_details'">
+																						<xsl:call-template name="converter"><xsl:with-param name="value" select="$temp"/></xsl:call-template><br/>
+																					</xsl:if>
+																				</xsl:if>
+																				</span>
+																			</xsl:for-each>
+																		</td>
+																		<td><span class="mouseHover"><xsl:value-of select="*[self::other_nervous_details or self::other_digestive_details or self::other_musculo_skeletal_details or self::other_reproductive_details or self::other_cardio_respiratory_details or self::other_immune_details or self::other_skin_glandular_details or self::other_fluids_tissues_details]"/></span></td>
+																	</tr>
+																</xsl:for-each>
+															</tbody>
+															</table>
+													</div>
+													<xsl:if test="animal_sourced = 'Y'">
+														<header><h3 style="font-weight:300; padding-left:5px">Sources d'animales</h3></header>
+														<div class="panel-body">
+														<table class="table table-hover table-condensed table-striped table-animal" border="1">
+														<thead>
+																<th style="background-color:white !important;"><strong>Type d'animal</strong></th>
+																<th style="background-color:white !important;"><strong>D&#233;tails du type d'animal</strong></th>
+														</thead>
+														<tbody>
+															<xsl:for-each select="animal_sourced_section/animal_src_record">
+															<tr>
+																<td><span class="mouseHover"><xsl:value-of select="animal_type"/></span></td>
+																<td><span class="mouseHover"><xsl:value-of select="animal_detail"/></span></td>
+															</tr>
+															</xsl:for-each>
+														</tbody>
+														</table>
+														<div class="row"><br/>
+														  <div class="col-md-3">
+														  	<strong>L'&#226;ge des animaux est-il connu?&#160;</strong>
+															<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_animal_age_known"/></xsl:call-template></span>
+														  </div>
+														  <div class="col-md-3">
+														  	<xsl:if test="animal_sourced_section/is_animal_age_known = 'Y'">
+														  	<strong>L'&#226;ge des animaux en mois:&#160;</strong><span class="mouseHover"><xsl:value-of select="animal_sourced_section/animal_age"/></span>
+															</xsl:if>&#160;
+														  </div>
+														  <div class="col-md-6">
+														  	<strong>Population contr&#244;l&#233;e:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_controlled_pop"/></xsl:call-template></span>
+														  </div>
+														</div>
+														<div class="row"><br/>
+														  <div class="col-md-6">
+														  	<strong>Lign&#233;e cellulaire:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_cell_line"/></xsl:call-template></span>
+														  </div>
+														  <div class="col-md-6">
+														  	<strong>Animal d&#233;riv&#233; de la biotechnologie:&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="animal_sourced_section/is_biotech_derived"/></xsl:call-template></span>
+														  </div><br/>
+														</div>
+														<div class="row"><br/></div>
+														<div class="row"><header><h3 style="padding-left: 15px; font-weight: 300;">Pays d'origines des animaux</h3></header></div>
+														<div class="col-xs-12">
+															<div class="col-xs-10">
+																<ol>
+															<xsl:for-each select="animal_sourced_section/country_origin_list/country_origin">
+																<li><xsl:value-of select="country_with_unknown"/>
+																	<xsl:if test="unknown_country_details != ''">:&#160;<xsl:value-of select="unknown_country_details"/></xsl:if>
+																</li>
+															</xsl:for-each>
+																</ol>
+															</div>
+														</div>
+														</div>
+													</xsl:if>
+
+												</div>
+											</div>
+											</xsl:if>
+										</fieldset>
+									</td></tr></table>
+									</td>
+								</tr>
+							</xsl:for-each>
+						</tbody>
+						</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
