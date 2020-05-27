@@ -692,6 +692,7 @@ span.normalWeight {
 									<th class="out">Hidden</th>
 								</tr>
 								</thead>
+							<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 								<tbody>
 								<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
 								<tr onclick="showDetail(this, '3', false, myTables['importer']);">
@@ -750,6 +751,7 @@ span.normalWeight {
 								</tr>
 								</xsl:for-each>
 								</tbody>
+							</xsl:if>
 							</table>
 						</div>
 						</div>
@@ -1605,7 +1607,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-10-31-1359.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2020-05-26-2032-import.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
