@@ -680,6 +680,7 @@ span.normalWeight {
 					</div>
 					<div class="row"><br/>
 					</div>
+					<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 					<div class="row">
 					<div class="col-sm-12 form-group">
 						<strong>Importateur</strong>
@@ -752,8 +753,8 @@ span.normalWeight {
 						</table>
 					</div>
 					</div>
-					<div class="row"><br/>
-					</div>
+					<div class="row"><br/></div>
+					</xsl:if>
 					<div class="row">
 						<div class="col-xs-12 form-group">
 							<strong>Usage du m&#233;dicament:&#160;</strong>
@@ -1600,7 +1601,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2019-03-14-1029.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2020-05-26-2032-import.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>

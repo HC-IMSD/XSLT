@@ -680,6 +680,7 @@ span.normalWeight {
 						</div>
 						<div class="row"><br/>
 						</div>
+						<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 						<div class="row">
 						<div class="col-sm-12 form-group">
 							<strong>Importer</strong>
@@ -692,7 +693,6 @@ span.normalWeight {
 									<th class="out">Hidden</th>
 								</tr>
 								</thead>
-							<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 								<tbody>
 								<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
 								<tr onclick="showDetail(this, '3', false, myTables['importer']);">
@@ -751,12 +751,11 @@ span.normalWeight {
 								</tr>
 								</xsl:for-each>
 								</tbody>
-							</xsl:if>
 							</table>
 						</div>
 						</div>
-						<div class="row"><br/>
-						</div>
+						<div class="row"><br/></div>
+						</xsl:if>
 						<div class="row">
 							<div class="col-xs-12 form-group">
 								<strong>Drug Use:&#160;</strong>
