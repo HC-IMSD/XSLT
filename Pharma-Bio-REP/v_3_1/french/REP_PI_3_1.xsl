@@ -936,7 +936,6 @@ span.normalWeight {
 																</div>
 																</div>
 																<div class="row">
-																<div class="col-md-12"><br/></div>
 																<div class="form-group col-md-12">
 																<strong>B. Forme posologique:&#160;</strong><span class="mouseHover"><xsl:value-of select="dosage_form_group/dosage_form"/></span>&#160;<span><xsl:value-of select="dosage_form_group/dosage_form_other"/></span>
 																</div>
