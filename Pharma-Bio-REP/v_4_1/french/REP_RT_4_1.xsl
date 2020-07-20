@@ -561,22 +561,22 @@ span.normalWeight {
 							</div>
 						</div>
 
-					<xsl:if test="regulatory_project_manager1 != '' or regulartory_project_manager2 != ''">
-					<h4>Responsable de projet r&#233;glementaire, si connu: &#160;</h4>
-					
-					<div class="well well-sm" >
-						<div class="row">
-							<div class="col-xs-12">
-								<span class="mouseHover"> <xsl:apply-templates select="regulatory_project_manager1" /> </span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<span class="mouseHover"> <xsl:apply-templates select="regulatory_project_manager2" /> </span>
-							</div>
-						</div>
-					</div>
-					</xsl:if>
+					<!--<xsl:if test="regulatory_project_manager1 != '' or regulartory_project_manager2 != ''">-->
+					<!--<h4>Responsable de projet r&#233;glementaire, si connu: &#160;</h4>-->
+					<!---->
+					<!--<div class="well well-sm" >-->
+						<!--<div class="row">-->
+							<!--<div class="col-xs-12">-->
+								<!--<span class="mouseHover"> <xsl:apply-templates select="regulatory_project_manager1" /> </span>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="row">-->
+							<!--<div class="col-xs-12">-->
+								<!--<span class="mouseHover"> <xsl:apply-templates select="regulatory_project_manager2" /> </span>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--</xsl:if>-->
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
@@ -674,7 +674,7 @@ span.normalWeight {
 					<h2 class="panel-title">Personne-ressource pour cette activit&#233; r&#233;glementaire</h2>
 				</div>
 				<div class="panel-body">
-					<h4>Personne-ressource pour cette activit&#233; r&#233;glementaire</h4>
+					<!--<h4>Personne-ressource pour cette activit&#233; r&#233;glementaire</h4>-->
 					<strong>A. Information sur l'entreprise: </strong>
 					<div class="well well-sm" >
 						<div class="row">
