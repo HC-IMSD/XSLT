@@ -302,6 +302,9 @@ table.dataTable tbody tr {
 .col-xs-11 {
     width: 91.6666666667%
 }
+.col-xs-7 {
+    width: 52%;
+}
 
 legend {
     padding-inline-start: 2px;
@@ -389,6 +392,14 @@ span.normalWeight {
 }
 .nowrap {
 	white-space: nowrap;
+}
+.lst-lwr-alph {
+  list-style-type: lower-alpha; }
+.minWidth150 {
+	min-width: 150px;
+}
+.minWidth300 {
+	min-width: 300px;
 }
 </xsl:text>
 				</style>
@@ -709,39 +720,39 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-3"> Titre&#160;&#160; 
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
+								<strong class="col-xs-3 minWidth150"> Titre&#160;&#160; 
+								<span class="mouseHover normalWeight"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
 								<strong class="col-xs-3">&#160;</strong>
-								<strong class="col-xs-4"> Langue de correspondance&#160;&#160; 
-								<span class="mouseHover" style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
+								<strong class="col-xs-4 minWidth150"> Langue de correspondance&#160;&#160; 
+								<span class="mouseHover normalWeight"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-3">Pr&#233;nom&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span> </strong>
-								<strong class="col-xs-3"> Initials&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/initials" /> </span> </strong>
-								<strong class="col-xs-3"> Nom de famille&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/surname" /> </span> </strong>
+								<strong class="col-xs-3 minWidth300">Pr&#233;nom&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span> </strong>
+								<strong class="col-xs-3 minWidth300"> Initials&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/initials" /> </span> </strong>
+								<strong class="col-xs-3 minWidth300"> Nom de famille&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/surname" /> </span> </strong>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong style="width:50%; float:left;padding-left:15px;padding-right:15px;">T&#233;l&#233;phone&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
+								<strong class="col-xs-7 minWidth300">T&#233;l&#233;phone&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
 								Numéro de l'extension &#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
-								<strong class="col-xs-3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;Num&#233;ro de fax&#160;&#160; 
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
+								<strong class="col-xs-4  minWidth300">Num&#233;ro de fax&#160;&#160; 
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
 								<strong class="col-xs-12">Courriel&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong style="float:left;padding-left:15px;padding-right:15px;">Identificateur  d'acheminement</strong>
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span>
+								<strong class="col-xs-12">Identificateur  d'acheminement</strong>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span>
 							</div>
 						</div>
 					</div>
@@ -897,8 +908,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : Un nouvel ID de dossier peut être exig&#233;. Communiquez avec Sant&#233; Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
-						<p>Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise et l’ID de dossier existants, &#224; moins qu’un nouvel ID de dossier ait &#233;t&#233; attribu&#233; par Sant&#233; Canada.</p>
+						Remarque : Un nouveau numéro de dossier peut être exigé. Communiquez avec Santé Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
+						<p>Sur le présent formulaire : Utilisez le numéro de la compagnie et le numéro de dossier existants, à moins qu’un nouveau numéro de dossier ait été attribué par Santé Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'PRODUCT_NAME_CHGE' = $value">
@@ -907,7 +918,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise et l’ID de dossier existants.
+						Sur le présent formulaire : Utilisez le numéro de la compagnie et le numéro de dossier existants.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'OWNERSHIP_CHGE' = $value">
@@ -916,8 +927,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : L’ID du dossier sera transf&#233;r&#233; &#224; partir du propri&#233;taire pr&#233;c&#233;dent si tous les DIN du dossier sont transf&#233;r&#233;s. Vous pouvez &#233;galement communiquer avec Sant&#233; Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
-						<p>Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise pour le nouveau propri&#233;taire et l’ID de dossier existant, &#224; moins qu’un nouvel ID de dossier ait &#233;t&#233; attribu&#233; par Sant&#233; Canada.</p>
+						Remarque : Le numéro de dossier sera transféré à partir du propriétaire précédent si tous les DIN du dossier sont transférés. Vous pouvez également communiquer avec Santé Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
+						<p>Sur le présent formulaire : Utilisez le numéro de la compagnie pour le nouveau propriétaire et le numéro de dossier existant, à moins qu’un nouveau numéro de dossier ait été attribué par Santé Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'LICENGSING' = $value">
@@ -926,8 +937,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : Un nouvel ID de dossier est exig&#233; si les produits propos&#233;s n’ont pas &#233;t&#233; pr&#233;alablement approuv&#233;s (c.-&#224;-d., ils n’ont pas d’ID de dossier), sauf dans le cas d’un remplacement du contrat de licence initial. Communiquez avec Sant&#233; Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
-						<p>Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise pour le nouveau propri&#233;taire (titulaire de licence) et l’ID de dossier existant, &#224; moins qu’un nouvel ID de dossier ait &#233;t&#233; attribu&#233; par Sant&#233; Canada.</p>
+						Remarque : Un nouveau numéro de dossier est exigé si les produits proposés n’ont pas été préalablement approuvés (c.-à-d., ils n’ont pas de numéro de dossier), sauf dans le cas d’un remplacement du contrat de licence initial. Communiquez avec Santé Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
+						<p>Sur le présent formulaire : Utilisez le numéro de la compagnie pour le nouveau propriétaire (titulaire de licence) et le numéro de dossier existant, à moins qu’un nouveau numéro de dossier ait été attribué par Santé Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'PRODUCT_MANUFACT_NAME_CHGE' = $value">
@@ -936,8 +947,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : L’inscription de l’entreprise doit être modifi&#233;e. Un nouvel ID d’entreprise sera &#233;mis pour tout changement important de nom. 
-						<p>Sur le pr&#233;sent formulaire : Utilisez le nouvel ID d’entreprise (associ&#233; au nom du nouveau fabricant) et l’ID de dossier existant.</p>
+						Remarque : L’inscription de l’entreprise doit être modifiée. Un nouveau numéro de la compagnie sera émis pour tout changement important de nom.
+						<p>Sur le présent formulaire : Utilisez le nouveau numéro de la compagnie  (associé au nom du nouveau fabricant) et le numéro de dossier existant.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MANUFACT_NAME_CHGE' = $value">
@@ -946,8 +957,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : L’inscription de l’entreprise doit être modifi&#233;e. Un nouvel ID d’entreprise sera &#233;mis pour tout changement important de nom. 
-						<p>Sur le pr&#233;sent formulaire : Utilisez le nouvel ID d’entreprise (associ&#233; au nom du nouveau fabricant) et l’ID de dossier existant.</p>
+						Remarque : L’inscription de l’entreprise doit être modifiée. Un nouveau numéro de la compagnie sera émis pour tout changement important de nom.
+						<p>Sur le présent formulaire : Utilisez le nouveau numéro de la compagnie  (associé au nom du nouveau fabricant) et le numéro de dossier existant.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MERGER' = $value">
@@ -956,8 +967,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : Si la fusion ou le rachat a entraîn&#233; un changement de nom d’entreprise, l’inscription de l’entreprise doit être modifi&#233;e. Un nouvel ID d’entreprise sera &#233;mis. L’ID de dossier demeurera le même, car le dossier du propri&#233;taire ant&#233;rieur sera transf&#233;r&#233; au nouveau propri&#233;taire.
-						<p>Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise pour le nouveau propri&#233;taire et l’ID de dossier existant.</p>
+						Remarque : Si la fusion ou le rachat a entraîné un changement de nom d’entreprise, l’inscription de l’entreprise doit être modifiée. Un nouveau numéro de la compagnie sera émis. Le numéro de dossier demeurera le même, car le dossier du propriétaire antérieur sera transféré au nouveau propriétaire.
+						<p>Sur le présent formulaire : Utilisez le numéro de la compagnie pour le nouveau propriétaire et le numéro de dossier existant.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'POSTAUTH_CHEMISTRY_CHGE' = $value">
@@ -966,7 +977,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise et l’ID de dossier existants.
+						Sur le présent formulaire : Utilisez le numéro de la compagnie et le numéro de dossier existants.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'POSTAUTH_LABEL_CHGE' = $value">
@@ -975,7 +986,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Sur le pr&#233;sent formulaire : Utilisez l’ID d’entreprise et l’ID de dossier existants.
+						Sur le présent formulaire : Utilisez le numéro de la compagnie et le numéro de dossier existants.
 					</div></div>
 			</xsl:when>
 		</xsl:choose>		

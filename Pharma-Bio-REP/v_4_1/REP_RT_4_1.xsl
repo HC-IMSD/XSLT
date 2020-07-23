@@ -301,6 +301,9 @@ table.dataTable tbody tr {
 .col-xs-11 {
     width: 91.6666666667%
 }
+.col-xs-7 {
+    width: 52%;
+}
 
 legend {
     padding-inline-start: 2px;
@@ -391,6 +394,12 @@ span.normalWeight {
 }
 .lst-lwr-alph {
   list-style-type: lower-alpha; }
+.minWidth150 {
+	min-width: 150px;
+}
+.minWidth300 {
+	min-width: 300px;
+}
 </xsl:text>
 				</style>
 			</head>
@@ -704,18 +713,18 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/street_address" /> </span>
+								<span class="mouseHover normalWeight"> <xsl:apply-templates select="regulatory_activity_address/street_address" /> </span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
+								<span class="mouseHover normalWeight"> <xsl:apply-templates select="regulatory_activity_address/city" /> </span>
 								<strong>, &#160;&#160;</strong>
-								<span class="mouseHover"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /><strong>, &#160;&#160;</strong></xsl:when><xsl:otherwise><xsl:if test="regulatory_activity_address/province_text != ''"><xsl:value-of select="regulatory_activity_address/province_text" /><strong>, &#160;&#160;</strong></xsl:if></xsl:otherwise></xsl:choose> </span>
-								<span class="mouseHover"> <xsl:value-of select="regulatory_activity_address/country"/></span>
+								<span class="mouseHover normalWeight"> <xsl:choose><xsl:when test="(regulatory_activity_address/country/@id = 'CAN') or (regulatory_activity_address/country/@id = 'USA')"><xsl:value-of select="regulatory_activity_address/province_lov" /><strong>, &#160;&#160;</strong></xsl:when><xsl:otherwise><xsl:if test="regulatory_activity_address/province_text != ''"><xsl:value-of select="regulatory_activity_address/province_text" /><strong>, &#160;&#160;</strong></xsl:if></xsl:otherwise></xsl:choose> </span>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_address/country"/></span>
 							</div>
 							<div class="col-xs-12">
-								<span class="mouseHover"> <xsl:apply-templates select="regulatory_activity_address/postal_code" /> </span>
+								<span class="mouseHover normalWeight"> <xsl:apply-templates select="regulatory_activity_address/postal_code" /> </span>
 							</div>
 						</div>
 					</div>
@@ -723,39 +732,39 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-3"> Job Title&#160;&#160; 
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
+								<strong class="col-xs-3 minWidth150"> Job Title&#160;&#160; 
+								<span class="mouseHover normalWeight"> <xsl:apply-templates select="regulatory_activity_contact/job_title" /> </span></strong>
 								<strong class="col-xs-3">&#160;</strong>
-								<strong class="col-xs-4"> Language of Correspondence&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
+								<strong class="col-xs-4 minWidth150"> Language of Correspondence&#160;&#160;
+								<span class="mouseHover normalWeight"><xsl:value-of select="regulatory_activity_contact/language_correspondance"/></span></strong>
 							</div>
 							<div class="col-xs-12">
-								<strong class="col-xs-3">First Name&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span> </strong>
-								<strong class="col-xs-3"> Initials&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/initials" /> </span> </strong>
-								<strong class="col-xs-3"> Last Name&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/surname" /> </span> </strong>
+								<strong class="col-xs-3 minWidth300">First Name&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/given_name" /> </span> </strong>
+								<strong class="col-xs-3 minWidth300"> Initials&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/initials" /> </span> </strong>
+								<strong class="col-xs-4 minWidth300"> Last Name&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/surname" /> </span> </strong>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong style="width:50%; float:left;padding-left:15px;padding-right:15px;">Phone Number&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
+								<strong class="col-xs-7 minWidth300">Phone Number&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
 								Ext &#160;&#160;
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
-								<strong class="col-xs-3">&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fax Number&#160;&#160; 
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
+								<strong class="col-xs-4 minWidth300">Fax Number&#160;&#160; 
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
 								<strong class="col-xs-12">Email&#160;&#160;
-								<span class="mouseHover" style="font-weight:normal; "> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
+								<span class="mouseHover normalWeight" style="font-weight:normal; "> <xsl:value-of select="regulatory_activity_contact/email" /> </span></strong>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
 								<strong style="float:left;padding-left:15px;padding-right:15px;">Routing Identifier</strong>
-								<span class="mouseHover" style="font-weight:normal;"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span>
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span>
 							</div>
 						</div>
 					</div>
@@ -911,8 +920,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new dossier ID maybe required. You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use.
-						<p>On this form: Use existing company ID and dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
+						Note: A new dossier identifier maybe required. You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use.
+						<p>On this form: Use existing company identifier and dossier identifier, unless a new dossier identifier was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'PRODUCT_NAME_CHGE' = $value">
@@ -921,7 +930,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On this form: Use existing company ID and dossier ID.
+						On this form: Use existing company identifier and dossier identifier.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'OWNERSHIP_CHGE' = $value">
@@ -930,8 +939,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: Dossier ID will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, you may contact Health Canada for more information hc.eReview@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use
-						<p>On this template: Use company ID for new owner and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
+						Note: Dossier identifier will be transferred from the previous owner if all DINs within the dossier are being transferred. Alternatively, you may contact Health Canada for more information hc.eReview@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use
+						<p>On this template: Use company identifier for new owner and use existing dossier identifier, unless a new dossier identifier was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'LICENGSING' = $value">
@@ -940,8 +949,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new Dossier ID is required if the proposed product(s) were not previously authorized (dossier ID does not exists), except if you are entering in new licensing agreement (i.e., change of licensor or change of source). You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use. 
-						<p>On this form: Use the company ID for new owner (licensee) and use existing dossier ID, unless a new dossier ID was assigned by Health Canada.</p>
+						Note: A new Dossier identifier is required if the proposed product(s) were not previously authorized (dossier identifier does not exists), except if you are entering in new licensing agreement (i.e., change of licensor or change of source). You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use. 
+						<p>On this form: Use the company identifier for new owner (licensee) and use existing dossier identifier, unless a new dossier identifier was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'PRODUCT_MANUFACT_NAME_CHGE' = $value">
@@ -950,8 +959,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: An amended company enrolment is required. A new company ID will be issued for the substantive name change.
-						<p>On this form: Use new company ID (associated with new manufacturer’s name) and existing dossier ID.</p>
+						Note: An amended company enrolment is required. A new company identifier will be issued for the substantive name change.
+						<p>On this form: Use new company identifier (associated with new manufacturer’s name) and existing dossier identifier.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MANUFACT_NAME_CHGE' = $value">
@@ -960,8 +969,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: An amended company enrolment is required. A new company ID will be issued for the substantive name change.
-						<p>On this form: Use new company ID (associated with new manufacturer’s name) and existing dossier ID.</p>
+						Note: An amended company enrolment is required. A new company identifier will be issued for the substantive name change.
+						<p>On this form: Use new company identifier (associated with new manufacturer’s name) and existing dossier identifier.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'MERGER' = $value">
@@ -970,8 +979,8 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: If merger/buyout resulted in a change in company name, an amended company enrolment is required. A new company ID will be issued. Dossier ID will remain the same as the dossier will be transferred from the previous owner to the new owner.
-						<p>On this form: Use company ID for new owner and existing dossier ID.</p>
+						Note: If merger/buyout resulted in a change in company name, an amended company enrolment is required. A new company identifier will be issued. Dossier identifier will remain the same as the dossier will be transferred from the previous owner to the new owner.
+						<p>On this form: Use company identifier for new owner and existing dossier identifier.</p>
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'POSTAUTH_CHEMISTRY_CHGE' = $value">
@@ -980,7 +989,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On this form: Use existing company ID and dossier ID.
+						On this form: Use existing company identifier and dossier identifier.
 					</div></div>
 			</xsl:when>
 			<xsl:when test="'POSTAUTH_LABEL_CHGE' = $value">
@@ -989,7 +998,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						On this form: Use existing company ID and dossier ID.
+						On this form: Use existing company identifier and dossier identifier.
 					</div></div>
 			</xsl:when>
 		</xsl:choose>		
