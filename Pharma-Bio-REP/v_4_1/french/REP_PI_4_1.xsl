@@ -487,6 +487,12 @@ span.normalWeight {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.text-info {
+  color: #31708f; }
 
 </xsl:text>
 				</style>
@@ -590,7 +596,46 @@ span.normalWeight {
 				{ 'width': '15%', "targets": [2] },{ 'width': '10%', "targets": [3,4] },{ 'width': '0', "targets": [5] }
 			]
 		}); 
+		if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+			$('details > summary').each(function(idx){
+				$(this).on("click", toggleDetails);
+			});
+		}else{
+			$('details > summary > span').each(function(idx){
+				$(this).remove();
+			})
+		}
 	});
+	function toggleDetails(){
+		var parent = $(this).parent()[0];
+		if(parent.getAttribute( 'open' ) !== null){ 
+			parent.removeAttribute('open');
+			parent.className = parent.className.replace( " open", "" );
+			var element = $(this).find("span")[0];
+			element.className = element.className.replace('fa-caret-down', 'fa-caret-right');
+		}else{
+			parent.setAttribute('open'); 
+			parent.className +=' open';
+			var element = $(this).find("span")[0];
+			element.className = element.className.replace('fa-caret-right', 'fa-caret-down');
+		}
+	}
+        function expandAll(theClass){
+            $('details').filter(function(){return ! $(this).attr('open')}).attr('open','open');
+			if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+				$('details > summary > span').each(function(){
+					this.className = this.className.replace('fa-caret-right', 'fa-caret-down');
+				});
+			}
+        }
+        function collapseAll(theClass){
+            $('details').filter(function(){return $(this).attr('open')}).removeAttr('open');
+			if(window.navigator.userAgent.indexOf('MSIE ') > 0){
+				$('details > summary > span').each(function(){
+					this.className = this.className.replace('fa-caret-down', 'fa-caret-right');
+				});
+			}
+        }
 
 				</script>
 			</head>
@@ -639,6 +684,65 @@ span.normalWeight {
 							<div class="col-xs-12"><span class="mouseHover"><xsl:value-of select="proper_name"/></span></div>
 						</div>
 					</div>
+						<xsl:if test="dossier_type/@id = 'D26' ">
+						<div style="clear:both;"></div>
+						<div class="row">
+							<ul class="list-unstyled col-xs-12">
+								<li>
+									<details>
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Clinical Trial</strong></summary>
+										<div class="col-xs-12">
+											<strong>Numéro de protocole: </strong><span class="mouseHover"><xsl:value-of select="protocol_number"/></span>
+										</div>
+										<div class="col-xs-12">
+											<strong>Titre du protocole</strong>
+										</div>
+										<div class="col-xs-12">
+											<div class="col-xs-11">
+												<span class="mouseHover"><xsl:value-of select="protocol_title"/></span>
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<strong>Composition prévue de l'essai clinique</strong>
+										</div>
+										<div class="col-xs-12">
+											<div class="col-xs-12">
+												<xsl:for-each select="composition/*">
+													<xsl:if test=" current() = 'Y'">
+															<div class="col-xs-12">
+																<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+																<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
+															</div>
+													</xsl:if>
+												</xsl:for-each>
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<strong>Phase de l'essai clinique</strong>
+										</div>
+										<div class="col-xs-12">
+											<div class="col-xs-12">
+												<xsl:for-each select="phase/*">
+													<xsl:if test=" current() = 'Y' and name() != 'other'">
+															<div class="col-xs-12">
+																<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
+																<span class="mouseHover"><xsl:call-template name="converter"><xsl:with-param name="value" select="name()"/></xsl:call-template></span>
+															</div>
+													</xsl:if>
+												</xsl:for-each>
+												<xsl:if test="phase/other = 'Y'">
+													&#160;&#160;&#160;&#160;&#160;&#160;Autre: &#160; <span class="mouseHover"><xsl:value-of select="phase/other_details"/></span>
+												</xsl:if>
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<strong>Des informations concernant le Comité d'éthique de la recherche qui a refusé d'approuver le protocole et / ou le formulaire de consentement éclairé ci-joint? </strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_reb_info_refused"/></xsl:call-template></span>
+										</div>
+									</details>
+								</li>
+							</ul>
+						</div>
+						</xsl:if>
 					<div class="row">
 						<div class="col-xs-12">
 							<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l'avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
@@ -680,6 +784,22 @@ span.normalWeight {
 					</div>
 					<div class="row"><br/>
 					</div>
+					<xsl:if test="dossier_type/@id = 'D26' ">
+					<div style="clear:both;"></div>
+					<div class="row">
+						<div class="col-xs-12">
+							<strong>Les médicaments pour essais cliniques sont-ils importés au Canada? &#160;</strong>
+							<xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="are_drugs_imported"/></xsl:call-template>
+						</div>
+						<xsl:if test="are_drugs_imported = 'Y'">
+						<div class="col-xs-12">
+						<ul><li>
+						<p class="text-info">Une lettre d'autorisation signée par le promoteur de l'essai clinique doit être fournie à la section 1.2.1 pour qu'une partie tiers puisse importer le ou les nouveaux médicaments décrits dans cette demande ou modification d'essai clinique. Si l'importateur n'a pas changé lors du dépôt d'une modification de la demande d'essai clinique (CTA-A), il n'est pas nécessaire de soumettre une lettre d'autorisation.</p>
+						</li></ul>
+						</div>
+						</xsl:if>
+					</div>
+					</xsl:if>
 					<xsl:if test="/DRUG_PRODUCT_ENROL/importer_record/importer_company_id != ''">
 					<div class="row">
 					<div class="col-sm-12 form-group">
@@ -785,6 +905,61 @@ span.normalWeight {
 						</div>
 						</div>
 					</xsl:if>
+						<xsl:if test="drug_use/@id ='VET'">
+							<div style="clear:both;"></div>
+							<div class="row">
+							<ul class="list-unstyled col-xs-12">
+								<li>
+									<details>
+										<summary class="form-group"><span class=" fa fa-lg fa-fw fa-caret-right"></span>&#160;<strong style="padding-left:2% width:98%;">Espèces et sous-types pour lesquels l’usage est recommandé</strong></summary>
+										<table class="table dataTable table-bordered table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2">
+											<thead>
+												<tr>
+													<th style="width:15px;"></th>
+													<th style="width:15%;"><strong>Espèces et sous-types pour lesquels l’usage est recommandé</strong></th>
+													<th style="width:70%;"><strong>Est-il utilisé pour le traitement d’animaux producteurs d’aliments?</strong></th>
+													<th style="width:15%;">Délai d'attente</th>
+													<th class="out">Hidden</th>
+												</tr>
+												</thead>
+											<tbody>
+												<xsl:for-each select="species_record">
+												<tr onclick="showDetail(this, '4', false, myTables['importer']);">
+													<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
+													<td><span class="mouseHover"><xsl:value-of select="species" /></span> </td>
+													<td><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_treat_food_prod_animal" /></xsl:call-template></span> </td>
+													<td><span class="mouseHover"><xsl:value-of select="withdrawal_days"/>&#160;days&#160;and&#160;<xsl:value-of select="withdrawal_hours"/>&#160;hours</span></td>
+													<td class="out"><table><tr data-detail="true"><td colspan="4">
+														<fieldset>
+															<legend><h4>&#160;&#160;&#160;&#160;Espèces et sous-types&#160;<xsl:value-of select="position()"/></h4></legend>
+															<div class="well well-sm">
+																<div class="row">
+																<div class="form-group col-md-6">
+																	<strong>Espèce :&#160;</strong><span class="mouseHover"><xsl:value-of select="Species"/></span>
+																</div>
+																<div class="form-group col-md-6">
+																	<strong>Sous-types :&#160;</strong><span class="mouseHover"><xsl:value-of select="subtypes"/></span>
+																</div>
+																<div class="form-group col-md-12"><strong>Est-il utilisé pour le traitement d’animaux producteurs d’aliments?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_treat_food_prod_animal"/></xsl:call-template></span></div>
+																<div class="form-group col-md-12"><strong>Délai d'attente:&#160;</strong>
+																	<span class="mouseHover"><xsl:value-of select="withdrawal_days"/></span>
+																	&#160;Jours and&#160;<span><xsl:value-of select="withdrawal_hours"/></span>&#160;Heures
+																</div>
+																</div>
+															</div>
+														</fieldset>
+													</td></tr></table>
+													</td>
+												</tr>
+												</xsl:for-each>
+											</tbody>
+										</table>
+									</details>
+								</li>
+							 </ul>
+							</div>
+						</xsl:if>
+
 					<div class="row">
 						<div class="col-xs-12">
 							<strong>Statut sur l'annexe et prescription (s&#233;lectionner tout ce qui s'applique): le produit est</strong>
@@ -891,6 +1066,7 @@ span.normalWeight {
 						</xsl:otherwise>
 						</xsl:choose>
 					</div>
+
 					<div class="row">
 						<div class="col-xs-12 form-group">
 							<strong>Indication/emploi/posologie propos&#233; (y compris la dose quotidienne maximale)</strong>
@@ -1594,12 +1770,22 @@ span.normalWeight {
 		</xsl:choose>
 		</span>
 	</xsl:template>
+	<xsl:template name="getOrder">
+		<xsl:param name="order" select="/.."/>
+		<xsl:param name="type" select="/.."/>
+		<xsl:if test=" $type = 'D26'">
+			<xsl:value-of select="substring(substring-after('DEFGHI',$order),1,1)"/>
+		</xsl:if>
+		<xsl:if test=" $type != 'D26'">
+			<xsl:value-of select="$order"/>
+		</xsl:if>
+	</xsl:template>
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/hcreppi-2020-05-26-2032-import.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/pi-r234567-2020-07-16-2140.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
