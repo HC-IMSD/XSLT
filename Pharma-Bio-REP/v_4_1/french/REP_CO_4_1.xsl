@@ -314,7 +314,7 @@ span.mouseHover:hover {
 									<td style="text-align: center;font-weight:bold;">Numéro d'entreprise</td>
 									<td style="text-align: center;font-weight:bold;">Information d'adresse</td>
 									<td style="text-align: center;font-weight:bold;">Numéro de la compagnie de l'importateur</td>
-									<td style="text-align: center;font-weight:bold;">Roles</td>
+									<td style="text-align: center;font-weight:bold;">Rôles</td>
 								</tr>
 								<xsl:for-each select="address_record">
 									<tr>
@@ -337,7 +337,7 @@ span.mouseHover:hover {
 								<tr>
 									<th style="text-align: center;font-weight:bold;">Repr&#233;sentative</th>
 									<th style="text-align: center;font-weight:bold;">Contacter par</th>
-									<th style="text-align: center;font-weight:bold;">Roles</th>
+									<th style="text-align: center;font-weight:bold;">Rôles</th>
 								</tr>
 								<xsl:for-each select="contact_record">
 									<tr>
