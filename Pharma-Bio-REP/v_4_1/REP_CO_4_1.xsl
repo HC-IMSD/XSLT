@@ -390,7 +390,7 @@ span.mouseHover:hover {
 		<xsl:if test="rep_primary = 'Y'">
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="rep_primary"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Primary REP contact</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Regulatory Enrolment Process contact</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="rep_secondary = 'Y'">

@@ -386,7 +386,7 @@ span.mouseHover:hover {
 		<xsl:if test="rep_primary = 'Y'">
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="rep_primary"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource principale pour le PIR</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-resource pour le processus d'inscription réglemetaire</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="rep_secondary = 'Y'">
@@ -398,7 +398,7 @@ span.mouseHover:hover {
 		<xsl:if test="importer = 'Y'">
 		<dt>
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
-			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource de importateur canadien</span>
+			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource pour l'importateur canadien</span>
 		</dt>
 		</xsl:if>
 		</dl>
