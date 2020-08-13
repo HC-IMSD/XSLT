@@ -702,7 +702,7 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong>Company Name (Full legal Name - no abbreviations)</strong>
+								<strong>Company Name (Full legal Name)</strong>
 							</div>
 							<div class="col-xs-12">
 								<span class="mouseHover"><xsl:apply-templates select="company_name" /> </span>

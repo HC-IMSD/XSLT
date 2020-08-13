@@ -690,7 +690,7 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong>Nom de l'entreprise</strong>
+								<strong>Nom de l'entreprise(nom légal complet)</strong>
 							</div>
 							<div class="col-xs-12">
 								<span class="mouseHover"><xsl:apply-templates select="company_name" /> </span>
@@ -741,7 +741,7 @@ span.normalWeight {
 								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_num" /> </span>&#160;&#160;
 								Numéro de l'extension &#160;&#160;
 								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/phone_ext" /> </span> </strong>
-								<strong class="col-xs-4  minWidth300">Num&#233;ro de fax&#160;&#160; 
+								<strong class="col-xs-4  minWidth300">No. de fax&#160;&#160; 
 								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/fax_num" /> </span></strong>
 							</div>
 							<div class="col-xs-12">
