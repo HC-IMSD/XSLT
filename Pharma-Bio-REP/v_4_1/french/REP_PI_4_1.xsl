@@ -1118,7 +1118,8 @@ span.normalWeight {
 																</div>
 																<div class="row">
 																<div class="form-group col-md-12">
-																<strong>F.&#160;Voie d'administration</strong>
+																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'F'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
+																.&#160;Voie d'administration</strong>
 																</div>
 																<div class="col-md-12">
 																<div class="col-xs-11">
@@ -1266,9 +1267,44 @@ span.normalWeight {
 																	</div>
 																</div>
 																</div>
+									<xsl:if test="../../dossier_type/@id = 'D26'">
+										<div class="row">
+											<div class="col-xs-12">
+												<strong>D. fr_From which market(s) is the investigational drug product from?</strong>&#160;
+												<xsl:call-template name="converter"><xsl:with-param name="value" select="drug_market"/></xsl:call-template>
+											</div>
+										</div>
+										<xsl:if test="drug_market = 'CANADIAN'">
+										<div class="row">
+											<div class="col-xs-12">
+											<div class="col-xs-12">
+												<strong>Drug Identification Number (DIN):</strong>&#160;<xsl:value-of select="din"/>
+											</div>
+											</div>
+										</div>
+										</xsl:if>
+										<xsl:if test="drug_market = 'FOREIGN'">
+										<div class="row">
+											<div class="col-xs-12">
+												<div class="col-xs-12">
+												<h4>List the country(ies) the investigational drug product was obtained from:</h4>
+												<div class="col-xs-12">
+													<ol>
+													<xsl:for-each select="din_country_list">
+														<li><span class="mouseHover"><xsl:value-of select="."/></span></li>
+													</xsl:for-each>
+													</ol>
+												</div>
+												</div>
+											</div>
+										</div>
+										</xsl:if>
+									</xsl:if>
+
 																<div class="row">
 																<div class="form-group col-md-12">
-																<strong>D.&#160; Est-ce un mat&#233;riel(aux) de source humaine et/ou animale &#233;tait utilis&#233;(s) &#224; l'une ou l'autre &#233;tape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
+																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'D'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
+																.&#160; Est-ce un matériel(aux) de source humaine et/ou animale (autre que l’ingrédient figurant dans la formulation ci-dessus) était utilisé(s) à l’une ou l’autre étape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
 																</div>
 															<xsl:if test="is_animal_human_material = 'Y'">
 															<div class="col-md-12">
@@ -1323,7 +1359,8 @@ span.normalWeight {
 																<div class="row">
 																<div class="form-group col-md-12">
 																<br/>
-																<strong>E.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
+																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'E'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
+																.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
 																</div>
 															<div class="col-md-12">
 																<table class="table table-hover table-condensed table-striped table-container-details" id="expand-table-143" border="1">
@@ -1393,7 +1430,8 @@ span.normalWeight {
 																<div class="row">
 																<div class="form-group col-md-12">
 																<br/>
-																<strong>G.&#160;Pays de fabricatin pour ce produit</strong>
+																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'G'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
+																.&#160;Pays de fabricatin pour ce produit</strong>
 																</div>
 																<div class="col-md-12">
 																	<div class="col-xs-11">
@@ -1785,7 +1823,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/pi-r234567-2020-07-16-2140.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/pi-r234567-2020-07-23-1101.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>

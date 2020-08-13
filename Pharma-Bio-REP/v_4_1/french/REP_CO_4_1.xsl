@@ -250,6 +250,9 @@ span.mouseHover:hover {
 	padding-left: 2px;
 	vertical-align: 2px;
 }
+.mgtTop2 {
+	margin-top: 2px;
+}
 </xsl:text>
 				</style>
 			</head>
@@ -366,37 +369,37 @@ span.mouseHover:hover {
 	<xsl:template name="contactRoles">
 		<dl>
 		<xsl:if test="manufacturer = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource du fabricant / Promoteur</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="mailing = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne ressource de l'annuelle / courrier r&#233;glementaire</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="billing = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="billing"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne ressource de facturation</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="rep_primary = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="rep_primary"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-resource pour le processus d'inscription réglemetaire</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="rep_secondary = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="rep_secondary"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource suppl&#233;mentaire pour le PIR</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="importer = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Personne-ressource pour l'importateur canadien</span>
 		</dt>
@@ -447,25 +450,25 @@ span.mouseHover:hover {
 	<xsl:template name="addressRoles">
 		<dl>
 		<xsl:if test="manufacturer = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="manufacturer"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Adresse du fabricant / promoteur</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="mailing = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="mailing"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse pour l'annuelle / courrier r&#233;glementaire</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="billing = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="billing"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse de facturation</span>
 		</dt>
 		</xsl:if>
 		<xsl:if test="importer = 'Y'">
-		<dt>
+		<dt class="mgtTop2">
 			<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="importer"/></xsl:call-template>
 			<span class="normalWeight mouseHover" style="font-weight:100;">Addresse de courrier canadien</span>
 		</dt>
