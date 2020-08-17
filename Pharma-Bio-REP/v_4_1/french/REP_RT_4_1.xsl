@@ -751,8 +751,8 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong class="col-xs-12">Identificateur  d'acheminement</strong>
-								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span>
+								<strong class="col-xs-12">Identificateur  d'acheminement&#160;&#160;
+								<span class="mouseHover normalWeight"> <xsl:value-of select="regulatory_activity_contact/RoutingID" /></span></strong>
 							</div>
 						</div>
 					</div>
