@@ -4,6 +4,7 @@
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:template match="/">
+		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
 		<html>
 			<head>
     <meta charset="utf-8" />
@@ -493,9 +494,71 @@ span.normalWeight {
 }
 .text-info {
   color: #31708f; }
+
+summary {
+  display: list-item !important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+  visibility: visible !important; }
+
+details:not([open]) details summary, details .out details summary {
+  display: none !important; }
+
+details {
+  margin-bottom: .25em; }
+  details summary {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #295376;
+    padding: 5px 15px; }
+    details summary:focus, details summary:hover {
+      background-color: transparent;
+      color: #0535d2;
+      text-decoration: underline; }
+  details[open] {
+    border: 1px solid #ddd;
+    border-radius: 4px; }
+    details[open] > summary {
+      border: 0;
+      border-bottom: 1px solid #ddd;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      list-style-type: disclosure-open;
+      margin-bottom: .25em; }
+  details:not([open]) {
+    visibility: hidden; }
+    details:not([open]) > details,
+    details:not([open]) > * {
+      display: none; }
+  details.alert:not([open]) {
+    visibility: visible; }
+.no-details details[open] > summary:before, .no-details[dir="rtl"] details[open] > summary:before {
+  content: "\25BC\a0"; }
+
+.no-details details > summary:before {
+  content: "\25BA\a0";
+  font-size: 84%; }
+
+.no-details {
+  /* Right to left (RTL) CSS */ }
+  .no-details details > summary:before {
+    /* Add the closed pointer */ }
+  .no-details details[open] {
+    display: block; }
+    .no-details details[open] > summary:before {
+      /* Add the opened pointer */ }
+  .no-details details summary {
+    display: list-item !important; }
+  .no-details[dir="rtl"] details > summary:before {
+    /* Add the close pointer */
+    content: "\25C4\a0"; }
+  .no-details[dir="rtl"] details[open] > summary:before {
+    /* Add the opened pointer */ }
+
 </xsl:text>
 				</style>
 				<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="//cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js" type="text/javascript"></script>
 				<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
 				<script type="text/javascript">
 					var myTables = {'formulation': [{'class':'.table-ingredients', 'sortCols':[[1,'asc'],[3,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
@@ -931,7 +994,7 @@ span.normalWeight {
 													<td><span class="mouseHover"><xsl:value-of select="withdrawal_days"/>&#160;days&#160;and&#160;<xsl:value-of select="withdrawal_hours"/>&#160;hours</span></td>
 													<td class="out"><table><tr data-detail="true"><td colspan="4">
 														<fieldset>
-															<legend><h4>&#160;&#160;&#160;&#160;Importer Record&#160;<xsl:value-of select="position()"/></h4></legend>
+															<legend><h4>&#160;&#160;&#160;&#160;Species and Subtypes&#160;<xsl:value-of select="position()"/></h4></legend>
 															<div class="well well-sm">
 																<div class="row">
 																<div class="form-group col-md-6">
@@ -1836,7 +1899,7 @@ span.normalWeight {
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/pi-r234567-2020-07-29-0820.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
+		<scenario default="yes" name="Scenario1" userelativepaths="no" externalpreview="yes" url="file:///c:/Users/hcuser/Downloads/pi-r234567-2020-07-23-1101.xml" htmlbaseurl="" outputurl="file:///c:/SPM/test/product.html" processortype="saxon8"
 		          useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath=""
 		          postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<parameterValue name="cssFile" value="'file:///C:/Users/hcuser/git/XSLT/Pharma-Bio-REP/v_3_0/Style-Sheets/ip400-1.css'"/>
