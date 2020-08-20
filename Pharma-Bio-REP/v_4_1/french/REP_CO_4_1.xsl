@@ -364,6 +364,7 @@ span.mouseHover:hover {
 			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Courriel:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/email"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Identificateur d'acheminement:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/RoutingID"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Nom de la compagnie de l'importateur canadien:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/imp_company_name"/></span></div>
 		</div>
 	</xsl:template>
 	<xsl:template name="contactRoles">
