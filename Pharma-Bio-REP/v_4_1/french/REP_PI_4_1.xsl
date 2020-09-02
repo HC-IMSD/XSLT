@@ -743,6 +743,7 @@ span.normalWeight {
 							</ul>
 						</div>
 						</xsl:if>
+                    <xsl:if test="dossier_type/@id != 'D26' ">
 					<div class="row">
 						<div class="col-xs-12">
 							<strong>Adresse o&#249; le formulaire de d&#233;claration de m&#233;dicament (FDM)/l'avis de conformit&#233; (AC) doivent &#234;tre envoy&#233;s (lorsque n&#233;cessaire):</strong>
@@ -782,6 +783,7 @@ span.normalWeight {
 						</xsl:choose>
 
 					</div>
+                    </xsl:if>
 					<div class="row"><br/>
 					</div>
 					<xsl:if test="dossier_type/@id = 'D26' ">

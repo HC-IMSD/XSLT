@@ -805,6 +805,7 @@ details {
 							</ul>
 						</div>
 						</xsl:if>
+                    <xsl:if test="dossier_type/@id != 'D26' ">
 						<div class="row">
 							<div class="col-xs-12">
 								<strong>Address to which the Drug Notification Form (DNF)/Notice of Compliance (NOC) are to be sent(when required):</strong>
@@ -844,6 +845,7 @@ details {
 							</xsl:choose>
 
 						</div>
+                    </xsl:if>
 						<div class="row"><br/>
 						</div>
 						<xsl:if test="dossier_type/@id = 'D26' ">
