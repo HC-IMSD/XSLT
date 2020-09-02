@@ -1271,7 +1271,7 @@ span.normalWeight {
 										<div class="row">
 											<div class="col-xs-12">
 												<strong>D. De quel (s) marché (s) le médicament expérimental provient-il?</strong>&#160;
-												<xsl:call-template name="converter"><xsl:with-param name="value" select="drug_market"/></xsl:call-template>
+                                                <xsl:value-of select="drug_market"/>
 											</div>
 										</div>
 										<xsl:if test="drug_market = 'CANADIAN'">

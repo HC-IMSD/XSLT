@@ -1333,7 +1333,7 @@ details {
 										<div class="row">
 											<div class="col-xs-12">
 												<strong>D. From which market(s) is the investigational drug product from?</strong>&#160;
-												<xsl:call-template name="converter"><xsl:with-param name="value" select="drug_market"/></xsl:call-template>
+                                                <xsl:value-of select="drug_market"/>
 											</div>
 										</div>
 										<xsl:if test="drug_market = 'CANADIAN'">
