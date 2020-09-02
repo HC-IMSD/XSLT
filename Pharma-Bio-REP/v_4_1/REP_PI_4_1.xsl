@@ -4,7 +4,7 @@
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:template match="/">
-		<!--<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>-->
+		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
 		<html>
 			<head>
     <meta charset="utf-8" />
@@ -1179,6 +1179,24 @@ details {
 																	</div>
 																	<div class="row">
 																	<div class="form-group col-md-12">
+																	<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'F'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
+																	.&#160;Routes of Administration</strong>
+																	</div>
+																	<div class="col-md-12">
+																	<div class="col-xs-11">
+																		<ol>
+																		<xsl:for-each select="roa_group/roa_details">
+																			<li><xsl:value-of select="roa"/>
+																				<xsl:if test="roa_other != ''">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
+																			</li>
+																		</xsl:for-each>
+																		</ol>
+																	</div>
+																</div>
+																	</div>
+
+																	<div class="row">
+																	<div class="form-group col-md-12">
 																	<strong>C.&#160;Ingredients</strong>
 																	<br/>
 																		<div class="row">
@@ -1473,25 +1491,6 @@ details {
 																	</table>
 																</div>
 																	</div>
-
-                                                                    <div class="row">
-                                                                        <div class="form-group col-md-12">
-                                                                            <br/>
-                                                                            <strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'F'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
-                                                                                .&#160;Routes of Administration</strong>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="col-xs-11">
-                                                                                <ol>
-                                                                                    <xsl:for-each select="roa_group/roa_details">
-                                                                                        <li><xsl:value-of select="roa"/>
-                                                                                            <xsl:if test="roa_other != ''">:&#160;<xsl:value-of select="roa_other"/></xsl:if>
-                                                                                        </li>
-                                                                                    </xsl:for-each>
-                                                                                </ol>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
 																	<div class="row">
 																	<div class="form-group col-md-12">
 																	<br/>
