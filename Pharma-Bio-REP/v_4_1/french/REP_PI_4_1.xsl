@@ -935,7 +935,7 @@ span.normalWeight {
 															<div class="well well-sm">
 																<div class="row">
 																<div class="form-group col-md-6">
-																	<strong>Espèce :&#160;</strong><span class="mouseHover"><xsl:value-of select="Species"/></span>
+																	<strong>Espèce :&#160;</strong><span class="mouseHover"><xsl:value-of select="species"/></span>
 																</div>
 																<div class="form-group col-md-6">
 																	<strong>Sous-types :&#160;</strong><span class="mouseHover"><xsl:value-of select="subtypes"/></span>
@@ -1270,7 +1270,7 @@ span.normalWeight {
 									<xsl:if test="../../dossier_type/@id = 'D26'">
 										<div class="row">
 											<div class="col-xs-12">
-												<strong>D. fr_From which market(s) is the investigational drug product from?</strong>&#160;
+												<strong>D. De quel (s) marché (s) le médicament expérimental provient-il?</strong>&#160;
 												<xsl:call-template name="converter"><xsl:with-param name="value" select="drug_market"/></xsl:call-template>
 											</div>
 										</div>
@@ -1633,13 +1633,13 @@ span.normalWeight {
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
 		<xsl:when test="$value = 'Y'">
-			<xsl:value-of select="'Yes'"/>
+			<xsl:value-of select="'Qui'"/>
 		</xsl:when>
 		<xsl:when test="$value = 'N'">
-			<xsl:value-of select="'No'"/>
+			<xsl:value-of select="'Non'"/>
 		</xsl:when>
 		<xsl:otherwise>
-			<xsl:value-of select="'UNKNOWN'"/>
+			<xsl:value-of select="'Inconnu'"/>
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

@@ -4,7 +4,7 @@
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:template match="/">
-		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+		<!--<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>-->
 		<html>
 			<head>
     <meta charset="utf-8" />
@@ -998,7 +998,7 @@ details {
 															<div class="well well-sm">
 																<div class="row">
 																<div class="form-group col-md-6">
-																	<strong>Species :&#160;</strong><span class="mouseHover"><xsl:value-of select="Species"/></span>
+																	<strong>Species :&#160;</strong><span class="mouseHover"><xsl:value-of select="species"/></span>
 																</div>
 																<div class="form-group col-md-6">
 																	<strong>Subtypes :&#160;</strong><span class="mouseHover"><xsl:value-of select="subtypes"/></span>
