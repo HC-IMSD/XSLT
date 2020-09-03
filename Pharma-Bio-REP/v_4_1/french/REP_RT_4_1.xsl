@@ -489,7 +489,7 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Raison justifiant la pr&#233;sentation administrative ou la composante administrative description&#160; </strong>
+								<strong> Description de la présentation administrative ou de la composante administrative&#160; </strong>
 							</div>
 								<xsl:call-template name="converter"><xsl:with-param name="value" select="sub_type/@id"/></xsl:call-template>
 						</div>
@@ -908,7 +908,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Remarque : Un nouveau numéro de dossier peut être exigé. Communiquez avec Santé Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
+                        Remarque : Un nouveau numéro de dossier peut être exigé. Communiquez avec Santé Canada pour obtenir de plus amples renseignements (hc.eReview.sc@canada.ca).
 						<p>Sur le présent formulaire : Utilisez le numéro de la compagnie et le numéro de dossier existants, à moins qu’un nouveau numéro de dossier ait été attribué par Santé Canada.</p>
 					</div></div>
 			</xsl:when>

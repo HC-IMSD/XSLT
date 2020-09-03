@@ -264,7 +264,7 @@ span.mouseHover:hover {
 	
 	<!-- Company Enrolment -->
 	<xsl:template match="COMPANY_ENROL">
-		<h1>Mod&#232;le de l'entreprise: Processus d'Inscription R&#233;glementaire (PIR) <xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
+		<h1>Mod&#232;le de l'compagnie: Processus d'Inscription R&#233;glementaire (PIR) <xsl:if test="software_version != ''">(Version: <xsl:value-of select="software_version"/>)</xsl:if></h1>
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
@@ -294,7 +294,7 @@ span.mouseHover:hover {
 		<section>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h2 class="panel-title">Inscription d'une entreprise r&#233;glemetaire</h2>
+					<h2 class="panel-title">Inscription d'une compagnie r&#233;glemetaire</h2>
 				</div>
 				
 				<div class="panel-body">
@@ -313,8 +313,8 @@ span.mouseHover:hover {
 							<div class="panel-body">
 							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
 								<tr>
-									<td style="text-align: center;font-weight:bold;">Nom d’entreprise</td>
-									<td style="text-align: center;font-weight:bold;">Numéro d'entreprise</td>
+									<td style="text-align: center;font-weight:bold;">Nom de la compagnie</td>
+									<td style="text-align: center;font-weight:bold;">Numéro de la compagnie</td>
 									<td style="text-align: center;font-weight:bold;">Information d'adresse</td>
 									<td style="text-align: center;font-weight:bold;">Numéro de la compagnie de l'importateur</td>
 									<td style="text-align: center;font-weight:bold;">Rôles</td>
@@ -333,7 +333,7 @@ span.mouseHover:hover {
 					</section>
 					<section class="panel panel-default" >
 							<div class="panel-heading">
-								<h2 class="panel-title">Information sur les représentants de la compagnie</h2>
+								<h2 class="panel-title">Renseignements sur le représentant de la copmpagnie</h2>
 							</div>
 							<div class="panel-body">
 							<table border="1" cellspacing="2" cellpadding="2" style="width: 100%;word-wrap: break-word;">
@@ -358,10 +358,10 @@ span.mouseHover:hover {
 	</xsl:template>
 	<xsl:template name="contactBy">
 		<div class="oneLine">
-			<div style="white-space:nowrap;"><strong style="width:15em;">Langue de correspondence:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/language_correspondance"/></span></div>
-			<div style="white-space:nowrap;"><strong style="width:6em;">T&#233;l&#233;phone:</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_num"/></span></div>
-			<div style="white-space:nowrap;"><strong style="width:6em;">Poste:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
-			<div style="white-space:nowrap;"><strong style="width:6em;">Fax:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:15em;">Langue de correspondance:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/language_correspondance"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Numéro de téléphone:</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_num"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Extension de téléphone:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/phone_ext"/></span></div>
+			<div style="white-space:nowrap;"><strong style="width:6em;">Numéro de télécopieur:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/fax_num"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Courriel:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/email"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Identificateur d'acheminement:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/RoutingID"/></span></div>
 			<div style="white-space:nowrap;"><strong style="width:6em;">Nom de la compagnie de l'importateur canadien:&#160;</strong><span class="mouseHover" style="font-weight:100;"><xsl:value-of select="company_contact_details/imp_company_name"/></span></div>

@@ -502,7 +502,7 @@ span.normalWeight {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Reason for Administrative Submission or administrative component Description&#160; </strong>
+								<strong> Administrative Submission or administrative component Description&#160; </strong>
 							</div>
 								<xsl:call-template name="converter"><xsl:with-param name="value" select="sub_type/@id"/></xsl:call-template>
 						</div>
@@ -920,7 +920,7 @@ span.normalWeight {
 					</div>
 					<div class="col-xs-12">
 					<div class="alert alert-info">
-						Note: A new dossier identifier maybe required. You may contact Health Canada for more information: hc.eReview.sc@canada.ca for drugs for human use and clinical trials, and hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca for drugs for veterinary use.
+						Note: A new dossier identifier maybe required. Contact Health Canada for more information (hc.eReview.sc@canada.ca).
 						<p>On this form: Use existing company identifier and dossier identifier, unless a new dossier identifier was assigned by Health Canada.</p>
 					</div></div>
 			</xsl:when>
