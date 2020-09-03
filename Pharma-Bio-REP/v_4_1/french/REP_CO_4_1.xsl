@@ -268,9 +268,9 @@ span.mouseHover:hover {
 		<div class="well well-sm" >
 			<table border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 				<tr>
-					<th style="text-align: center;font-weight:bold;">Statut d'inscription</th>
-					<th style="text-align: center;font-weight:bold;">Version d'inscription</th>
-					<th style="text-align: center;font-weight:bold;">Date  de la derni&#232;re enregistrement</th>
+					<th style="text-align: center;font-weight:bold;">Statut de l'inscription</th>
+					<th style="text-align: center;font-weight:bold;">Version de l'inscription</th>
+					<th style="text-align: center;font-weight:bold;">Date du dernier enregistrement</th>
 					<th style="text-align: center;font-weight:bold;">Numéro de la compagnie</th>
 				</tr>
 				<tr>
