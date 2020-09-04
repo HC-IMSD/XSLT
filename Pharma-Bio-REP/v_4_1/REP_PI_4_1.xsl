@@ -4,7 +4,7 @@
 		<xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:template match="/">
-		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+		<!--<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>-->
 		<html>
 			<head>
     <meta charset="utf-8" />
