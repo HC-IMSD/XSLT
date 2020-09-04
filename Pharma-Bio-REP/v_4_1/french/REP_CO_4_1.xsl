@@ -274,7 +274,7 @@ span.mouseHover:hover {
 					<th style="text-align: center;font-weight:bold;">Numéro de la compagnie</th>
 				</tr>
 				<tr>
-					<td style="text-align: center;"><span class="mouseHover"><xsl:call-template name="CapitalFirstLetter"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </td>
+					<td style="text-align: center;"><span class="mouseHover"><xsl:call-template name="applType"><xsl:with-param name="value" select="application_type"/></xsl:call-template></span> </td>
 					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="enrolment_version" /></span> </td>
 					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="date_saved" /></span> </td>
 					<td style="text-align: center;"><span class="mouseHover"><xsl:value-of select="company_id" /></span> </td>
@@ -481,6 +481,21 @@ span.mouseHover:hover {
 		<xsl:value-of select="translate(substring($value,1,1), $smallcase, $uppercase)"/>
 		<xsl:value-of select="translate(substring($value,2), $uppercase, $smallcase)"/>
 	</xsl:template>
+	<xsl:template name="applType">
+		<xsl:param name="value" select="/.."/>
+		<xsl:choose>
+			<xsl:when test=" 'NEW' = $value">
+				<xsl:value-of select="'Nouveau'"/>
+			</xsl:when>
+			<xsl:when test=" 'AMEND' = $value">
+				<xsl:value-of select="'Modifier'"/>
+			</xsl:when>
+			<xsl:when test=" 'FINAL' = $value">
+				<xsl:value-of select="'Final'"/>
+			</xsl:when>
+		</xsl:choose>
+	</xsl:template>
+
 	<xsl:template name="hp-checkbox">
 		<xsl:param name="value" select="/.."/>
 		<span class="c-checkbox">
