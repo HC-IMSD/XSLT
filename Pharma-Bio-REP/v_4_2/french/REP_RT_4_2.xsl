@@ -444,20 +444,20 @@ span.normalWeight {
 								</span>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong> La pr&#233;sentation sera-t-elle sign&#233;e ou d&#233;pos&#233;e par un tiers au nom du fabricant ou du promoteur?&#160; </strong>
-								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>
-								</span>
-							</div>
-							<xsl:if test="is_third_party = 'Y'">
-							<div class="col-xs-11">
-								<div class="alert alert-info">
-									Une lettre d’autorisation signée par le fabricant ou le promoteur doit être fournie dans la section 1.2.1 de la transaction réglementaire.
-								</div>
-							</div>
-							</xsl:if>
-						</div>
+						<!--<div class="row">-->
+							<!--<div class="col-xs-12">-->
+								<!--<strong> La pr&#233;sentation sera-t-elle sign&#233;e ou d&#233;pos&#233;e par un tiers au nom du fabricant ou du promoteur?&#160; </strong>-->
+								<!--<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>-->
+								<!--</span>-->
+							<!--</div>-->
+							<!--<xsl:if test="is_third_party = 'Y'">-->
+							<!--<div class="col-xs-11">-->
+								<!--<div class="alert alert-info">-->
+									<!--Une lettre d’autorisation signée par le fabricant ou le promoteur doit être fournie dans la section 1.2.1 de la transaction réglementaire.-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--</xsl:if>-->
+						<!--</div>-->
 						<div class="row">
 							<div class="col-xs-12">
 								<strong> Cette activit&#233; de r&#233;glementation a-t-elle &#233;t&#233; approuv&#233;e aux fins d’examen prioritaire?&#160; </strong>
@@ -517,6 +517,57 @@ span.normalWeight {
 															<div class="col-xs-12">
 															<strong class="padLeft3">Responsable de l’activit&#233; r&#233;glementaire:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_lead"/></span>
 															</div>
+                                                        </div>
+                                                         <div class="row">
+                                                              <div class="col-md-12">
+                                                                <xsl:if test="regulatory_activity_lead !=''">
+                                                                  <strong class="padLeft3">Description du responsable de l'activit&#233; de r&#233;glementation :&#160;</strong>
+                                                                    <div class="col-md-11">
+                                                                        <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-02'"><!--Bio-->
+                                                                         <span class="mouseHover">
+                                                                             Biologique: Comprend toutes les activités et transactions de r&#233;glementation relevant du
+                                                                             mandat de la Direction des produits biologiques et des m&#233;dicaments radiopharmaceutiques (DMBR)
+                                                                             (produits biologiques / radiopharmaceutiques).
+                                                                         </span>
+                                                                        </xsl:if>
+
+                                                                        <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-06'">
+                                                                            <span class="mouseHover">
+                                                                                Produit de sant&#233; destin&#233;s aux consommateurs: Comprend toutes les activit&#233;s et transactions r&#233;glementaires
+                                                                                concernant les produits pharmaceutiques et d&#233;sinfectants sans ordonnance sous le mandat de la Direction
+                                                                                des produits de sant&#233; naturels et sans ordonnance (DPSNSO).
+                                                                            </span>
+                                                                        </xsl:if>
+
+                                                                        <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-09'">
+                                                                            <span class="mouseHover">
+                                                                                Pharmaceutique: comprend toutes les activit&#233;s et transactions r&#233;glementaires relatives aux produits
+                                                                                pharmaceutiques sur ordonnance et aux produits &#233;thiques sous le mandat de la Direction des produits
+                                                                                th&#233;rapeutiques (DPT).
+                                                                                Cette piste ne s'applique pas aux produits pharmaceutiques ou d&#233;sinfectants sans ordonnance ni aux
+                                                                                activit&#233;s de r&#233;glementation de la vigilance post-commercialisation.
+                                                                            </span>
+                                                                        </xsl:if>
+
+                                                                        <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-10'">
+                                                                            <span class="mouseHover">
+                                                                                Vigilance post-commercialisation: Comprend toutes les activit&#233;s et transactions r&#233;glementaires relevant
+                                                                                du mandat de la Direction des produits de sant&#233; commercialis&#233;s (DPSC) (produits pharmaceutiques sur
+                                                                                ordonnance et sans ordonnance à usage humain, produits biologiques, radiopharmaceutiques)
+                                                                            </span>
+                                                                        </xsl:if>
+
+                                                                        <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-11'">
+                                                                            <span class="mouseHover">
+                                                                                V&#233;t&#233;rinaire: Comprend toutes les activit&#233;s et transactions r&#233;glementaires relatives aux produits
+                                                                                pharmaceutiques sur ordonnance et en vente libre sous le mandat de la Direction des m&#233;dicaments
+                                                                                v&#233;t&#233;rinaires (DMV).
+                                                                            </span>
+                                                                        </xsl:if>
+                                                                    </div>
+                                                                </xsl:if>
+                                                              </div>
+
 															<div class="col-xs-12">
 															<strong class="padLeft3">Type d'activit&#233; r&#233;glementaire:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_type"/></span>
 															</div>
@@ -591,7 +642,7 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Est-ce que des frais nouveaux ou r&#233;vis&#233;s sont-ils associ&#233;s &#224; cette transaction?&#160; </strong>
+								<strong> Est-ce que des frais nouveaux ou r&#233;vis&#233;s sont associ&#233;s &#224; cette transaction? Veuillez identifier les frais lors de la demande de remise.&#160; </strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_fees"/></xsl:call-template>
 								</span>
 							</div>
@@ -697,6 +748,7 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
+                    <xsl:if test="is_third_party = 'Y'">
 					<strong>B. Adresse: </strong>
 					<div class="well well-sm" >
 						<div class="row">
@@ -716,7 +768,9 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
-					<h4>C. Repr&#233;sentative de l'entrepise: </h4>
+                    </xsl:if>
+                    <xsl:if test="is_third_party = 'N'"><h4>B. Repr&#233;sentative de l'entrepise: </h4></xsl:if>
+                    <xsl:if test="is_third_party = 'Y'"><h4>C. Repr&#233;sentative de l'entrepise: </h4></xsl:if>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">

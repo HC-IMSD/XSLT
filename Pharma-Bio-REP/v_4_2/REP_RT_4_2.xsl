@@ -453,20 +453,20 @@ span.normalWeight {
 							</div>
 						</div>
 						</xsl:if>
-						<div class="row">
-							<div class="col-xs-12">
-								<strong> Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?&#160; </strong>
-								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>
-								</span>
-							</div>
-							<xsl:if test="is_third_party = 'Y'">
-							<div class="col-xs-11">
-								<div class="alert alert-info">
-									A letter of authorization signed by the manufacturer/sponsor company must be provided in section 1.2.1 of the regulatory transaction.
-								</div>
-							</div>
-							</xsl:if>
-						</div>
+						<!--<div class="row">-->
+							<!--<div class="col-xs-12">-->
+								<!--<strong> Will the submission be signed / filed by a third party on behalf of the manufacturer / sponsor?&#160; </strong>-->
+								<!--<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>-->
+								<!--</span>-->
+							<!--</div>-->
+							<!--<xsl:if test="is_third_party = 'Y'">-->
+							<!--<div class="col-xs-11">-->
+								<!--<div class="alert alert-info">-->
+									<!--A letter of authorization signed by the manufacturer/sponsor company must be provided in section 1.2.1 of the regulatory transaction.-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--</xsl:if>-->
+						<!--</div>-->
 						<xsl:if test="ectd/dossier_type/@id != 'D26'">
 							<xsl:if test="ectd/dossier_type/@id != 'D24'">
 								<div class="row">
@@ -508,78 +508,128 @@ span.normalWeight {
 						</div>
 						</xsl:if>
 					</div>
+                    <div class="well well-sm" >
+                        <header class="panel-heading" >
+                            <h4 class="panel-title" >Transaction Details</h4>
+                        </header>
+                        <div class="row">
 
-					<div class="well well-sm" >
-								<header class="panel-heading" >
-									<h4 class="panel-title" >Transaction Details</h4>
-								</header>								
-							<div class="row">
-								
-								<div class="panel-body" >
-										<xsl:for-each select="ectd/lifecycle_record">
-													<fieldset>
-														<legend>Transaction Details Record</legend>
-														<div class="row">
-															<div class="col-md-12">
-															<strong class="padLeft3">Control Number:&#160;</strong><span class="mouseHover"><xsl:value-of select="control_number"/></span>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-															<strong class="padLeft3">Regulatory Activity Lead:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_lead"/></span>
-															</div>
-															<div class="col-md-12">
-															<strong class="padLeft3">Regulatory Activity Type:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_type"/></span>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-															<strong class="padLeft3">Regulatory Transaction Description:&#160;</strong><span class="mouseHover">
-															<xsl:choose>
-															<xsl:when test="sequence_description_value/@id = 'YEAR'">
-																<xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
-															</xsl:when>
-															<xsl:when test="sequence_description_value/@id = 'YEAR_LIST_OF_CHANGE'">
-																<div class="col-md-12"><xsl:value-of select="sequence_description_value"/>:</div>
-																<div class="col-md-12">
-																<xsl:call-template name="break"><xsl:with-param name="text" select="sequence_year"/></xsl:call-template>
-																</div>
-															</xsl:when>
-															<xsl:otherwise>
-																<xsl:value-of select="transaction_description"/>
-															</xsl:otherwise>
-															</xsl:choose>
-															</span>
-															</div>
-														</div>
-														<xsl:if test="requester_name != ''">
-														<div class="row">
-															<div class="col-md-12">
-															<strong class="padLeft3">Requester of solicited information:&#160;</strong>
-															</div>
-															<div class="col-md-12">
-																<span class="col-xs-2">Requester 1:&#160;</span>
-																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name"/></span>
-															</div>
-															<xsl:if test="requester_name2 != ''">
-															<div class="col-md-12">
-																<span class="col-xs-2">Requester 2:&#160;</span>
-																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name2"/></span>
-															</div>
-															</xsl:if>
-															<xsl:if test="requester_name3 != ''">
-															<div class="col-md-12">
-																<span class="col-xs-2">Requester 3:&#160;</span>
-																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name3"/></span>
-															</div>
-															</xsl:if>
-														</div>
-														</xsl:if>
-													</fieldset>
-										</xsl:for-each>
-								</div>
-							</div>
-						</div>
+                            <div class="panel-body" >
+                                <xsl:for-each select="ectd/lifecycle_record">
+                                    <fieldset>
+                                        <legend>Transaction Details Record</legend>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong class="padLeft3">Control Number:&#160;</strong><span class="mouseHover"><xsl:value-of select="control_number"/></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong class="padLeft3">Regulatory Activity Lead:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_lead"/></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <xsl:if test="regulatory_activity_lead !=''">
+                                                    <strong class="padLeft3">Regulatory Activity Lead Description:&#160;</strong>
+                                                <div class="col-md-11">
+                                                <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-02'">
+                                                        <span class="mouseHover">
+                                                            Biological: Includes all regulatory activities and transactions under the
+                                                            Biologics and Radiopharmaceutical Drugs Directorate (BRDD) mandate (biologics/radiopharmaceuticals).
+                                                        </span>
+                                                </xsl:if>
+
+                                                <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-06'">
+                                                        <span class="mouseHover">
+                                                            Consumer Health Products: Includes all regulatory activities and transactions for non-prescription
+                                                            pharmaceuticals and disinfectants under the Natural and Non-Prescription Health Products Directorate
+                                                            (NNHPD) mandate.
+                                                        </span>
+                                                </xsl:if>
+
+                                                <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-09'">
+                                                        <span class="mouseHover">
+                                                            Pharmaceutical: Includes all regulatory activities and transactions for prescription
+                                                            pharmaceuticals and ethical products under the Therapeutic Products Directorate (TPD) mandate.
+                                                            This lead is not applicable for non-prescription pharmaceutical or disinfectant products
+                                                            or post-market vigilance regulatory activities.
+                                                        </span>
+                                                 </xsl:if>
+
+                                                 <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-10'">
+                                                         <span class="mouseHover">
+                                                             Post-Market Vigilance: Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate
+                                                             (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).
+                                                         </span>
+                                                 </xsl:if>
+
+                                                 <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-11'">
+                                                        <span class="mouseHover">
+                                                            Veterinary: Includes all regulatory activities and transactions for prescription and non-prescription pharmaceuticals
+                                                            under the Veterinary Drugs Directorate (VDD) mandate.
+                                                        </span>
+                                                </xsl:if>
+
+                                                </div>
+                                            </xsl:if>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong class="padLeft3">Regulatory Activity Type:&#160;</strong><span class="mouseHover"><xsl:value-of select="regulatory_activity_type"/></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong class="padLeft3">Regulatory Transaction Description:&#160;</strong><span class="mouseHover">
+                                                <xsl:choose>
+                                                    <xsl:when test="sequence_description_value/@id = 'YEAR'">
+                                                        <xsl:value-of select="sequence_description_value"/>:&#160;<xsl:value-of select="transaction_description"/>
+                                                    </xsl:when>
+                                                    <xsl:when test="sequence_description_value/@id = 'YEAR_LIST_OF_CHANGE'">
+                                                        <div class="col-md-12"><xsl:value-of select="sequence_description_value"/>:</div>
+                                                        <div class="col-md-12">
+                                                            <xsl:call-template name="break"><xsl:with-param name="text" select="sequence_year"/></xsl:call-template>
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:value-of select="transaction_description"/>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <xsl:if test="requester_name != ''">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <strong class="padLeft3">Requester of solicited information:&#160;</strong>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="col-xs-2">Requester 1:&#160;</span>
+                                                    <span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name"/></span>
+                                                </div>
+                                                <xsl:if test="requester_name2 != ''">
+                                                    <div class="col-md-12">
+                                                        <span class="col-xs-2">Requester 2:&#160;</span>
+                                                        <span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name2"/></span>
+                                                    </div>
+                                                </xsl:if>
+                                                <xsl:if test="requester_name3 != ''">
+                                                    <div class="col-md-12">
+                                                        <span class="col-xs-2">Requester 3:&#160;</span>
+                                                        <span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name3"/></span>
+                                                    </div>
+                                                </xsl:if>
+                                            </div>
+                                        </xsl:if>
+                                    </fieldset>
+                                </xsl:for-each>
+                            </div>
+                        </div>
+                    </div>
 
 					<xsl:if test="regulatory_project_manager1 != '' or regulartory_project_manager2 != ''">
 					<h4>Name of Regulatory Project Manager, if known: &#160;</h4>
@@ -601,7 +651,7 @@ span.normalWeight {
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
-								<strong> Are new or revised fees associated with this transaction?&#160; </strong>
+								<strong> Are new or revised fees associated with this transaction? Please identify fees when applying for remission.&#160; </strong>
 								<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_fees"/></xsl:call-template>
 								</span>
 							</div>
@@ -700,15 +750,33 @@ span.normalWeight {
 					<h4>Regulatory Activity Contact for THIS transaction</h4>
 					<strong>A. Company Information: </strong>
 					<div class="well well-sm" >
-						<div class="row">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Is the contact for this regulatory activity a third party corresponding on behalf of the manufacturer/sponsor?&#160; </strong>
+                                <span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>
+                                </span>
+                             </div>
+                        <xsl:if test="is_third_party = 'Y'">
+                            <div class="col-xs-11">
+                                <div class="alert alert-info">
+                                    If the regulatory activity type is COV19, COV19A, NDS, SNDS, ANDS, SANDS, SNDS-C, SANDS-C, NC, EUNDS, EUSNDS, EUANDS, EUSANDS, DINA, DINB, DIND, DINF, PDC, PDC-B,
+                                    then a Third Party Authorization letter is required within the initial transaction of the regulatory activity.
+                                    If the contact changed, a new letter of authorization is required.
+                                </div>
+                            </div>
+                        <!--</xsl:if>-->
+                        <!--</div>-->
+						<!--<div class="row">-->
 							<div class="col-xs-12">
 								<strong>Company Name (Full Legal Name)</strong>
 							</div>
 							<div class="col-xs-12">
 								<span class="mouseHover"><xsl:apply-templates select="company_name" /> </span>
 							</div>
+                        </xsl:if>
 						</div>
 					</div>
+                    <xsl:if test="is_third_party = 'Y'">
 					<strong>B. Address Information: </strong>
 					<div class="well well-sm" >
 						<div class="row">
@@ -728,7 +796,10 @@ span.normalWeight {
 							</div>
 						</div>
 					</div>
-					<h4>C. Company Representative: </h4>
+                    </xsl:if>
+
+                    <xsl:if test="is_third_party = 'N'"><h4>B. Company Representative: </h4></xsl:if>
+                    <xsl:if test="is_third_party = 'Y'"><h4>C. Company Representative: </h4></xsl:if>
 					<div class="well well-sm" >
 						<div class="row">
 							<div class="col-xs-12">
