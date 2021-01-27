@@ -738,14 +738,31 @@ span.normalWeight {
 				<div class="panel-body">
 					<!--<h4>Personne-ressource pour cette activit&#233; r&#233;glementaire</h4>-->
 					<strong>A. Information sur l'entreprise: </strong>
-					<div class="well well-sm" >
-						<div class="row">
+                    <div class="well well-sm" >
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <strong>Le contact pour cette activité de réglementation est-il un tiers correspondant au nom du fabricant / sponsor?</strong>
+                                <span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>
+                                </span>
+                            </div>
+                            <xsl:if test="is_third_party = 'Y'">
+                            <div class="col-xs-11 alert alert-info">
+                                    <ul>
+                                        <li>Si le type d'activité réglementaire est COV19, COV19A, NDS, SNDS, ANDS, SANDS, SNDS-C, SANDS-C, NC, EUNDS, EUSNDS, EUANDS,
+                                            EUSANDS, DINA, DINB, DIND, DINF, PDC, PDC-B , une lettre d'autorisation de tiers est requise dans le cadre de la transaction
+                                            initiale de  cette activité de réglementation.
+                                        </li>
+                                        <li>Si le contact a changé, une nouvelle lettre d'autorisation est requise.</li>
+                                        <li>Si le contact n'a pas changé, une autre lettre d'autorisation de tiers n'est pas requise sous le même numéro de contrôle.</li>
+                                    </ul>
+                            </div>
 							<div class="col-xs-12">
 								<strong>Nom de l'entreprise(nom légal complet)</strong>
 							</div>
 							<div class="col-xs-12">
 								<span class="mouseHover"><xsl:apply-templates select="company_name" /> </span>
 							</div>
+                            </xsl:if>
 						</div>
 					</div>
                     <xsl:if test="is_third_party = 'Y'">

@@ -757,16 +757,15 @@ span.normalWeight {
                                 </span>
                              </div>
                         <xsl:if test="is_third_party = 'Y'">
-                            <div class="col-xs-11">
-                                <div class="alert alert-info">
-                                    If the regulatory activity type is COV19, COV19A, NDS, SNDS, ANDS, SANDS, SNDS-C, SANDS-C, NC, EUNDS, EUSNDS, EUANDS, EUSANDS, DINA, DINB, DIND, DINF, PDC, PDC-B,
-                                    then a Third Party Authorization letter is required within the initial transaction of the regulatory activity.
-                                    If the contact changed, a new letter of authorization is required.
-                                </div>
+                            <div class="col-xs-11 alert alert-info">
+                                <ul>
+                                    <li>If the regulatory activity type is COV19, COV19A, NDS, SNDS, ANDS, SANDS, SNDS-C, SANDS-C, NC, EUNDS, EUSNDS, EUANDS, EUSANDS, DINA, DINB, DIND, DINF, PDC, PDC-B,
+                                        then a Third Party Authorization letter is required within the initial transaction of the regulatory activity.
+                                    </li>
+                                    <li>If the contact changed, a new letter of authorization is required.</li>
+                                    <li>If the contact did not change, another third party authorization letter is not required under the same control#.</li>
+                                </ul>
                             </div>
-                        <!--</xsl:if>-->
-                        <!--</div>-->
-						<!--<div class="row">-->
 							<div class="col-xs-12">
 								<strong>Company Name (Full Legal Name)</strong>
 							</div>
