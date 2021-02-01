@@ -711,6 +711,7 @@ details {
             else
               $(r).trigger('click')
           });
+          var table = [];
           if($.fn.dataTable.isDataTable("#"+v[1]))
             table = $("#"+v[1]).DataTable();
           else 

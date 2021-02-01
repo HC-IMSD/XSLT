@@ -833,7 +833,7 @@ span.normalWeight {
 							  &#160;
 							  <input id="btn_collapseAll_for-importerCompany" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
 						</div>
-						<table class="table dataTable table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+						<table class="table dataTable table-hover table-condensed table-striped " id="importerCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<thead>
 							<tr>
 								<th style="width:15px;"></th>
