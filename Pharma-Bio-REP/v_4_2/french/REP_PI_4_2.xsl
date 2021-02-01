@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
 				<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" rel="stylesheet" />
-				<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+				<link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
 				<style>
 <xsl:text disable-output-escaping="yes" >
 html {
@@ -497,7 +497,7 @@ span.normalWeight {
 </xsl:text>
 				</style>
 				<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
-				<script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
+				<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
 				<script type="text/javascript">
 					var myTables = {'formulation': [{'class':'.table-ingredients', 'sortCols':[[1,'asc'],[3,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
 													{'class':'.table-container', 'sortCols':[[1,'asc']], 'columnDefs':[{ "orderable": false, "targets": [0] }]},
@@ -541,6 +541,7 @@ span.normalWeight {
 							var value = $(e).children()[$(e).children().length - 1].innerHTML;
 							var $nodeTbl = $(value);
 							var $nodeTr = $nodeTbl.find('tr')[0];
+							$($nodeTr).attr('data-shown', 'true');
 							$(e).closest('tr').after($nodeTr);
 							var nodeTd = $(e).closest('tr').next().children()[0];
 							if(initChild){
@@ -635,6 +636,27 @@ span.normalWeight {
 					this.className = this.className.replace('fa-caret-down', 'fa-caret-right');
 				});
 			}
+        }
+        
+        function expandAllOrCollapseAll(theTable){
+          var v = theTable.id.split("-");
+          $(document).ready(function (){
+          $('#'+v[1]+' tbody tr[data-shown="true"]').each(function(){
+          	var r = $(this).prev();
+            if("btn_expandAll_for"===v[0])
+              this.remove();
+            else
+              $(r).trigger('click')
+          });
+          if($.fn.dataTable.isDataTable("#"+v[1]))
+            table = $("#"+v[1]).DataTable();
+          else 
+		    table = $('#'+v[1]).DataTable({
+        		  'responsive': true
+    			});
+    	  if("btn_expandAll_for"===v[0])
+            table.rows(':not(.parent)').nodes().to$().trigger('click')
+          });
         }
 
 				</script>
@@ -806,12 +828,17 @@ span.normalWeight {
 					<div class="row">
 					<div class="col-sm-12 form-group">
 						<strong>Importateur</strong>
-						<table class="table dataTable table-hover table-condensed table-striped " id="importCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
+						<div class="pull-right">
+							  <input id="btn_expandAll_for-importerCompany" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+							  &#160;
+							  <input id="btn_collapseAll_for-importerCompany" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+						</div>
+						<table class="table dataTable table-hover table-condensed table-striped " id="importerCompany" border="1" cellspacing="2" cellpadding="2" style="table-layout: fixed; width: 100%;word-wrap: break-word;">
 							<thead>
 							<tr>
 								<th style="width:15px;"></th>
-								<th ><strong>Numéro de la compagnie de l'importateur</strong></th>
 								<th style="width:70%;"><strong>Nom d'entreprise de l'importateur</strong></th>
+								<th ><strong>Rue</strong></th>
 								<th class="out">Hidden</th>
 							</tr>
 							</thead>
@@ -819,20 +846,16 @@ span.normalWeight {
 							<xsl:for-each select="/DRUG_PRODUCT_ENROL/importer_record">
 							<tr onclick="showDetail(this, '3', false, myTables['importer']);">
 								<td class="fa fa-caret-right fa-lg fa-fw" style="width:15px;"></td>
-								<td><span class="mouseHover"><xsl:value-of select="importer_company_id" /></span> </td>
 								<td><span class="mouseHover"><xsl:value-of select="importer_company_name" /></span> </td>
-								<td class="out"><table><tr data-detail="true"><td colspan="3">
+								<td><span class="mouseHover"><xsl:value-of select="street_address" /></span> </td>
+								
+								<td class="out"><table><tr data-detail="true" data-shown="false"><td colspan="3">
 									<fieldset>
 <!--											<legend><h4>&#160;&#160;&#160;&#160;Enregistrement d'importateur&#160;<xsl:value-of select="position()"/></h4></legend>-->
 										<div>
 											<section class="panel panel-default">
 												<div class="panel-body">
 													<div class="well well-sm">
-														<div class="row">
-														<div class="form-group col-md-12">
-															<strong>Numéro de la compagnie de l'importateur:&#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_id"/></span>
-														</div>
-														</div>
 														<div class="row">
 														<div class="form-group col-md-12"><strong>Nom d'entreprise de l'importateur: &#160;</strong><span class="mouseHover"><xsl:value-of select="importer_company_name"/></span></div>
 														</div>
@@ -1082,9 +1105,14 @@ span.normalWeight {
 					<div id="tabpanel0"  class="row">
 						<div class="col-xs-12">
 							<strong>Formulations</strong>
+							<div class="pull-right">
+							  <input id="btn_expandAll_for-formulation" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+							  &#160;
+							  <input id="btn_collapseAll_for-formulation" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+							</div>
 						</div>
 						<div class="col-xs-12 form-group">
-							<table class="table table-hover table-condensed table-striped table-formulation" border="1">
+							<table id="formulation" class="table table-hover table-condensed table-striped table-formulation" border="1">
 							<thead>
 								<tr>
 									<th style="width:2%;"></th>
@@ -1096,12 +1124,12 @@ span.normalWeight {
 							</thead>
 							<tbody>
 								<xsl:for-each select="formulation_group/formulation_details">
-									<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
+									<tr onclick="showDetail(this, '4', false, myTables['formulation']);">
 										<td class="fa fa-caret-right fa-lg fa-fw"></td>
 										<td><xsl:value-of select="formulation_id"/></td>
 										<td><xsl:value-of select="formulation_name"/></td>
 										<td><xsl:value-of select="dosage_form_group/dosage_form"/></td>
-										<td class="out"><table><tr data-detail="true"><td colspan="4">
+										<td class="out"><table><tr data-detail="true" data-shown="false"><td colspan="4">
 											<fieldset>
 												<legend><h4>&#160;&#160;&#160;&#160;Enregistrement de la formulation&#160;<xsl:value-of select="formulation_id"/></h4></legend>
 												<div>
@@ -1135,13 +1163,18 @@ span.normalWeight {
 																</div>
 															</div>
 																</div>
-																<div class="row">
+																<div id="formulationIngredientRow" class="row">
+																<div class="col-xs-12">&#160;</div>
 																<div class="form-group col-md-12">
-																<strong>C.&#160;Ingr&#233;dients</strong>
-																<br/>
-																	<div class="row">
+																  <strong>C.&#160;Ingr&#233;dients</strong>
+																  <div class="pull-right">
+																	  <input id="btn_expandAll_for-formulationIngredient" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																	  &#160;
+																	  <input id="btn_collapseAll_for-formulationIngredient" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																  </div>
+																</div>
 																		<div class="col-md-12">
-																			<table class="table table-hover table-condensed table-striped table-ingredients" border="1" >
+																			<table id="formulationIngredient" class="table table-hover table-condensed table-striped table-ingredients" border="1" >
 																			<thead>
 																				<tr>
 																					<th style="width:2%"></th>
@@ -1159,7 +1192,7 @@ span.normalWeight {
 																			</thead>
 				<tbody>
 																				<xsl:for-each select="formulation_ingredient">
-																				<tr onclick="showDetail(this, '10', false, null);">
+																				<tr onclick="showDetail(this, '10', false, []);">
 																					<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																					<td><xsl:value-of select="ingredient_id"/></td>
 																					<td><xsl:value-of select="ingredient_role"/></td>
@@ -1172,7 +1205,7 @@ span.normalWeight {
 																					<td><xsl:value-of select="is_base_calc"/></td>
 																					<td><xsl:choose><xsl:when test="nanomaterial_details = ''"><xsl:value-of select="nanomaterial"/></xsl:when><xsl:otherwise><xsl:value-of select="nanomaterial_details"/></xsl:otherwise></xsl:choose></td>
 																					<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_human_animal_src"/></xsl:call-template></td>
-																					<td class="out"><table><tr data-detail="true"><td colspan="10">
+																					<td class="out"><table><tr data-detail="true" data-shown="false"><td colspan="10">
 																						<fieldset>
 																							<legend>Ingr&#233;dients&#160;<xsl:value-of select="position()"/></legend>
 																							<div class="row">
@@ -1192,6 +1225,24 @@ span.normalWeight {
 																								<strong>Nom de l'ingr&#233;dient:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingredient_name"/></span>
 																								</div>
 																							</div>
+																							<xsl:if test="ingredient_role/@id = 'NONMED'">
+																							  <div class="row">
+																								<div class="col-md-6 nowrap">
+																								  <strong>J'atteste que les détails de cet ingrédient non médicinal sont inconnus car il s'agit d'informations exclusives.&#160;</strong>
+																								  <span class="mouseHover">
+																								    <xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="proprietary_attestation/@attested"/></xsl:call-template>
+																								  </span>
+																								</div>
+																							  </div>
+																							</xsl:if>
+																							<xsl:if test="ingredient_role/@id = 'NONMED'">
+																							  <div class="row">
+																								<div class="col-md-6 nowrap">
+																								  <strong>Les informations exclusives peuvent être trouvées:&#160;</strong>
+																								  <span class="mouseHover"><xsl:value-of select="proprietary_attestation"/></span>
+																								</div>
+																							  </div>
+																							</xsl:if>																							
 																							<div class="row">
 																								<div class="col-md-6"><strong>Chemical Abstract Services:&#160;</strong><span class="mouseHover"><xsl:value-of select="cas_number"/></span></div>
 																								<div class="col-md-6"><strong>Norme:&#160;</strong><span class="mouseHover"><xsl:value-of select="ingred_standard"/></span></div>
@@ -1266,8 +1317,8 @@ span.normalWeight {
 																			</tbody>
 																			</table>
 																		</div>
-																	</div>
-																</div>
+																	
+																
 																</div>
 									<xsl:if test="../../dossier_type/@id = 'D26'">
 										<div class="row">
@@ -1303,14 +1354,29 @@ span.normalWeight {
 										</xsl:if>
 									</xsl:if>
 
-																<div class="row">
+																<div id="materialIngredientRow" class="row">
 																<div class="form-group col-md-12">
-																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'D'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
-																.&#160; Est-ce un matériel(aux) de source humaine et/ou animale (autre que l’ingrédient figurant dans la formulation ci-dessus) était utilisé(s) à l’une ou l’autre étape de la fabrication du produit?&#160;</strong><span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_animal_human_material"/></xsl:call-template></span>
+																<strong>
+																  <xsl:call-template name="getOrder">
+																    <xsl:with-param name="order" select="'D'"/>
+																    <xsl:with-param name="type" select="../../dossier_type/@id"/>
+																  </xsl:call-template>
+																.&#160; Est-ce un matériel(aux) de source humaine et/ou animale (autre que l’ingrédient figurant dans la formulation ci-dessus) était utilisé(s) à l’une ou l’autre étape de la fabrication du produit?&#160;
+																</strong>
+																<div class="pull-right">
+															      <input id="btn_expandAll_for-materialIngredient" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+															      &#160;
+															      <input id="btn_collapseAll_for-materialIngredient" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																</div>
+																<span class="mouseHover">
+																  <xsl:call-template name="YesNoUnknow">
+																  <xsl:with-param name="value" select="is_animal_human_material"/>
+																  </xsl:call-template>
+																</span>
 																</div>
 															<xsl:if test="is_animal_human_material = 'Y'">
 															<div class="col-md-12">
-																<table class="table table-hover table-condensed table-striped table-container" id="expand-table-142" border="1">
+																<table class="table table-hover table-condensed table-striped table-container" id="materialIngredient" border="1">
 																<thead>
 																	<tr>
 																		<th style="width:2%"></th>
@@ -1322,12 +1388,16 @@ span.normalWeight {
 																</thead>
 																<tbody>
 																	<xsl:for-each select="material_ingredient">
-																		<tr onclick="showDetail(this, '4', false, null);">
+																		<tr onclick="showDetail(this, '4', false, []);">
 																			<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																			<td><xsl:value-of select="./ingredient_name"/></td>
 																			<td><xsl:value-of select="./cas_number"/></td>
-																			<td><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="in_final_container"/></xsl:call-template></td>
-																			<td class="out"><table><tr data-detail="true"><td colspan="4">
+																			<td>
+																			  <xsl:call-template name="YesNoUnknow">
+																			    <xsl:with-param name="value" select="in_final_container"/>
+																			  </xsl:call-template>
+																			</td>
+																			<td class="out"><table><tr data-detail="true" data-shown="false"><td colspan="4">
 																				<fieldset>
 												<legend>D&#233;tail de mat&#233;riaux de source d'animale et/ou humaine&#160;<xsl:value-of select="position()"/></legend>
 												<div class="row">
@@ -1358,14 +1428,19 @@ span.normalWeight {
 															</div>
 															</xsl:if>
 																</div>
-																<div class="row">
+																<div id="containerTypeRow" class="row">
+																<div class="col-xs-12">&#160;</div>
 																<div class="form-group col-md-12">
-																<br/>
 																<strong><xsl:call-template name="getOrder"><xsl:with-param name="order" select="'E'"/><xsl:with-param name="type" select="../../dossier_type/@id"/></xsl:call-template>
 																.&#160;Type de contenant, capacit&#233; de l'emballage et dur&#233;e de vie </strong>
+																<div class="pull-right">
+																	  <input id="btn_expandAll_for-containerType" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																	  &#160;
+																	  <input id="btn_collapseAll_for-containerType" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																</div>
 																</div>
 															<div class="col-md-12">
-																<table class="table table-hover table-condensed table-striped table-container-details" id="expand-table-143" border="1">
+																<table class="table table-hover table-condensed table-striped table-container-details" id="containerType" border="1">
 																<thead>
 																	<tr>
 																		<th style="width:2%"></th>
@@ -1378,13 +1453,13 @@ span.normalWeight {
 																</thead>
 																<tbody>
 																	<xsl:for-each select="container_group/container_details">
-																		<tr onclick="showDetail(this, '3', false, null);">
+																		<tr onclick="showDetail(this, '5', false, []);">
 																			<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 																			<td><xsl:value-of select="container_type"/></td>
 																			<td><xsl:value-of select="package_size"/></td>
 																			<td><xsl:value-of select="shelf_life_number"/>&#160;<xsl:value-of select="shelf_life_unit"/></td>
 																			<td><xsl:value-of select="temperature_min"/><xsl:if test="temperature_max != ''">&#160;&#224;&#160;<xsl:value-of select="temperature_max"/></xsl:if></td>
-																			<td class="out"><table><tr data-detail="true"><td colspan="5">
+																			<td class="out"><table><tr data-detail="true" data-shown="false"><td colspan="5">
 											<fieldset>
 												<legend>D&#233;tails sur le type de contenant&#160;<xsl:value-of select="position()"/></legend>
 												<div class="row">
@@ -1461,9 +1536,14 @@ span.normalWeight {
 					<div class="row" id="tabpanel1">
 						<div class="col-xs-12">
 							<strong>Ingr&#233;dient ou mat&#233;riel source humaine ou d'animale</strong>
+							<div class="pull-right">
+								<input id="btn_expandAll_for-appendix" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+								&#160;
+							<input id="btn_collapseAll_for-appendix" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+							</div>
 						</div>
 						<div class="col-xs-12 form-group">
-						<table class="table table-hover table-condensed table-striped table-appendix" border="1">
+						<table id="appendix" class="table table-hover table-condensed table-striped table-appendix" border="1">
 						<thead>
 							<tr>
 								<th></th>
@@ -1476,7 +1556,7 @@ span.normalWeight {
 						</thead>
 						<tbody>
 							<xsl:for-each select="appendix4_group">
-								<tr onclick="showDetail(this, '2', true, myTables['appendix'])">
+								<tr onclick="showDetail(this, '2', false, myTables['appendix'])">
 									<td class="fa fa-caret-right fa-lg fa-fw" style="border:0px; width:23px;"></td>
 									<td><xsl:value-of select="ingredient_name"/></td>
 									<td><xsl:if test="human_sourced = 'Y'">Humain</xsl:if><xsl:if test="human_sourced = 'Y' and animal_sourced = 'Y'"><br/></xsl:if><xsl:if test="animal_sourced = 'Y'">Animal</xsl:if></td>
@@ -1497,7 +1577,7 @@ span.normalWeight {
 											</xsl:for-each>
 										</xsl:for-each>
 									</td>
-									<td class="out"> <table><tr data-detail="true"><td colspan="5">
+									<td class="out"> <table><tr data-detail="true" data-shown="false"><td colspan="5">
 										<fieldset>
 											<legend>L'ingr&#233;dient ou mat&#233;riel&#160;<xsl:value-of select="ingredient_id"/></legend>
 											<div class="row">
