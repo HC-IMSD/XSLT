@@ -424,7 +424,7 @@ span.normalWeight {
 							<tr>
 								<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/company_id" /></span> </td>
 								<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/dossier_type" /></span> </td>
-								<td style="text-align: center;"> <span class="mouseHover">HC6-024-<xsl:value-of select="ectd/dossier_id" /></span> </td>
+								<td style="text-align: center;"> <span class="mouseHover"><xsl:value-of select="ectd/dossier_id" /></span> </td>
 								<td style="text-align: center;"> <span class="mouseHover"><xsl:apply-templates select="date_saved" /></span> </td>
 							</tr>
 						</table>
