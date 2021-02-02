@@ -741,7 +741,7 @@ span.normalWeight {
                     <div class="well well-sm" >
                         <div class="row">
                             <div class="col-xs-12">
-                                <strong>Le contact pour cette activité de réglementation est-il un tiers correspondant au nom du fabricant / sponsor?</strong>
+                                <strong>Le contact pour cette activité de réglementation est-il un tiers correspondant au nom du fabricant / sponsor?&#160;</strong>
                                 <span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_third_party"/></xsl:call-template>
                                 </span>
                             </div>
