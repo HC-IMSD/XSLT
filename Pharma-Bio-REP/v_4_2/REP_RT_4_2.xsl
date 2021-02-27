@@ -735,6 +735,10 @@ span.normalWeight {
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/mitigation/certify_goverment_organization"/></xsl:call-template>
 								<strong>We certify that our organization is a branch or agency of the Government of Canada or of a province or territory</strong>
 							</xsl:if>
+                            <xsl:if test="fee_details/mitigation/mitigation_type/@id = 'ISAD'">
+                                <xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="fee_details/mitigation/certify_isad"/></xsl:call-template>
+                                <strong>We certify that we have filed an application for a designated COVID-19 drug under the Interim Order Respecting the Importation, Sale and Advertising of Drugs for Use in Relation to COVID-19 (ISAD), and that a submission has not previously been filed seeking approval for that same drug</strong>
+                            </xsl:if>
 							</div>
 						</div>
 					</div>
