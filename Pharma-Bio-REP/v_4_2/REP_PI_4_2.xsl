@@ -592,7 +592,7 @@ details {
 							}
 						});
 					}
-					function showDetail(e, colspan, initChild, []){
+					function showDetail(e, colspan, initChild, tables){
 						var next = $(e).closest('tr').next();
 						var hasDetail = $(next).attr('data-detail');
 						if( hasDetail ){
