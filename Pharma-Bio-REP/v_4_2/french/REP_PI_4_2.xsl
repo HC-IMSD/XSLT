@@ -1124,7 +1124,7 @@ span.normalWeight {
 							</thead>
 							<tbody>
 								<xsl:for-each select="formulation_group/formulation_details">
-									<tr onclick="showDetail(this, '4', false, myTables['formulation']);">
+									<tr onclick="showDetail(this, '4', true, myTables['formulation']);">
 										<td class="fa fa-caret-right fa-lg fa-fw"></td>
 										<td><xsl:value-of select="formulation_id"/></td>
 										<td><xsl:value-of select="formulation_name"/></td>
@@ -1168,13 +1168,13 @@ span.normalWeight {
 																<div class="form-group col-md-12">
 																  <strong>C.&#160;Ingr&#233;dients</strong>
 																  <div class="pull-right">
-																	  <input id="btn_expandAll_for-formulationIngredient" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																	  <input id="btn_expandAll_for-DataTables_Table_0" type="button" value="Ouvre tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
 																	  &#160;
-																	  <input id="btn_collapseAll_for-formulationIngredient" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
+																	  <input id="btn_collapseAll_for-DataTables_Table_0" type="button" value="Réduire tout" onclick="javascript:expandAllOrCollapseAll(this)"/>
 																  </div>
 																</div>
 																		<div class="col-md-12">
-																			<table id="formulationIngredient" class="table table-hover table-condensed table-striped table-ingredients" border="1" >
+																			<table class="table table-hover table-condensed table-striped table-ingredients" border="1" >
 																			<thead>
 																				<tr>
 																					<th style="width:2%"></th>
