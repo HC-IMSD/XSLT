@@ -670,7 +670,7 @@ span.normalWeight {
 				</div>
 				<div class="row">
 					<div class="col-xs-5">
-					<strong>Full Name:&#160;</strong>
+					<strong>Full Name (First and Last):&#160;</strong>
 					<span class="mouseHover"><xsl:value-of select="full_name"/></span>&#160;&#160;
 					</div>
 				</div>
