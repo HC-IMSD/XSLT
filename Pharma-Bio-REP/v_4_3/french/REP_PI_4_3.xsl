@@ -1012,7 +1012,7 @@ span.normalWeight {
 							<strong>Statut sur l'annexe et prescription (s&#233;lectionner tout ce qui s'applique): le produit est</strong>
 						</div>
 						<xsl:choose>
-						<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y'">
+						<xsl:when test=" is_sched_c ='Y' or is_sched_d = 'Y' or is_prescription_drug_list = 'Y' or is_prescription_drug_list = 'Y' or is_regulated_cdsa = 'Y' or is_non_prescription_drug = 'Y' or is_sched_a = 'Y' or is_drug_admin = 'Y'">
 							<xsl:if test="is_sched_c = 'Y'">
 							<div class="col-xs-12">
 								<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
