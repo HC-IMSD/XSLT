@@ -709,7 +709,7 @@ span.normalWeight {
 					<div class="row">
 						<div class="col-xs-12">
 							<strong>Comprend-t-elle une composante administrative? &#160;</strong>
-							<span class="mouseHover"><xsl:call-template name="YesNoUnknow"><xsl:with-param name="value" select="is_admin_sub"/></xsl:call-template>
+							<span class="mouseHover"><xsl:call-template name="YesNoNa"><xsl:with-param name="value" select="is_admin_sub"/></xsl:call-template>
 							</span>
 						</div>
 					</div>
@@ -1747,6 +1747,20 @@ span.normalWeight {
 		</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+    <xsl:template name="YesNoNa">
+        <xsl:param name="value" select="/.."/>
+        <xsl:choose>
+            <xsl:when test="$value = 'Y'">
+                <xsl:value-of select="'Qui'"/>
+            </xsl:when>
+            <xsl:when test="$value = 'N'">
+                <xsl:value-of select="'Non'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'n/a'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 	<xsl:template name="CapitalFirstLetter">
 		<xsl:param name="value" select="/.."/>
 		<xsl:value-of select="translate(substring($value,1,1), $smallcase, $uppercase)"/>
