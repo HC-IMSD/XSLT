@@ -1806,6 +1806,95 @@ details {
 			</div>
 		</section>
 
+        <section>
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Disaggregated Data Questions</h4>
+            </div>
+            <div id="incCTData" class="row">
+                <div class="form-group col-md-12">
+                    <strong>&#160;Does this submission include clinical trial data?&#160;</strong>
+                    <span class="mouseHover">
+                        <xsl:call-template name="YesNoUnknow">
+                            <xsl:with-param name="value" select="does_include_ct_data"/>
+                        </xsl:call-template>
+                    </span>
+                </div>
+            </div>
+
+            <div id="incCTData" class="row">
+                <div class="form-group col-md-12">
+                    <strong>&#160;Are the clinical trial data in your submission disaggregated by sex (male / female) by?&#160;</strong>
+                    <p>&#160;Efficacy:&#160;
+                        <span class="mouseHover">
+                            <xsl:call-template name="YesNoUnknow">
+                                <xsl:with-param name="value" select="efficacy_are_rltd_sex"/>
+                            </xsl:call-template>
+                        </span>
+                    </p>
+                    <p>&#160;Safety:&#160;
+                        <span class="mouseHover">
+                            <xsl:call-template name="YesNoUnknow">
+                                <xsl:with-param name="value" select="safety_are_rltd_sex"/>
+                            </xsl:call-template>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="areRltdAge" class="row">
+                <div class="form-group col-md-12">
+                    <strong>&#160;Are the clinical trial data in your submission disaggregated by age by?&#160;</strong>
+                    <p>&#160;Efficacy:&#160;
+                        <span class="mouseHover">
+                        <xsl:call-template name="YesNoUnknow">
+                            <xsl:with-param name="value" select="efficacy_are_rltd_age"/>
+                        </xsl:call-template>
+                        </span>
+                    </p>
+                    <p>&#160;Safety:&#160;
+                        <span class="mouseHover">
+                        <xsl:call-template name="YesNoUnknow">
+                            <xsl:with-param name="value" select="safety_are_rltd_age"/>
+                        </xsl:call-template>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="areRltdRace" class="row">
+                <div class="form-group col-md-12">
+                    <strong>&#160;Are the clinical trial data in your submission disaggregated by race / ethnicity by?&#160;</strong>
+                    <p>&#160;Efficacy:&#160;
+                        <span class="mouseHover">
+                            <xsl:call-template name="YesNoUnknow">
+                                <xsl:with-param name="value" select="efficacy_are_rltd_race"/>
+                            </xsl:call-template>
+                        </span>
+                    </p>
+                    <p>&#160;Safety:&#160;
+                        <span class="mouseHover">
+                            <xsl:call-template name="YesNoUnknow">
+                                <xsl:with-param name="value" select="safety_are_rltd_race"/>
+                            </xsl:call-template>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="fromPediPopul" class="row">
+                <div class="form-group col-md-12">
+                    <strong>&#160;Does this submission include clinical trial data from pediatric populations (those under 18 years of age)?&#160;</strong>
+                    <span class="mouseHover">
+                        <xsl:call-template name="YesNoUnknow">
+                            <xsl:with-param name="value" select="from_pediatric_populations"/>
+                        </xsl:call-template>
+                    </span>
+                </div>
+            </div>
+
+            </div>
+        </section>
 	</xsl:template>
 	<xsl:template name="upperCase">
 		<xsl:param name="string" select="/.."/>
