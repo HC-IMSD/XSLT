@@ -664,8 +664,6 @@ span.normalWeight {
 								<span class="mouseHover">
 									<xsl:value-of select="fee_details/submission_class"/>
 								</span>
-								<strong>&#160;&#160;Frais:&#160;</strong>
-								<span class="mouseHover"><xsl:value-of select="format-number(fee_details/fee, '###&#160;###,00', 'FrenchDecimalFormat')"/>&#160;$</span>
 							</div>
 							<div class="col-xs-12">
 								<strong>Description de la pr&#233;sentation:&#160;</strong>
