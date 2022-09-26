@@ -1728,95 +1728,100 @@ span.normalWeight {
 			</div>
 		</section>
 
-        <section>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Questions sur les données désagrégées</h4>
-                </div>
-                <div id="incCTData" class="row">
-                    <div class="form-group col-md-12">
-                        <strong>&#160;Cette soumission inclut-elle des données d'essais cliniques?&#160;</strong>
-                        <span class="mouseHover">
-                            <xsl:call-template name="YesNoUnknow">
-                                <xsl:with-param name="value" select="does_include_ct_data"/>
-                            </xsl:call-template>
-                        </span>
-                    </div>
-                </div>
+		<xsl:if test="disag_data_quest/does_include_ct_data = 'Y' or disag_data_quest/does_include_ct_data = 'N'">
+			<section>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">Questions sur les données désagrégées</h4>
+					</div>
+					<div id="incCTData" class="row">
+						<div class="form-group col-md-12">
+							<strong>&#160;Cette soumission inclut-elle des données d'essais cliniques?&#160;</strong>
+							<span class="mouseHover">
+								<xsl:call-template name="YesNoUnknow">
+									<xsl:with-param name="value" select="disag_data_quest/does_include_ct_data"/>
+								</xsl:call-template>
+							</span>
+						</div>
+					</div>
 
-                <div id="incCTData" class="row">
-                    <div class="form-group col-md-12">
-                        <strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par?&#160;</strong>
-                        <p>&#160;efficacité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="efficacy_are_rltd_sex"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                        <p>&#160;innocuité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="safety_are_rltd_sex"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+					<xsl:if test="disag_data_quest/does_include_ct_data = 'Y'">
+						<div id="incCTData" class="row">
+							<div class="form-group col-md-12">
+								<strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par?&#160;</strong>
+								<p>&#160;efficacité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/efficacy_are_rltd_sex"/>
+										</xsl:call-template>
+									</span>
+								</p>
+								<p>&#160;innocuité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/safety_are_rltd_sex"/>
+										</xsl:call-template>
+									</span>
+								</p>
+							</div>
+						</div>
 
-                <div id="areRltdAge" class="row">
-                    <div class="form-group col-md-12">
-                        <strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par?&#160;</strong>
-                        <p>&#160;efficacité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="efficacy_are_rltd_age"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                        <p>&#160;innocuité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="safety_are_rltd_age"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+						<div id="areRltdAge" class="row">
+							<div class="form-group col-md-12">
+								<strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par?&#160;</strong>
+								<p>&#160;efficacité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/efficacy_are_rltd_age"/>
+										</xsl:call-template>
+									</span>
+								</p>
+								<p>&#160;innocuité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/safety_are_rltd_age"/>
+										</xsl:call-template>
+									</span>
+								</p>
+							</div>
+						</div>
 
-                <div id="areRltdRace" class="row">
-                    <div class="form-group col-md-12">
-                        <strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par?&#160;</strong>
-                        <p>&#160;efficacité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="efficacy_are_rltd_race"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                        <p>&#160;innocuité:&#160;
-                            <span class="mouseHover">
-                                <xsl:call-template name="YesNoUnknow">
-                                    <xsl:with-param name="value" select="safety_are_rltd_race"/>
-                                </xsl:call-template>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+						<div id="areRltdRace" class="row">
+							<div class="form-group col-md-12">
+								<strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par?&#160;</strong>
+								<p>&#160;efficacité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/efficacy_are_rltd_race"/>
+										</xsl:call-template>
+									</span>
+								</p>
+								<p>&#160;innocuité:&#160;
+									<span class="mouseHover">
+										<xsl:call-template name="YesNoUnknow">
+											<xsl:with-param name="value" select="disag_data_quest/safety_are_rltd_race"/>
+										</xsl:call-template>
+									</span>
+								</p>
+							</div>
+						</div>
 
-                <div id="fromPediPopul" class="row">
-                    <div class="form-group col-md-12">
-                        <strong>&#160;Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)?&#160;</strong>
-                        <span class="mouseHover">
-                            <xsl:call-template name="YesNoUnknow">
-                                <xsl:with-param name="value" select="from_pediatric_populations"/>
-                            </xsl:call-template>
-                        </span>
-                    </div>
-                </div>
+						<div id="fromPediPopul" class="row">
+							<div class="form-group col-md-12">
+								<strong>&#160;Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)?&#160;</strong>
+								<span class="mouseHover">
+									<xsl:call-template name="YesNoUnknow">
+										<xsl:with-param name="value" select="disag_data_quest/from_pediatric_populations"/>
+									</xsl:call-template>
+								</span>
+							</div>
+						</div>
+					</xsl:if>
 
-            </div>
-        </section>
+				</div>
+			</section>
+		</xsl:if>
+		
 	</xsl:template>
 	<xsl:template name="upperCase">
 		<xsl:param name="string" select="/.."/>
@@ -1826,7 +1831,7 @@ span.normalWeight {
 		<xsl:param name="value" select="/.."/>
 		<xsl:choose>
 		<xsl:when test="$value = 'Y'">
-			<xsl:value-of select="'Qui'"/>
+			<xsl:value-of select="'Oui'"/>
 		</xsl:when>
 		<xsl:when test="$value = 'N'">
 			<xsl:value-of select="'Non'"/>
@@ -1840,7 +1845,7 @@ span.normalWeight {
         <xsl:param name="value" select="/.."/>
         <xsl:choose>
             <xsl:when test="$value = 'Y'">
-                <xsl:value-of select="'Qui'"/>
+                <xsl:value-of select="'Oui'"/>
             </xsl:when>
             <xsl:when test="$value = 'N'">
                 <xsl:value-of select="'Non'"/>
