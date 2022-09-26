@@ -542,8 +542,7 @@ span.normalWeight {
                                                                         <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-09'">
                                                                             <span class="mouseHover">
                                                                                 Pharmaceutique: comprend toutes les activit&#233;s et transactions r&#233;glementaires relatives aux produits
-                                                                                pharmaceutiques sur ordonnance et aux produits &#233;thiques sous le mandat de la Direction des produits
-                                                                                th&#233;rapeutiques (DPT).
+                                                                                pharmaceutiques sur ordonnance et aux produits &#233;thiques sous le mandat de la direction des m&#233;dicaments pharmaceutiques (DMP).
                                                                                 Cette piste ne s'applique pas aux produits pharmaceutiques ou d&#233;sinfectants sans ordonnance ni aux
                                                                                 activit&#233;s de r&#233;glementation de la vigilance post-commercialisation.
                                                                             </span>
@@ -611,7 +610,7 @@ span.normalWeight {
 															</xsl:if>
 															<xsl:if test="requester_name3 != ''">
 															<div class="col-md-12">
-																<span class="col-xs-2">Requester 3:&#160;</span>
+																<span class="col-xs-2">Demandeur 3:&#160;</span>
 																<span class="col-xs-3 mouseHover"><xsl:value-of select="requester_name3"/></span>
 															</div>
 															</xsl:if>

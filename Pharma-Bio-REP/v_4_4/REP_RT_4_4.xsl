@@ -552,7 +552,7 @@ span.normalWeight {
                                                 <xsl:if test="regulatory_activity_lead/@id = 'B14-20160301-09'">
                                                         <span class="mouseHover">
                                                             Pharmaceutical: Includes all regulatory activities and transactions for prescription
-                                                            pharmaceuticals and ethical products under the Therapeutic Products Directorate (TPD) mandate.
+                                                            pharmaceuticals and ethical products under the Pharmaceutical Drugs Directorate (PDD) mandate.
                                                             This lead is not applicable for non-prescription pharmaceutical or disinfectant products
                                                             or post-market vigilance regulatory activities.
                                                         </span>
