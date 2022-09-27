@@ -1728,7 +1728,7 @@ span.normalWeight {
 			</div>
 		</section>
 
-		<xsl:if test="disag_data_quest/does_include_ct_data = 'Y' or disag_data_quest/does_include_ct_data = 'N'">
+		<xsl:if test="does_include_ct_data = 'Y' or does_include_ct_data = 'N'">
 			<section>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -1739,13 +1739,13 @@ span.normalWeight {
 							<strong>&#160;Cette soumission inclut-elle des données d'essais cliniques?&#160;</strong>
 							<span class="mouseHover">
 								<xsl:call-template name="YesNoUnknow">
-									<xsl:with-param name="value" select="disag_data_quest/does_include_ct_data"/>
+									<xsl:with-param name="value" select="does_include_ct_data"/>
 								</xsl:call-template>
 							</span>
 						</div>
 					</div>
 
-					<xsl:if test="disag_data_quest/does_include_ct_data = 'Y'">
+					<xsl:if test="does_include_ct_data = 'Y'">
 						<div id="incCTData" class="row">
 							<div class="form-group col-md-12">
 								<strong>&#160;Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par?&#160;</strong>
