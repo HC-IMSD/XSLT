@@ -1082,7 +1082,7 @@ details {
 								<xsl:if test="is_sched_c = 'Y'">
 								<div class="col-xs-12">
 									<xsl:call-template name="hp-checkbox"><xsl:with-param name="value" select="'Y'"/></xsl:call-template>
-									<span class="mouseHover">included in Schedule C (radiopharmacurticals) to the Food and Drugs Act</span>
+									<span class="mouseHover">included in Schedule C (radiopharmaceuticals) to the Food and Drugs Act</span>
 								</div>
 								</xsl:if>
 								<xsl:if test="is_sched_d = 'Y'">
